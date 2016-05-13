@@ -1,0 +1,449 @@
+{"activities": {
+   "MakeCoffee": {
+      "type": ["Cooking"],
+      "location": ["Kitchen"],
+      "min_model": ["hasContainer", "hasCoffee"],
+      "duration": 360
+   },
+   "MakeChocolate": {
+      "type": ["Cooking"],
+      "location": ["Kitchen"],
+      "min_model": ["hasContainer", "hasChocolate"],
+      "duration": 500
+   },
+   "MakePasta": {
+      "type": ["Cooking"],
+      "location": ["Kitchen"],
+      "min_model": ["hasPasta", "useCookingAppliance", "useCookingUtensil"],
+      "duration": 1200
+   },
+   "BrushTeeth": {
+      "type": ["Hygiene"],
+      "location": ["Bathroom"],
+      "min_model": ["hasBrusher", "hasToothpaste", "turnOnTap"],
+      "duration": 130
+   },
+   "WatchTelevision": {
+      "type": ["Entertainment"],
+      "location": ["Lounge"],
+      "min_model": ["hasRemoteControl", "useTV"],
+      "duration": 40
+   },
+   "WashHands": {
+      "type": ["Hygiene"],
+      "location": ["Bathroom"],
+      "min_model": ["turnOnTap", "hasSoap"],
+      "duration": 90
+   },
+   "ReadBook": {
+      "type": ["Entertainment"],
+      "location": ["Bedroom", "Lounge"],
+      "min_model": ["hasBook", "useFurniture"],
+      "duration": 30
+   }
+ },
+ "objects": {
+    "cup": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["cupSens"]
+    },
+    "mug": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["mugSens"]
+    },
+    "glass": {
+       "type": ["Cooking", "Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["glassSens"]
+    },
+    "skimmed-milk": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["smilkSens"]
+    },
+    "whole-milk": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["wmilkSens"]
+    },
+    "cooker": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["cookerSens"]
+    },
+    "microwave": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["microwaveSens"]
+    },
+    "fridge": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["fridgeSens"]
+    },
+    "store": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["storeSens"]
+    },
+    "coffeePot": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["coffeePotSens"]
+    },
+    "african-coffee": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["afcoffeeSens"]
+    },
+    "white-sugar": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["wsugarSens"]
+    },
+    "brown-sugar": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["bsugarSens"]
+    },
+    "kitchen-tap": {
+       "type": ["Cooking", "HouseWork"],
+       "location": "Kitchen",
+       "sensors": ["ktapSens"]
+    },
+    "bath-tap": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["btapSens"]
+    },
+    "chocolate-powder": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["chocoSens"]
+    },
+    "whisky": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["whiskySens"]
+    },
+    "drainer": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["drainerSens"]
+    },
+    "saucepan": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["saucepanSens"]
+    },
+    "pot": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["potSens"]
+    },
+    "fried-tomato": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["ftomatoSens"]
+    },
+    "spaghetti": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["spaghettiSens"]
+    },
+    "macaroni": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["macaroniSens"]
+    },
+    "pesto": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["pestoSens"]
+    },
+    "bacon": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["baconSens"]
+    },
+    "cream": {
+       "type": ["Cooking"],
+       "location": "Kitchen",
+       "sensors": ["creamSens"]
+    },
+    "brusher": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["brusherSens"]
+    },
+    "toothpaste": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["toothpasteSens"]
+    },
+    "dentalfloss": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["dentalflossSens"]
+    },
+    "towel": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["towelSens"]
+    },
+    "bed": {
+       "type": ["Entertainment"],
+       "location": "Bedroom",
+       "sensors": ["bedSens"]
+    },
+    "sofa": {
+       "type": ["Entertainment"],
+       "location": "Lounge",
+       "sensors": ["sofaSens"]
+    },
+    "remote-control": {
+       "type": ["Entertainment"],
+       "location": "Lounge",
+       "sensors": ["rcontrolSens"]
+    },
+    "television": {
+       "type": ["Entertainment"],
+       "location": "Lounge",
+       "sensors": ["tvSens"]
+    },
+    "bath-soap": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["bsoapSens"]
+    },
+    "hand-cream": {
+       "type": ["Hygiene"],
+       "location": "Bathroom",
+       "sensors": ["handcreamSens"]
+    },
+    "book-a": {
+       "type": ["Entertainment"],
+       "location": "Lounge",
+       "sensors": ["bookaSens"]
+    },
+    "book-b": {
+       "type": ["Entertainment"],
+       "location": "Bedroom",
+       "sensors": ["bookbSens"]
+    },
+    "bedroom-lamp": {
+       "type": ["Entertainment"],
+       "location": "Bedroom",
+       "sensors": ["blampSens"]
+    },
+    "lounge-lamp": {
+       "type": ["Entertainment"],
+       "location": "Lounge",
+       "sensors": ["llampSens"]
+    }
+ },
+ "sensors": {
+    "cupSens": {
+       "type": "contact",
+       "action": "hasContainer",
+       "attached-to": "cup"
+    },
+    "mugSens": {
+       "type": "contact",
+       "action": "hasContainer",
+       "attached-to": "mug"
+    },
+    "glassSens": {
+       "type": "contact",
+       "action": "hasContainer",
+       "attached-to": "glass"
+    },
+    "smilkSens": {
+       "type": "contact",
+       "action": "hasMilk",
+       "attached-to": "skimmed-milk"
+    },
+    "wmilkSens": {
+       "type": "contact",
+       "action": "hasMilk",
+       "attached-to": "whole-milk"
+    },
+    "cookerSens": {
+       "type": "electric",
+       "action": "useCookingAppliance",
+       "attached-to": "cooker"
+    },
+    "microwaveSens": {
+       "type": "electric",
+       "action": "useCookingAppliance",
+       "attached-to": "microwave"
+    },
+    "fridgeSens": {
+       "type": "tilt",
+       "action": "openFridge",
+       "attached-to": "fridge"
+    },
+    "storeSens": {
+       "type": "tilt",
+       "action": "openStore",
+       "attached-to": "store"
+    },
+    "afcoffeeSens": {
+       "type": "contact",
+       "action": "hasCoffee",
+       "attached-to": "african-coffee"
+    },
+    "wsugarSens": {
+       "type": "contact",
+       "action": "hasFlavour",
+       "attached-to": "white-sugar"
+    },
+    "bsugarSens": {
+       "type": "contact",
+       "action": "hasFlavour",
+       "attached-to": "brown-sugar"
+    },
+    "ktapSens": {
+       "type": "tilt",
+       "action": "turnOnTap",
+       "attached-to": "kitchen-tap"
+    },
+    "btapSens": {
+       "type": "tilt",
+       "action": "turnOnTap",
+       "attached-to": "bath-tap"
+    },
+    "chocoSens": {
+       "type": "contact",
+       "action": "hasChocolate",
+       "attached-to": "chocolate-powder"
+    },
+    "whiskySens": {
+       "type": "contact",
+       "action": "hasWhisky",
+       "attached-to": "whisky"
+    },
+    "drainerSens": {
+       "type": "contact",
+       "action": "useCookingUtensil",
+       "attached-to": "drainer"
+    },
+    "saucepanSens": {
+       "type": "contact",
+       "action": "useCookingUtensil",
+       "attached-to": "saucepan"
+    },
+    "potSens": {
+       "type": "contact",
+       "action": "useCookingUtensil",
+       "attached-to": "pot"
+    },
+    "coffeePotSens": {
+       "type": "contact",
+       "action": "useCoffeePot",
+       "attached-to": "coffeePot"
+    },
+    "ftomatoSens": {
+       "type": "contact",
+       "action": "hasTomato",
+       "attached-to": "fried-tomato"
+    },
+    "spaghettiSens": {
+       "type": "contact",
+       "action": "hasPasta",
+       "attached-to": "spaghetti"
+    },
+    "macaroniSens": {
+       "type": "contact",
+       "action": "hasPasta",
+       "attached-to": "macaroni"
+    },
+    "pestoSens": {
+       "type": "contact",
+       "action": "hasPesto",
+       "attached-to": "pesto"
+    },
+    "baconSens": {
+       "type": "contact",
+       "action": "hasBacon",
+       "attached-to": "bacon"
+    },
+    "creamSens": {
+       "type": "contact",
+       "action": "hasCream",
+       "attached-to": "cream"
+    },
+    "brusherSens": {
+       "type": "contact",
+       "action": "hasBrusher",
+       "attached-to": "brusher"
+    },
+    "toothpasteSens": {
+       "type": "contact",
+       "action": "hasToothpaste",
+       "attached-to": "toothpaste"
+    },
+    "dentalflossSens": {
+       "type": "contact",
+       "action": "hasDentalFloss",
+       "attached-to": "dentalfloss"
+    },
+    "towelSens": {
+       "type": "contact",
+       "action": "hasTowel",
+       "attached-to": "towel"
+    },
+    "bedSens": {
+       "type": "pressure",
+       "action": "useFurniture",
+       "attached-to": "bed"
+    },
+    "sofaSens": {
+       "type": "pressure",
+       "action": "useFurniture",
+       "attached-to": "sofa"
+    },
+    "rcontrolSens": {
+       "type": "contact",
+       "action": "hasRemoteControl",
+       "attached-to": "remote-control"
+    },
+    "tvSens": {
+       "type": "electric",
+       "action": "useTV",
+       "attached-to": "television"
+    },
+    "bsoapSens": {
+       "type": "contact",
+       "action": "hasSoap",
+       "attached-to": "bath-soap"
+    },
+    "handcreamSens": {
+       "type": "contact",
+       "action": "hasHandCream",
+       "attached-to": "hand-cream"
+    },
+    "bookaSens": {
+       "type": "contact",
+       "action": "hasBook",
+       "attached-to": "book-a"
+    },
+    "bookbSens": {
+       "type": "contact",
+       "action": "hasBook",
+       "attached-to": "book-b"
+    },
+    "blampSens": {
+       "type": "electric",
+       "action": "turnOnLamp",
+       "attached-to": "bedroom-lamp"
+    },
+    "llampSens": {
+       "type": "electric",
+       "action": "turnOnLamp",
+       "attached-to": "lounge-lamp"
+    }
+ }
+}

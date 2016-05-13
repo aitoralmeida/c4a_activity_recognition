@@ -1,0 +1,43 @@
+{"MakeCoffee": {
+      "locations": ["Kitchen"],
+      "actions": ["hasContainer", "hasCoffee"],
+      "duration": 300,
+      "start": [["7:00", "10:00"], ["12:00", "15:00"], ["18:00", "22:00"]]
+   },
+   "MakeChocolate": {
+      "locations": ["Kitchen"],
+      "actions": ["hasContainer", "hasChocolate"],
+      "start": [["7:00", "10:00"]],
+      "duration": 300
+   },
+   "MakePasta": {
+      "locations": ["Kitchen"],
+      "actions": ["hasPasta", "useCookingAppliance", "useCookingUtensil"],
+      "duration": 1000,
+      "start": [["12:00", "15:00"], ["18:00", "22:00"]]
+   },
+   "BrushTeeth": {
+      "locations": ["Bathroom"],
+      "actions": ["hasBrusher", "hasToothpaste", "turnOnTap"],
+      "duration": 90,
+      "start": [["7:00", "10:00"], ["12:00", "15:00"], ["18:00", "22:00"]]
+   },
+   "WatchTelevision": {
+      "locations": ["Lounge"],
+      "actions": ["hasRemoteControl", "useTV"],
+      "duration": 30,
+      "start": [["7:00", "10:00"], ["14:00", "16:00"], ["17:00", "22:00"]]
+   },
+   "WashHands": {
+      "locations": ["Bathroom"],
+      "actions": ["turnOnTap", "hasSoap"],
+      "duration": 90,
+      "start": [["7:00", "10:00"], ["12:00", "15:00"], ["19:00", "22:00"]]
+   },
+   "ReadBook": {
+      "locations": ["Bedroom", "Lounge"],
+      "actions": ["hasBook", "useFurniture"],
+      "duration": 30,
+      "start": [["18:00", "22:00"]]
+   }
+}
