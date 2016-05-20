@@ -75,6 +75,16 @@ class PatternModelMatching:
             self.df.loc[i, "action"] = action
         
     """
+    Method to store the detected EAMs in the internal dataframe as a new column (detected_activities)
+    """
+    def annotateDataFrame(self, start, end, bestnames):
+        aux_df = self.df[start:end]
+        for index in aux_df.index:
+            self.df.loc[index, 'detected_activities'] = bestnames
+            
+    
+    
+    """
     Method to iterate through the dataframe, extract patterns and calculate the suitability of EAMs for that
     pattern
     """
@@ -86,6 +96,10 @@ class PatternModelMatching:
         start = None
         end = None
         previous = None
+        # Add a new column to self.df for the activities detected by the algorithm
+        # The new column is initialized with 'None'
+        detected_activities = [['None']]*len(self.df)
+        self.df['detected_activities'] = detected_activities
         for timestamp in auxdf.index:
             if auxdf.loc[timestamp, "pattern"] != pat:
                 if len(actions) > 0:
@@ -98,6 +112,7 @@ class PatternModelMatching:
                     print '   start:', start, 'end:', end
                     print '   best eams:', bestnames, '(', maxscore, ')'
                     print '   partial scores: a(', partialscores[0], '), d(', partialscores[1], '), s(', partialscores[2], '), l(', partialscores[3], ')'
+                    self.annotateDataFrame(start, end, bestnames)
                 
                 # Assign start the index value (the timestampt itself)
                 start = timestamp
@@ -270,6 +285,10 @@ class PatternModelMatching:
     # The location suitability function     
     def funcLocations(self, actions, eamindices):
         return 0
+        
+    # Method to store the internal dataframe in a csv file
+    def storeResult(self, filename):
+        self.df.to_csv(filename)
             
             
             
@@ -291,15 +310,16 @@ def parseArgs(argv):
    annotatedfile = ''
    logfile = ''
    contextfile = ''
+   outputfile = ''
    
    try:
-      opts, args = getopt.getopt(argv,"he:a:l:c:",["efile=", "afile=", "lfile=", "cfile="])
+      opts, args = getopt.getopt(argv,"he:a:l:c:o:",["efile=", "afile=", "lfile=", "cfile=", "ofile="])
    except getopt.GetoptError:
-      print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile>'
+      print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile>'
+         print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
          sys.exit()
       elif opt in ("-e", "--efile"):
          eamsfile = arg
@@ -309,15 +329,17 @@ def parseArgs(argv):
          logfile = arg
       elif opt in ("-c", "--cfile"):
          contextfile = arg
+      elif opt in ("-o", "--ofile"):
+         outputfile = arg
          
-   return eamsfile, annotatedfile, logfile, contextfile
+   return eamsfile, annotatedfile, logfile, contextfile, outputfile
   
 """
 Main function
 """
 def main(argv):
     # call the argument parser 
-   [eamsfile, annotatedfile, logfile, contextmodel] = parseArgs(argv[1:])
+   [eamsfile, annotatedfile, logfile, contextmodel, outputfile] = parseArgs(argv[1:])
    print 'Provided arguments:'       
    print eamsfile, annotatedfile, logfile, contextmodel
    
@@ -331,6 +353,8 @@ def main(argv):
    matcher.loadAnnotatedData()
    #print matcher.df.head(50)
    matcher.processPatterns()
+   matcher.storeResult(outputfile)
+   
    
    
 if __name__ == "__main__":
