@@ -11,6 +11,7 @@ import pandas as pd
 import json
 import itertools
 import time, datetime
+from ConfusionMatrix import ConfusionMatrix
 
 class AREvaluator:
     
@@ -20,8 +21,18 @@ class AREvaluator:
         self.groundtruth.index.names = ["timestamp"]
         
         self.evaluable = pd.read_csv(evaluable, index_col=0)
+
+        # List of activities in the groundtruth dataset        
+        self.activities = self.groundtruth.activity.unique()
+        # Initialize the confusion matrix
+        self.cm = ConfusionMatrix(self.activities)
+        
         
     # First evaluation method. 
+    # The idea is to take the patterns in evaluable, take the start and end time of the pattern
+    # and look at the same time section of the groundtruth file. Extract the activities of the groundtruth
+    # for that section and compare with the activities of evaluable. The objetive is to create a confusion
+    # matrix.
     def evaluate1(self):
         None
         
