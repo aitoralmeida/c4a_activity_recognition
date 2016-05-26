@@ -17,6 +17,7 @@ class ConfusionMatrix:
         self.confusion_dictionary = self.build_confusion_dictionary(labels)
 
     def update(self, predicted_label, expected_label):
+        print 'ConfusionMatrix: predicted', predicted_label, 'expected', expected_label
         self.confusion_dictionary[expected_label][predicted_label] += 1
 
     def build_confusion_dictionary(self, label_set):
@@ -46,7 +47,8 @@ class ConfusionMatrix:
 
     def get_confusion_matrix(self):
         matrix = self.convert_to_matrix(self.confusion_dictionary)
-        return self.normalize(matrix)
+        #return self.normalize(matrix)
+        return matrix
 
     def normalize(self, matrix):
         amin = np.amin(matrix)
