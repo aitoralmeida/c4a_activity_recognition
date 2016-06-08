@@ -10,6 +10,7 @@ from ExpertActivityModel import ExpertActivityModel
 from log_reader.Pattern import Pattern
 from log_reader.Cluster import Cluster
 from log_reader.LogReader import LogReader
+from AD_pattern_filtering.ADPatternFilter import ADPatternFilter
 import numpy as np
 import pandas as pd
 import json
@@ -27,7 +28,7 @@ class PatternModelMatching:
         self.annotatedfile = annotatedfile
         self.logfile = logfile
         self.contextfile = contextfile
-        self.contextmodel = json.loads(open(self.contextfile).read())
+        self.contextmodel = json.loads(open(self.contextfile).read())        
         self.eamlist = []
         # We may not need to read the logfile and extract the pattern and cluster lists
         self.patternlist = []
@@ -83,12 +84,22 @@ class PatternModelMatching:
             self.df.loc[index, 'detected_activities'] = bestnames
             
     
+    def prefilterPatterns(self):
+        prefilter = ADPatternFilter(self.logfile)
+        prefilter.filterPatterns()
+        auxlist = ['Pat_%s' % (x.number) for x in prefilter.removedPatterns]
+        
+        for index in self.df.index:
+            if self.df.loc[index, 'pattern'] in auxlist:
+                self.df.loc[index, 'pattern'] = 'Other_Activity'
     
     """
     Method to iterate through the dataframe, extract patterns and calculate the suitability of EAMs for that
     pattern
     """
     def processPatterns(self):
+        # TESTING!! Use the prefilter based
+        self.prefilterPatterns()        
         # Filter all the actions tagged as Other_Activity
         auxdf = self.df[self.df["pattern"] != "Other_Activity"]
         actions = []
@@ -109,6 +120,15 @@ class PatternModelMatching:
                     # Call here to the real matcher
                     # TODO: It seems there is a problem with the last pattern of the file. CHECK IT!!                    
                     [maxscore, bestnames, partialscores] = self.findModels4Pattern(actions, start, end)
+                    # TESTING!! Action based filter  
+                    if partialscores[0] == -1:
+                        bestnames = ['None']
+                        
+                    # TESTING!! Number of activities greater than number of actions
+                    if len(bestnames) > len(actions):
+                        bestnames = ['None']                        
+                    
+                        
                     print '   start:', start, 'end:', end
                     print '   best eams:', bestnames, '(', maxscore, ')'
                     print '   partial scores: a(', partialscores[0], '), d(', partialscores[1], '), s(', partialscores[2], '), l(', partialscores[3], ')'
@@ -152,7 +172,8 @@ class PatternModelMatching:
                 score_start_time = self.funcStartTime(start, eams[i])
                 score_locations = self.funcLocations(actions, eams[i])                
                 
-                score = wa*score_actions + wd*score_duration + ws*score_start_time + wl*score_locations
+                score = wa*score_actions + wd*score_duration + ws*score_start_time + wl*score_locations                
+                
                 #print '   score:', score, 'SA:', score_actions, 'ST:', score_time
                 if score > maxscore:
                     maxscore = score
@@ -290,7 +311,12 @@ class PatternModelMatching:
     def storeResult(self, filename):
         self.df.to_csv(filename)
             
-            
+    # Method to filter based on action metrics
+    def filterWithActions(self, action_score):
+        if action_score == -1:
+            return True
+        else:
+            return False    
             
             
             
@@ -310,7 +336,7 @@ def parseArgs(argv):
    annotatedfile = ''
    logfile = ''
    contextfile = ''
-   outputfile = ''
+   outputfile = ''   
    
    try:
       opts, args = getopt.getopt(argv,"he:a:l:c:o:",["efile=", "afile=", "lfile=", "cfile=", "ofile="])

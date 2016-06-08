@@ -2,7 +2,7 @@
 """
 Created on Wed May 25 10:32:04 2016
 
-@author: gazkune
+@author: 
 """
 
 import pylab
