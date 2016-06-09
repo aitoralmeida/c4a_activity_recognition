@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 20 13:38:25 2016
+This class evaluates the results of the activity recognition process. It
+calculates both the confusion matrix and the precision, recall and F1 metrics.
 
-@author: gazkune
+In the case of the metrics it calculates the three types of averages: micro, 
+macro and weighted. As this is a multiclass classification problem use either 
+macro or weighted values, dependign if the dataset is balanced or unbalanced.
 """
+import ast
+import getopt
+import itertools
+import json
+import sys
 
-import sys, getopt
 import numpy as np
 import pandas as pd
-import json
-import itertools
-import ast
-#import time, datetime
+from sklearn import metrics
+
 from ConfusionMatrix import ConfusionMatrix
 
 class AREvaluator:
@@ -99,6 +104,46 @@ class AREvaluator:
                 self.cm.update(ev_activities[0], gt_activities[0])
                 gt_activities.remove(gt_activities[0])
                 ev_activities.remove(ev_activities[0])
+                
+    def calculate_evaluation_metrics(self, y_ground_truth, y_predicted):
+        """Calculates the evaluation metrics (precision, recall and F1) for the
+        predicted examples. It calculates the micro, macro and weighted values
+        of each metric.
+        
+        Usage example:
+            y_ground_truth = ['make_coffe', 'brush_teeth', 'wash_hands']
+            y_predicted = ['make_pasta', 'none', 'none']
+            metrics = calculate_evaluation_metrics (y_ground_truth, y_predicted)
+    
+        Parameters
+        ----------
+        y_ground_truth : list
+            Classes that appear in the ground truth.
+    
+        y_predicted: list
+            Predicted classes. Take into account that the must follow the same
+            order as in y_ground_truth
+       
+        Returns
+        -------
+        metric_results : dict
+            Dictionary with the values for the metrics (precision, recall and 
+            f1)    
+        """
+        
+        metric_types =  ['micro', 'macro', 'weighted']
+        metric_results = {
+            'precision' : {},
+            'recall' : {},
+            'f1' : {}        
+        }
+        
+        for t in metric_types:
+            metric_results['precision'][t] = metrics.precision_score(y_ground_truth, y_predicted, average = t)
+            metric_results['recall'][t] = metrics.recall_score(y_ground_truth, y_predicted, average = t)
+            metric_results['f1'][t] = metrics.f1_score(y_ground_truth, y_predicted, average = t)
+            
+        return metric_results
            
                
                 
@@ -155,3 +200,4 @@ def main(argv):
    
 if __name__ == "__main__":
    main(sys.argv)
+   
