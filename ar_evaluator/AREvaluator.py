@@ -14,6 +14,8 @@ import sys
 import numpy as np
 import pandas as pd
 from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+
 
 from ConfusionMatrix import ConfusionMatrix
 
@@ -115,10 +117,10 @@ class AREvaluator:
     
         Parameters
         ----------
-        y_ground_truth : list
+        y_ground_truth : array, shape = [n_samples]
             Classes that appear in the ground truth.
     
-        y_predicted: list
+        y_predicted: array, shape = [n_samples]
             Predicted classes. Take into account that the must follow the same
             order as in y_ground_truth
        
@@ -142,6 +144,35 @@ class AREvaluator:
             metric_results['f1'][t] = metrics.f1_score(y_ground_truth, y_predicted, average = t)
             
         return metric_results
+        
+    def create_confusion_matrix(self, y_ground_truth, y_predicted, labels):
+        """Creates the confusión matrix of the predicted values.
+        
+        Usage example:
+            y_ground_truth = ['make_coffe', 'brush_teeth', 'wash_hands']
+            y_predicted = ['make_coffe', 'wash_hands', 'wash_hands']
+            labels = ['make_coffe', 'brush_teeth', 'wash_hands']
+            conf_matrix = calculate_evaluation_metrics (y_ground_truth, y_predicted, labels)
+    
+        Parameters
+        ----------
+        y_ground_truth : array, shape = [n_samples]
+            Classes that appear in the ground truth.
+    
+        y_predicted: array, shape = [n_samples]
+            Predicted classes. Take into account that the must follow the same
+            order as in y_ground_truth
+            
+        labels: array, shape = [n_classes]
+            Expected order for the labels in the confusion matrix.
+       
+        Returns
+        -------
+        conf_matrix : array, shape = [n_classes, n_classes]
+            Confusion matrix  
+        """
+        conf_matrix = confusion_matrix(y_ground_truth, y_predicted, labels=labels)
+        return conf_matrix
            
                
                 
