@@ -9,8 +9,6 @@ macro or weighted values, dependign if the dataset is balanced or unbalanced.
 """
 import ast
 import getopt
-import itertools
-import json
 import sys
 
 import numpy as np
@@ -79,7 +77,7 @@ class AREvaluator:
                 i = gt_activities.index('None')
                 gt_activities.pop(i)
             except ValueError:
-                None
+                pass
                 
         # Now we can compare both lists
         hits = np.intersect1d(np.array(gt_activities), np.array(ev_activities))
