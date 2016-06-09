@@ -110,7 +110,7 @@ class AREvaluator:
         
         Usage example:
             y_ground_truth = ['make_coffe', 'brush_teeth', 'wash_hands']
-            y_predicted = ['make_pasta', 'none', 'none']
+            y_predicted = ['make_coffe', 'wash_hands', 'wash_hands']
             metrics = calculate_evaluation_metrics (y_ground_truth, y_predicted)
     
         Parameters
