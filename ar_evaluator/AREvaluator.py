@@ -19,7 +19,7 @@ from ConfusionMatrix import ConfusionMatrix
 
 class AREvaluator:
     
-    def __init__(self, groundtruth, evaluable):        
+    def __init__(self, groundtruth, evaluable):  
         self.groundtruth = pd.read_csv(groundtruth, parse_dates=[[0, 1]], header=None, index_col=0, sep=' ')
         self.groundtruth.columns = ['sensor', 'action', 'event', 'activity']
         self.groundtruth.index.names = ["timestamp"]
@@ -197,5 +197,5 @@ def main(argv):
    
    
 if __name__ == "__main__":
-   main(sys.argv)
+   main(sys.argv)    
    
