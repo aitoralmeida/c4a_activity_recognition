@@ -166,7 +166,7 @@ class PatternModelMatching:
         
         """
         prefilter = ADPatternFilter(self.logfile)
-        prefilter.filterPatterns()
+        prefilter.filter_patterns()
         auxlist = ['Pat_%s' % (x.number) for x in prefilter.removedPatterns]
         
         for index in self.df.index:

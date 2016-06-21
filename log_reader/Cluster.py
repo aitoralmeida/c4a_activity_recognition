@@ -8,20 +8,92 @@ from Pattern import Pattern
 
 class Cluster:
     def __init__(self):
+        """ Constructor
+        
+        Usage example:
+            cluster = Cluster()
+            
+        Parameters
+        ----------
+        None
+            
+        Returns
+        ----------
+        Instance of the class
+        
+        """
         self.patterns = []
         self.number = -1
         
-    def addPattern(self, pattern):
+    def add_pattern(self, pattern):
+        """ Method to add a pattern to the instance
+        
+        Usage example:
+            add_pattern(pattern)
+            
+        Parameters
+        ----------
+        pattern : Pattern
+            a instance of the Pattern class 
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.patterns.append(pattern)
         
-    def setNumber(self, number):
+    def set_number(self, number):
+        """ Setter for attribute number
+        
+        Usage example:
+            set_number(5)
+            
+        Parameters
+        ----------
+        value : integer
+            an integer with the number of the pattern
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.number = number
         
     def reset(self):
+        """ Method to reset the instance
+                    
+        Usage example:
+            reset()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
         self.patterns = []
         self.number = -1
         
-    def printCluster(self):
+    def print_cluster(self):
+        """ Method to print the instance
+                    
+        Usage example:
+            print_cluster()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
         print 'Cluster', self.number
         for pattern in self.patterns:
-            pattern.printPattern()
+            pattern.print_pattern()

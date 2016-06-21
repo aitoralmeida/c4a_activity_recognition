@@ -16,7 +16,6 @@ import pandas as pd
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
 
-
 from ConfusionMatrix import ConfusionMatrix
 
 class AREvaluator:
@@ -34,13 +33,25 @@ class AREvaluator:
         # Initialize the confusion matrix
         self.cm = ConfusionMatrix(self.activities)
         
-        
-    # First evaluation method. 
-    # The idea is to take the patterns in evaluable, take the start and end time of the pattern
-    # and look at the same time section of the groundtruth file. Extract the activities of the groundtruth
-    # for that section and compare with the activities of evaluable. The objetive is to create a confusion
-    # matrix.    
+            
     def evaluate1(self):
+        """First evaluation method. 
+        The idea is to take the patterns in evaluable, take the start and end time of the pattern
+        and look at the same time section of the groundtruth file. Extract the activities of the groundtruth
+        for that section and compare with the activities of evaluable. The objetive is to create a confusion
+        matrix.    
+        
+        Usage example:
+            evaluate1()
+    
+        Parameters
+        ----------
+        None
+       
+        Returns
+        -------
+        None
+        """
         # Initialize start and prev_pat
         start = self.evaluable.index[0]
         prev_pat = self.evaluable.loc[start, 'pattern']
@@ -52,27 +63,68 @@ class AREvaluator:
             if pat != prev_pat:
                 end = self.evaluable.index[i-1]
                 # At this point, start and end have the right values for a discovered pattern                
-                gt_activities = self.extractGroundTruthActivities(start, end)
+                gt_activities = self.extract_groundtruth_activities(start, end)
                 ev_activities = self.evaluable.loc[end, 'detected_activities']
                 print "Pattern:", prev_pat, "(", start, ",", end, ")"
                 print "   GT:", gt_activities
                 print "   EV:", ev_activities
-                self.updateConfusionMatrix(gt_activities, ev_activities)
+                self.update_confusion_matrix(gt_activities, ev_activities)
                 # Now update prev_pat and start
                 prev_pat = pat
                 start = ts
             
         
-    # Method to return the activities that appear in the groundtruth for the section defined
-    # by start and end, which are timestamps
-    def extractGroundTruthActivities(self, start, end):
+    
+    def extract_groundtruth_activities(self, start, end):
+        """ Method to extract the activities that appear in the groundtruth between
+        the timestamps start and end
+        
+        Usage example:
+            start = pd.Timestamp('2016-01-01 00:00:00')
+            end = pd.Timestamp('2016-01-01 00:00:12')
+            action_list = extract_groundtruth_activities(start, end)
+            
+        Parameters
+        ----------
+        start : Pandas.Timestamp
+            start time of the action sequence to extract
+        end : Pandas.Timestamp
+            end time of the action sequence to extract
+            
+        Returns
+        -------
+        activities: list
+            a list of unique activities that appear between star and end
+        
+        """
         #print '   extractGTActivities: start', start, ', end', end        
         return list(self.groundtruth.loc[start:end, 'activity'].unique())
          
     
     # Method to update the confusion matrix given the groundtruth activities
     # and detected activities of a given section of time
-    def updateConfusionMatrix(self, gt_activities, ev_activities):
+    def update_confusion_matrix(self, gt_activities, ev_activities):
+        """ Method to update the confusion matrix given the groundtruth activities
+        and detected activities of a given section of time
+        
+        Usage example:
+            start = pd.Timestamp('2016-01-01 00:00:00')
+            end = pd.Timestamp('2016-01-01 00:00:12')
+            action_list = extract_groundtruth_activities(start, end)
+            
+        Parameters
+        ----------
+        start : Pandas.Timestamp
+            start time of the action sequence to extract
+        end : Pandas.Timestamp
+            end time of the action sequence to extract
+            
+        Returns
+        -------
+        activities: list
+            a list of unique activities that appear between star and end
+        
+        """
         # Treat None activities in groundtruth which appear with other activities
         if len(gt_activities) > 1:
             try:
@@ -188,16 +240,35 @@ Output:
 
 """
 
-def parseArgs(argv):
-   groundtruth = ''
-   evaluable = ''
+def parse_args(argv):
+    
+    """ Function to parse arguments from command line
+            
+    Usage example:
+        [groundtruth, evaluable] = parse_args(argv[1:])        
+            
+    Parameters
+    ----------
+    argv : list
+        the arguments to be parsed as passed to the function
+                
+    Returns
+    -------
+    groundtruth: string
+        name of the file which contains the groundtruth
+    evaluable: string
+        name of the file which contains the evaluable file
+        
+    """
+    groundtruth = ''
+    evaluable = ''
       
-   try:
+    try:
       opts, args = getopt.getopt(argv,"hg:e:",["gfile=", "efile="])
-   except getopt.GetoptError:
+    except getopt.GetoptError:
       print 'AREvaluator.py -g <groundtruth> -e <evaluable>'
       sys.exit(2)
-   for opt, arg in opts:
+    for opt, arg in opts:
       if opt == '-h':
          print 'AREvaluator.py -g <groundtruth> -e <evaluable>'
          sys.exit()
@@ -207,23 +278,35 @@ def parseArgs(argv):
          evaluable = arg
       
          
-   return groundtruth, evaluable
+    return groundtruth, evaluable
   
-"""
-Main function
-"""
-def main(argv):
+
+def main(argv):    
+    """ Main
+            
+    Usage example:
+        main(argv)
+            
+    Parameters
+    ----------
+    argv : list
+        the arguments to be parsed as passed to the function
+                
+    Returns
+    -------
+    None
+        
+    """
     # call the argument parser 
-   [groundtruth, evaluable] = parseArgs(argv[1:])
-   print 'Provided arguments:'       
-   print groundtruth, evaluable
-   
-   evaluator = AREvaluator(groundtruth, evaluable)
-   print evaluator.groundtruth.head(10)
-   print '-------------------------------------------'
-   print evaluator.evaluable.head(10)
-   evaluator.evaluate1()
-   evaluator.cm.plot()
+    [groundtruth, evaluable] = parse_args(argv[1:])
+    print 'Provided arguments:'       
+    print groundtruth, evaluable
+    evaluator = AREvaluator(groundtruth, evaluable)
+    print evaluator.groundtruth.head(10)   
+    print '-------------------------------------------'   
+    print evaluator.evaluable.head(10)   
+    evaluator.evaluate1()   
+    evaluator.cm.plot()
    
    
    

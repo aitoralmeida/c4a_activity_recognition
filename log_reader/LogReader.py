@@ -12,13 +12,32 @@ from CASAS
 
 import sys, getopt
 from copy import deepcopy
+import os.path
+
 from Pattern import Pattern
 from Cluster import Cluster
 
+
 class LogReader:
-    # Constructor
+    
     def __init__(self, logfile):
+        """ Constructor
+        
+        Usage example:
+            logreader = LogReader(inputfile_name)
+            
+        Parameters
+        ----------
+        inputfile_name : string
+            the name of a text file generated as a log of the AD tool        
+            
+        Returns
+        ----------
+        Instance of the class
+        
+        """
         self.logfile = open(logfile, 'r')
+        self.filename = logfile
         self.patternlist = []
         self.clusterlist = []
         self.maxPatternValue = 0
@@ -26,85 +45,129 @@ class LogReader:
         self.maxInstances = 0
         self.minInstances = sys.maxint        
         
-    # Destructor
+    
     def __del__(self):
+        """ Destructor
+        """
         self.logfile.close()
         
-    # Method to parse the log file calling to parsePatterns and parseClusters
-    def parseLog(self):
-        self.parsePatterns()
-        self.parseClusters()        
-        
-        
-    def parsePatterns(self):
-       # Bring the cursor to the beginning
-       self.logfile.seek(0)
-       # define some position variables for file parsing    
-       valuepos = 3
-       numpos = 2
-       instpos = 8
-       actionpos = 5
-       # Auxiliar instance for a pattern
-       pattern = Pattern()
-       
-       for line in self.logfile:
-           if line.find('------- Iteration') != -1:
-               elems = line.split(' ')
-               if pattern.number != -1:
-                   #pattern.printPattern()
-                   self.patternlist.append(deepcopy(pattern))
-                   pattern.reset()            
-               pattern.setNumber(int(elems[numpos].strip(',')))
-               #print 'Iteration ', pattern.number
-                   
-           if line.find('Pattern:') != -1:
-               elems = line.split(' ')
-               pattern.setValue(float(elems[valuepos].strip(',')))
-               # Update maxPatternValue and minPatternValue if needed
-               if pattern.value > self.maxPatternValue:
-                   self.maxPatternValue = pattern.value
-               if pattern.value < self.minPatternValue:
-                   self.minPatternValue = pattern.value
-                   
-               pattern.setInstances(int(elems[instpos]))
-               # Update maxInstances and minInstances if needed
-               if pattern.instances > self.maxInstances:
-                   self.maxInstances = pattern.instances
-               if pattern.instances < self.minInstances:
-                   self.minInstances = pattern.instances
-                   
-               #print '  value:', pattern.value
-               #print '  instances:', pattern.instances
-                  
-           if line.find('event (') != -1:
-               elems = line.split(' ')
-               # Unfold any pattern that may be inside this one
-               if elems[actionpos].find('Pat_') != -1:
-                   #print 'action: ', elems[actionpos]
-                   # There is a pattern instead of an action
-                   newelems = elems[actionpos].split('_')
-                   pattindex = int(newelems[1])
-                   #print 'pattern index:', pattindex
-                   #patternlist[pattindex].printPattern()
-                   #actions = patternlist[pattindex].actions
-                   #print actions
-
-                   for action in self.patternlist[pattindex].actions:
-                       #print action
-                       pattern.appendAction(action)
+    # Method to parse the log file calling to parse_patterns and parse_clusters
+    def parse_log(self):
+        """ Method to parse the log file calling to parse_patterns and parse_clusters
                     
-               else:
-                   pattern.appendAction(elems[actionpos])
-                   #print '  action:', elems[actionpos]
-                     
-           if line.find('No more compression can be achieved.') != -1:
-              #print 'Exit loop!'          
-              break
+        Usage example:
+            parse_log()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
+        
+        self.parse_patterns()
+        self.parse_clusters()        
+        
+        
+    def parse_patterns(self):
+        """ Method to parse de patterns from the logfile
+                    
+        Usage example:
+            parse_patterns()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
+        
+        # Bring the cursor to the beginning
+        self.logfile.seek(0)
+        # define some position variables for file parsing    
+        valuepos = 3
+        numpos = 2
+        instpos = 8
+        actionpos = 5
+        # Auxiliar instance for a pattern
+        pattern = Pattern()
+       
+        for line in self.logfile:
+            if line.find('------- Iteration') != -1:
+                elems = line.split(' ')
+                if pattern.number != -1:
+                    #pattern.print_pattern()
+                    self.patternlist.append(deepcopy(pattern))
+                    pattern.reset()            
+                    pattern.set_number(int(elems[numpos].strip(',')))
+                    #print 'Iteration ', pattern.number
+                       
+                if line.find('Pattern:') != -1:
+                    elems = line.split(' ')
+                    pattern.set_value(float(elems[valuepos].strip(',')))
+                    # Update maxPatternValue and minPatternValue if needed
+                    if pattern.value > self.maxPatternValue:
+                        self.maxPatternValue = pattern.value
+                    if pattern.value < self.minPatternValue:
+                        self.minPatternValue = pattern.value
+                       
+                    pattern.set_instances(int(elems[instpos]))
+                    # Update maxInstances and minInstances if needed
+                    if pattern.instances > self.maxInstances:
+                        self.maxInstances = pattern.instances
+                    if pattern.instances < self.minInstances:
+                        self.minInstances = pattern.instances
+                       
+                   #print '  value:', pattern.value
+                   #print '  instances:', pattern.instances
+                      
+                if line.find('event (') != -1:
+                    elems = line.split(' ')
+                    # Unfold any pattern that may be inside this one
+                    if elems[actionpos].find('Pat_') != -1:
+                       #print 'action: ', elems[actionpos]
+                       # There is a pattern instead of an action
+                       newelems = elems[actionpos].split('_')
+                       pattindex = int(newelems[1])
+                       #print 'pattern index:', pattindex
+                       #patternlist[pattindex].print_pattern()
+                       #actions = patternlist[pattindex].actions
+                       #print actions
+    
+                       for action in self.patternlist[pattindex].actions:
+                           #print action
+                           pattern.append_action(action)
+                        
+                    else:
+                       pattern.append_action(elems[actionpos])
+                       #print '  action:', elems[actionpos]
+                         
+                if line.find('No more compression can be achieved.') != -1:
+                  #print 'Exit loop!'          
+                  break
              
-    """
-    Method to parse the clusters from the logfile
-    """
-    def parseClusters(self):
+    
+    def parse_clusters(self):
+        """ Method to parse the clusters from the logfile
+                    
+        Usage example:
+            parse_clusters()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
         if len(self.patternlist) == 0:
             print 'Pattern have to be parsed before clusters'
             return
@@ -121,7 +184,7 @@ class LogReader:
                 if cluster.number != -1:
                     self.clusterlist.append(deepcopy(cluster))
                     cluster.reset()
-                cluster.setNumber(int(elems[1]))
+                cluster.set_number(int(elems[1]))
                 #print 'Cluster', cluster.number
         
             if line.find('[') != -1 and line.find(']') != -1 and line.find('event') == -1:
@@ -129,66 +192,88 @@ class LogReader:
                 elems = line.split('[')
                 newelems = elems[1].split(']')
                 pattindex = int(newelems[0])
-                cluster.addPattern(self.patternlist[pattindex])
+                cluster.add_pattern(self.patternlist[pattindex])
                 #print '  ', pattindex
 
 ########################################################################################################################          
  
-"""
-Function to parse arguments from command line
-Input:
-    argv -> command line arguments
-Output:
-    inputfile -> log file generated by AD (custom format)
-
-"""
-
-def parseArgs(argv):
-   inputfile = ''
+def parse_args(argv):
+    """ Function to parse arguments from command line
+                    
+    Usage example:            
+        inputfile = parse_args(argv[1:])
+                
+    Parameters
+    ----------
+    argv : list
+        the arguments to be parsed as passed to the function
+                        
+    Returns
+    -------
+    inputfile : string
+        the name of the log file generated by AD (custom format)
+        
+    """    
+    inputfile = ''
    
-   try:
-      opts, args = getopt.getopt(argv,"hi:",["ifile="])
-   except getopt.GetoptError:
-      print 'log_reader.py -i <inputfile>'
-      sys.exit(2)
-   for opt, arg in opts:
-      if opt == '-h':
-         print 'log_reader.py -i <inputfile>'
-         sys.exit()
-      elif opt in ("-i", "--ifile"):
-         inputfile = arg
+    try:
+        opts, args = getopt.getopt(argv,"hi:",["ifile="])
+    except getopt.GetoptError:
+        print 'log_reader.py -i <inputfile>'
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print 'log_reader.py -i <inputfile>'
+            sys.exit()
+        elif opt in ("-i", "--ifile"):
+            inputfile = arg
          
-   return inputfile
+    return inputfile
   
 """
 Main function
 """
 def main(argv):
+    """ Main
+            
+    Usage example:
+        main(argv)
+            
+    Parameters
+    ----------
+    argv : list
+        the arguments to be parsed as passed to the function
+                
+    Returns
+    -------
+    None
+        
+    """
     # call the argument parser 
-   inputfile_name = parseArgs(argv[1:])
-   print 'Provided arguments:'       
-   print inputfile_name
+    inputfile_name = parse_args(argv[1:])
+    print 'Provided arguments:'       
+    print inputfile_name
    
-   logreader = LogReader(inputfile_name)
+    logreader = LogReader(inputfile_name)
    
-   # parse the file for patterns and clusters
-   logreader.parseLog()
+    # parse the file for patterns and clusters
+    logreader.parse_log()
    
    
-   """
-   # Print parsed patterns
-   for pattern in logreader.patternlist:
-       pattern.printPattern()
-   """   
-   # Print parsed clusters
-   for cluster in logreader.clusterlist:
-       cluster.printCluster()
+    """
+    # Print parsed patterns
+    for pattern in logreader.patternlist:
+       pattern.print_pattern()
+    """   
+    # Print parsed clusters
+    for cluster in logreader.clusterlist:
+        cluster.printCluster()
        
-   # Print max and min values for pattern value and instances
-   print 'Max pattern value', logreader.maxPatternValue
-   print 'Min pattern value', logreader.minPatternValue
-   print 'Max instances', logreader.maxInstances
-   print 'Min instances', logreader.minInstances
+    # Print max and min values for pattern value and instances
+    print 'Max pattern value', logreader.maxPatternValue
+    print 'Min pattern value', logreader.minPatternValue
+    print 'Max instances', logreader.maxInstances
+    print 'Min instances', logreader.minInstances
    
    
 if __name__ == "__main__":

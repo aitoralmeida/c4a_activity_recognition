@@ -12,6 +12,20 @@ Class Pattern to represent a pattern found by AD
 class Pattern:
     
     def __init__(self):
+        """ Constructor
+        
+        Usage example:
+            pattern = Pattern()
+            
+        Parameters
+        ----------
+        None
+            
+        Returns
+        ----------
+        Instance of the class
+        
+        """
         # Pattern value calculated by AD
         self.value = 0.0
         # Actions or events inside the pattern
@@ -22,25 +36,113 @@ class Pattern:
         # by AD in the dataset
         self.instances = 0
         
-    def setValue(self, value):
+    def set_value(self, value):
+        """ Setter for attribute value
+        
+        Usage example:
+            set_value(5.3)
+            
+        Parameters
+        ----------
+        value : float
+            a float with the value of the pattern
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.value = value
         
-    def appendAction(self, action):
+    def append_action(self, action):
+        """ Method to append an action to the instance
+        
+        Usage example:
+            append_action("hasCoffee")
+            
+        Parameters
+        ----------
+        action : string
+            a string with the action name
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.actions.append(action)
         
-    def setNumber(self, number):
+    def set_number(self, number):
+        """ Setter for attribute number
+        
+        Usage example:
+            set_number(5)
+            
+        Parameters
+        ----------
+        value : integer
+            an integer with the number of the pattern
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.number = number
         
-    def setInstances(self, inst_number):
+    def set_instances(self, inst_number):
+        """ Setter for attribute instances
+        
+        Usage example:
+            set_instances(5)
+            
+        Parameters
+        ----------
+        value : integer
+            an integer with the number of instances of the pattern
+            
+        Returns
+        ----------
+        None
+        
+        """
         self.instances = inst_number
         
     def reset(self):
+        """ Method to reset the instance
+                    
+        Usage example:
+            reset()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
         self.value = 0.0
         self.actions = []
         self.number = -1
         self.instances = 0
         
-    def printPattern(self):
+    def print_pattern(self):
+        """ Method to print the instance
+                    
+        Usage example:
+            print_pattern()
+                
+        Parameters
+        ----------
+        None
+                
+        Returns
+        -------
+        None
+        
+        """
         print 'Pattern', self.number
         print '  value:', self.value
         print '  instances:', self.instances
