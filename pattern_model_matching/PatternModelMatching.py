@@ -573,7 +573,7 @@ class PatternModelMatching:
 ########################################################################################################################          
  
 
-def parse_args(argv):
+def parse_args(argv):    
     """ Function to parse arguments from command line
                     
     Usage example:            
@@ -598,38 +598,38 @@ def parse_args(argv):
         the CSV file name where results have to be stored
         
     """
-   eamsfile = ''
-   annotatedfile = ''
-   logfile = ''
-   contextfile = ''
-   outputfile = ''   
+    eamsfile = ''
+    annotatedfile = ''
+    logfile = ''
+    contextfile = ''
+    outputfile = ''   
    
-   try:
-      opts, args = getopt.getopt(argv,"he:a:l:c:o:",["efile=", "afile=", "lfile=", "cfile=", "ofile="])
-   except getopt.GetoptError:
-      print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
-      sys.exit(2)
-   for opt, arg in opts:
-      if opt == '-h':
-         print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
-         sys.exit()
-      elif opt in ("-e", "--efile"):
-         eamsfile = arg
-      elif opt in ("-a", "--afile"):
-         annotatedfile = arg
-      elif opt in ("-l", "--lfile"):
-         logfile = arg
-      elif opt in ("-c", "--cfile"):
-         contextfile = arg
-      elif opt in ("-o", "--ofile"):
-         outputfile = arg
+    try:
+        opts, args = getopt.getopt(argv,"he:a:l:c:o:",["efile=", "afile=", "lfile=", "cfile=", "ofile="])
+    except getopt.GetoptError:
+        print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print 'PatternModelMatching.py -e <eamsfile> -a <annotatedfile> -l <logfile> -c <contextfile> -o <outputfile>'
+            sys.exit()
+        elif opt in ("-e", "--efile"):
+            eamsfile = arg
+        elif opt in ("-a", "--afile"):
+            annotatedfile = arg
+        elif opt in ("-l", "--lfile"):
+            logfile = arg
+        elif opt in ("-c", "--cfile"):
+            contextfile = arg
+        elif opt in ("-o", "--ofile"):
+            outputfile = arg
          
-   return eamsfile, annotatedfile, logfile, contextfile, outputfile
+    return eamsfile, annotatedfile, logfile, contextfile, outputfile
   
 """
 Main function
 """
-def main(argv):
+def main(argv):    
     """ Main
             
     Usage example:
@@ -646,21 +646,21 @@ def main(argv):
         
     """
     # call the argument parser 
-   [eamsfile, annotatedfile, logfile, contextmodel, outputfile] = parse_args(argv[1:])
-   print 'Provided arguments:'       
-   print eamsfile, annotatedfile, logfile, contextmodel
+    [eamsfile, annotatedfile, logfile, contextmodel, outputfile] = parse_args(argv[1:])
+    print 'Provided arguments:'       
+    print eamsfile, annotatedfile, logfile, contextmodel
    
-   matcher = PatternModelMatching(eamsfile, annotatedfile, logfile, contextmodel)
-   matcher.load_EAMs()
+    matcher = PatternModelMatching(eamsfile, annotatedfile, logfile, contextmodel)
+    matcher.load_EAMs()
    
-   for eam in matcher.eamlist:
-       eam.printEAM()
-       print '-----------------------'
+    for eam in matcher.eamlist:
+        eam.printEAM()
+        print '-----------------------'
      
-   matcher.load_annotated_data()
-   #print matcher.df.head(50)
-   matcher.process_patterns()
-   matcher.store_result(outputfile)
+    matcher.load_annotated_data()
+    #print matcher.df.head(50)
+    matcher.process_patterns()
+    matcher.store_result(outputfile)
    
    
    
