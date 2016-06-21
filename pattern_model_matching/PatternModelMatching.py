@@ -654,7 +654,7 @@ def main(argv):
     matcher.load_EAMs()
    
     for eam in matcher.eamlist:
-        eam.printEAM()
+        eam.print_eam()
         print '-----------------------'
      
     matcher.load_annotated_data()
