@@ -15,8 +15,7 @@ import numpy as np
 import pandas as pd
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
-
-from ConfusionMatrix import ConfusionMatrix
+import pylab
 
 class AREvaluator:
     
@@ -29,12 +28,14 @@ class AREvaluator:
 
         # List of activities in the groundtruth dataset        
         self.activities = self.groundtruth.activity.unique()
-        #self.activities = ['MakeChocolate', 'MakeCoffee', 'BrushTeeth', 'WashHands', 'MakePasta', 'ReadBook', 'None', 'WatchTelevision']
-        # Initialize the confusion matrix
-        self.cm = ConfusionMatrix(self.activities)
+               
+        # Use two lists: one for groundtruth activity and another one for predicted activity
+        # These list will be used to build de confusion matrix and calculate different metrics
+        self.y_groundtruth = []
+        self.y_predicted = []
         
             
-    def evaluate1(self):
+    def pattern_based_evaluation(self):
         """First evaluation method. 
         The idea is to take the patterns in evaluable, take the start and end time of the pattern
         and look at the same time section of the groundtruth file. Extract the activities of the groundtruth
@@ -42,7 +43,7 @@ class AREvaluator:
         matrix.    
         
         Usage example:
-            evaluate1()
+            pattern_based_evaluation()
     
         Parameters
         ----------
@@ -67,8 +68,9 @@ class AREvaluator:
                 ev_activities = self.evaluable.loc[end, 'detected_activities']
                 print "Pattern:", prev_pat, "(", start, ",", end, ")"
                 print "   GT:", gt_activities
-                print "   EV:", ev_activities
-                self.update_confusion_matrix(gt_activities, ev_activities)
+                print "   EV:", ev_activities                
+                # New approach, using the scikit-learn confusion matrix
+                self.lenient_metric(gt_activities, ev_activities)
                 # Now update prev_pat and start
                 prev_pat = pat
                 start = ts
@@ -98,66 +100,62 @@ class AREvaluator:
         
         """
         #print '   extractGTActivities: start', start, ', end', end        
-        return list(self.groundtruth.loc[start:end, 'activity'].unique())
-         
-    
-    # Method to update the confusion matrix given the groundtruth activities
-    # and detected activities of a given section of time
-    def update_confusion_matrix(self, gt_activities, ev_activities):
+        return list(self.groundtruth.loc[start:end, 'activity'].unique())    
+                
+
+    def lenient_metric(self, gt_activities, ev_activities):
         """ Method to update the confusion matrix given the groundtruth activities
         and detected activities of a given section of time
         
         Usage example:
-            start = pd.Timestamp('2016-01-01 00:00:00')
-            end = pd.Timestamp('2016-01-01 00:00:12')
-            action_list = extract_groundtruth_activities(start, end)
+            gt_activities = ['MakeCoffee', 'WashHands']
+            ev_activities = ['MakeCoffee', 'None']
             
         Parameters
         ----------
-        start : Pandas.Timestamp
-            start time of the action sequence to extract
-        end : Pandas.Timestamp
-            end time of the action sequence to extract
+        gt_activities : list
+            activities in the groundtruth
+        ev_activities : list
+            predicted activities for the same section as groundtruth
             
         Returns
         -------
-        activities: list
-            a list of unique activities that appear between star and end
+        None
         
         """
-        # Treat None activities in groundtruth which appear with other activities
-        if len(gt_activities) > 1:
-            try:
+        if len(gt_activities) > len(ev_activities):
+            if 'None' in gt_activities:
                 i = gt_activities.index('None')
-                gt_activities.pop(i)
-            except ValueError:
-                pass
+                gt_activities.pop(i)            
+            for i in xrange(len(gt_activities) - len(ev_activities)):
+                ev_activities.append('None')
                 
+        elif len(gt_activities) < len(ev_activities):
+            for i in xrange(len(ev_activities) - len(gt_activities)):
+                gt_activities.append('None')
+                
+        # At this point, both lists should be the same length
         # Now we can compare both lists
+        # First of all compute hits (activities that appear in both lists)
         hits = np.intersect1d(np.array(gt_activities), np.array(ev_activities))
         hits = hits.tolist()
         for i in xrange(len(hits)):
-            self.cm.update(hits[i], hits[i])
-            
-        for i in xrange(len(hits)):
-            gt_activities.remove(hits[i])
-            ev_activities.remove(hits[i])
-            
+            #self.cm.update(hits[i], hits[i])
+            self.y_predicted.append(hits[i])
+            self.y_groundtruth.append(hits[i])
         
-        while len(gt_activities) > 0 or len(ev_activities) > 0:
-            if len(gt_activities) == 0:
-                self.cm.update(ev_activities[0], 'None')
-                ev_activities.remove(ev_activities[0])
-            elif len(ev_activities) == 0:
-                self.cm.update('None', gt_activities[0])
-                gt_activities.remove(gt_activities[0])
-            else:
-                print '??', ev_activities[0]
-                self.cm.update(ev_activities[0], gt_activities[0])
-                gt_activities.remove(gt_activities[0])
-                ev_activities.remove(ev_activities[0])
+        # Now compute divergences
+        a = np.setdiff1d(np.array(gt_activities), np.array(ev_activities), True)
+        b = np.setdiff1d(np.array(ev_activities), np.array(gt_activities), True)
+        if len(a) == len(b):
+            for i in xrange(len(a)):
+                self.y_predicted.append(b[i])
+                self.y_groundtruth.append(a[i])
+        else:
+            raise ValueError('Arrays a and b have different lengths!')
+        
                 
-    def calculate_evaluation_metrics(self, y_ground_truth, y_predicted):
+    def calculate_evaluation_metrics(self):
         """Calculates the evaluation metrics (precision, recall and F1) for the
         predicted examples. It calculates the micro, macro and weighted values
         of each metric.
@@ -191,13 +189,13 @@ class AREvaluator:
         }
         
         for t in metric_types:
-            metric_results['precision'][t] = metrics.precision_score(y_ground_truth, y_predicted, average = t)
-            metric_results['recall'][t] = metrics.recall_score(y_ground_truth, y_predicted, average = t)
-            metric_results['f1'][t] = metrics.f1_score(y_ground_truth, y_predicted, average = t)
+            metric_results['precision'][t] = metrics.precision_score(self.y_groundtruth, self.y_predicted, average = t)
+            metric_results['recall'][t] = metrics.recall_score(self.y_groundtruth, self.y_predicted, average = t)
+            metric_results['f1'][t] = metrics.f1_score(self.y_groundtruth, self.y_predicted, average = t)
             
         return metric_results
         
-    def create_confusion_matrix(self, y_ground_truth, y_predicted, labels):
+    def create_confusion_matrix(self):
         """Creates the confusión matrix of the predicted values.
         
         Usage example:
@@ -223,8 +221,43 @@ class AREvaluator:
         conf_matrix : array, shape = [n_classes, n_classes]
             Confusion matrix  
         """
-        conf_matrix = confusion_matrix(y_ground_truth, y_predicted, labels=labels)
+        conf_matrix = confusion_matrix(self.y_groundtruth, self.y_predicted, labels=self.activities)
         return conf_matrix
+    
+    def plot(self, matrix):
+        """Plots the confusion matrix.
+        
+        Usage example:
+            matrix = self.calculate_evaluation_metrics            
+            self.plot(matrix)
+    
+        Parameters
+        ----------
+        matrix : array, shape = [n_classes, n_classes]
+            Confusion matrix        
+       
+        Returns
+        -------
+        None
+        """
+
+        pylab.figure()
+        pylab.imshow(matrix, interpolation='nearest', cmap=pylab.cm.jet)
+        pylab.title("Confusion Matrix")
+
+        for i, vi in enumerate(matrix):
+            for j, vj in enumerate(vi):
+                pylab.text(j, i+.1, "%.1f" % vj, fontsize=12)
+
+        pylab.colorbar()
+
+        classes = np.arange(len(self.activities))
+        pylab.xticks(classes, self.activities)
+        pylab.yticks(classes, self.activities)
+
+        pylab.ylabel('Expected label')
+        pylab.xlabel('Predicted label')
+        pylab.show()
            
                
                 
@@ -305,10 +338,19 @@ def main(argv):
     print evaluator.groundtruth.head(10)   
     print '-------------------------------------------'   
     print evaluator.evaluable.head(10)   
-    evaluator.evaluate1()   
-    evaluator.cm.plot()
-   
-   
+    evaluator.pattern_based_evaluation()   
+    #evaluator.cm.plot()
+    # Test new approach with scikit-learn
+    cm = evaluator.create_confusion_matrix()
+    print cm
+    
+    #Dictionary with the values for the metrics (precision, recall and f1)    
+    metrics = evaluator.calculate_evaluation_metrics()
+    print 'precision:', metrics['precision']
+    print 'recall:', metrics['recall']
+    print 'f1:', metrics['f1']
+    
+    evaluator.plot(cm)   
    
 if __name__ == "__main__":
    main(sys.argv)    
