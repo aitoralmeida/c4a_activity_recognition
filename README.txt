@@ -24,7 +24,7 @@ USAGE:
 
 To run the PatternModelMatching with suitable files, just type (this assumes AD has been run on the action dataset):
 
-python PatternModelMatching.py -e ../test_files/eams.json -a test_files/test_dataset.csv.annotated -l ../test_files/test_dataset_log.txt -c ../test_files/context_model.json -o ../test_files/pm_output.csv
+python PatternModelMatching.py -e ../test_files/eams.json -a ../test_files/test_dataset.csv.annotated -l ../test_files/test_dataset_log.txt -c ../test_files/context_model.json -o ../test_files/pm_output.csv
 
 To run AREvaluator and evaluate results obtained by PatternModelMatching, just type (this assumes PatternModelMatching has been run):
 
