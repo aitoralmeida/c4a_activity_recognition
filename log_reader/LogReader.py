@@ -98,59 +98,61 @@ class LogReader:
         # Auxiliar instance for a pattern
         pattern = Pattern()
        
-        for line in self.logfile:
-            if line.find('------- Iteration') != -1:
+        for line in self.logfile:      
+            if line.find('------- Iteration') != -1:                
                 elems = line.split(' ')
                 if pattern.number != -1:
-                    #pattern.print_pattern()
+                    pattern.print_pattern()
                     self.patternlist.append(deepcopy(pattern))
-                    pattern.reset()            
-                    pattern.set_number(int(elems[numpos].strip(',')))
-                    #print 'Iteration ', pattern.number
+                    #print 'Pattern added to patternlist'
+                pattern.reset()            
+                pattern.set_number(int(elems[numpos].strip(',')))
+                #print 'Iteration ', pattern.number
                        
-                if line.find('Pattern:') != -1:
-                    elems = line.split(' ')
-                    pattern.set_value(float(elems[valuepos].strip(',')))
-                    # Update maxPatternValue and minPatternValue if needed
-                    if pattern.value > self.maxPatternValue:
-                        self.maxPatternValue = pattern.value
-                    if pattern.value < self.minPatternValue:
-                        self.minPatternValue = pattern.value
+            if line.find('Pattern:') != -1:
+                #print 'Pattern found!'
+                elems = line.split(' ')
+                pattern.set_value(float(elems[valuepos].strip(',')))
+                # Update maxPatternValue and minPatternValue if needed
+                if pattern.value > self.maxPatternValue:
+                    self.maxPatternValue = pattern.value
+                if pattern.value < self.minPatternValue:
+                    self.minPatternValue = pattern.value
                        
-                    pattern.set_instances(int(elems[instpos]))
-                    # Update maxInstances and minInstances if needed
-                    if pattern.instances > self.maxInstances:
-                        self.maxInstances = pattern.instances
-                    if pattern.instances < self.minInstances:
-                        self.minInstances = pattern.instances
+                pattern.set_instances(int(elems[instpos]))
+                # Update maxInstances and minInstances if needed
+                if pattern.instances > self.maxInstances:
+                    self.maxInstances = pattern.instances
+                if pattern.instances < self.minInstances:
+                    self.minInstances = pattern.instances
                        
-                   #print '  value:', pattern.value
-                   #print '  instances:', pattern.instances
+                #print '  value:', pattern.value
+                #print '  instances:', pattern.instances
                       
-                if line.find('event (') != -1:
-                    elems = line.split(' ')
-                    # Unfold any pattern that may be inside this one
-                    if elems[actionpos].find('Pat_') != -1:
-                       #print 'action: ', elems[actionpos]
-                       # There is a pattern instead of an action
-                       newelems = elems[actionpos].split('_')
-                       pattindex = int(newelems[1])
-                       #print 'pattern index:', pattindex
-                       #patternlist[pattindex].print_pattern()
-                       #actions = patternlist[pattindex].actions
-                       #print actions
+            if line.find('event (') != -1:
+                elems = line.split(' ')
+                # Unfold any pattern that may be inside this one
+                if elems[actionpos].find('Pat_') != -1:
+                    #print 'action: ', elems[actionpos]
+                    # There is a pattern instead of an action
+                    newelems = elems[actionpos].split('_')
+                    pattindex = int(newelems[1])
+                    #print 'pattern index:', pattindex
+                    #patternlist[pattindex].print_pattern()
+                    #actions = patternlist[pattindex].actions
+                    #print actions
     
-                       for action in self.patternlist[pattindex].actions:
-                           #print action
-                           pattern.append_action(action)
+                    for action in self.patternlist[pattindex].actions:
+                        #print action
+                        pattern.append_action(action)
                         
-                    else:
-                       pattern.append_action(elems[actionpos])
-                       #print '  action:', elems[actionpos]
+                else:
+                    pattern.append_action(elems[actionpos])
+                    #print '  action:', elems[actionpos]
                          
-                if line.find('No more compression can be achieved.') != -1:
-                  #print 'Exit loop!'          
-                  break
+            if line.find('No more compression can be achieved.') != -1:
+                #print 'Exit loop!'          
+                break
              
     
     def parse_clusters(self):
@@ -267,7 +269,7 @@ def main(argv):
     """   
     # Print parsed clusters
     for cluster in logreader.clusterlist:
-        cluster.printCluster()
+        cluster.print_cluster()
        
     # Print max and min values for pattern value and instances
     print 'Max pattern value', logreader.maxPatternValue
