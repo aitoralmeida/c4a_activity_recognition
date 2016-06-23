@@ -247,7 +247,7 @@ class AREvaluator:
 
         for i, vi in enumerate(matrix):
             for j, vj in enumerate(vi):
-                pylab.text(j, i+.1, "%.1f" % vj, fontsize=12)
+                pylab.text(j, i+.1, "%.3f" % vj, fontsize=12)
 
         pylab.colorbar()
 
@@ -258,8 +258,8 @@ class AREvaluator:
         pylab.ylabel('Expected label')
         pylab.xlabel('Predicted label')
         pylab.show()
-           
-               
+        
+     
                 
 
 ########################################################################################################################          
@@ -338,11 +338,17 @@ def main(argv):
     print evaluator.groundtruth.head(10)   
     print '-------------------------------------------'   
     print evaluator.evaluable.head(10)   
-    evaluator.pattern_based_evaluation()   
-    #evaluator.cm.plot()
+    evaluator.pattern_based_evaluation()
+    
     # Test new approach with scikit-learn
     cm = evaluator.create_confusion_matrix()
     print cm
+    
+    # Normalize the confusion matrix by row (i.e by the number of samples
+    # in each class)
+    cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    print('Normalized confusion matrix')
+    print(cm_normalized)
     
     #Dictionary with the values for the metrics (precision, recall and f1)    
     metrics = evaluator.calculate_evaluation_metrics()
@@ -350,7 +356,8 @@ def main(argv):
     print 'recall:', metrics['recall']
     print 'f1:', metrics['f1']
     
-    evaluator.plot(cm)   
+    #evaluator.plot(cm)
+    evaluator.plot(cm_normalized)
    
 if __name__ == "__main__":
    main(sys.argv)    
