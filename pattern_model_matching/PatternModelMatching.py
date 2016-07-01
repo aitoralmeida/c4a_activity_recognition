@@ -113,12 +113,14 @@ class PatternModelMatching:
         sensors = self.contextmodel["sensors"]        
         for i in self.df.index:        
             name_sensor = self.df.loc[i, "sensor"]
-            try:
+            # TODO: Uncomment following lines for real executions (this is done for Kasteren)
+            try:                
                 action = sensors[name_sensor]["action"]
             except KeyError:
                 msg = 'obtainActions: ' + name_sensor + ' sensor is not in the context_model; please have a look at provided dataset and context model'
                 exit(msg)
             self.df.loc[i, "action"] = action
+            #self.df.loc[i, "action"] = name_sensor
         
     
     def annotate_data_frame(self, start, end, bestnames):
@@ -170,7 +172,8 @@ class PatternModelMatching:
         auxlist = ['Pat_%s' % (x.number) for x in prefilter.removedPatterns]
         
         for index in self.df.index:
-            if self.df.loc[index, 'pattern'] in auxlist:
+            pattern = self.df.loc[index, 'pattern']            
+            if pattern in auxlist:
                 self.df.loc[index, 'pattern'] = 'Other_Activity'
     
     
@@ -196,6 +199,7 @@ class PatternModelMatching:
         # Filter all the actions tagged as Other_Activity
         auxdf = self.df[self.df["pattern"] != "Other_Activity"]
         actions = []
+        sensors = []
         pat = ""
         start = None
         end = None
@@ -210,14 +214,13 @@ class PatternModelMatching:
                     print 'New pattern'
                     print '   actions:', actions
                     end = previous
-                    # Call here to the real matcher
-                    # TODO: It seems there is a problem with the last pattern of the file. CHECK IT!!                    
-                    [maxscore, bestnames, partialscores] = self.find_models_for_pattern(actions, start, end)
+                    # Call here to the real matcher                    
+                    [maxscore, bestnames, partialscores] = self.find_models_for_pattern(sensors, actions, start, end)
                     # TESTING!! Action based filter  
                     if partialscores[0] == -1:
                         bestnames = ['None']
                         
-                    # TESTING!! Number of activities greater than number of actions
+                    # TESTING!! Number of activities greater than number of actions                        
                     if len(bestnames) > len(actions):
                         bestnames = ['None']                        
                     
@@ -232,24 +235,28 @@ class PatternModelMatching:
                 #print 'New pattern!', auxdf.loc[timestamp, "pattern"]                
                 pat = auxdf.loc[timestamp, "pattern"]
                 actions = []
+                sensors = []
                 
             actions.append(auxdf.loc[timestamp, "action"])
+            sensors.append(auxdf.loc[timestamp, "sensor"])
             previous = timestamp
             
     
-    def find_models_for_pattern(self, actions, start, end):
-        """ Method to calculate for a given pattern (actions, start, end), the best list of EAMs
+    def find_models_for_pattern(self, sensors, actions, start, end):
+        """ Method to calculate for a given pattern (sensors, actions, start, end), the best list of EAMs
         to explain the pattern
             
         Usage example:
             start = pd.Timestamp('2016-01-01 00:00:00')
             end = pd.Timestamp('2016-01-01 00:00:12')
-            find_models_for_pattern(actions, start, end)
+            find_models_for_pattern(sensors, actions, start, end)
                 
         Parameters
         ----------
         actions: list
             a list of actions
+        sensors: list
+            a list of sensor activations
         start : Pandas.Timestamp
             start time of the action sequence that compose the detected patter
         end : Pandas.Timestamp
@@ -266,7 +273,13 @@ class PatternModelMatching:
         
         """
         # define the weights of the cost function
-        wa = 1        
+        # Weights for the test with synthetic data
+#        wa = 1        
+#        wl = 1
+#        wd = 0.2 
+#        ws = 0.7
+        # Weights for the test with Kasteren dataset
+        wa = 1
         wl = 1
         wd = 0.2
         ws = 0.7
@@ -287,12 +300,12 @@ class PatternModelMatching:
                 #score_time = self.func_time(start, end, eams[i])
                 score_duration = self.func_duration(start, end, eams[i])
                 score_start_time = self.func_start_time(start, eams[i])
-                score_locations = self.func_locations(actions, eams[i])                
+                score_locations = self.func_locations(sensors, eams[i])                
                 
                 score = wa*score_actions + wd*score_duration + ws*score_start_time + wl*score_locations                
                 
                 #print '   score:', score, 'SA:', score_actions, 'ST:', score_time
-                if score > maxscore:
+                if score > maxscore and len(actions) >= len(bestnames):
                     maxscore = score
                     bestnames = names
                     # store also the partial scores of each metric
@@ -330,7 +343,9 @@ class PatternModelMatching:
         for i in eamindices:
             eamactions.extend(self.eamlist[i].actions)            
             
-        eamactions = set(eamactions)        
+        eamactions = set(eamactions)
+        actions = set(actions)
+        
         intersect = eamactions.intersection(actions)
         lactions = float(len(actions))
         lintersect = float(len(intersect))
@@ -505,16 +520,16 @@ class PatternModelMatching:
         return sum(eamscores) / len(eamscores)
          
     
-    def func_locations(self, actions, eamindices):
+    def func_locations(self, sensors, eamindices):
         """ Method to calculate the location suitability of the pattern and the given EAMs.
                     
         Usage example:            
-            score = func_locations(actions, eamindices)
+            score = func_locations(sensors, eamindices)
                 
         Parameters
         ----------
-        actions : list
-            a list of actions that compose the detected pattern.
+        sensors : list
+            a list of sensor activations that compose the detected pattern.
         eamindices : list
             a list of intergers for the indices of EAMs in self.eamlist        
                 
@@ -524,7 +539,27 @@ class PatternModelMatching:
             a float number in [-1, 1] with the score of the function for the given EAMs
         
         """
-        return 0
+        locations = []
+        for sensor in sensors:
+            obj = self.contextmodel["sensors"][sensor]["attached-to"]
+            location = self.contextmodel["objects"][obj]["location"]
+            locations.append(location)
+            
+        locations = set(locations)
+                
+        eamlocations = []
+        for i in eamindices:
+            eamlocations.extend(self.eamlist[i].locations)
+            
+        eamlocations = set(eamlocations)
+        intersect = eamlocations.intersection(locations)
+        llocations = float(len(locations))
+        lintersect = float(len(intersect))
+        leams = float(len(eamlocations))
+        #score = float((len(intersect) / len(actions)) - ((len(eamactions) - len(intersect))/len(eamactions)))
+        score = float((lintersect / llocations) - ((leams - lintersect)/leams))
+        
+        return score
         
     
     def store_result(self, filename):

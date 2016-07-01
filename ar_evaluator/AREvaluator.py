@@ -140,7 +140,7 @@ class AREvaluator:
         hits = np.intersect1d(np.array(gt_activities), np.array(ev_activities))
         hits = hits.tolist()
         for i in xrange(len(hits)):
-            #self.cm.update(hits[i], hits[i])
+            #self.cm.update(hits[i], hits[i])            
             self.y_predicted.append(hits[i])
             self.y_groundtruth.append(hits[i])
         
@@ -329,12 +329,13 @@ def main(argv):
     -------
     None
         
-    """
+    """    
     # call the argument parser 
     [groundtruth, evaluable] = parse_args(argv[1:])
     print 'Provided arguments:'       
     print groundtruth, evaluable
-    evaluator = AREvaluator(groundtruth, evaluable)
+    evaluator = AREvaluator(groundtruth, evaluable)    
+    
     print evaluator.groundtruth.head(10)   
     print '-------------------------------------------'   
     print evaluator.evaluable.head(10)   
@@ -360,5 +361,6 @@ def main(argv):
     evaluator.plot(cm_normalized)
    
 if __name__ == "__main__":
-   main(sys.argv)    
+   main(sys.argv)
+
    

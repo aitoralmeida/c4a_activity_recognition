@@ -81,7 +81,7 @@ class ADPatternFilter:
         None
         
         """
-        perc = 0.10
+        perc = 0.0
         threshold = self.log.minInstances + (self.log.maxInstances - self.log.minInstances)*perc
         print 'Used threshold value for instances:', threshold
         for pattern in self.log.patternlist:
