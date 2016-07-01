@@ -81,6 +81,7 @@ class ADPatternFilter:
         None
         
         """
+        # Best value for Kasteren dataset
         perc = 0.0
         threshold = self.log.minInstances + (self.log.maxInstances - self.log.minInstances)*perc
         print 'Used threshold value for instances:', threshold

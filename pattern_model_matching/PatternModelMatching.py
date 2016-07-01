@@ -241,7 +241,18 @@ class PatternModelMatching:
             sensors.append(auxdf.loc[timestamp, "sensor"])
             previous = timestamp
             
-    
+    def shared_actions(self, actions, eamindices):
+#        print 'EAMS:', eams
+#        print 'Actions:', actions
+        actions = set(actions)        
+        for i in eamindices:
+            eamactions = self.eamlist[i].actions
+            eamactions = set(eamactions)
+            if len(actions.intersection(eamactions)) == 0:
+                return False
+                
+        return True
+        
     def find_models_for_pattern(self, sensors, actions, start, end):
         """ Method to calculate for a given pattern (sensors, actions, start, end), the best list of EAMs
         to explain the pattern
@@ -279,10 +290,11 @@ class PatternModelMatching:
 #        wd = 0.2 
 #        ws = 0.7
         # Weights for the test with Kasteren dataset
-        wa = 1
+        # F1 score (macro) = 0.7593
+        wa = 1.3 #1.3
         wl = 1
-        wd = 0.2
-        ws = 0.7
+        wd = 0.1 #0.1
+        ws = 1.5 #
         #wt = 1
         # We will use a strong force search, testing all the posible combinations
         # of eams and returning the combination with the highest score
@@ -291,8 +303,14 @@ class PatternModelMatching:
         bestnames = []
         for key in self.eamcombinations:
             # This is the list of EAM indices for combination level 'key' 
-            eams = self.eamcombinations[key]
+            eams = self.eamcombinations[key]            
             for i in xrange(len(eams)):
+                # Testing!!
+                # Onyl consider those combinations of EAMs where shared actions for
+                # all EAMs exist
+                if self.shared_actions(actions, eams[i]) == False:                                        
+                    continue
+                
                 # Extract the EAM names of the current combination of EAMs
                 names = [self.eamlist[j].name for j in eams[i]]
                 #print '   ', names
@@ -305,7 +323,8 @@ class PatternModelMatching:
                 score = wa*score_actions + wd*score_duration + ws*score_start_time + wl*score_locations                
                 
                 #print '   score:', score, 'SA:', score_actions, 'ST:', score_time
-                if score > maxscore and len(actions) >= len(bestnames):
+#                if score > maxscore and len(actions) >= len(bestnames):
+                if score > maxscore:
                     maxscore = score
                     bestnames = names
                     # store also the partial scores of each metric
@@ -315,6 +334,11 @@ class PatternModelMatching:
                     partialscores.append(score_start_time)
                     partialscores.append(score_locations)
                     
+        # This if is done for those cases where no EAM shares actions with the pattern
+        if len(partialscores) == 0:
+            maxscore = -sys.maxint
+            partialscores = [-1, -1, -1, -1]
+            bestnames = ['None']
         return maxscore, bestnames, partialscores
             
     
