@@ -240,18 +240,22 @@ class AREvaluator:
         -------
         None
         """
-
+        # Use percentages for the confusion matrix
+        matrix = matrix*100
         pylab.figure()
         pylab.imshow(matrix, interpolation='nearest', cmap=pylab.cm.jet)
         pylab.title("Confusion Matrix")
 
         for i, vi in enumerate(matrix):
             for j, vj in enumerate(vi):
-                pylab.text(j, i+.1, "%.3f" % vj, fontsize=12)
+                #pylab.text(j, i+.1, "%.2f" % vj, fontsize=12)
+                pylab.text(j-.3, i+.1, "%.2f" % vj, fontsize=12)
 
         pylab.colorbar()
 
         classes = np.arange(len(self.activities))
+        pylab.tick_params(axis='both', which='major', labelsize=8)
+        pylab.tick_params(axis='both', which='minor', labelsize=8)
         pylab.xticks(classes, self.activities)
         pylab.yticks(classes, self.activities)
 

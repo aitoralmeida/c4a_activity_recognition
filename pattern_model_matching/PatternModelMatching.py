@@ -290,7 +290,7 @@ class PatternModelMatching:
 #        wd = 0.2 
 #        ws = 0.7
         # Weights for the test with Kasteren dataset
-        # F1 score (macro) = 0.7593
+        # F1 score (macro) = 0.77
         wa = 1.3 #1.3
         wl = 1
         wd = 0.1 #0.1
