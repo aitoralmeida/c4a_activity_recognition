@@ -1,6 +1,6 @@
 Repository for HARS, the activity recognition modules in City4Age.
 
-*CONTENTS:
+* CONTENTS:
 
 The following Python modules can be found here:
 
@@ -22,7 +22,7 @@ test_files: the files needed for the execution of the modules, as well as their 
 
 experiments: this directory contains the experiments done with real datasets, with the required files and scripts. The internal folder 'kasteren_dataset' contains the files for Kasteren Dataset and the obtained results. To run the experiment, just launch 'run_test.py'.
    
-*USAGE:
+* USAGE:
 
 To run the PatternModelMatching with suitable files, just type (this assumes AD has been run on the action dataset):
 
@@ -32,5 +32,5 @@ To run AREvaluator and evaluate results obtained by PatternModelMatching, just t
 
 python AREvaluator.py -g ../test_files/groundtruth.csv -e ../test_files/pm_output.csv
 
-*ACKNOWLEDGEMENTS
+* ACKNOWLEDGEMENTS
 This work was carried out with the financial support of H2020 project City4Age, grant agreement number 689731. Thanks to CASAS team in Washington State University for making their excellent software available to researchers and to Tim Van Kasteren for publishing the activity dataset for benchmarking purposes.
