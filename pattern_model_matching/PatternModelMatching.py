@@ -113,8 +113,11 @@ class PatternModelMatching:
         sensors = self.contextmodel["sensors"]        
         for i in self.df.index:        
             name_sensor = self.df.loc[i, "sensor"]
+            #print "PatternModelMatching::load_annotated_data: name_sensor:", name_sensor
             # TODO: Uncomment following lines for real executions (this is done for Kasteren)
-            try:                
+            try:
+                # TODO: Use numeric index to treat equal timestamps
+                #print name_sensor                
                 action = sensors[name_sensor]["action"]
             except KeyError:
                 msg = 'obtainActions: ' + name_sensor + ' sensor is not in the context_model; please have a look at provided dataset and context model'
@@ -152,7 +155,7 @@ class PatternModelMatching:
             
     
     def prefilter_patterns(self):
-        """ Method to filter spurious patterns vefore the matching phase. Filtered
+        """ Method to filter spurious patterns before the matching phase. Filtered
         patterns are annotated as 'Other_Activity' in self.df (pandas dataframe)
             
         Usage example:
@@ -292,9 +295,9 @@ class PatternModelMatching:
         # Weights for the test with Kasteren dataset
         # F1 score (macro) = 0.77
         wa = 1.3 #1.3
-        wl = 1
+        wl = 1.0 #1.0
         wd = 0.1 #0.1
-        ws = 1.5 #
+        ws = 1.5 #1.5
         #wt = 1
         # We will use a strong force search, testing all the posible combinations
         # of eams and returning the combination with the highest score
@@ -565,8 +568,8 @@ class PatternModelMatching:
         """
         locations = []
         for sensor in sensors:
-            obj = self.contextmodel["sensors"][sensor]["attached-to"]
-            location = self.contextmodel["objects"][obj]["location"]
+            obj = self.contextmodel["sensors"][sensor]["attached-to"]            
+            location = self.contextmodel["objects"][obj]["location"]            
             locations.append(location)
             
         locations = set(locations)

@@ -249,21 +249,89 @@ class AREvaluator:
         for i, vi in enumerate(matrix):
             for j, vj in enumerate(vi):
                 #pylab.text(j, i+.1, "%.2f" % vj, fontsize=12)
-                pylab.text(j-.3, i+.1, "%.2f" % vj, fontsize=12)
+                pylab.text(j-.3, i+.1, "%.2f" % vj, fontsize=6)
 
         pylab.colorbar()
 
         classes = np.arange(len(self.activities))
-        pylab.tick_params(axis='both', which='major', labelsize=8)
-        pylab.tick_params(axis='both', which='minor', labelsize=8)
-        pylab.xticks(classes, self.activities)
+        pylab.tick_params(axis='both', which='major', labelsize=6)
+        pylab.tick_params(axis='both', which='minor', labelsize=6)
+        #pylab.tick_params(axis='x', labelrotation=90)
+        pylab.xticks(classes, self.activities, rotation='vertical')
         pylab.yticks(classes, self.activities)
 
         pylab.ylabel('Expected label')
         pylab.xlabel('Predicted label')
-        pylab.show()
+        #pylab.show()
+        pylab.savefig('cm.png')
         
-     
+    def calculate_manual_metrics(self, cm):
+        """Plots the confusion matrix.
+        Usage example:
+            metrics = self.calculate_manual_metrics            
+    
+        Parameters
+        ----------
+        cm : array, shape = [n_classes, n_classes]
+            Confusion matrix        
+       
+        Returns
+        -------
+        metrics : dict 
+        """
+        class_precision = []
+        class_recall = []
+        class_f1 = []
+                 
+        prf_dict = {}
+        # calculate total numbers for fp, fn and tp for micro metrics
+        total_fp = cm.sum(axis=0) - cm.diagonal()
+        total_fp = total_fp.sum()
+        total_fn = cm.sum(axis=1) - cm.diagonal()
+        total_fn = total_fn.sum()
+        total_tp = cm.diagonal().sum()
+        # Calculate macro and weighted metrics
+        for i in xrange(len(cm)):            
+            tp = cm[i][i]
+        
+            col = cm[:, i]    
+            col = np.delete(col, i)    
+            fp = sum(col)
+        
+            row = cm[i, :]    
+            row = np.delete(row, i)
+        
+            fn = sum(row)
+            if tp == 0.0 and fp == 0.0:
+                precision = 0
+            else:
+                precision = tp/(tp+fp)
+        
+            recall = tp/(tp+fn)
+            class_precision.append(precision)
+            class_recall.append(recall)
+    
+            if precision == 0.0 and recall == 0.0:
+                class_f1.append(0.0)
+            else:
+                class_f1.append(2*precision*recall / (precision+recall))
+    
+        prf_dict["precision"] = {}
+        prf_dict["precision"]["macro"] = np.mean(class_precision)
+        prf_dict["precision"]["weighted"] = np.average(class_precision, weights=cm.sum(axis=1))
+        prf_dict["precision"]["micro"] = total_tp / (total_tp + total_fp)
+        
+        prf_dict["recall"] = {}
+        prf_dict["recall"]["macro"] = np.mean(class_recall)
+        prf_dict["recall"]["weighted"] = np.average(class_recall, weights=cm.sum(axis=1))
+        prf_dict["recall"]["micro"] = total_tp / (total_tp + total_fn)
+        
+        prf_dict["f1"] = {}
+        prf_dict["f1"]["macro"] = np.mean(class_f1)
+        prf_dict["f1"]["weighted"] = np.average(class_f1, weights=cm.sum(axis=1))
+        prf_dict["f1"]["micro"] = 2*prf_dict["precision"]["micro"]*prf_dict["recall"]["micro"] / (prf_dict["precision"]["micro"]+prf_dict["recall"]["micro"])
+                
+        return prf_dict
                 
 
 ########################################################################################################################          
@@ -352,16 +420,28 @@ def main(argv):
     # Normalize the confusion matrix by row (i.e by the number of samples
     # in each class)
     cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    np.set_printoptions(precision=3, linewidth=1000)
     print('Normalized confusion matrix')
     print(cm_normalized)
     
     #Dictionary with the values for the metrics (precision, recall and f1)    
     metrics = evaluator.calculate_evaluation_metrics()
+    print "Scikit metrics"
     print 'precision:', metrics['precision']
     print 'recall:', metrics['recall']
     print 'f1:', metrics['f1']
     
+    # Calculate and print manual metrics
+    man_metrics = evaluator.calculate_manual_metrics(cm_normalized)
+    print "Manual metrics"
+    print 'precision:', man_metrics['precision']
+    print 'recall:', man_metrics['recall']
+    print 'f1:', man_metrics['f1']
+    
     #evaluator.plot(cm)
+    # Just a trick -> I don't use absolute routes!!
+    cmfile = '/home/gazkune/repositories/c4a_activity_recognition/experiments/kasterenC-cm.npy'
+    np.save(cmfile, cm_normalized)
     evaluator.plot(cm_normalized)
    
 if __name__ == "__main__":
