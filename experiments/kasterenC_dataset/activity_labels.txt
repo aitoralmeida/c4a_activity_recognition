@@ -1,0 +1,27 @@
+1 LeaveHouse
+3 Eating
+4 UseToiletDownstairs
+5 TakeShower
+6 BrushTeeth
+7 UseToiletUpstairs
+8 TakeBath (NoInstance)
+9 Shave
+10 GoToBed
+11 GetDressed
+12 TakeMedication
+13 PrepareBreakfast
+14 PrepareLunch
+15 PrepareDinner
+16 GetSnack
+17 GetDrink
+18 PutItemsInDishwasher (NoInstance)
+19 UnloadDishwasher (NoInstance)
+20 StoreGroceries (NoInstance)
+21 Grooming (NoInstance)
+22 PutClothesInWashingmachine (NoInstance)
+23 UnloadWashingmachine (NoInstance)
+25 ReceiveGuest (NoInstance)
+26 WatchTv (NoInstance)
+27 ReadPaper (NoInstance)
+28 Relax
+30 Unknown (NoInstance)

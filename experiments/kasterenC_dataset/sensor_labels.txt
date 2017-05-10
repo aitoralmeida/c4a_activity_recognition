@@ -1,0 +1,23 @@
+5 BedRight BedroomUpstairs
+6 Couch LivingRoom
+7 Freezer Kitchen
+8 ToiletFlushUpstairs BathroomUpstairs
+10 ToiletFlushDownstairs BathroomDownstairs
+11 BathroomDoor BathroomUpstairs
+13 Cutlery Kitchen
+15 Keys Kitchen
+16 BathroomDoor BathroomUpstairs
+18 Cutlery Kitchen
+20 Saucepan Kitchen
+21 Microwave Kitchen
+22 GarbageBin Kitchen
+23 PlatesCupboard Kitchen
+25 ToiletDoorDownstairs BathroomDownstairs (Toilet)
+27 CupboardCups Kitchen
+28 Frontdoor Hall
+29 BedroomDoor Bedroom
+30 Fridge Kitchen
+35 Bathtub BathroomUpstairs
+36 Dresser Bedroom
+38 SinkTop BathroomUpstairs
+39 BedLeft Bedroom
