@@ -1,0 +1,3184 @@
+Reading the config file...done
+2633 events and 72 labels in data set
+
+Discovering patterns...AD: NumIterations = -1
+------- Iteration 0, 2633 events, 2633 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.024912, number of instances = 66
+   meantime = 13.257576, stddevtime = 5.880915
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [32 32]
+   event (20) Sink_faucet_-_hot_68 [33 33]
+Marked 66 events to compress, 0 duplicates, 2567 numnewevents
+
+------- Iteration 1, 2567 events, 2567 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.014224, number of instances = 38
+   meantime = 12.026316, stddevtime = 3.616387
+ Sequence(2):
+   event (10) Door_54 [12 12]
+   event (10) Door_54 [13 13]
+Marked 38 events to compress, 0 duplicates, 2529 numnewevents
+
+------- Iteration 2, 2529 events, 2529 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.009581, number of instances = 26
+   meantime = 14.076923, stddevtime = 3.636599
+ Sequence(2):
+   event (18) Refrigerator_91 [46 46]
+   event (22) Freezer_137 [47 47]
+Marked 26 events to compress, 0 duplicates, 2503 numnewevents
+
+------- Iteration 3, 2503 events, 2503 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.009274, number of instances = 13
+   meantime = 14.846154, stddevtime = 3.697112
+ Sequence(3):
+   event (11) Shower_faucet_93 [127 127]
+   event (11) Shower_faucet_93 [128 128]
+   event (11) Shower_faucet_93 [129 129]
+Marked 26 events to compress, 0 duplicates, 2477 numnewevents
+
+------- Iteration 4, 2477 events, 2477 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.008961, number of instances = 24
+   meantime = 12.125000, stddevtime = 4.116152
+ Sequence(2):
+   event (21) Door_140 [35 35]
+   event (21) Door_140 [36 36]
+Marked 24 events to compress, 0 duplicates, 2453 numnewevents
+
+------- Iteration 5, 2453 events, 2453 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.008220, number of instances = 22
+   meantime = 13.545455, stddevtime = 3.114880
+ Sequence(2):
+   event (18) Refrigerator_91 [161 161]
+   event (18) Refrigerator_91 [162 162]
+Marked 22 events to compress, 0 duplicates, 2431 numnewevents
+
+------- Iteration 6, 2431 events, 2431 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007877, number of instances = 21
+   meantime = 15.476191, stddevtime = 6.044431
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [177 177]
+   event (20) Sink_faucet_-_hot_68 [178 178]
+Marked 21 events to compress, 0 duplicates, 2410 numnewevents
+
+------- Iteration 7, 2410 events, 2410 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007104, number of instances = 19
+   meantime = 12.947369, stddevtime = 4.084292
+ Sequence(2):
+   event (9) Cabinet_55 [42 42]
+   event (14) Drawer_84 [43 43]
+Marked 19 events to compress, 0 duplicates, 2391 numnewevents
+
+------- Iteration 8, 2391 events, 2391 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007161, number of instances = 19
+   meantime = 14.421053, stddevtime = 5.112583
+ Sequence(2):
+   event (1) Toilet_Flush_100 [90 90]
+   event (20) Sink_faucet_-_hot_68 [91 91]
+Marked 19 events to compress, 0 duplicates, 2372 numnewevents
+
+------- Iteration 9, 2372 events, 2372 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.006791, number of instances = 18
+   meantime = 12.500000, stddevtime = 4.609772
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [204 204]
+   event (3) Medicine_cabinet_57 [205 205]
+Marked 18 events to compress, 0 duplicates, 2354 numnewevents
+
+------- Iteration 10, 2354 events, 2354 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.006843, number of instances = 18
+   meantime = 12.611111, stddevtime = 4.934446
+ Sequence(2):
+   event (55) Door_141 [484 484]
+   event (58) Washing_Machine_142 [485 485]
+Marked 18 events to compress, 0 duplicates, 2336 numnewevents
+
+------- Iteration 11, 2336 events, 2336 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.006463, number of instances = 17
+   meantime = 12.764706, stddevtime = 4.109235
+ Sequence(2):
+   event (55) Door_141 [686 686]
+   event (60) Laundry_Dryer_90 [687 687]
+Marked 17 events to compress, 0 duplicates, 2319 numnewevents
+
+------- Iteration 12, 2319 events, 2319 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.006074, number of instances = 16
+   meantime = 13.125000, stddevtime = 3.998046
+ Sequence(2):
+   event (32) Toaster_131 [97 97]
+   event (32) Toaster_131 [98 98]
+Marked 16 events to compress, 0 duplicates, 2303 numnewevents
+
+------- Iteration 13, 2303 events, 2303 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005677, number of instances = 15
+   meantime = 14.466666, stddevtime = 3.630733
+ Sequence(2):
+   event (7) Cabinet_80 [68 68]
+   event (18) Refrigerator_91 [69 69]
+Marked 15 events to compress, 0 duplicates, 2288 numnewevents
+
+------- Iteration 14, 2288 events, 2288 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005272, number of instances = 14
+   meantime = 12.285714, stddevtime = 4.831867
+ Sequence(2):
+   event (1) Toilet_Flush_100 [115 115]
+   event (72) Pat_0 [116 117]
+Marked 14 events to compress, 0 duplicates, 2274 numnewevents
+
+------- Iteration 15, 2274 events, 2274 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005305, number of instances = 14
+   meantime = 13.428572, stddevtime = 1.916630
+ Sequence(2):
+   event (8) Microwave_143 [304 304]
+   event (8) Microwave_143 [305 305]
+Marked 14 events to compress, 0 duplicates, 2260 numnewevents
+
+------- Iteration 16, 2260 events, 2260 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004891, number of instances = 13
+   meantime = 11.846154, stddevtime = 1.230769
+ Sequence(2):
+   event (16) Dishwasher_70 [104 104]
+   event (16) Dishwasher_70 [105 105]
+Marked 13 events to compress, 0 duplicates, 2247 numnewevents
+
+------- Iteration 17, 2247 events, 2247 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004920, number of instances = 13
+   meantime = 14.000000, stddevtime = 3.762160
+ Sequence(2):
+   event (15) Cabinet_73 [94 94]
+   event (12) Cabinet_72 [95 95]
+Marked 13 events to compress, 0 duplicates, 2234 numnewevents
+
+------- Iteration 18, 2234 events, 2234 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004496, number of instances = 12
+   meantime = 12.500000, stddevtime = 4.330127
+ Sequence(2):
+   event (28) Door_130 [1320 1320]
+   event (28) Door_130 [1321 1321]
+Marked 12 events to compress, 0 duplicates, 2222 numnewevents
+
+------- Iteration 19, 2222 events, 2222 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004521, number of instances = 12
+   meantime = 11.083333, stddevtime = 3.200477
+ Sequence(2):
+   event (5) Drawer_82 [199 199]
+   event (5) Drawer_82 [200 200]
+Marked 12 events to compress, 0 duplicates, 2210 numnewevents
+
+------- Iteration 20, 2210 events, 2210 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004089, number of instances = 11
+   meantime = 13.181818, stddevtime = 3.485507
+ Sequence(2):
+   event (33) Cabinet_53 [102 102]
+   event (14) Drawer_84 [103 103]
+Marked 11 events to compress, 0 duplicates, 2199 numnewevents
+
+------- Iteration 21, 2199 events, 2199 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003651, number of instances = 10
+   meantime = 14.700000, stddevtime = 5.119570
+ Sequence(2):
+   event (0) Cabinet_67 [607 607]
+   event (0) Cabinet_67 [608 608]
+Marked 10 events to compress, 0 duplicates, 2189 numnewevents
+
+------- Iteration 22, 2189 events, 2189 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003668, number of instances = 10
+   meantime = 13.300000, stddevtime = 3.661967
+ Sequence(2):
+   event (22) Freezer_137 [225 225]
+   event (18) Refrigerator_91 [226 226]
+Marked 10 events to compress, 0 duplicates, 2179 numnewevents
+
+------- Iteration 23, 2179 events, 2179 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.004147, number of instances = 6
+   meantime = 17.500000, stddevtime = 3.593976
+ Sequence(3):
+   event (19) Sink_faucet_-_cold_88 [157 157]
+   event (72) Pat_0 [158 159]
+   event (20) Sink_faucet_-_hot_68 [160 160]
+Marked 12 events to compress, 0 duplicates, 2167 numnewevents
+
+------- Iteration 24, 2167 events, 2167 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003705, number of instances = 10
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (73) Pat_1 [240 241]
+   event (73) Pat_1 [242 243]
+Marked 10 events to compress, 0 duplicates, 2157 numnewevents
+
+------- Iteration 25, 2157 events, 2157 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003256, number of instances = 9
+   meantime = 12.000000, stddevtime = 7.348469
+ Sequence(2):
+   event (0) Cabinet_67 [179 179]
+   event (20) Sink_faucet_-_hot_68 [180 180]
+Marked 9 events to compress, 0 duplicates, 2148 numnewevents
+
+------- Iteration 26, 2148 events, 2148 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003270, number of instances = 9
+   meantime = 11.222222, stddevtime = 4.661373
+ Sequence(2):
+   event (13) Drawer_75 [851 851]
+   event (13) Drawer_75 [852 852]
+Marked 9 events to compress, 0 duplicates, 2139 numnewevents
+
+------- Iteration 27, 2139 events, 2139 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003283, number of instances = 9
+   meantime = 14.111111, stddevtime = 0.566558
+ Sequence(2):
+   event (17) Drawer_135 [322 322]
+   event (17) Drawer_135 [323 323]
+Marked 9 events to compress, 0 duplicates, 2130 numnewevents
+
+------- Iteration 28, 2130 events, 2130 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002825, number of instances = 8
+   meantime = 13.625000, stddevtime = 3.672108
+ Sequence(2):
+   event (8) Microwave_143 [828 828]
+   event (14) Drawer_84 [829 829]
+Marked 8 events to compress, 0 duplicates, 2122 numnewevents
+
+------- Iteration 29, 2122 events, 2122 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002836, number of instances = 8
+   meantime = 9.375000, stddevtime = 8.971309
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [922 922]
+   event (3) Medicine_cabinet_57 [923 923]
+Marked 8 events to compress, 0 duplicates, 2114 numnewevents
+
+------- Iteration 30, 2114 events, 2114 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002846, number of instances = 8
+   meantime = 11.000000, stddevtime = 2.179450
+ Sequence(2):
+   event (22) Freezer_137 [37 37]
+   event (9) Cabinet_55 [38 38]
+Marked 8 events to compress, 0 duplicates, 2106 numnewevents
+
+------- Iteration 31, 2106 events, 2106 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002857, number of instances = 8
+   meantime = 12.000000, stddevtime = 3.201562
+ Sequence(2):
+   event (26) Cabinet_66 [673 673]
+   event (16) Dishwasher_70 [674 674]
+Marked 8 events to compress, 0 duplicates, 2098 numnewevents
+
+------- Iteration 32, 2098 events, 2098 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002868, number of instances = 8
+   meantime = 12.500000, stddevtime = 4.472136
+ Sequence(2):
+   event (50) Jewelry_box_139 [1060 1060]
+   event (21) Door_140 [1061 1061]
+Marked 8 events to compress, 0 duplicates, 2090 numnewevents
+
+------- Iteration 33, 2090 events, 2090 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002879, number of instances = 8
+   meantime = 14.750000, stddevtime = 2.680951
+ Sequence(2):
+   event (28) Door_130 [1716 1716]
+   event (72) Pat_0 [1717 1718]
+Marked 8 events to compress, 0 duplicates, 2082 numnewevents
+
+------- Iteration 34, 2082 events, 2082 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002890, number of instances = 8
+   meantime = 12.625000, stddevtime = 3.672108
+ Sequence(2):
+   event (60) Laundry_Dryer_90 [689 689]
+   event (82) Pat_10 [690 691]
+Marked 8 events to compress, 0 duplicates, 2074 numnewevents
+
+------- Iteration 35, 2074 events, 2074 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002901, number of instances = 8
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (59) Burner_118 [504 504]
+   event (59) Burner_118 [505 505]
+Marked 8 events to compress, 0 duplicates, 2066 numnewevents
+
+------- Iteration 36, 2066 events, 2066 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002913, number of instances = 8
+   meantime = 10.125000, stddevtime = 1.690969
+ Sequence(2):
+   event (66) Containers_60 [861 861]
+   event (66) Containers_60 [862 862]
+Marked 8 events to compress, 0 duplicates, 2058 numnewevents
+
+------- Iteration 37, 2058 events, 2058 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002435, number of instances = 7
+   meantime = 14.142858, stddevtime = 4.882288
+ Sequence(2):
+   event (12) Cabinet_72 [171 171]
+   event (14) Drawer_84 [172 172]
+Marked 7 events to compress, 0 duplicates, 2051 numnewevents
+
+------- Iteration 38, 2051 events, 2051 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002444, number of instances = 7
+   meantime = 14.285714, stddevtime = 6.040679
+ Sequence(2):
+   event (0) Cabinet_67 [16 16]
+   event (3) Medicine_cabinet_57 [17 17]
+Marked 7 events to compress, 0 duplicates, 2044 numnewevents
+
+------- Iteration 39, 2044 events, 2044 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002452, number of instances = 7
+   meantime = 12.714286, stddevtime = 7.125694
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [4 4]
+   event (4) Medicine_cabinet_58 [5 5]
+Marked 7 events to compress, 0 duplicates, 2037 numnewevents
+
+------- Iteration 40, 2037 events, 2037 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002461, number of instances = 7
+   meantime = 14.142858, stddevtime = 3.181579
+ Sequence(2):
+   event (22) Freezer_137 [99 99]
+   event (22) Freezer_137 [100 100]
+Marked 7 events to compress, 0 duplicates, 2030 numnewevents
+
+------- Iteration 41, 2030 events, 2030 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002469, number of instances = 7
+   meantime = 11.428572, stddevtime = 2.718043
+ Sequence(2):
+   event (25) Drawer_62 [201 201]
+   event (13) Drawer_75 [202 202]
+Marked 7 events to compress, 0 duplicates, 2023 numnewevents
+
+------- Iteration 42, 2023 events, 2023 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002478, number of instances = 7
+   meantime = 10.714286, stddevtime = 2.547508
+ Sequence(2):
+   event (43) Cabinet_59 [653 653]
+   event (26) Cabinet_66 [654 654]
+Marked 7 events to compress, 0 duplicates, 2016 numnewevents
+
+------- Iteration 43, 2016 events, 2016 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001988, number of instances = 6
+   meantime = 14.833333, stddevtime = 5.047001
+ Sequence(2):
+   event (14) Drawer_84 [23 23]
+   event (14) Drawer_84 [24 24]
+Marked 6 events to compress, 0 duplicates, 2010 numnewevents
+
+------- Iteration 44, 2010 events, 2010 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001994, number of instances = 6
+   meantime = 14.500000, stddevtime = 2.692582
+ Sequence(2):
+   event (45) Refrigerator_126 [320 320]
+   event (18) Refrigerator_91 [321 321]
+Marked 6 events to compress, 0 duplicates, 2004 numnewevents
+
+------- Iteration 45, 2004 events, 2004 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002000, number of instances = 6
+   meantime = 16.000000, stddevtime = 4.864840
+ Sequence(2):
+   event (1) Toilet_Flush_100 [155 155]
+   event (1) Toilet_Flush_100 [156 156]
+Marked 6 events to compress, 0 duplicates, 1998 numnewevents
+
+------- Iteration 46, 1998 events, 1998 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002006, number of instances = 6
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (72) Pat_0 [842 843]
+   event (19) Sink_faucet_-_cold_88 [844 844]
+Marked 6 events to compress, 0 duplicates, 1992 numnewevents
+
+------- Iteration 47, 1992 events, 1992 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002012, number of instances = 6
+   meantime = 13.500000, stddevtime = 2.565801
+ Sequence(2):
+   event (9) Cabinet_55 [719 719]
+   event (7) Cabinet_80 [720 720]
+Marked 6 events to compress, 0 duplicates, 1986 numnewevents
+
+------- Iteration 48, 1986 events, 1986 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002018, number of instances = 6
+   meantime = 16.333334, stddevtime = 3.197221
+ Sequence(2):
+   event (12) Cabinet_72 [246 246]
+   event (12) Cabinet_72 [247 247]
+Marked 6 events to compress, 0 duplicates, 1980 numnewevents
+
+------- Iteration 49, 1980 events, 1980 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002532, number of instances = 4
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(3):
+   event (58) Washing_Machine_142 [488 488]
+   event (58) Washing_Machine_142 [489 489]
+   event (58) Washing_Machine_142 [490 490]
+Marked 8 events to compress, 0 duplicates, 1972 numnewevents
+
+------- Iteration 50, 1972 events, 1972 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002033, number of instances = 6
+   meantime = 9.500000, stddevtime = 4.310839
+ Sequence(2):
+   event (5) Drawer_82 [19 19]
+   event (13) Drawer_75 [20 20]
+Marked 6 events to compress, 0 duplicates, 1966 numnewevents
+
+------- Iteration 51, 1966 events, 1966 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002039, number of instances = 6
+   meantime = 14.833333, stddevtime = 0.372678
+ Sequence(2):
+   event (31) Drawer_78 [337 337]
+   event (31) Drawer_78 [338 338]
+Marked 6 events to compress, 0 duplicates, 1960 numnewevents
+
+------- Iteration 52, 1960 events, 1960 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002045, number of instances = 6
+   meantime = 15.166667, stddevtime = 1.462494
+ Sequence(2):
+   event (23) Burner_94 [238 238]
+   event (23) Burner_94 [239 239]
+Marked 6 events to compress, 0 duplicates, 1954 numnewevents
+
+------- Iteration 53, 1954 events, 1954 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002051, number of instances = 6
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (83) Pat_11 [686 687]
+   event (58) Washing_Machine_142 [688 688]
+Marked 6 events to compress, 0 duplicates, 1948 numnewevents
+
+------- Iteration 54, 1948 events, 1948 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001542, number of instances = 5
+   meantime = 15.800000, stddevtime = 6.241795
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [176 176]
+   event (78) Pat_6 [177 178]
+Marked 5 events to compress, 0 duplicates, 1943 numnewevents
+
+------- Iteration 55, 1943 events, 1943 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001546, number of instances = 5
+   meantime = 15.800000, stddevtime = 1.720465
+ Sequence(2):
+   event (0) Cabinet_67 [548 548]
+   event (56) Cabinet_79 [549 549]
+Marked 5 events to compress, 0 duplicates, 1938 numnewevents
+
+------- Iteration 56, 1938 events, 1938 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001550, number of instances = 5
+   meantime = 13.400000, stddevtime = 2.416609
+ Sequence(2):
+   event (16) Dishwasher_70 [58 58]
+   event (26) Cabinet_66 [59 59]
+Marked 5 events to compress, 0 duplicates, 1933 numnewevents
+
+------- Iteration 57, 1933 events, 1933 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001554, number of instances = 5
+   meantime = 12.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (80) Pat_8 [90 91]
+   event (20) Sink_faucet_-_hot_68 [92 92]
+Marked 5 events to compress, 0 duplicates, 1928 numnewevents
+
+------- Iteration 58, 1928 events, 1928 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001558, number of instances = 5
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (72) Pat_0 [32 33]
+   event (3) Medicine_cabinet_57 [34 34]
+Marked 5 events to compress, 0 duplicates, 1923 numnewevents
+
+------- Iteration 59, 1923 events, 1923 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001562, number of instances = 5
+   meantime = 14.400000, stddevtime = 5.083306
+ Sequence(2):
+   event (50) Jewelry_box_139 [1404 1404]
+   event (28) Door_130 [1405 1405]
+Marked 5 events to compress, 0 duplicates, 1918 numnewevents
+
+------- Iteration 60, 1918 events, 1918 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001567, number of instances = 5
+   meantime = 14.000000, stddevtime = 5.176872
+ Sequence(2):
+   event (1) Toilet_Flush_100 [679 679]
+   event (11) Shower_faucet_93 [680 680]
+Marked 5 events to compress, 0 duplicates, 1913 numnewevents
+
+------- Iteration 61, 1913 events, 1913 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001571, number of instances = 5
+   meantime = 13.600000, stddevtime = 0.800000
+ Sequence(2):
+   event (37) Oven_129 [295 295]
+   event (37) Oven_129 [296 296]
+Marked 5 events to compress, 0 duplicates, 1908 numnewevents
+
+------- Iteration 62, 1908 events, 1908 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001575, number of instances = 5
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (48) Drawer_125 [362 362]
+   event (48) Drawer_125 [363 363]
+Marked 5 events to compress, 0 duplicates, 1903 numnewevents
+
+------- Iteration 63, 1903 events, 1903 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001579, number of instances = 5
+   meantime = 13.400000, stddevtime = 3.261901
+ Sequence(2):
+   event (60) Laundry_Dryer_90 [2312 2312]
+   event (55) Door_141 [2313 2313]
+Marked 5 events to compress, 0 duplicates, 1898 numnewevents
+
+------- Iteration 64, 1898 events, 1898 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001055, number of instances = 4
+   meantime = 15.500000, stddevtime = 4.031129
+ Sequence(2):
+   event (14) Drawer_84 [1102 1102]
+   event (18) Refrigerator_91 [1103 1103]
+Marked 4 events to compress, 0 duplicates, 1894 numnewevents
+
+------- Iteration 65, 1894 events, 1894 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001057, number of instances = 4
+   meantime = 18.250000, stddevtime = 1.299038
+ Sequence(2):
+   event (2) Light_switch_101 [835 835]
+   event (20) Sink_faucet_-_hot_68 [836 836]
+Marked 4 events to compress, 0 duplicates, 1890 numnewevents
+
+------- Iteration 66, 1890 events, 1890 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001059, number of instances = 4
+   meantime = 11.500000, stddevtime = 6.224950
+ Sequence(2):
+   event (28) Door_130 [1584 1584]
+   event (0) Cabinet_67 [1585 1585]
+Marked 4 events to compress, 0 duplicates, 1886 numnewevents
+
+------- Iteration 67, 1886 events, 1886 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001062, number of instances = 4
+   meantime = 17.250000, stddevtime = 2.772634
+ Sequence(2):
+   event (2) Light_switch_101 [545 545]
+   event (11) Shower_faucet_93 [546 546]
+Marked 4 events to compress, 0 duplicates, 1882 numnewevents
+
+------- Iteration 68, 1882 events, 1882 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001064, number of instances = 4
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (74) Pat_2 [1208 1209]
+   event (18) Refrigerator_91 [1210 1210]
+Marked 4 events to compress, 0 duplicates, 1878 numnewevents
+
+------- Iteration 69, 1878 events, 1878 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001066, number of instances = 4
+   meantime = 15.750000, stddevtime = 6.139015
+ Sequence(2):
+   event (0) Cabinet_67 [633 633]
+   event (80) Pat_8 [634 635]
+Marked 4 events to compress, 0 duplicates, 1874 numnewevents
+
+------- Iteration 70, 1874 events, 1874 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001068, number of instances = 4
+   meantime = 9.250000, stddevtime = 2.861381
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [949 949]
+   event (34) Exhaust_Fan_96 [950 950]
+Marked 4 events to compress, 0 duplicates, 1870 numnewevents
+
+------- Iteration 71, 1870 events, 1870 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001071, number of instances = 4
+   meantime = 12.000000, stddevtime = 3.674235
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [1304 1304]
+   event (19) Sink_faucet_-_cold_88 [1305 1305]
+Marked 4 events to compress, 0 duplicates, 1866 numnewevents
+
+------- Iteration 72, 1866 events, 1866 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001073, number of instances = 4
+   meantime = 12.750000, stddevtime = 5.804093
+ Sequence(2):
+   event (32) Toaster_131 [1614 1614]
+   event (22) Freezer_137 [1615 1615]
+Marked 4 events to compress, 0 duplicates, 1862 numnewevents
+
+------- Iteration 73, 1862 events, 1862 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001075, number of instances = 4
+   meantime = 11.000000, stddevtime = 2.738613
+ Sequence(2):
+   event (50) Jewelry_box_139 [886 886]
+   event (76) Pat_4 [887 888]
+Marked 4 events to compress, 0 duplicates, 1858 numnewevents
+
+------- Iteration 74, 1858 events, 1858 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001078, number of instances = 4
+   meantime = 12.750000, stddevtime = 3.766630
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [207 207]
+   event (20) Sink_faucet_-_hot_68 [208 208]
+Marked 4 events to compress, 0 duplicates, 1854 numnewevents
+
+------- Iteration 75, 1854 events, 1854 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001080, number of instances = 4
+   meantime = 16.500000, stddevtime = 5.590170
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [1574 1574]
+   event (19) Sink_faucet_-_cold_88 [1575 1575]
+Marked 4 events to compress, 0 duplicates, 1850 numnewevents
+
+------- Iteration 76, 1850 events, 1850 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001082, number of instances = 4
+   meantime = 18.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (75) Pat_3 [127 129]
+   event (11) Shower_faucet_93 [130 130]
+Marked 4 events to compress, 0 duplicates, 1846 numnewevents
+
+------- Iteration 77, 1846 events, 1846 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001085, number of instances = 4
+   meantime = 12.500000, stddevtime = 5.220153
+ Sequence(2):
+   event (28) Door_130 [1785 1785]
+   event (80) Pat_8 [1786 1787]
+Marked 4 events to compress, 0 duplicates, 1842 numnewevents
+
+------- Iteration 78, 1842 events, 1842 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001087, number of instances = 4
+   meantime = 12.250000, stddevtime = 1.299038
+ Sequence(2):
+   event (43) Cabinet_59 [244 244]
+   event (43) Cabinet_59 [245 245]
+Marked 4 events to compress, 0 duplicates, 1838 numnewevents
+
+------- Iteration 79, 1838 events, 1838 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001089, number of instances = 4
+   meantime = 13.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (88) Pat_16 [1007 1008]
+   event (88) Pat_16 [1009 1010]
+Marked 4 events to compress, 0 duplicates, 1834 numnewevents
+
+------- Iteration 80, 1834 events, 1834 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000546, number of instances = 3
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (74) Pat_2 [962 963]
+   event (14) Drawer_84 [964 964]
+Marked 3 events to compress, 0 duplicates, 1831 numnewevents
+
+------- Iteration 81, 1831 events, 1831 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000546, number of instances = 3
+   meantime = 12.000000, stddevtime = 0.816497
+ Sequence(2):
+   event (14) Drawer_84 [751 751]
+   event (16) Dishwasher_70 [752 752]
+Marked 3 events to compress, 0 duplicates, 1828 numnewevents
+
+------- Iteration 82, 1828 events, 1828 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000547, number of instances = 3
+   meantime = 13.333333, stddevtime = 0.471404
+ Sequence(2):
+   event (33) Cabinet_53 [288 288]
+   event (16) Dishwasher_70 [289 289]
+Marked 3 events to compress, 0 duplicates, 1825 numnewevents
+
+------- Iteration 83, 1825 events, 1825 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000548, number of instances = 3
+   meantime = 12.666667, stddevtime = 2.494438
+ Sequence(2):
+   event (39) Cabinet_63 [833 833]
+   event (14) Drawer_84 [834 834]
+Marked 3 events to compress, 0 duplicates, 1822 numnewevents
+
+------- Iteration 84, 1822 events, 1822 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000549, number of instances = 3
+   meantime = 16.666666, stddevtime = 6.182412
+ Sequence(2):
+   event (2) Light_switch_101 [966 966]
+   event (72) Pat_0 [967 968]
+Marked 3 events to compress, 0 duplicates, 1819 numnewevents
+
+------- Iteration 85, 1819 events, 1819 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000550, number of instances = 3
+   meantime = 14.333333, stddevtime = 1.247219
+ Sequence(2):
+   event (8) Microwave_143 [316 316]
+   event (18) Refrigerator_91 [317 317]
+Marked 3 events to compress, 0 duplicates, 1816 numnewevents
+
+------- Iteration 86, 1816 events, 1816 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000551, number of instances = 3
+   meantime = 10.333333, stddevtime = 0.942809
+ Sequence(2):
+   event (16) Dishwasher_70 [54 54]
+   event (18) Refrigerator_91 [55 55]
+Marked 3 events to compress, 0 duplicates, 1813 numnewevents
+
+------- Iteration 87, 1813 events, 1813 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000552, number of instances = 3
+   meantime = 18.333334, stddevtime = 1.247219
+ Sequence(2):
+   event (14) Drawer_84 [120 120]
+   event (12) Cabinet_72 [121 121]
+Marked 3 events to compress, 0 duplicates, 1810 numnewevents
+
+------- Iteration 88, 1810 events, 1810 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000553, number of instances = 3
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (81) Pat_9 [917 918]
+   event (0) Cabinet_67 [919 919]
+Marked 3 events to compress, 0 duplicates, 1807 numnewevents
+
+------- Iteration 89, 1807 events, 1807 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000554, number of instances = 3
+   meantime = 14.000000, stddevtime = 5.715476
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [807 807]
+   event (2) Light_switch_101 [808 808]
+Marked 3 events to compress, 0 duplicates, 1804 numnewevents
+
+------- Iteration 90, 1804 events, 1804 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000555, number of instances = 3
+   meantime = 12.333333, stddevtime = 2.494438
+ Sequence(2):
+   event (7) Cabinet_80 [821 821]
+   event (74) Pat_2 [822 823]
+Marked 3 events to compress, 0 duplicates, 1801 numnewevents
+
+------- Iteration 91, 1801 events, 1801 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000556, number of instances = 3
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (86) Pat_14 [1721 1723]
+   event (50) Jewelry_box_139 [1724 1724]
+Marked 3 events to compress, 0 duplicates, 1798 numnewevents
+
+------- Iteration 92, 1798 events, 1798 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000556, number of instances = 3
+   meantime = 15.666667, stddevtime = 3.299832
+ Sequence(2):
+   event (1) Toilet_Flush_100 [757 757]
+   event (0) Cabinet_67 [758 758]
+Marked 3 events to compress, 0 duplicates, 1795 numnewevents
+
+------- Iteration 93, 1795 events, 1795 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000557, number of instances = 3
+   meantime = 11.333333, stddevtime = 2.624669
+ Sequence(2):
+   event (2) Light_switch_101 [793 793]
+   event (4) Medicine_cabinet_58 [794 794]
+Marked 3 events to compress, 0 duplicates, 1792 numnewevents
+
+------- Iteration 94, 1792 events, 1792 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000558, number of instances = 3
+   meantime = 9.666667, stddevtime = 0.942809
+ Sequence(2):
+   event (33) Cabinet_53 [217 217]
+   event (7) Cabinet_80 [218 218]
+Marked 3 events to compress, 0 duplicates, 1789 numnewevents
+
+------- Iteration 95, 1789 events, 1789 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000559, number of instances = 3
+   meantime = 13.666667, stddevtime = 4.784234
+ Sequence(2):
+   event (17) Drawer_135 [28 28]
+   event (18) Refrigerator_91 [29 29]
+Marked 3 events to compress, 0 duplicates, 1786 numnewevents
+
+------- Iteration 96, 1786 events, 1786 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000560, number of instances = 3
+   meantime = 19.333334, stddevtime = 1.885618
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [609 609]
+   event (3) Medicine_cabinet_57 [610 610]
+Marked 3 events to compress, 0 duplicates, 1783 numnewevents
+
+------- Iteration 97, 1783 events, 1783 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000561, number of instances = 3
+   meantime = 10.333333, stddevtime = 1.885618
+ Sequence(2):
+   event (13) Drawer_75 [1833 1833]
+   event (32) Toaster_131 [1834 1834]
+Marked 3 events to compress, 0 duplicates, 1780 numnewevents
+
+------- Iteration 98, 1780 events, 1780 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000562, number of instances = 3
+   meantime = 16.666666, stddevtime = 1.247219
+ Sequence(2):
+   event (50) Jewelry_box_139 [378 378]
+   event (50) Jewelry_box_139 [379 379]
+Marked 3 events to compress, 0 duplicates, 1777 numnewevents
+
+------- Iteration 99, 1777 events, 1777 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000563, number of instances = 3
+   meantime = 11.000000, stddevtime = 3.559026
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [197 197]
+   event (0) Cabinet_67 [198 198]
+Marked 3 events to compress, 0 duplicates, 1774 numnewevents
+
+------- Iteration 100, 1774 events, 1774 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000564, number of instances = 3
+   meantime = 12.333333, stddevtime = 2.624669
+ Sequence(2):
+   event (33) Cabinet_53 [892 892]
+   event (9) Cabinet_55 [893 893]
+Marked 3 events to compress, 0 duplicates, 1771 numnewevents
+
+------- Iteration 101, 1771 events, 1771 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000565, number of instances = 3
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (79) Pat_7 [1219 1220]
+   event (32) Toaster_131 [1221 1221]
+Marked 3 events to compress, 0 duplicates, 1768 numnewevents
+
+------- Iteration 102, 1768 events, 1768 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000566, number of instances = 3
+   meantime = 11.666667, stddevtime = 4.189935
+ Sequence(2):
+   event (64) Closet_81 [1266 1266]
+   event (64) Closet_81 [1267 1267]
+Marked 3 events to compress, 0 duplicates, 1765 numnewevents
+
+------- Iteration 103, 1765 events, 1765 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000567, number of instances = 3
+   meantime = 10.666667, stddevtime = 2.624669
+ Sequence(2):
+   event (11) Shower_faucet_93 [649 649]
+   event (56) Cabinet_79 [650 650]
+Marked 3 events to compress, 0 duplicates, 1762 numnewevents
+
+------- Iteration 104, 1762 events, 1762 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000568, number of instances = 3
+   meantime = 7.666667, stddevtime = 1.247219
+ Sequence(2):
+   event (15) Cabinet_73 [859 859]
+   event (65) Cereal_145 [860 860]
+Marked 3 events to compress, 0 duplicates, 1759 numnewevents
+
+------- Iteration 105, 1759 events, 1759 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000569, number of instances = 3
+   meantime = 11.000000, stddevtime = 5.715476
+ Sequence(2):
+   event (0) Cabinet_67 [6 6]
+   event (5) Drawer_82 [7 7]
+Marked 3 events to compress, 0 duplicates, 1756 numnewevents
+
+------- Iteration 106, 1756 events, 1756 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000570, number of instances = 3
+   meantime = 17.000000, stddevtime = 3.741657
+ Sequence(2):
+   event (1) Toilet_Flush_100 [89 89]
+   event (129) Pat_57 [90 92]
+Marked 3 events to compress, 0 duplicates, 1753 numnewevents
+
+------- Iteration 107, 1753 events, 1753 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000571, number of instances = 3
+   meantime = 7.000000, stddevtime = 9.201449
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [1600 1600]
+   event (28) Door_130 [1601 1601]
+Marked 3 events to compress, 0 duplicates, 1750 numnewevents
+
+------- Iteration 108, 1750 events, 1750 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000572, number of instances = 3
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (81) Pat_9 [204 205]
+   event (3) Medicine_cabinet_57 [206 206]
+Marked 3 events to compress, 0 duplicates, 1747 numnewevents
+
+------- Iteration 109, 1747 events, 1747 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000573, number of instances = 3
+   meantime = 12.000000, stddevtime = 1.414214
+ Sequence(2):
+   event (33) Cabinet_53 [276 276]
+   event (77) Pat_5 [277 278]
+Marked 3 events to compress, 0 duplicates, 1744 numnewevents
+
+------- Iteration 110, 1744 events, 1744 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000574, number of instances = 3
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (73) Pat_1 [12 13]
+   event (11) Shower_faucet_93 [14 14]
+Marked 3 events to compress, 0 duplicates, 1741 numnewevents
+
+------- Iteration 111, 1741 events, 1741 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000575, number of instances = 3
+   meantime = 11.666667, stddevtime = 3.681787
+ Sequence(2):
+   event (15) Cabinet_73 [93 93]
+   event (89) Pat_17 [94 95]
+Marked 3 events to compress, 0 duplicates, 1738 numnewevents
+
+------- Iteration 112, 1738 events, 1738 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000576, number of instances = 3
+   meantime = 12.000000, stddevtime = 4.546061
+ Sequence(2):
+   event (27) Light_switch_92 [1001 1001]
+   event (27) Light_switch_92 [1002 1002]
+Marked 3 events to compress, 0 duplicates, 1735 numnewevents
+
+------- Iteration 113, 1735 events, 1735 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000577, number of instances = 3
+   meantime = 14.000000, stddevtime = 5.354126
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [759 759]
+   event (78) Pat_6 [760 761]
+Marked 3 events to compress, 0 duplicates, 1732 numnewevents
+
+------- Iteration 114, 1732 events, 1732 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000578, number of instances = 3
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (72) Pat_0 [2265 2266]
+   event (72) Pat_0 [2267 2268]
+Marked 3 events to compress, 0 duplicates, 1729 numnewevents
+
+------- Iteration 115, 1729 events, 1729 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000579, number of instances = 3
+   meantime = 14.333333, stddevtime = 3.399346
+ Sequence(2):
+   event (33) Cabinet_53 [150 150]
+   event (79) Pat_7 [151 152]
+Marked 3 events to compress, 0 duplicates, 1726 numnewevents
+
+------- Iteration 116, 1726 events, 1726 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000580, number of instances = 3
+   meantime = 15.000000, stddevtime = 4.546061
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [1636 1636]
+   event (13) Drawer_75 [1637 1637]
+Marked 3 events to compress, 0 duplicates, 1723 numnewevents
+
+------- Iteration 117, 1723 events, 1723 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000581, number of instances = 3
+   meantime = 22.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (78) Pat_6 [1112 1113]
+   event (19) Sink_faucet_-_cold_88 [1114 1114]
+Marked 3 events to compress, 0 duplicates, 1720 numnewevents
+
+------- Iteration 118, 1720 events, 1720 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000582, number of instances = 3
+   meantime = 13.666667, stddevtime = 4.714046
+ Sequence(2):
+   event (12) Cabinet_72 [25 25]
+   event (15) Cabinet_73 [26 26]
+Marked 3 events to compress, 0 duplicates, 1717 numnewevents
+
+------- Iteration 119, 1717 events, 1717 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000583, number of instances = 3
+   meantime = 14.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (116) Pat_44 [1759 1760]
+   event (8) Microwave_143 [1761 1761]
+Marked 3 events to compress, 0 duplicates, 1714 numnewevents
+
+------- Iteration 120, 1714 events, 1714 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000584, number of instances = 3
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (76) Pat_4 [75 76]
+   event (29) Light_switch_104 [77 77]
+Marked 3 events to compress, 0 duplicates, 1711 numnewevents
+
+------- Iteration 121, 1711 events, 1711 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000585, number of instances = 3
+   meantime = 14.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (47) Cabinet_61 [324 324]
+   event (47) Cabinet_61 [325 325]
+Marked 3 events to compress, 0 duplicates, 1708 numnewevents
+
+------- Iteration 122, 1708 events, 1708 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000586, number of instances = 3
+   meantime = 15.666667, stddevtime = 3.771236
+ Sequence(2):
+   event (26) Cabinet_66 [2416 2416]
+   event (26) Cabinet_66 [2417 2417]
+Marked 3 events to compress, 0 duplicates, 1705 numnewevents
+
+------- Iteration 123, 1705 events, 1705 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000587, number of instances = 3
+   meantime = 17.333334, stddevtime = 4.496912
+ Sequence(2):
+   event (39) Cabinet_63 [163 163]
+   event (39) Cabinet_63 [164 164]
+Marked 3 events to compress, 0 duplicates, 1702 numnewevents
+
+------- Iteration 124, 1702 events, 1702 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000588, number of instances = 3
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (49) Drawer_52 [1021 1021]
+   event (49) Drawer_52 [1022 1022]
+Marked 3 events to compress, 0 duplicates, 1699 numnewevents
+
+------- Iteration 125, 1699 events, 1699 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.001179, number of instances = 2
+   meantime = 9.000000, stddevtime = 3.000000
+ Sequence(4):
+   event (35) Light_switch_120 [1259 1259]
+   event (26) Cabinet_66 [1260 1260]
+   event (82) Pat_10 [1261 1262]
+   event (60) Laundry_Dryer_90 [1263 1263]
+Marked 6 events to compress, 0 duplicates, 1693 numnewevents
+
+------- Iteration 126, 1693 events, 1693 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000591, number of instances = 3
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (91) Pat_19 [1003 1004]
+   event (91) Pat_19 [1005 1006]
+Marked 3 events to compress, 0 duplicates, 1690 numnewevents
+
+------- Iteration 127, 1690 events, 1690 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000592, number of instances = 3
+   meantime = 14.333333, stddevtime = 0.942809
+ Sequence(2):
+   event (53) Cabinet_83 [407 407]
+   event (53) Cabinet_83 [408 408]
+Marked 3 events to compress, 0 duplicates, 1687 numnewevents
+
+------- Iteration 128, 1687 events, 1687 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000593, number of instances = 3
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (107) Pat_35 [507 508]
+   event (107) Pat_35 [509 510]
+Marked 3 events to compress, 0 duplicates, 1684 numnewevents
+
+------- Iteration 129, 1684 events, 1684 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000594, number of instances = 3
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (108) Pat_36 [1030 1031]
+   event (108) Pat_36 [1032 1033]
+Marked 3 events to compress, 0 duplicates, 1681 numnewevents
+
+------- Iteration 130, 1681 events, 1681 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000595, number of instances = 3
+   meantime = 20.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (117) Pat_45 [155 156]
+   event (95) Pat_23 [157 160]
+Marked 3 events to compress, 0 duplicates, 1678 numnewevents
+
+------- Iteration 131, 1678 events, 1678 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (16) Dishwasher_70 [2311 2311]
+   event (135) Pat_63 [2312 2313]
+Marked 2 events to compress, 0 duplicates, 1676 numnewevents
+
+------- Iteration 132, 1676 events, 1676 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.500000, stddevtime = 3.500000
+ Sequence(2):
+   event (22) Freezer_137 [1994 1994]
+   event (14) Drawer_84 [1995 1995]
+Marked 2 events to compress, 0 duplicates, 1674 numnewevents
+
+------- Iteration 133, 1674 events, 1674 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (16) Dishwasher_70 [1506 1506]
+   event (68) Cabinet_132 [1507 1507]
+Marked 2 events to compress, 0 duplicates, 1672 numnewevents
+
+------- Iteration 134, 1672 events, 1672 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000598, number of instances = 2
+   meantime = 9.500000, stddevtime = 3.500000
+ Sequence(3):
+   event (33) Cabinet_53 [855 855]
+   event (92) Pat_20 [856 857]
+   event (14) Drawer_84 [858 858]
+Marked 4 events to compress, 0 duplicates, 1668 numnewevents
+
+------- Iteration 135, 1668 events, 1668 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (22) Freezer_137 [1485 1485]
+   event (68) Cabinet_132 [1486 1486]
+Marked 2 events to compress, 0 duplicates, 1666 numnewevents
+
+------- Iteration 136, 1666 events, 1666 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 1.500000
+ Sequence(2):
+   event (16) Dishwasher_70 [1465 1465]
+   event (133) Pat_61 [1466 1467]
+Marked 2 events to compress, 0 duplicates, 1664 numnewevents
+
+------- Iteration 137, 1664 events, 1664 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 18.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (2) Light_switch_101 [1979 1979]
+   event (28) Door_130 [1980 1980]
+Marked 2 events to compress, 0 duplicates, 1662 numnewevents
+
+------- Iteration 138, 1662 events, 1662 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.500000, stddevtime = 1.500000
+ Sequence(2):
+   event (7) Cabinet_80 [1568 1568]
+   event (35) Light_switch_120 [1569 1569]
+Marked 2 events to compress, 0 duplicates, 1660 numnewevents
+
+------- Iteration 139, 1660 events, 1660 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 3.000000
+ Sequence(2):
+   event (33) Cabinet_53 [2525 2525]
+   event (18) Refrigerator_91 [2526 2526]
+Marked 2 events to compress, 0 duplicates, 1658 numnewevents
+
+------- Iteration 140, 1658 events, 1658 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 1.500000
+ Sequence(2):
+   event (14) Drawer_84 [1443 1443]
+   event (37) Oven_129 [1444 1444]
+Marked 2 events to compress, 0 duplicates, 1656 numnewevents
+
+------- Iteration 141, 1656 events, 1656 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (30) Light_switch_105 [1407 1407]
+   event (22) Freezer_137 [1408 1408]
+Marked 2 events to compress, 0 duplicates, 1654 numnewevents
+
+------- Iteration 142, 1654 events, 1654 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000605, number of instances = 2
+   meantime = 8.000000, stddevtime = 1.000000
+ Sequence(3):
+   event (3) Medicine_cabinet_57 [1158 1158]
+   event (142) Pat_70 [1159 1160]
+   event (34) Exhaust_Fan_96 [1161 1161]
+Marked 4 events to compress, 0 duplicates, 1650 numnewevents
+
+------- Iteration 143, 1650 events, 1650 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (16) Dishwasher_70 [716 716]
+   event (14) Drawer_84 [717 717]
+Marked 2 events to compress, 0 duplicates, 1648 numnewevents
+
+------- Iteration 144, 1648 events, 1648 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 4.500000, stddevtime = 4.500000
+ Sequence(2):
+   event (2) Light_switch_101 [1640 1640]
+   event (19) Sink_faucet_-_cold_88 [1641 1641]
+Marked 2 events to compress, 0 duplicates, 1646 numnewevents
+
+------- Iteration 145, 1646 events, 1646 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (7) Cabinet_80 [1387 1387]
+   event (77) Pat_5 [1388 1389]
+Marked 2 events to compress, 0 duplicates, 1644 numnewevents
+
+------- Iteration 146, 1644 events, 1644 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (18) Refrigerator_91 [1693 1693]
+   event (43) Cabinet_59 [1694 1694]
+Marked 2 events to compress, 0 duplicates, 1642 numnewevents
+
+------- Iteration 147, 1642 events, 1642 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (89) Pat_17 [1074 1075]
+   event (22) Freezer_137 [1076 1076]
+Marked 2 events to compress, 0 duplicates, 1640 numnewevents
+
+------- Iteration 148, 1640 events, 1640 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.500000, stddevtime = 4.500000
+ Sequence(2):
+   event (34) Exhaust_Fan_96 [850 850]
+   event (98) Pat_26 [851 852]
+Marked 2 events to compress, 0 duplicates, 1638 numnewevents
+
+------- Iteration 149, 1638 events, 1638 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 4.000000
+ Sequence(2):
+   event (3) Medicine_cabinet_57 [641 641]
+   event (16) Dishwasher_70 [642 642]
+Marked 2 events to compress, 0 duplicates, 1636 numnewevents
+
+------- Iteration 150, 1636 events, 1636 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (84) Pat_12 [2251 2252]
+   event (32) Toaster_131 [2253 2253]
+Marked 2 events to compress, 0 duplicates, 1634 numnewevents
+
+------- Iteration 151, 1634 events, 1634 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 5.000000
+ Sequence(2):
+   event (2) Light_switch_101 [1433 1433]
+   event (0) Cabinet_67 [1434 1434]
+Marked 2 events to compress, 0 duplicates, 1632 numnewevents
+
+------- Iteration 152, 1632 events, 1632 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 2.000000
+ Sequence(2):
+   event (7) Cabinet_80 [832 832]
+   event (155) Pat_83 [833 834]
+Marked 2 events to compress, 0 duplicates, 1630 numnewevents
+
+------- Iteration 153, 1630 events, 1630 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (18) Refrigerator_91 [1684 1684]
+   event (46) Refrigerator_144 [1685 1685]
+Marked 2 events to compress, 0 duplicates, 1628 numnewevents
+
+------- Iteration 154, 1628 events, 1628 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (14) Drawer_84 [994 994]
+   event (119) Pat_47 [995 996]
+Marked 2 events to compress, 0 duplicates, 1626 numnewevents
+
+------- Iteration 155, 1626 events, 1626 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 2.500000
+ Sequence(2):
+   event (22) Freezer_137 [878 878]
+   event (32) Toaster_131 [879 879]
+Marked 2 events to compress, 0 duplicates, 1624 numnewevents
+
+------- Iteration 156, 1624 events, 1624 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 21.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (6) Drawer_71 [636 636]
+   event (34) Exhaust_Fan_96 [637 637]
+Marked 2 events to compress, 0 duplicates, 1622 numnewevents
+
+------- Iteration 157, 1622 events, 1622 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (50) Jewelry_box_139 [397 397]
+   event (16) Dishwasher_70 [398 398]
+Marked 2 events to compress, 0 duplicates, 1620 numnewevents
+
+------- Iteration 158, 1620 events, 1620 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [2427 2427]
+   event (1) Toilet_Flush_100 [2428 2428]
+Marked 2 events to compress, 0 duplicates, 1618 numnewevents
+
+------- Iteration 159, 1618 events, 1618 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (28) Door_130 [1390 1390]
+   event (2) Light_switch_101 [1391 1391]
+Marked 2 events to compress, 0 duplicates, 1616 numnewevents
+
+------- Iteration 160, 1616 events, 1616 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.500000, stddevtime = 2.500000
+ Sequence(2):
+   event (41) Cabinet_51 [405 405]
+   event (7) Cabinet_80 [406 406]
+Marked 2 events to compress, 0 duplicates, 1614 numnewevents
+
+------- Iteration 161, 1614 events, 1614 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 2.000000
+ Sequence(2):
+   event (18) Refrigerator_91 [215 215]
+   event (21) Door_140 [216 216]
+Marked 2 events to compress, 0 duplicates, 1612 numnewevents
+
+------- Iteration 162, 1612 events, 1612 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (79) Pat_7 [49 50]
+   event (14) Drawer_84 [51 51]
+Marked 2 events to compress, 0 duplicates, 1610 numnewevents
+
+------- Iteration 163, 1610 events, 1610 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (96) Pat_24 [264 267]
+   event (22) Freezer_137 [268 268]
+Marked 2 events to compress, 0 duplicates, 1608 numnewevents
+
+------- Iteration 164, 1608 events, 1608 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (86) Pat_14 [115 117]
+   event (34) Exhaust_Fan_96 [118 118]
+Marked 2 events to compress, 0 duplicates, 1606 numnewevents
+
+------- Iteration 165, 1606 events, 1606 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 4.000000
+ Sequence(2):
+   event (64) Closet_81 [1525 1525]
+   event (32) Toaster_131 [1526 1526]
+Marked 2 events to compress, 0 duplicates, 1604 numnewevents
+
+------- Iteration 166, 1604 events, 1604 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (16) Dishwasher_70 [366 366]
+   event (9) Cabinet_55 [367 367]
+Marked 2 events to compress, 0 duplicates, 1602 numnewevents
+
+------- Iteration 167, 1602 events, 1602 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 18.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (11) Shower_faucet_93 [1740 1740]
+   event (4) Medicine_cabinet_58 [1741 1741]
+Marked 2 events to compress, 0 duplicates, 1600 numnewevents
+
+------- Iteration 168, 1600 events, 1600 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 18.500000, stddevtime = 2.500000
+ Sequence(2):
+   event (28) Door_130 [764 764]
+   event (50) Jewelry_box_139 [765 765]
+Marked 2 events to compress, 0 duplicates, 1598 numnewevents
+
+------- Iteration 169, 1598 events, 1598 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (0) Cabinet_67 [1128 1128]
+   event (72) Pat_0 [1129 1130]
+Marked 2 events to compress, 0 duplicates, 1596 numnewevents
+
+------- Iteration 170, 1596 events, 1596 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 6.000000
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [222 222]
+   event (1) Toilet_Flush_100 [223 223]
+Marked 2 events to compress, 0 duplicates, 1594 numnewevents
+
+------- Iteration 171, 1594 events, 1594 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (1) Toilet_Flush_100 [2 2]
+   event (2) Light_switch_101 [3 3]
+Marked 2 events to compress, 0 duplicates, 1592 numnewevents
+
+------- Iteration 172, 1592 events, 1592 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (8) Microwave_143 [314 314]
+   event (7) Cabinet_80 [315 315]
+Marked 2 events to compress, 0 duplicates, 1590 numnewevents
+
+------- Iteration 173, 1590 events, 1590 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 3.000000
+ Sequence(2):
+   event (37) Oven_129 [145 145]
+   event (18) Refrigerator_91 [146 146]
+Marked 2 events to compress, 0 duplicates, 1588 numnewevents
+
+------- Iteration 174, 1588 events, 1588 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (18) Refrigerator_91 [40 40]
+   event (14) Drawer_84 [41 41]
+Marked 2 events to compress, 0 duplicates, 1586 numnewevents
+
+------- Iteration 175, 1586 events, 1586 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 6.000000
+ Sequence(2):
+   event (25) Drawer_62 [1137 1137]
+   event (64) Closet_81 [1138 1138]
+Marked 2 events to compress, 0 duplicates, 1584 numnewevents
+
+------- Iteration 176, 1584 events, 1584 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (11) Shower_faucet_93 [1378 1378]
+   event (28) Door_130 [1379 1379]
+Marked 2 events to compress, 0 duplicates, 1582 numnewevents
+
+------- Iteration 177, 1582 events, 1582 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 4.000000
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [1878 1878]
+   event (32) Toaster_131 [1879 1879]
+Marked 2 events to compress, 0 duplicates, 1580 numnewevents
+
+------- Iteration 178, 1580 events, 1580 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (50) Jewelry_box_139 [380 380]
+   event (84) Pat_12 [381 382]
+Marked 2 events to compress, 0 duplicates, 1578 numnewevents
+
+------- Iteration 179, 1578 events, 1578 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 7.000000
+ Sequence(2):
+   event (0) Cabinet_67 [845 845]
+   event (4) Medicine_cabinet_58 [846 846]
+Marked 2 events to compress, 0 duplicates, 1576 numnewevents
+
+------- Iteration 180, 1576 events, 1576 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (28) Door_130 [1986 1986]
+   event (9) Cabinet_55 [1987 1987]
+Marked 2 events to compress, 0 duplicates, 1574 numnewevents
+
+------- Iteration 181, 1574 events, 1574 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (47) Cabinet_61 [743 743]
+   event (15) Cabinet_73 [744 744]
+Marked 2 events to compress, 0 duplicates, 1572 numnewevents
+
+------- Iteration 182, 1572 events, 1572 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (131) Pat_59 [1404 1405]
+   event (3) Medicine_cabinet_57 [1406 1406]
+Marked 2 events to compress, 0 duplicates, 1570 numnewevents
+
+------- Iteration 183, 1570 events, 1570 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (64) Closet_81 [952 952]
+   event (4) Medicine_cabinet_58 [953 953]
+Marked 2 events to compress, 0 duplicates, 1568 numnewevents
+
+------- Iteration 184, 1568 events, 1568 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (27) Light_switch_92 [1974 1974]
+   event (13) Drawer_75 [1975 1975]
+Marked 2 events to compress, 0 duplicates, 1566 numnewevents
+
+------- Iteration 185, 1566 events, 1566 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 20.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (11) Shower_faucet_93 [1106 1106]
+   event (110) Pat_38 [1107 1108]
+Marked 2 events to compress, 0 duplicates, 1564 numnewevents
+
+------- Iteration 186, 1564 events, 1564 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 5.000000
+ Sequence(2):
+   event (32) Toaster_131 [787 787]
+   event (12) Cabinet_72 [788 788]
+Marked 2 events to compress, 0 duplicates, 1562 numnewevents
+
+------- Iteration 187, 1562 events, 1562 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 7.000000
+ Sequence(2):
+   event (20) Sink_faucet_-_hot_68 [921 921]
+   event (101) Pat_29 [922 923]
+Marked 2 events to compress, 0 duplicates, 1560 numnewevents
+
+------- Iteration 188, 1560 events, 1560 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (0) Cabinet_67 [778 778]
+   event (19) Sink_faucet_-_cold_88 [779 779]
+Marked 2 events to compress, 0 duplicates, 1558 numnewevents
+
+------- Iteration 189, 1558 events, 1558 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 3.000000
+ Sequence(2):
+   event (9) Cabinet_55 [1459 1459]
+   event (33) Cabinet_53 [1460 1460]
+Marked 2 events to compress, 0 duplicates, 1556 numnewevents
+
+------- Iteration 190, 1556 events, 1556 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (28) Door_130 [70 70]
+   event (1) Toilet_Flush_100 [71 71]
+Marked 2 events to compress, 0 duplicates, 1554 numnewevents
+
+------- Iteration 191, 1554 events, 1554 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.000000, stddevtime = 3.000000
+ Sequence(2):
+   event (15) Cabinet_73 [30 30]
+   event (15) Cabinet_73 [31 31]
+Marked 2 events to compress, 0 duplicates, 1552 numnewevents
+
+------- Iteration 192, 1552 events, 1552 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (76) Pat_4 [875 876]
+   event (21) Door_140 [877 877]
+Marked 2 events to compress, 0 duplicates, 1550 numnewevents
+
+------- Iteration 193, 1550 events, 1550 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 20.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (77) Pat_5 [1841 1842]
+   event (87) Pat_15 [1843 1844]
+Marked 2 events to compress, 0 duplicates, 1548 numnewevents
+
+------- Iteration 194, 1548 events, 1548 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (74) Pat_2 [142 143]
+   event (33) Cabinet_53 [144 144]
+Marked 2 events to compress, 0 duplicates, 1546 numnewevents
+
+------- Iteration 195, 1546 events, 1546 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.500000, stddevtime = 4.500000
+ Sequence(2):
+   event (13) Drawer_75 [1921 1921]
+   event (27) Light_switch_92 [1922 1922]
+Marked 2 events to compress, 0 duplicates, 1544 numnewevents
+
+------- Iteration 196, 1544 events, 1544 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (21) Door_140 [813 813]
+   event (11) Shower_faucet_93 [814 814]
+Marked 2 events to compress, 0 duplicates, 1542 numnewevents
+
+------- Iteration 197, 1542 events, 1542 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (104) Pat_32 [1060 1061]
+   event (72) Pat_0 [1062 1063]
+Marked 2 events to compress, 0 duplicates, 1540 numnewevents
+
+------- Iteration 198, 1540 events, 1540 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (181) Pat_109 [1939 1941]
+   event (8) Microwave_143 [1942 1942]
+Marked 2 events to compress, 0 duplicates, 1538 numnewevents
+
+------- Iteration 199, 1538 events, 1538 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 7.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (76) Pat_4 [35 36]
+   event (102) Pat_30 [37 38]
+Marked 2 events to compress, 0 duplicates, 1536 numnewevents
+
+------- Iteration 200, 1536 events, 1536 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 20.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (109) Pat_37 [1461 1462]
+   event (85) Pat_13 [1463 1464]
+Marked 2 events to compress, 0 duplicates, 1534 numnewevents
+
+------- Iteration 201, 1534 events, 1534 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 20.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (77) Pat_5 [1675 1676]
+   event (46) Refrigerator_144 [1677 1677]
+Marked 2 events to compress, 0 duplicates, 1532 numnewevents
+
+------- Iteration 202, 1532 events, 1532 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (73) Pat_1 [1649 1650]
+   event (10) Door_54 [1651 1651]
+Marked 2 events to compress, 0 duplicates, 1530 numnewevents
+
+------- Iteration 203, 1530 events, 1530 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.500000, stddevtime = 4.500000
+ Sequence(2):
+   event (27) Light_switch_92 [604 604]
+   event (25) Drawer_62 [605 605]
+Marked 2 events to compress, 0 duplicates, 1528 numnewevents
+
+------- Iteration 204, 1528 events, 1528 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.500000, stddevtime = 4.500000
+ Sequence(2):
+   event (19) Sink_faucet_-_cold_88 [1608 1608]
+   event (90) Pat_18 [1609 1610]
+Marked 2 events to compress, 0 duplicates, 1526 numnewevents
+
+------- Iteration 205, 1526 events, 1526 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.500000, stddevtime = 10.500000
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [1121 1121]
+   event (19) Sink_faucet_-_cold_88 [1122 1122]
+Marked 2 events to compress, 0 duplicates, 1524 numnewevents
+
+------- Iteration 206, 1524 events, 1524 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000657, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(3):
+   event (13) Drawer_75 [799 799]
+   event (83) Pat_11 [800 801]
+   event (83) Pat_11 [802 803]
+Marked 4 events to compress, 0 duplicates, 1520 numnewevents
+
+------- Iteration 207, 1520 events, 1520 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (96) Pat_24 [253 256]
+   event (73) Pat_1 [257 258]
+Marked 2 events to compress, 0 duplicates, 1518 numnewevents
+
+------- Iteration 208, 1518 events, 1518 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.500000, stddevtime = 5.500000
+ Sequence(2):
+   event (12) Cabinet_72 [209 209]
+   event (89) Pat_17 [210 211]
+Marked 2 events to compress, 0 duplicates, 1516 numnewevents
+
+------- Iteration 209, 1516 events, 1516 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (87) Pat_15 [304 305]
+   event (87) Pat_15 [306 307]
+Marked 2 events to compress, 0 duplicates, 1514 numnewevents
+
+------- Iteration 210, 1514 events, 1514 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 20.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (6) Drawer_71 [2176 2176]
+   event (6) Drawer_71 [2177 2177]
+Marked 2 events to compress, 0 duplicates, 1512 numnewevents
+
+------- Iteration 211, 1512 events, 1512 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (4) Medicine_cabinet_58 [606 606]
+   event (93) Pat_21 [607 608]
+Marked 2 events to compress, 0 duplicates, 1510 numnewevents
+
+------- Iteration 212, 1510 events, 1510 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.500000, stddevtime = 1.500000
+ Sequence(2):
+   event (56) Cabinet_79 [2271 2271]
+   event (56) Cabinet_79 [2272 2272]
+Marked 2 events to compress, 0 duplicates, 1508 numnewevents
+
+------- Iteration 213, 1508 events, 1508 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (86) Pat_14 [1602 1604]
+   event (28) Door_130 [1605 1605]
+Marked 2 events to compress, 0 duplicates, 1506 numnewevents
+
+------- Iteration 214, 1506 events, 1506 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 12.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (183) Pat_111 [93 95]
+   event (12) Cabinet_72 [96 96]
+Marked 2 events to compress, 0 duplicates, 1504 numnewevents
+
+------- Iteration 215, 1504 events, 1504 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 22.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (78) Pat_6 [1579 1580]
+   event (101) Pat_29 [1581 1582]
+Marked 2 events to compress, 0 duplicates, 1502 numnewevents
+
+------- Iteration 216, 1502 events, 1502 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (108) Pat_36 [861 862]
+   event (94) Pat_22 [863 864]
+Marked 2 events to compress, 0 duplicates, 1500 numnewevents
+
+------- Iteration 217, 1500 events, 1500 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (54) Cabinet_138 [2240 2240]
+   event (68) Cabinet_132 [2241 2241]
+Marked 2 events to compress, 0 duplicates, 1498 numnewevents
+
+------- Iteration 218, 1498 events, 1498 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (61) Garbage_disposal_98 [1493 1493]
+   event (61) Garbage_disposal_98 [1494 1494]
+Marked 2 events to compress, 0 duplicates, 1496 numnewevents
+
+------- Iteration 219, 1496 events, 1496 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (21) Door_140 [87 87]
+   event (29) Light_switch_104 [88 88]
+Marked 2 events to compress, 0 duplicates, 1494 numnewevents
+
+------- Iteration 220, 1494 events, 1494 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000670, number of instances = 2
+   meantime = 20.500000, stddevtime = 1.500000
+ Sequence(3):
+   event (55) Door_141 [1251 1251]
+   event (82) Pat_10 [1252 1253]
+   event (58) Washing_Machine_142 [1254 1254]
+Marked 4 events to compress, 0 duplicates, 1490 numnewevents
+
+------- Iteration 221, 1490 events, 1490 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 14.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (99) Pat_27 [342 343]
+   event (99) Pat_27 [344 345]
+Marked 2 events to compress, 0 duplicates, 1488 numnewevents
+
+------- Iteration 222, 1488 events, 1488 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (49) Drawer_52 [435 435]
+   event (42) Drawer_69 [436 436]
+Marked 2 events to compress, 0 duplicates, 1486 numnewevents
+
+------- Iteration 223, 1486 events, 1486 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (10) Door_54 [581 581]
+   event (75) Pat_3 [582 584]
+Marked 2 events to compress, 0 duplicates, 1484 numnewevents
+
+------- Iteration 224, 1484 events, 1484 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000674, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(3):
+   event (51) Burner_99 [522 522]
+   event (51) Burner_99 [523 523]
+   event (51) Burner_99 [524 524]
+Marked 4 events to compress, 0 duplicates, 1480 numnewevents
+
+------- Iteration 225, 1480 events, 1480 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (54) Cabinet_138 [439 439]
+   event (54) Cabinet_138 [440 440]
+Marked 2 events to compress, 0 duplicates, 1478 numnewevents
+
+------- Iteration 226, 1478 events, 1478 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (57) Burner_106 [480 480]
+   event (57) Burner_106 [481 481]
+Marked 2 events to compress, 0 duplicates, 1476 numnewevents
+
+------- Iteration 227, 1476 events, 1476 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 6.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (174) Pat_102 [1266 1267]
+   event (86) Pat_14 [1268 1270]
+Marked 2 events to compress, 0 duplicates, 1474 numnewevents
+
+------- Iteration 228, 1474 events, 1474 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (171) Pat_99 [197 198]
+   event (91) Pat_19 [199 200]
+Marked 2 events to compress, 0 duplicates, 1472 numnewevents
+
+------- Iteration 229, 1472 events, 1472 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 13.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (124) Pat_52 [529 530]
+   event (124) Pat_52 [531 532]
+Marked 2 events to compress, 0 duplicates, 1470 numnewevents
+
+------- Iteration 230, 1470 events, 1470 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (82) Pat_10 [655 656]
+   event (96) Pat_24 [657 660]
+Marked 2 events to compress, 0 duplicates, 1468 numnewevents
+
+------- Iteration 231, 1468 events, 1468 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (52) Drawer_87 [399 399]
+   event (52) Drawer_87 [400 400]
+Marked 2 events to compress, 0 duplicates, 1466 numnewevents
+
+------- Iteration 232, 1466 events, 1466 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (59) Burner_118 [491 491]
+   event (121) Pat_49 [492 494]
+Marked 2 events to compress, 0 duplicates, 1464 numnewevents
+
+------- Iteration 233, 1464 events, 1464 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 21.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (101) Pat_29 [1598 1599]
+   event (179) Pat_107 [1600 1601]
+Marked 2 events to compress, 0 duplicates, 1462 numnewevents
+
+------- Iteration 234, 1462 events, 1462 size -------
+
+No more compression can be achieved.	Done.
+
+Clustering patterns...
+Pattern (0): (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (1): (10) Door_54 (10) Door_54 
+Pattern (2): (18) Refrigerator_91 (22) Freezer_137 
+Pattern (3): (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+Pattern (4): (21) Door_140 (21) Door_140 
+Pattern (5): (18) Refrigerator_91 (18) Refrigerator_91 
+Pattern (6): (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+Pattern (7): (9) Cabinet_55 (14) Drawer_84 
+Pattern (8): (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+Pattern (9): (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 
+Pattern (10): (55) Door_141 (58) Washing_Machine_142 
+Pattern (11): (55) Door_141 (60) Laundry_Dryer_90 
+Pattern (12): (32) Toaster_131 (32) Toaster_131 
+Pattern (13): (7) Cabinet_80 (18) Refrigerator_91 
+Pattern (14): (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (15): (8) Microwave_143 (8) Microwave_143 
+Pattern (16): (16) Dishwasher_70 (16) Dishwasher_70 
+Pattern (17): (15) Cabinet_73 (12) Cabinet_72 
+Pattern (18): (28) Door_130 (28) Door_130 
+Pattern (19): (5) Drawer_82 (5) Drawer_82 
+Pattern (20): (33) Cabinet_53 (14) Drawer_84 
+Pattern (21): (0) Cabinet_67 (0) Cabinet_67 
+Pattern (22): (22) Freezer_137 (18) Refrigerator_91 
+Pattern (23): (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Pattern (24): (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+Pattern (25): (0) Cabinet_67 (20) Sink_faucet_-_hot_68 
+Pattern (26): (13) Drawer_75 (13) Drawer_75 
+Pattern (27): (17) Drawer_135 (17) Drawer_135 
+Pattern (28): (8) Microwave_143 (14) Drawer_84 
+Pattern (29): (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+Pattern (30): (22) Freezer_137 (9) Cabinet_55 
+Pattern (31): (26) Cabinet_66 (16) Dishwasher_70 
+Pattern (32): (50) Jewelry_box_139 (21) Door_140 
+Pattern (33): (28) Door_130 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (34): (60) Laundry_Dryer_90 (55) Door_141 (58) Washing_Machine_142 
+Pattern (35): (59) Burner_118 (59) Burner_118 
+Pattern (36): (66) Containers_60 (66) Containers_60 
+Pattern (37): (12) Cabinet_72 (14) Drawer_84 
+Pattern (38): (0) Cabinet_67 (3) Medicine_cabinet_57 
+Pattern (39): (3) Medicine_cabinet_57 (4) Medicine_cabinet_58 
+Pattern (40): (22) Freezer_137 (22) Freezer_137 
+Pattern (41): (25) Drawer_62 (13) Drawer_75 
+Pattern (42): (43) Cabinet_59 (26) Cabinet_66 
+Pattern (43): (14) Drawer_84 (14) Drawer_84 
+Pattern (44): (45) Refrigerator_126 (18) Refrigerator_91 
+Pattern (45): (1) Toilet_Flush_100 (1) Toilet_Flush_100 
+Pattern (46): (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+Pattern (47): (9) Cabinet_55 (7) Cabinet_80 
+Pattern (48): (12) Cabinet_72 (12) Cabinet_72 
+Pattern (49): (58) Washing_Machine_142 (58) Washing_Machine_142 (58) Washing_Machine_142 
+Pattern (50): (5) Drawer_82 (13) Drawer_75 
+Pattern (51): (31) Drawer_78 (31) Drawer_78 
+Pattern (52): (23) Burner_94 (23) Burner_94 
+Pattern (53): (55) Door_141 (60) Laundry_Dryer_90 (58) Washing_Machine_142 
+Pattern (54): (3) Medicine_cabinet_57 (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+Pattern (55): (0) Cabinet_67 (56) Cabinet_79 
+Pattern (56): (16) Dishwasher_70 (26) Cabinet_66 
+Pattern (57): (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Pattern (58): (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (3) Medicine_cabinet_57 
+Pattern (59): (50) Jewelry_box_139 (28) Door_130 
+Pattern (60): (1) Toilet_Flush_100 (11) Shower_faucet_93 
+Pattern (61): (37) Oven_129 (37) Oven_129 
+Pattern (62): (48) Drawer_125 (48) Drawer_125 
+Pattern (63): (60) Laundry_Dryer_90 (55) Door_141 
+Pattern (64): (14) Drawer_84 (18) Refrigerator_91 
+Pattern (65): (2) Light_switch_101 (20) Sink_faucet_-_hot_68 
+Pattern (66): (28) Door_130 (0) Cabinet_67 
+Pattern (67): (2) Light_switch_101 (11) Shower_faucet_93 
+Pattern (68): (18) Refrigerator_91 (22) Freezer_137 (18) Refrigerator_91 
+Pattern (69): (0) Cabinet_67 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+Pattern (70): (3) Medicine_cabinet_57 (34) Exhaust_Fan_96 
+Pattern (71): (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+Pattern (72): (32) Toaster_131 (22) Freezer_137 
+Pattern (73): (50) Jewelry_box_139 (21) Door_140 (21) Door_140 
+Pattern (74): (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Pattern (75): (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 
+Pattern (76): (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+Pattern (77): (28) Door_130 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+Pattern (78): (43) Cabinet_59 (43) Cabinet_59 
+Pattern (79): (16) Dishwasher_70 (16) Dishwasher_70 (16) Dishwasher_70 (16) Dishwasher_70 
+Pattern (80): (18) Refrigerator_91 (22) Freezer_137 (14) Drawer_84 
+Pattern (81): (14) Drawer_84 (16) Dishwasher_70 
+Pattern (82): (33) Cabinet_53 (16) Dishwasher_70 
+Pattern (83): (39) Cabinet_63 (14) Drawer_84 
+Pattern (84): (2) Light_switch_101 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (85): (8) Microwave_143 (18) Refrigerator_91 
+Pattern (86): (16) Dishwasher_70 (18) Refrigerator_91 
+Pattern (87): (14) Drawer_84 (12) Cabinet_72 
+Pattern (88): (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 (0) Cabinet_67 
+Pattern (89): (3) Medicine_cabinet_57 (2) Light_switch_101 
+Pattern (90): (7) Cabinet_80 (18) Refrigerator_91 (22) Freezer_137 
+Pattern (91): (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (50) Jewelry_box_139 
+Pattern (92): (1) Toilet_Flush_100 (0) Cabinet_67 
+Pattern (93): (2) Light_switch_101 (4) Medicine_cabinet_58 
+Pattern (94): (33) Cabinet_53 (7) Cabinet_80 
+Pattern (95): (17) Drawer_135 (18) Refrigerator_91 
+Pattern (96): (20) Sink_faucet_-_hot_68 (3) Medicine_cabinet_57 
+Pattern (97): (13) Drawer_75 (32) Toaster_131 
+Pattern (98): (50) Jewelry_box_139 (50) Jewelry_box_139 
+Pattern (99): (3) Medicine_cabinet_57 (0) Cabinet_67 
+Pattern (100): (33) Cabinet_53 (9) Cabinet_55 
+Pattern (101): (9) Cabinet_55 (14) Drawer_84 (32) Toaster_131 
+Pattern (102): (64) Closet_81 (64) Closet_81 
+Pattern (103): (11) Shower_faucet_93 (56) Cabinet_79 
+Pattern (104): (15) Cabinet_73 (65) Cereal_145 
+Pattern (105): (0) Cabinet_67 (5) Drawer_82 
+Pattern (106): (1) Toilet_Flush_100 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Pattern (107): (19) Sink_faucet_-_cold_88 (28) Door_130 
+Pattern (108): (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 (3) Medicine_cabinet_57 
+Pattern (109): (33) Cabinet_53 (18) Refrigerator_91 (18) Refrigerator_91 
+Pattern (110): (10) Door_54 (10) Door_54 (11) Shower_faucet_93 
+Pattern (111): (15) Cabinet_73 (15) Cabinet_73 (12) Cabinet_72 
+Pattern (112): (27) Light_switch_92 (27) Light_switch_92 
+Pattern (113): (4) Medicine_cabinet_58 (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+Pattern (114): (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (115): (33) Cabinet_53 (9) Cabinet_55 (14) Drawer_84 
+Pattern (116): (20) Sink_faucet_-_hot_68 (13) Drawer_75 
+Pattern (117): (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+Pattern (118): (12) Cabinet_72 (15) Cabinet_73 
+Pattern (119): (45) Refrigerator_126 (18) Refrigerator_91 (8) Microwave_143 
+Pattern (120): (21) Door_140 (21) Door_140 (29) Light_switch_104 
+Pattern (121): (47) Cabinet_61 (47) Cabinet_61 
+Pattern (122): (26) Cabinet_66 (26) Cabinet_66 
+Pattern (123): (39) Cabinet_63 (39) Cabinet_63 
+Pattern (124): (49) Drawer_52 (49) Drawer_52 
+Pattern (125): (35) Light_switch_120 (26) Cabinet_66 (55) Door_141 (58) Washing_Machine_142 (60) Laundry_Dryer_90 
+Pattern (126): (5) Drawer_82 (5) Drawer_82 (5) Drawer_82 (5) Drawer_82 
+Pattern (127): (53) Cabinet_83 (53) Cabinet_83 
+Pattern (128): (59) Burner_118 (59) Burner_118 (59) Burner_118 (59) Burner_118 
+Pattern (129): (66) Containers_60 (66) Containers_60 (66) Containers_60 (66) Containers_60 
+Pattern (130): (1) Toilet_Flush_100 (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Pattern (131): (16) Dishwasher_70 (60) Laundry_Dryer_90 (55) Door_141 
+Pattern (132): (22) Freezer_137 (14) Drawer_84 
+Pattern (133): (16) Dishwasher_70 (68) Cabinet_132 
+Pattern (134): (33) Cabinet_53 (33) Cabinet_53 (14) Drawer_84 (14) Drawer_84 
+Pattern (135): (22) Freezer_137 (68) Cabinet_132 
+Pattern (136): (16) Dishwasher_70 (37) Oven_129 (37) Oven_129 
+Pattern (137): (2) Light_switch_101 (28) Door_130 
+Pattern (138): (7) Cabinet_80 (35) Light_switch_120 
+Pattern (139): (33) Cabinet_53 (18) Refrigerator_91 
+Pattern (140): (14) Drawer_84 (37) Oven_129 
+Pattern (141): (30) Light_switch_105 (22) Freezer_137 
+Pattern (142): (3) Medicine_cabinet_57 (3) Medicine_cabinet_57 (34) Exhaust_Fan_96 (34) Exhaust_Fan_96 
+Pattern (143): (16) Dishwasher_70 (14) Drawer_84 
+Pattern (144): (2) Light_switch_101 (19) Sink_faucet_-_cold_88 
+Pattern (145): (7) Cabinet_80 (18) Refrigerator_91 (18) Refrigerator_91 
+Pattern (146): (18) Refrigerator_91 (43) Cabinet_59 
+Pattern (147): (15) Cabinet_73 (12) Cabinet_72 (22) Freezer_137 
+Pattern (148): (34) Exhaust_Fan_96 (13) Drawer_75 (13) Drawer_75 
+Pattern (149): (3) Medicine_cabinet_57 (16) Dishwasher_70 
+Pattern (150): (32) Toaster_131 (32) Toaster_131 (32) Toaster_131 
+Pattern (151): (2) Light_switch_101 (0) Cabinet_67 
+Pattern (152): (7) Cabinet_80 (39) Cabinet_63 (14) Drawer_84 
+Pattern (153): (18) Refrigerator_91 (46) Refrigerator_144 
+Pattern (154): (14) Drawer_84 (9) Cabinet_55 (7) Cabinet_80 
+Pattern (155): (22) Freezer_137 (32) Toaster_131 
+Pattern (156): (6) Drawer_71 (34) Exhaust_Fan_96 
+Pattern (157): (50) Jewelry_box_139 (16) Dishwasher_70 
+Pattern (158): (19) Sink_faucet_-_cold_88 (1) Toilet_Flush_100 
+Pattern (159): (28) Door_130 (2) Light_switch_101 
+Pattern (160): (41) Cabinet_51 (7) Cabinet_80 
+Pattern (161): (18) Refrigerator_91 (21) Door_140 
+Pattern (162): (9) Cabinet_55 (14) Drawer_84 (14) Drawer_84 
+Pattern (163): (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (22) Freezer_137 
+Pattern (164): (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (34) Exhaust_Fan_96 
+Pattern (165): (64) Closet_81 (32) Toaster_131 
+Pattern (166): (16) Dishwasher_70 (9) Cabinet_55 
+Pattern (167): (11) Shower_faucet_93 (4) Medicine_cabinet_58 
+Pattern (168): (28) Door_130 (50) Jewelry_box_139 
+Pattern (169): (0) Cabinet_67 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (170): (4) Medicine_cabinet_58 (1) Toilet_Flush_100 
+Pattern (171): (1) Toilet_Flush_100 (2) Light_switch_101 
+Pattern (172): (8) Microwave_143 (7) Cabinet_80 
+Pattern (173): (37) Oven_129 (18) Refrigerator_91 
+Pattern (174): (18) Refrigerator_91 (14) Drawer_84 
+Pattern (175): (25) Drawer_62 (64) Closet_81 
+Pattern (176): (11) Shower_faucet_93 (28) Door_130 
+Pattern (177): (20) Sink_faucet_-_hot_68 (32) Toaster_131 
+Pattern (178): (50) Jewelry_box_139 (32) Toaster_131 (32) Toaster_131 
+Pattern (179): (0) Cabinet_67 (4) Medicine_cabinet_58 
+Pattern (180): (28) Door_130 (9) Cabinet_55 
+Pattern (181): (47) Cabinet_61 (15) Cabinet_73 
+Pattern (182): (50) Jewelry_box_139 (28) Door_130 (3) Medicine_cabinet_57 
+Pattern (183): (64) Closet_81 (4) Medicine_cabinet_58 
+Pattern (184): (27) Light_switch_92 (13) Drawer_75 
+Pattern (185): (11) Shower_faucet_93 (0) Cabinet_67 (3) Medicine_cabinet_57 
+Pattern (186): (32) Toaster_131 (12) Cabinet_72 
+Pattern (187): (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+Pattern (188): (0) Cabinet_67 (19) Sink_faucet_-_cold_88 
+Pattern (189): (9) Cabinet_55 (33) Cabinet_53 
+Pattern (190): (28) Door_130 (1) Toilet_Flush_100 
+Pattern (191): (15) Cabinet_73 (15) Cabinet_73 
+Pattern (192): (21) Door_140 (21) Door_140 (21) Door_140 
+Pattern (193): (18) Refrigerator_91 (18) Refrigerator_91 (8) Microwave_143 (8) Microwave_143 
+Pattern (194): (18) Refrigerator_91 (22) Freezer_137 (33) Cabinet_53 
+Pattern (195): (13) Drawer_75 (27) Light_switch_92 
+Pattern (196): (21) Door_140 (11) Shower_faucet_93 
+Pattern (197): (50) Jewelry_box_139 (21) Door_140 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (198): (33) Cabinet_53 (18) Refrigerator_91 (18) Refrigerator_91 (8) Microwave_143 
+Pattern (199): (21) Door_140 (21) Door_140 (22) Freezer_137 (9) Cabinet_55 
+Pattern (200): (12) Cabinet_72 (14) Drawer_84 (7) Cabinet_80 (18) Refrigerator_91 
+Pattern (201): (18) Refrigerator_91 (18) Refrigerator_91 (46) Refrigerator_144 
+Pattern (202): (10) Door_54 (10) Door_54 (10) Door_54 
+Pattern (203): (27) Light_switch_92 (25) Drawer_62 
+Pattern (204): (19) Sink_faucet_-_cold_88 (28) Door_130 (28) Door_130 
+Pattern (205): (4) Medicine_cabinet_58 (19) Sink_faucet_-_cold_88 
+Pattern (206): (13) Drawer_75 (55) Door_141 (60) Laundry_Dryer_90 (55) Door_141 (60) Laundry_Dryer_90 
+Pattern (207): (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+Pattern (208): (12) Cabinet_72 (15) Cabinet_73 (12) Cabinet_72 
+Pattern (209): (8) Microwave_143 (8) Microwave_143 (8) Microwave_143 (8) Microwave_143 
+Pattern (210): (6) Drawer_71 (6) Drawer_71 
+Pattern (211): (4) Medicine_cabinet_58 (0) Cabinet_67 (0) Cabinet_67 
+Pattern (212): (56) Cabinet_79 (56) Cabinet_79 
+Pattern (213): (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (28) Door_130 
+Pattern (214): (15) Cabinet_73 (15) Cabinet_73 (12) Cabinet_72 (12) Cabinet_72 
+Pattern (215): (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+Pattern (216): (66) Containers_60 (66) Containers_60 (22) Freezer_137 (18) Refrigerator_91 
+Pattern (217): (54) Cabinet_138 (68) Cabinet_132 
+Pattern (218): (61) Garbage_disposal_98 (61) Garbage_disposal_98 
+Pattern (219): (21) Door_140 (29) Light_switch_104 
+Pattern (220): (55) Door_141 (55) Door_141 (58) Washing_Machine_142 (58) Washing_Machine_142 
+Pattern (221): (17) Drawer_135 (17) Drawer_135 (17) Drawer_135 (17) Drawer_135 
+Pattern (222): (49) Drawer_52 (42) Drawer_69 
+Pattern (223): (10) Door_54 (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+Pattern (224): (51) Burner_99 (51) Burner_99 (51) Burner_99 
+Pattern (225): (54) Cabinet_138 (54) Cabinet_138 
+Pattern (226): (57) Burner_106 (57) Burner_106 
+Pattern (227): (64) Closet_81 (64) Closet_81 (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Pattern (228): (3) Medicine_cabinet_57 (0) Cabinet_67 (5) Drawer_82 (5) Drawer_82 
+Pattern (229): (23) Burner_94 (23) Burner_94 (23) Burner_94 (23) Burner_94 
+Pattern (230): (55) Door_141 (58) Washing_Machine_142 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+Pattern (231): (52) Drawer_87 (52) Drawer_87 
+Pattern (232): (59) Burner_118 (58) Washing_Machine_142 (58) Washing_Machine_142 (58) Washing_Machine_142 
+Pattern (233): (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 (19) Sink_faucet_-_cold_88 (28) Door_130 
+
+Learning Markov models...
+computing distance between patterns...
+Cluster 0
+   [0]: (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+   [71]: (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+   [114]: (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Cluster 1
+   [1]: (10) Door_54 (10) Door_54 
+   [24]: (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+   [163]: (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (22) Freezer_137 
+   [202]: (10) Door_54 (10) Door_54 (10) Door_54 
+   [207]: (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+Cluster 2
+   [2]: (18) Refrigerator_91 (22) Freezer_137 
+   [22]: (22) Freezer_137 (18) Refrigerator_91 
+   [68]: (18) Refrigerator_91 (22) Freezer_137 (18) Refrigerator_91 
+   [90]: (7) Cabinet_80 (18) Refrigerator_91 (22) Freezer_137 
+Cluster 3
+   [3]: (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+   [76]: (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+   [223]: (10) Door_54 (11) Shower_faucet_93 (11) Shower_faucet_93 (11) Shower_faucet_93 
+Cluster 4
+   [4]: (21) Door_140 (21) Door_140 
+   [73]: (50) Jewelry_box_139 (21) Door_140 (21) Door_140 
+Cluster 5
+   [5]: (18) Refrigerator_91 (18) Refrigerator_91 
+   [95]: (17) Drawer_135 (18) Refrigerator_91 
+Cluster 6
+   [6]: (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+   [113]: (4) Medicine_cabinet_58 (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+Cluster 7
+   [7]: (9) Cabinet_55 (14) Drawer_84 
+   [43]: (14) Drawer_84 (14) Drawer_84 
+   [115]: (33) Cabinet_53 (9) Cabinet_55 (14) Drawer_84 
+Cluster 8
+   [8]: (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+   [25]: (0) Cabinet_67 (20) Sink_faucet_-_hot_68 
+   [69]: (0) Cabinet_67 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+Cluster 9
+   [9]: (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 
+   [38]: (0) Cabinet_67 (3) Medicine_cabinet_57 
+   [39]: (3) Medicine_cabinet_57 (4) Medicine_cabinet_58 
+   [88]: (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 (0) Cabinet_67 
+   [108]: (4) Medicine_cabinet_58 (3) Medicine_cabinet_57 (3) Medicine_cabinet_57 
+Cluster 10
+   [10]: (55) Door_141 (58) Washing_Machine_142 
+   [11]: (55) Door_141 (60) Laundry_Dryer_90 
+   [34]: (60) Laundry_Dryer_90 (55) Door_141 (58) Washing_Machine_142 
+   [53]: (55) Door_141 (60) Laundry_Dryer_90 (58) Washing_Machine_142 
+   [63]: (60) Laundry_Dryer_90 (55) Door_141 
+Cluster 11
+   [12]: (32) Toaster_131 (32) Toaster_131 
+   [165]: (64) Closet_81 (32) Toaster_131 
+   [177]: (20) Sink_faucet_-_hot_68 (32) Toaster_131 
+   [186]: (32) Toaster_131 (12) Cabinet_72 
+Cluster 12
+   [13]: (7) Cabinet_80 (18) Refrigerator_91 
+   [139]: (33) Cabinet_53 (18) Refrigerator_91 
+   [145]: (7) Cabinet_80 (18) Refrigerator_91 (18) Refrigerator_91 
+   [173]: (37) Oven_129 (18) Refrigerator_91 
+   [194]: (18) Refrigerator_91 (22) Freezer_137 (33) Cabinet_53 
+Cluster 13
+   [14]: (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+   [169]: (0) Cabinet_67 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+   [188]: (0) Cabinet_67 (19) Sink_faucet_-_cold_88 
+   [213]: (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (28) Door_130 
+Cluster 14
+   [15]: (8) Microwave_143 (8) Microwave_143 
+   [209]: (8) Microwave_143 (8) Microwave_143 (8) Microwave_143 (8) Microwave_143 
+Cluster 15
+   [16]: (16) Dishwasher_70 (16) Dishwasher_70 
+   [82]: (33) Cabinet_53 (16) Dishwasher_70 
+   [131]: (16) Dishwasher_70 (60) Laundry_Dryer_90 (55) Door_141 
+   [133]: (16) Dishwasher_70 (68) Cabinet_132 
+   [157]: (50) Jewelry_box_139 (16) Dishwasher_70 
+   [166]: (16) Dishwasher_70 (9) Cabinet_55 
+Cluster 16
+   [17]: (15) Cabinet_73 (12) Cabinet_72 
+   [118]: (12) Cabinet_72 (15) Cabinet_73 
+   [191]: (15) Cabinet_73 (15) Cabinet_73 
+   [214]: (15) Cabinet_73 (15) Cabinet_73 (12) Cabinet_72 (12) Cabinet_72 
+Cluster 17
+   [18]: (28) Door_130 (28) Door_130 
+   [204]: (19) Sink_faucet_-_cold_88 (28) Door_130 (28) Door_130 
+Cluster 18
+   [19]: (5) Drawer_82 (5) Drawer_82 
+   [126]: (5) Drawer_82 (5) Drawer_82 (5) Drawer_82 (5) Drawer_82 
+Cluster 19
+   [20]: (33) Cabinet_53 (14) Drawer_84 
+   [134]: (33) Cabinet_53 (33) Cabinet_53 (14) Drawer_84 (14) Drawer_84 
+Cluster 20
+   [21]: (0) Cabinet_67 (0) Cabinet_67 
+Cluster 21
+   [23]: (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+   [33]: (28) Door_130 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+   [91]: (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (50) Jewelry_box_139 
+Cluster 22
+   [26]: (13) Drawer_75 (13) Drawer_75 
+   [41]: (25) Drawer_62 (13) Drawer_75 
+   [97]: (13) Drawer_75 (32) Toaster_131 
+   [148]: (34) Exhaust_Fan_96 (13) Drawer_75 (13) Drawer_75 
+   [195]: (13) Drawer_75 (27) Light_switch_92 
+Cluster 23
+   [27]: (17) Drawer_135 (17) Drawer_135 
+   [221]: (17) Drawer_135 (17) Drawer_135 (17) Drawer_135 (17) Drawer_135 
+Cluster 24
+   [28]: (8) Microwave_143 (14) Drawer_84 
+   [81]: (14) Drawer_84 (16) Dishwasher_70 
+   [143]: (16) Dishwasher_70 (14) Drawer_84 
+Cluster 25
+   [29]: (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+   [144]: (2) Light_switch_101 (19) Sink_faucet_-_cold_88 
+Cluster 26
+   [30]: (22) Freezer_137 (9) Cabinet_55 
+   [155]: (22) Freezer_137 (32) Toaster_131 
+   [199]: (21) Door_140 (21) Door_140 (22) Freezer_137 (9) Cabinet_55 
+Cluster 27
+   [31]: (26) Cabinet_66 (16) Dishwasher_70 
+   [56]: (16) Dishwasher_70 (26) Cabinet_66 
+Cluster 28
+   [32]: (50) Jewelry_box_139 (21) Door_140 
+   [196]: (21) Door_140 (11) Shower_faucet_93 
+Cluster 29
+   [35]: (59) Burner_118 (59) Burner_118 
+   [128]: (59) Burner_118 (59) Burner_118 (59) Burner_118 (59) Burner_118 
+Cluster 30
+   [36]: (66) Containers_60 (66) Containers_60 
+Cluster 31
+   [37]: (12) Cabinet_72 (14) Drawer_84 
+   [87]: (14) Drawer_84 (12) Cabinet_72 
+   [132]: (22) Freezer_137 (14) Drawer_84 
+Cluster 32
+   [40]: (22) Freezer_137 (22) Freezer_137 
+Cluster 33
+   [42]: (43) Cabinet_59 (26) Cabinet_66 
+   [78]: (43) Cabinet_59 (43) Cabinet_59 
+Cluster 34
+   [44]: (45) Refrigerator_126 (18) Refrigerator_91 
+   [161]: (18) Refrigerator_91 (21) Door_140 
+   [174]: (18) Refrigerator_91 (14) Drawer_84 
+   [198]: (33) Cabinet_53 (18) Refrigerator_91 (18) Refrigerator_91 (8) Microwave_143 
+Cluster 35
+   [45]: (1) Toilet_Flush_100 (1) Toilet_Flush_100 
+   [60]: (1) Toilet_Flush_100 (11) Shower_faucet_93 
+   [170]: (4) Medicine_cabinet_58 (1) Toilet_Flush_100 
+Cluster 36
+   [46]: (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+   [84]: (2) Light_switch_101 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Cluster 37
+   [47]: (9) Cabinet_55 (7) Cabinet_80 
+Cluster 38
+   [48]: (12) Cabinet_72 (12) Cabinet_72 
+Cluster 39
+   [49]: (58) Washing_Machine_142 (58) Washing_Machine_142 (58) Washing_Machine_142 
+   [232]: (59) Burner_118 (58) Washing_Machine_142 (58) Washing_Machine_142 (58) Washing_Machine_142 
+Cluster 40
+   [50]: (5) Drawer_82 (13) Drawer_75 
+   [228]: (3) Medicine_cabinet_57 (0) Cabinet_67 (5) Drawer_82 (5) Drawer_82 
+Cluster 41
+   [51]: (31) Drawer_78 (31) Drawer_78 
+Cluster 42
+   [52]: (23) Burner_94 (23) Burner_94 
+   [229]: (23) Burner_94 (23) Burner_94 (23) Burner_94 (23) Burner_94 
+Cluster 43
+   [54]: (3) Medicine_cabinet_57 (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 
+   [58]: (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (3) Medicine_cabinet_57 
+   [187]: (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+Cluster 44
+   [55]: (0) Cabinet_67 (56) Cabinet_79 
+   [92]: (1) Toilet_Flush_100 (0) Cabinet_67 
+Cluster 45
+   [57]: (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+   [77]: (28) Door_130 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 
+Cluster 46
+   [59]: (50) Jewelry_box_139 (28) Door_130 
+   [168]: (28) Door_130 (50) Jewelry_box_139 
+Cluster 47
+   [61]: (37) Oven_129 (37) Oven_129 
+   [136]: (16) Dishwasher_70 (37) Oven_129 (37) Oven_129 
+   [140]: (14) Drawer_84 (37) Oven_129 
+Cluster 48
+   [62]: (48) Drawer_125 (48) Drawer_125 
+Cluster 49
+   [64]: (14) Drawer_84 (18) Refrigerator_91 
+   [80]: (18) Refrigerator_91 (22) Freezer_137 (14) Drawer_84 
+Cluster 50
+   [65]: (2) Light_switch_101 (20) Sink_faucet_-_hot_68 
+   [67]: (2) Light_switch_101 (11) Shower_faucet_93 
+   [137]: (2) Light_switch_101 (28) Door_130 
+   [159]: (28) Door_130 (2) Light_switch_101 
+Cluster 51
+   [66]: (28) Door_130 (0) Cabinet_67 
+   [105]: (0) Cabinet_67 (5) Drawer_82 
+Cluster 52
+   [70]: (3) Medicine_cabinet_57 (34) Exhaust_Fan_96 
+   [149]: (3) Medicine_cabinet_57 (16) Dishwasher_70 
+   [182]: (50) Jewelry_box_139 (28) Door_130 (3) Medicine_cabinet_57 
+Cluster 53
+   [72]: (32) Toaster_131 (22) Freezer_137 
+Cluster 54
+   [74]: (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+   [116]: (20) Sink_faucet_-_hot_68 (13) Drawer_75 
+Cluster 55
+   [75]: (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 
+Cluster 56
+   [79]: (16) Dishwasher_70 (16) Dishwasher_70 (16) Dishwasher_70 (16) Dishwasher_70 
+   [86]: (16) Dishwasher_70 (18) Refrigerator_91 
+Cluster 57
+   [83]: (39) Cabinet_63 (14) Drawer_84 
+   [162]: (9) Cabinet_55 (14) Drawer_84 (14) Drawer_84 
+Cluster 58
+   [85]: (8) Microwave_143 (18) Refrigerator_91 
+   [109]: (33) Cabinet_53 (18) Refrigerator_91 (18) Refrigerator_91 
+   [146]: (18) Refrigerator_91 (43) Cabinet_59 
+   [153]: (18) Refrigerator_91 (46) Refrigerator_144 
+   [172]: (8) Microwave_143 (7) Cabinet_80 
+   [193]: (18) Refrigerator_91 (18) Refrigerator_91 (8) Microwave_143 (8) Microwave_143 
+   [201]: (18) Refrigerator_91 (18) Refrigerator_91 (46) Refrigerator_144 
+Cluster 59
+   [89]: (3) Medicine_cabinet_57 (2) Light_switch_101 
+Cluster 60
+   [93]: (2) Light_switch_101 (4) Medicine_cabinet_58 
+Cluster 61
+   [94]: (33) Cabinet_53 (7) Cabinet_80 
+Cluster 62
+   [96]: (20) Sink_faucet_-_hot_68 (3) Medicine_cabinet_57 
+   [117]: (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 
+   [215]: (4) Medicine_cabinet_58 (20) Sink_faucet_-_hot_68 (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 
+Cluster 63
+   [98]: (50) Jewelry_box_139 (50) Jewelry_box_139 
+Cluster 64
+   [99]: (3) Medicine_cabinet_57 (0) Cabinet_67 
+Cluster 65
+   [100]: (33) Cabinet_53 (9) Cabinet_55 
+   [189]: (9) Cabinet_55 (33) Cabinet_53 
+Cluster 66
+   [101]: (9) Cabinet_55 (14) Drawer_84 (32) Toaster_131 
+Cluster 67
+   [102]: (64) Closet_81 (64) Closet_81 
+Cluster 68
+   [103]: (11) Shower_faucet_93 (56) Cabinet_79 
+   [212]: (56) Cabinet_79 (56) Cabinet_79 
+Cluster 69
+   [104]: (15) Cabinet_73 (65) Cereal_145 
+Cluster 70
+   [106]: (1) Toilet_Flush_100 (1) Toilet_Flush_100 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+   [130]: (1) Toilet_Flush_100 (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (20) Sink_faucet_-_hot_68 
+Cluster 71
+   [107]: (19) Sink_faucet_-_cold_88 (28) Door_130 
+   [180]: (28) Door_130 (9) Cabinet_55 
+Cluster 72
+   [110]: (10) Door_54 (10) Door_54 (11) Shower_faucet_93 
+   [230]: (55) Door_141 (58) Washing_Machine_142 (10) Door_54 (10) Door_54 (10) Door_54 (10) Door_54 
+Cluster 73
+   [111]: (15) Cabinet_73 (15) Cabinet_73 (12) Cabinet_72 
+   [147]: (15) Cabinet_73 (12) Cabinet_72 (22) Freezer_137 
+Cluster 74
+   [112]: (27) Light_switch_92 (27) Light_switch_92 
+Cluster 75
+   [119]: (45) Refrigerator_126 (18) Refrigerator_91 (8) Microwave_143 
+Cluster 76
+   [120]: (21) Door_140 (21) Door_140 (29) Light_switch_104 
+   [219]: (21) Door_140 (29) Light_switch_104 
+Cluster 77
+   [121]: (47) Cabinet_61 (47) Cabinet_61 
+   [181]: (47) Cabinet_61 (15) Cabinet_73 
+Cluster 78
+   [122]: (26) Cabinet_66 (26) Cabinet_66 
+Cluster 79
+   [123]: (39) Cabinet_63 (39) Cabinet_63 
+Cluster 80
+   [124]: (49) Drawer_52 (49) Drawer_52 
+Cluster 81
+   [125]: (35) Light_switch_120 (26) Cabinet_66 (55) Door_141 (58) Washing_Machine_142 (60) Laundry_Dryer_90 
+Cluster 82
+   [127]: (53) Cabinet_83 (53) Cabinet_83 
+Cluster 83
+   [129]: (66) Containers_60 (66) Containers_60 (66) Containers_60 (66) Containers_60 
+   [216]: (66) Containers_60 (66) Containers_60 (22) Freezer_137 (18) Refrigerator_91 
+Cluster 84
+   [135]: (22) Freezer_137 (68) Cabinet_132 
+Cluster 85
+   [138]: (7) Cabinet_80 (35) Light_switch_120 
+Cluster 86
+   [141]: (30) Light_switch_105 (22) Freezer_137 
+Cluster 87
+   [142]: (3) Medicine_cabinet_57 (3) Medicine_cabinet_57 (34) Exhaust_Fan_96 (34) Exhaust_Fan_96 
+Cluster 88
+   [150]: (32) Toaster_131 (32) Toaster_131 (32) Toaster_131 
+Cluster 89
+   [151]: (2) Light_switch_101 (0) Cabinet_67 
+   [179]: (0) Cabinet_67 (4) Medicine_cabinet_58 
+Cluster 90
+   [152]: (7) Cabinet_80 (39) Cabinet_63 (14) Drawer_84 
+Cluster 91
+   [154]: (14) Drawer_84 (9) Cabinet_55 (7) Cabinet_80 
+   [200]: (12) Cabinet_72 (14) Drawer_84 (7) Cabinet_80 (18) Refrigerator_91 
+Cluster 92
+   [156]: (6) Drawer_71 (34) Exhaust_Fan_96 
+Cluster 93
+   [158]: (19) Sink_faucet_-_cold_88 (1) Toilet_Flush_100 
+   [171]: (1) Toilet_Flush_100 (2) Light_switch_101 
+Cluster 94
+   [160]: (41) Cabinet_51 (7) Cabinet_80 
+Cluster 95
+   [164]: (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 (34) Exhaust_Fan_96 
+   [197]: (50) Jewelry_box_139 (21) Door_140 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Cluster 96
+   [167]: (11) Shower_faucet_93 (4) Medicine_cabinet_58 
+   [185]: (11) Shower_faucet_93 (0) Cabinet_67 (3) Medicine_cabinet_57 
+   [211]: (4) Medicine_cabinet_58 (0) Cabinet_67 (0) Cabinet_67 
+Cluster 97
+   [175]: (25) Drawer_62 (64) Closet_81 
+   [203]: (27) Light_switch_92 (25) Drawer_62 
+Cluster 98
+   [176]: (11) Shower_faucet_93 (28) Door_130 
+   [190]: (28) Door_130 (1) Toilet_Flush_100 
+Cluster 99
+   [178]: (50) Jewelry_box_139 (32) Toaster_131 (32) Toaster_131 
+Cluster 100
+   [183]: (64) Closet_81 (4) Medicine_cabinet_58 
+Cluster 101
+   [184]: (27) Light_switch_92 (13) Drawer_75 
+Cluster 102
+   [192]: (21) Door_140 (21) Door_140 (21) Door_140 
+Cluster 103
+   [205]: (4) Medicine_cabinet_58 (19) Sink_faucet_-_cold_88 
+Cluster 104
+   [206]: (13) Drawer_75 (55) Door_141 (60) Laundry_Dryer_90 (55) Door_141 (60) Laundry_Dryer_90 
+Cluster 105
+   [208]: (12) Cabinet_72 (15) Cabinet_73 (12) Cabinet_72 
+Cluster 106
+   [210]: (6) Drawer_71 (6) Drawer_71 
+Cluster 107
+   [217]: (54) Cabinet_138 (68) Cabinet_132 
+Cluster 108
+   [218]: (61) Garbage_disposal_98 (61) Garbage_disposal_98 
+Cluster 109
+   [220]: (55) Door_141 (55) Door_141 (58) Washing_Machine_142 (58) Washing_Machine_142 
+Cluster 110
+   [222]: (49) Drawer_52 (42) Drawer_69 
+Cluster 111
+   [224]: (51) Burner_99 (51) Burner_99 (51) Burner_99 
+Cluster 112
+   [225]: (54) Cabinet_138 (54) Cabinet_138 
+Cluster 113
+   [226]: (57) Burner_106 (57) Burner_106 
+Cluster 114
+   [227]: (64) Closet_81 (64) Closet_81 (1) Toilet_Flush_100 (19) Sink_faucet_-_cold_88 (20) Sink_faucet_-_hot_68 
+Cluster 115
+   [231]: (52) Drawer_87 (52) Drawer_87 
+Cluster 116
+   [233]: (19) Sink_faucet_-_cold_88 (3) Medicine_cabinet_57 (19) Sink_faucet_-_cold_88 (28) Door_130 
+Done.
+
+Annotating data...Done.

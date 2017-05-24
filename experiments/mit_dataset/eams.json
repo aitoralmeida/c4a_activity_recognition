@@ -1,0 +1,127 @@
+{"Toileting": {
+    "locations": ["Bathroom"],
+    "actions": ["Sink faucet_-_hot_68", "Toilet_Flush_100", "Door_130", "Sink faucet - cold_88"],
+    "duration": 450,
+    "start": [["6:00", "10:00"], ["11:00", "16:00"], ["16:30", "18:00"], ["20:30", "23:30"]]
+},
+ "Preparing_breakfast": {
+     "locations": ["Kitchen"],
+     "actions": ["Cabinet_55", "Drawer_84", "Cabinet_72", "Cabinet_73", "Refrigerator_91", "Freezer_137", "Toaster_131"],
+     "duration": 895,
+     "start": [["6:30", "11:00"]]
+ },
+ "Bathing": {
+     "locations": ["Bathroom"],
+     "actions": ["Shower_faucet_93", "Cabinet_67", "Medicine_cabinet_58", "Toilet_Flush_100", "Medicine_cabinet_57"],
+     "duration": 1430,
+     "start": [["6:30", "10:00"], ["14:30", "16:30"], ["18:00", "19:00"], ["20:15", "21:30"]]
+ },
+ "Dressing": {
+     "locations": ["Bedroom"],
+     "actions": ["Drawer_82", "Drawer_75"],
+     "duration": 280,
+     "start": [["6:30", "9:30"], ["11:30", "12:30"], ["16:00", "21:30"]]
+ },
+ "Grooming": {
+     "locations": ["Bathroom"],
+     "actions": ["Medicine_cabinet_58", "Sink_faucet_-_cold_88", "Sink_faucet_-_hot_68", "Medicine_cabinet_57", "Cabinet_67"],
+     "duration": 680,
+     "start": [["6:30", "10:30"], ["12:00", "13:00"], ["18:00", "19:00"], ["21:00", "23:00"]]
+ },
+ "Going_out_to_work": {
+     "locations": ["Foyer"],
+     "actions": ["Door_140"],
+     "duration": 325,
+     "start": [["7:00", "10:00"], ["12:00", "14:00"]]
+ }, 
+ "Preparing_lunch": {
+     "locations": ["Kitchen"],
+     "actions": ["Refrigerator_91", "Freezer_137", "Microwave_143", "Drawer_84", "Cabinet_55", "Dishwasher_70", "Toaster_131", "Drawer_135", "Cabinet_61", "Oven_129"],
+     "duration": 500,
+     "start": [["11:30", "15:00"]]
+ },
+ "Preparing_a_beverage": {
+     "locations": ["Kitchen"],
+     "actions": ["Refrigerator_91", "Cabinet_80"],
+     "duration": 545,
+     "start": [["6:30", "7:00"], ["10:00", "10:30"], ["14:00", "15:00"], ["16:00", "18:00"], ["21:00", "23:00"]]
+ },
+ "Washing_dishes": {
+     "locations": ["Kitchen"],
+     "actions": ["Dishwasher_70", "Drawer_52", "Containers_60"],
+     "duration": 380,
+     "start": [["11:00", "16:00"], ["18:00", "19:00"], ["21:00", "22:00"]]
+ },
+ "Going_out_for_shopping": {
+     "locations": ["Foyer"],
+     "actions": ["Door_140"],
+     "duration": 220,
+     "start": [["9:30", "10:30"], ["18:00", "19:00"]]
+ },
+ "Putting_away_groceries": {
+     "locations": ["Kitchen"],
+     "actions": ["Ligh_switch_92", "Light_switch_105", "Freezer_137", "Refrigerator_91"],
+     "duration": 1230,
+     "start": [["10:45", "11:30"], ["19:30", "20:00"]]
+ },
+ "Preparing_a_snack": {
+     "locations": ["Kitchen"],
+     "actions": ["Cabinet_72", "Drawer_84"],
+     "duration": 420,
+     "start": [["9:00", "10:00"], ["16:00", "20:00"], ["21:00", "23:30"]]
+ },
+ "Preparing_dinner": {
+     "locations": ["Kitchen"],
+     "actions": ["Refrigerator_91", "Freezer_137", "Drawer_84", "Microwave_143", "Cabinet_53"],
+     "duration": 121,
+     "start": [["17:30", "20:00"]]
+ },
+ "Watching_TV": {
+     "locations": ["Living room"],
+     "actions": ["Door_54", "DVD_56"],
+     "duration": 1255,
+     "start": [["13:20", "14:30"], ["19:00", "20:00"]]
+ },
+ "Cleaning": {
+     "locations": ["Kitchen", "Bathroom"],
+     "actions": ["Sink faucet_-_cold_88", "Sink faucet - hot_68", "Cabinet_80", "Cabinet_66"],
+     "duration": 1120,
+     "start": [["10:00", "14:00"], ["20:30", "21:30"]]
+ },
+ "Lawnwork": {
+     "locations": ["Kitchen", "Living room"],
+     "actions": ["Door_54", "Cabinet_59", "Cabinet_72", "Lamp_76"],
+     "duration": 930,
+     "start": [["13:20", "13:40"]]
+ },
+ "Doing_laundry": {
+     "locations": ["Kitchen"],
+     "actions": ["Door_141", "Washing_Machine_142", "Burner_118", "Laundry_Dryer_90", "Burner_99", "Burner_94"],
+     "duration": 680,
+     "start": [["6:00", "13:00"], ["15:00", "16:00"], ["18:30", "22:00"]]
+ },
+ "Going_out_for_entertainment": {
+     "locations": ["Bedroom", "Living room", "Foyer"],
+     "actions": ["Jewelry_box_139", "Lamp_76", "Light_switch_104", "Light_switch_107", "Door_140"],
+     "duration": 415,
+     "start": [["18:30", "19:00"]]
+ },
+ "Putting_away_laundry": {
+     "locations": ["Bedroom"],
+     "actions": ["Drawer_75", "Drawer_62"],
+     "duration": 310,
+     "start": [["7:30", "8:30"], ["12:30", "13:00"]]
+ },
+ "Putting_away_dishes": {
+     "locations": ["Kitchen"],
+     "actions": ["Drawer_84", "Dishwasher_70"],
+     "duration": 980,
+     "start": [["12:30", "13:00"], ["16:30", "17:30"]]
+ },
+ "Washing_hands": {
+     "locations": ["Bathroom"],
+     "actions": ["Door_130", "Sink_faucet_-_hot_68"],
+     "duration": 365,
+     "start": [["23:00", "23:59"]]
+ }
+}

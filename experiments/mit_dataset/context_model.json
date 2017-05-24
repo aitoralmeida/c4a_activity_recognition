@@ -1,0 +1,829 @@
+{"activities": {
+    "TakeShower": {
+	"locations": ["Bathroom"],
+	"actions": ["HallToiletDoor"],
+	"duration": 600,
+	"start": [["8:30", "11:30"], ["12:00", "13:00"], ["14:00", "15:00"]]
+    },
+    "GetDrink": {
+	"locations": ["Kitchen"],
+	"actions": ["Fridge", "CupsCupboard"],
+	"duration": 50,
+	"start": [["8:00", "9:00"], ["17:00", "18:00"], ["20:00", "23:00"]]
+    },
+    "PrepareDinner": {
+	"locations": ["Kitchen"],
+	"actions": ["PlatesCupboard", "Freezer", "Fridge", "PansCupboard", "GroceriesCupboard"],
+	"duration": 300,
+	"start": [["18:00", "23:30"]]
+    },
+    "GoToBed": {
+	"locations": ["Bedroom"],
+	"actions": ["HallBedroomDoor"],
+	"duration": 10,
+	"start": [["00:00", "10:30"], ["22:00", "23:59"]]
+    },
+    "PrepareBreakfast": {
+	"locations": ["Kitchen"],
+	"actions": ["PlatesCupboard", "Fridge", "GroceriesCupboard", "Freezer"],
+	"duration": 240,
+	"start": [["8:00", "10:30"]]
+    },
+    "LeaveHouse": {
+	"locations": ["Hall"],
+	"actions": ["Frontdoor"],
+	"duration": 10800,
+	"start": [["00:00", "23:59"]]
+    },
+    "UseToilet": {
+	"locations": ["Bedroom", "Lounge"],
+	"actions": ["ToiletFlush", "HallBathroomDoor"],
+	"duration": 60,
+	"start": [["00:00", "23:59"]]
+    }
+},
+ "objects": {
+     "Toilet_Flush_100": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Toilet_Flush_100"]
+     },
+     "Light_switch_101": {
+	 "type": ["Other"],
+	 "location": "Bathroom",
+	 "sensors": ["Light_switch_101"]
+     },
+     "Light_switch_104": {
+	 "type": ["Other"],
+	 "location": "Foyer",
+	 "sensors": ["Light_switch_104"]
+     },
+     "Light_switch_105": {
+	 "type": ["Other"],
+	 "location": "Kitchen",
+	 "sensors": ["Light_switch_105"]
+     },
+     "Burner_106": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Burner_106"]
+     },
+     "Light_switch_107": {
+	 "type": ["Other"],
+	 "location": "Living room",
+	 "sensors": ["Light_switch_107"]
+     },
+     "Light_switch_108": {
+	 "type": ["Other"],
+	 "location": "Bedroom",
+	 "sensors": ["Light_switch_108"]
+     },
+     "Burner_108": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Burner_108"]
+     },
+     "Burner_118": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Burner_118"]
+     },
+     "Coffee_machine_119": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Coffee_machine_119"]
+     },
+     "Light_switch_120": {
+	 "type": ["Other"],
+	 "location": "Kitchen",
+	 "sensors": ["Light_switch_120"]
+     },
+     "Drawer_125": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_125"]
+     },
+     "Refrigerator_126": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Refrigerator_126"]
+     },
+     "Oven_129": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Oven_129"]
+     },
+     "Door_130": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Door_130"]
+     },
+     "Toaster_131": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Toaster_131"]
+     },
+     "Cabinet_132": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_132"]
+     },
+     "Cabinet_133": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_133"]
+     },
+     "Drawer_135": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_135"]
+     },
+     "Window_136": {
+	 "type": ["Other"],
+	 "location": "Kitchen",
+	 "sensors": ["Window_136"]
+     },
+     "Freezer_137": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Freezer_137"]
+     },
+     "Cabinet_138": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_138"]
+     },
+     "Jewelry_box_139": {
+	 "type": ["Hygiene"],
+	 "location": "Bedroom",
+	 "sensors": ["Jewelry_box_139"]
+     },
+     "Door_140": {
+	 "type": ["Other"],
+	 "location": "Foyer",
+	 "sensors": ["Door_140"]
+     },
+     "Door_141": {
+	 "type": ["Other"],
+	 "location": "Kitchen",
+	 "sensors": ["Door_141"]
+     },
+     "Washing_Machine_142": {
+	 "type": ["Cleaning"],
+	 "location": "Kitchen",
+	 "sensors": ["Washing_Machine_142"]
+     },
+     "Microwave_143": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Microwave_143"]
+     },
+     "Refrigerator_144": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Refrigerator_144"]
+     },
+     "Cereal_145": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cereal_145"]
+     },
+     "Drawer_146": {
+	 "type": ["Other"],
+	 "location": "Bedroom",
+	 "sensors": ["Drawer_146"]
+     },
+     "Cabinet_51": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_51"]
+     },
+     "Drawer_52": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_52"]
+     },
+     "Cabinet_53": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_53"]
+     },
+     "Door_54": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Door_54"]
+     },
+     "Cabinet_55": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_55"]
+     },
+     "DVD_56": {
+	 "type": ["Entertainment"],
+	 "location": "Living room",
+	 "sensors": ["DVD_56"]
+     },
+     "Medicine_cabinet_57": {
+	 "type": ["Health"],
+	 "location": "Bathroom",
+	 "sensors": ["Medicine_cabinet_57"]
+     },
+     "Medicine_cabinet_58": {
+	 "type": ["Health"],
+	 "location": "Bathroom",
+	 "sensors": ["Medicine_cabinet_58"]
+     },
+     "Cabinet_59": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_59"]
+     },
+     "Containers_60": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Containers_60"]
+     },
+     "Cabinet_61": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_61"]
+     },
+     "Drawer_62": {
+	 "type": ["Other"],
+	 "location": "Bedroom",
+	 "sensors": ["Drawer_62"]
+     },
+     "Cabinet_63": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_63"]
+     },
+     "Lamp_64": {
+	 "type": ["Other"],
+	 "location": "Bedroom",
+	 "sensors": ["Lamp_64"]
+     },
+     "Freezer_137": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Freezer_137"]
+     },
+     "Cabinet_66": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_66"]
+     },
+     "Cabinet_67": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Cabinet_67"]
+     },
+     "Sink_faucet_-_hot_68": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Sink_faucet_-_hot_68"]
+     },
+     "Drawer_69": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_69"]
+     },
+     "Dishwasher_70": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Dishwasher_70"]
+     },
+     "Drawer_71": {
+	 "type": ["Hygiene"],
+	 "location": "Bedroom",
+	 "sensors": ["Drawer_71"]
+     },
+     "Cabinet_72": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_72"]
+     },
+     "Cabinet_73": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_73"]
+     },
+     "Drawer_75": {
+	 "type": ["Hygiene"],
+	 "location": "Bedroom",
+	 "sensors": ["Drawer_75"]
+     },
+     "Lamp_76": {
+	 "type": ["Hygiene"],
+	 "location": "Living room",
+	 "sensors": ["Lamp_76"]
+     },
+     "Drawer_78": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_78"]
+     },
+     "Cabinet_79": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Cabinet_79"]
+     },
+     "Cabinet_80": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_80"]
+     },
+     "Closet_81": {
+	 "type": ["Hygiene"],
+	 "location": "Foyer",
+	 "sensors": ["Closet_81"]
+     },
+     "Drawer_82": {
+	 "type": ["Hygiene"],
+	 "location": "Office/study",
+	 "sensors": ["Drawer_82"]
+     },
+     "Cabinet_83": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_83"]
+     },
+     "Drawer_84": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_84"]
+     },
+     "Cabinet_67": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Cabinet_67"]
+     },
+     "Window_85": {
+	 "type": ["Hygiene"],
+	 "location": "Bedroom",
+	 "sensors": ["Window_85"]
+     },
+     "Drawer_86": {
+	 "type": ["Hygiene"],
+	 "location": "Bedroom",
+	 "sensors": ["Drawer_86"]
+     },
+     "Drawer_87": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Drawer_87"]
+     },
+     "Sink_faucet_-_cold_88": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Sink_faucet_-_cold_88"]
+     },
+     "Cabinet_89": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Cabinet_89"]
+     },
+     "Laundry_Dryer_90": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Laundry_Dryer_90"]
+     },
+     "Refrigerator_91": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Refrigerator_91"]
+     },
+     "Light_switch_92": {
+	 "type": ["Hygiene"],
+	 "location": "Office/study",
+	 "sensors": ["Light_switch_92"]
+     },
+     "Shower_faucet_93": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Shower_faucet_93"]
+     },
+     "Burner_94": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Burner_94"]
+     },
+     "Light_switch_95": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Light_switch_95"]
+     },
+     "Exhaust_Fan_96": {
+	 "type": ["Hygiene"],
+	 "location": "Bathroom",
+	 "sensors": ["Exhaust_Fan_96"]
+     },
+     "Light_switch_97": {
+	 "type": ["Hygiene"],
+	 "location": "Living room",
+	 "sensors": ["Light_switch_97"]
+     },
+     "Garbage_disposal_98": {
+	 "type": ["Hygiene"],
+	 "location": "Kitchen",
+	 "sensors": ["Garbage_disposal_98"]
+     },
+     "Burner_99": {
+	 "type": ["Cooking"],
+	 "location": "Kitchen",
+	 "sensors": ["Burner_99"]
+     }
+ },
+ "sensors": {
+     "Toilet_Flush_100": {
+	 "type": "Hygiene",
+	 "action": "Toilet_Flush_100",
+	 "attached-to": "Toilet_Flush_100"
+     },
+     "Light_switch_101": {
+	 "type": "Other",
+	 "action": "Light_switch_101",
+	 "attached-to": "Light_switch_101"
+     },
+     "Light_switch_104": {
+	 "type": "Other",
+	 "action": "Light_switch_104",
+	 "attached-to": "Light_switch_104"
+     },
+     "Light_switch_105": {
+	 "type": "Other",
+	 "action": "Light_switch_105",
+	 "attached-to": "Light_switch_105"
+     },
+     "Burner_106": {
+	 "type": "Cooking",
+	 "action": "Burner_106",
+	 "attached-to": "Burner_106"
+     },
+     "Light_switch_107": {
+	 "type": "Other",
+	 "action": "Light_switch_107",
+	 "attached-to": "Light_switch_107"
+     },
+     "Light_switch_108": {
+	 "type": "Other",
+	 "action": "Light_switch_108",
+	 "attached-to": "Light_switch_108"
+     },
+     "Burner_108": {
+	 "type": "Cooking",
+	 "action": "Burner_108",
+	 "attached-to": "Burner_108"
+     },
+     "Burner_118": {
+	 "type": "Cooking",
+	 "action": "Burner_118",
+	 "attached-to": "Burner_118"
+     },
+     "Coffee_machine_119": {
+	 "type": "Cooking",
+	 "action": "Coffee_machine_119",
+	 "attached-to": "Coffee_machine_119"
+     },
+     "Light_switch_120": {
+	 "type": "Other",
+	 "action": "Light_switch_120",
+	 "attached-to": "Light_switch_120"
+     },
+     "Drawer_125": {
+	 "type": "Cooking",
+	 "action": "Drawer_125",
+	 "attached-to": "Drawer_125"
+     },
+     "Refrigerator_126": {
+	 "type": "Cooking",
+	 "action": "Refrigerator_126",
+	 "attached-to": "Refrigerator_126"
+     },
+     "Oven_129": {
+	 "type": "Cooking",
+	 "action": "Oven_129",
+	 "attached-to": "Oven_129"
+     },
+     "Door_130": {
+	 "type": "Hygiene",
+	 "action": "Door_130",
+	 "attached-to": "Door_130"
+     },
+     "Toaster_131": {
+	 "type": "Cooking",
+	 "action": "Toaster_131",
+	 "attached-to": "Toaster_131"
+     },
+     "Cabinet_132": {
+	 "type": "Cooking",
+	 "action": "Cabinet_132",
+	 "attached-to": "Cabinet_132"
+     },
+     "Cabinet_133": {
+	 "type": "Cooking",
+	 "action": "Cabinet_133",
+	 "attached-to": "Cabinet_133"
+     },
+     "Drawer_135": {
+	 "type": "Cooking",
+	 "action": "Drawer_135",
+	 "attached-to": "Drawer_135"
+     },
+     "Window_136": {
+	 "type": "Other",
+	 "action": "Window_136",
+	 "attached-to": "Window_136"
+     },
+     "Freezer_137": {
+	 "type": "Cooking",
+	 "action": "Freezer_137",
+	 "attached-to": "Freezer_137"
+     },
+     "Cabinet_138": {
+	 "type": "Cooking",
+	 "action": "Cabinet_138",
+	 "attached-to": "Cabinet_138"
+     },
+     "Jewelry_box_139": {
+	 "type": "Hygiene",
+	 "action": "Jewelry_box_139",
+	 "attached-to": "Jewelry_box_139"
+     },
+     "Door_140": {
+	 "type": "Other",
+	 "action": "Door_140",
+	 "attached-to": "Door_140"
+     },
+     "Door_141": {
+	 "type": "Other",
+	 "action": "Door_141",
+	 "attached-to": "Door_141"
+     },
+     "Washing_Machine_142": {
+	 "type": "Cleaning",
+	 "action": "Washing_Machine_142",
+	 "attached-to": "Washing_Machine_142"
+     },
+     "Microwave_143": {
+	 "type": "Cooking",
+	 "action": "Microwave_143",
+	 "attached-to": "Microwave_143"
+     },
+     "Refrigerator_144": {
+	 "type": "Cooking",
+	 "action": "Refrigerator_144",
+	 "attached-to": "Refrigerator_144"
+     },
+     "Cereal_145": {
+	 "type": "Cooking",
+	 "action": "Cereal_145",
+	 "attached-to": "Cereal_145"
+     },
+     "Drawer_146": {
+	 "type": "Other",
+	 "action": "Drawer_146",
+	 "attached-to": "Drawer_146"
+     },
+     "Cabinet_51": {
+	 "type": "Cooking",
+	 "action": "Cabinet_51",
+	 "attached-to": "Cabinet_51"
+     },
+     "Drawer_52": {
+	 "type": "Cooking",
+	 "action": "Drawer_52",
+	 "attached-to": "Drawer_52"
+     },
+     "Cabinet_53": {
+	 "type": "Cooking",
+	 "action": "Cabinet_53",
+	 "attached-to": "Cabinet_53"
+     },
+     "Door_54": {
+	 "type": "Cooking",
+	 "action": "Door_54",
+	 "attached-to": "Door_54"
+     },
+     "Cabinet_55": {
+	 "type": "Cooking",
+	 "action": "Cabinet_55",
+	 "attached-to": "Cabinet_55"
+     },
+     "DVD_56": {
+	 "type": "Entertainment",
+	 "action": "DVD_56",
+	 "attached-to": "DVD_56"
+     },
+     "Medicine_cabinet_57": {
+	 "type": "Health",
+	 "action": "Medicine_cabinet_57",
+	 "attached-to": "Medicine_cabinet_57"
+     },
+     "Medicine_cabinet_58": {
+	 "type": "Health",
+	 "action": "Medicine_cabinet_58",
+	 "attached-to": "Medicine_cabinet_58"
+     },
+     "Cabinet_59": {
+	 "type": "Cooking",
+	 "action": "Cabinet_59",
+	 "attached-to": "Cabinet_59"
+     },
+     "Containers_60": {
+	 "type": "Cooking",
+	 "action": "Containers_60",
+	 "attached-to": "Containers_60"
+     },
+     "Cabinet_61": {
+	 "type": "Cooking",
+	 "action": "Cabinet_61",
+	 "attached-to": "Cabinet_61"
+     },
+     "Drawer_62": {
+	 "type": "Other",
+	 "action": "Drawer_62",
+	 "attached-to": "Drawer_62"
+     },
+     "Cabinet_63": {
+	 "type": "Cooking",
+	 "action": "Cabinet_63",
+	 "attached-to": "Cabinet_63"
+     },
+     "Lamp_64": {
+	 "type": "Other",
+	 "action": "Lamp_64",
+	 "attached-to": "Lamp_64"
+     },
+     "Freezer_137": {
+	 "type": "Cooking",
+	 "action": "Freezer_137",
+	 "attached-to": "Freezer_137"
+     },
+     "Cabinet_66": {
+	 "type": "Cooking",
+	 "action": "Cabinet_66",
+	 "attached-to": "Cabinet_66"
+     },
+     "Cabinet_67": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_67",
+	 "attached-to": "Cabinet_67"
+     },
+     "Sink_faucet_-_hot_68": {
+	 "type": "Hygiene",
+	 "action": "Sink_faucet_-_hot_68",
+	 "attached-to": "Sink_faucet_-_hot_68"
+     },
+     "Drawer_69": {
+	 "type": "Cooking",
+	 "action": "Drawer_69",
+	 "attached-to": "Drawer_69"
+     },
+     "Dishwasher_70": {
+	 "type": "Hygiene",
+	 "action": "Dishwasher_70",
+	 "attached-to": "Dishwasher_70"
+     },
+     "Drawer_71": {
+	 "type": "Hygiene",
+	 "action": "Drawer_71",
+	 "attached-to": "Drawer_71"
+     },
+     "Cabinet_72": {
+	 "type": "Cooking",
+	 "action": "Cabinet_72",
+	 "attached-to": "Cabinet_72"
+     },
+     "Cabinet_73": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_73",
+	 "attached-to": "Cabinet_73"
+     },
+     "Drawer_75": {
+	 "type": "Hygiene",
+	 "action": "Drawer_75",
+	 "attached-to": "Drawer_75"
+     },
+     "Lamp_76": {
+	 "type": "Hygiene",
+	 "action": "Lamp_76",
+	 "attached-to": "Lamp_76"
+     },
+     "Drawer_78": {
+	 "type": "Hygiene",
+	 "action": "Drawer_78",
+	 "attached-to": "Drawer_78"
+     },
+     "Cabinet_79": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_79",
+	 "attached-to": "Cabinet_79"
+     },
+     "Cabinet_80": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_80",
+	 "attached-to": "Cabinet_80"
+     },
+     "Closet_81": {
+	 "type": "Hygiene",
+	 "action": "Closet_81",
+	 "attached-to": "Closet_81"
+     },
+     "Drawer_82": {
+	 "type": "Hygiene",
+	 "action": "Drawer_82",
+	 "attached-to": "Drawer_82"
+     },
+     "Cabinet_83": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_83",
+	 "attached-to": "Cabinet_83"
+     },
+     "Drawer_84": {
+	 "type": "Hygiene",
+	 "action": "Drawer_84",
+	 "attached-to": "Drawer_84"
+     },
+     "Cabinet_67": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_67",
+	 "attached-to": "Cabinet_67"
+     },
+     "Window_85": {
+	 "type": "Hygiene",
+	 "action": "Window_85",
+	 "attached-to": "Window_85"
+     },
+     "Drawer_86": {
+	 "type": "Hygiene",
+	 "action": "Drawer_86",
+	 "attached-to": "Drawer_86"
+     },
+     "Drawer_87": {
+	 "type": "Hygiene",
+	 "action": "Drawer_87",
+	 "attached-to": "Drawer_87"
+     },
+     "Sink_faucet_-_cold_88": {
+	 "type": "Hygiene",
+	 "action": "Sink_faucet_-_cold_88",
+	 "attached-to": "Sink_faucet_-_cold_88"
+     },
+     "Cabinet_89": {
+	 "type": "Hygiene",
+	 "action": "Cabinet_89",
+	 "attached-to": "Cabinet_89"
+     },
+     "Laundry_Dryer_90": {
+	 "type": "Hygiene",
+	 "action": "Laundry_Dryer_90",
+	 "attached-to": "Laundry_Dryer_90"
+     },
+     "Refrigerator_91": {
+	 "type": "Hygiene",
+	 "action": "Refrigerator_91",
+	 "attached-to": "Refrigerator_91"
+     },
+     "Light_switch_92": {
+	 "type": "Hygiene",
+	 "action": "Light_switch_92",
+	 "attached-to": "Light_switch_92"
+     },
+     "Shower_faucet_93": {
+	 "type": "Hygiene",
+	 "action": "Shower_faucet_93",
+	 "attached-to": "Shower_faucet_93"
+     },
+     "Burner_94": {
+	 "type": "Hygiene",
+	 "action": "Burner_94",
+	 "attached-to": "Burner_94"
+     },
+     "Light_switch_95": {
+	 "type": "Hygiene",
+	 "action": "Light_switch_95",
+	 "attached-to": "Light_switch_95"
+     },
+     "Exhaust_Fan_96": {
+	 "type": "Hygiene",
+	 "action": "Exhaust_Fan_96",
+	 "attached-to": "Exhaust_Fan_96"
+     },
+     "Light_switch_97": {
+	 "type": "Hygiene",
+	 "action": "Light_switch_97",
+	 "attached-to": "Light_switch_97"
+     },
+     "Garbage_disposal_98": {
+	 "type": "Hygiene",
+	 "action": "Garbage_disposal_98",
+	 "attached-to": "Garbage_disposal_98"
+     },
+     "Burner_99": {
+	 "type": "contact",
+	 "action": "Burner_99",
+	 "attached-to": "Burner_99"
+     }
+ }
+}
