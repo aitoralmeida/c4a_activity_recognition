@@ -1,6 +1,5 @@
 numpy==1.11.0
 pandas==0.18.1
-pkg-resources==0.0.0
 python-dateutil==2.5.3
 pytz==2016.4
 scikit-learn==0.17.1

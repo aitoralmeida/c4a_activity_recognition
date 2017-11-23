@@ -6,6 +6,8 @@ Created on Tue Feb 11 15:32:42 2014
 """
 
 import sys, time
+sys.path.append('../..')
+
 
 from pattern_model_matching.PatternModelMatching import main as pm_main
 from ar_evaluator.AREvaluator import main as ar_main
@@ -25,14 +27,15 @@ def main(argv):
     groundtruth = "base_kasteren_reduced.csv"
     evaluable = "pm_output.csv"
     
-    # Call PatternModelMatching
+    
+    # Call PatternModelMatching    
     arguments = ['PatternModelMatching.py', '-e', eamsfile, '-a', patternsfile, '-l', adlogfile, '-c', contextmodelfile, '-o', pmoutputfile]
     pm_main(arguments)
     time.sleep(1)       
-                   
+    
     # Call AR Evaluator
     arguments = ['AREvaluator.py', '-g', groundtruth, '-e', evaluable]
     ar_main(arguments)
        
-if __name__ == "__main__":
-   main(sys.argv)
+if __name__ == "__main__":    
+    main(sys.argv)

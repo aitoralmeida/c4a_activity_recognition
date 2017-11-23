@@ -6,6 +6,7 @@ Created on Tue Feb 11 15:32:42 2014
 """
 
 import sys, time
+sys.path.append('../..')
 
 from pattern_model_matching.PatternModelMatching import main as pm_main
 from ar_evaluator.AREvaluator import main as ar_main
