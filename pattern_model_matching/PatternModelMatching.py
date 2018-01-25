@@ -105,10 +105,18 @@ class PatternModelMatching:
         None
         
         """
+        # begin old code
+        """
         self.df = pd.read_csv(self.annotatedfile, parse_dates=[[0, 1]], header=None, index_col=0, sep='\t')        
         self.df.columns = ['sensor', 'action', 'event', 'pattern']
         self.df.index.names = ["timestamp"]
-        
+        """
+        # end old code
+        # TODO: use auto-generated indices to accept duplicated timestamps
+        # begin new code
+        self.df = pd.read_csv(self.annotatedfile, parse_dates=[[0, 1]], header=None, sep='\t')        
+        self.df.columns = ['timestamp', 'sensor', 'action', 'event', 'pattern']
+        # end new code                
         # Load context model and transform sensor activations to actions        
         sensors = self.contextmodel["sensors"]        
         for i in self.df.index:        
@@ -130,8 +138,8 @@ class PatternModelMatching:
         """ Method to store the detected EAMs in the internal dataframe as a new column (detected_activities)
             
         Usage example:
-            start = pd.Timestamp('2016-01-01 00:00:00')
-            end = pd.Timestamp('2016-01-01 00:00:12')
+            start = pd.Timestamp('2016-01-01 00:00:00') [NOW: numeric index in df]
+            end = pd.Timestamp('2016-01-01 00:00:12') [NOW: numeric index in df]
             bestnames = ['MakeCoffee', 'MakePasta']
             annotate_data_frame(start, end, bestnames)
                 
@@ -149,9 +157,12 @@ class PatternModelMatching:
         None
         
         """
-        aux_df = self.df[start:end]
+        # TODO: be careful with this when we change the index of the df from timestamp to auto-generated
+        # I had to add end+1 instead of end not to ignore the last element
+        aux_df = self.df[start:end+1]
         for index in aux_df.index:
-            self.df.loc[index, 'detected_activities'] = bestnames
+            #self.df.loc[index, 'detected_activities'] = bestnames
+            self.df.set_value(index, 'detected_activities', bestnames)
             
     
     def prefilter_patterns(self):
@@ -207,17 +218,39 @@ class PatternModelMatching:
         start = None
         end = None
         previous = None
+        # TODO: add varaibles to store start, end and previous indices, not only timestamps
+        # begin new code
+        start_index = None
+        end_index = None
+        previous_index = None
+        # end new code
+        
         # Add a new column to self.df for the activities detected by the algorithm
         # The new column is initialized with 'None'
         detected_activities = [['None']]*len(self.df)
         self.df['detected_activities'] = detected_activities
-        for timestamp in auxdf.index:
-            if auxdf.loc[timestamp, "pattern"] != pat:
+        # TODO: change this to adapt it to the new index form
+        # begin new code
+        for index in auxdf.index:
+        # end new code
+        # begin old code
+        #for timestamp in auxdf.index:
+        # end old code
+            #begin new code
+            if auxdf.loc[index, "pattern"] != pat:
+            # end new code
+            # begin old code
+            #if auxdf.loc[timestamp, "pattern"] != pat:
+            # end old code
                 if len(actions) > 0:
                     print 'New pattern'
                     print '   actions:', actions
                     end = previous
-                    # Call here to the real matcher                    
+                    # begin new code
+                    end_index = previous_index
+                    # end new code
+                    # Call here to the real matcher   
+                    # TODO: check the following method to see how start and end are used (start_index, end_index?)
                     [maxscore, bestnames, partialscores] = self.find_models_for_pattern(sensors, actions, start, end)
                     # TESTING!! Action based filter  
                     if partialscores[0] == -1:
@@ -231,18 +264,45 @@ class PatternModelMatching:
                     print '   start:', start, 'end:', end
                     print '   best eams:', bestnames, '(', maxscore, ')'
                     print '   partial scores: a(', partialscores[0], '), d(', partialscores[1], '), s(', partialscores[2], '), l(', partialscores[3], ')'
-                    self.annotate_data_frame(start, end, bestnames)
+                    # TODO: check the following method to see how start and end are used (start_index, end_index?)
+                    # begin old code
+                    #self.annotate_data_frame(start, end, bestnames)
+                    # end old code
+                    # begin new code
+                    self.annotate_data_frame(start_index, end_index, bestnames)
+                    # end new code
                 
-                # Assign start the index value (the timestampt itself)
-                start = timestamp
+                # Assign start the index value (the timestamp itself)
+                # begin old code
+                #start = timestamp
+                # end old code
+                # begin new code
+                start = auxdf.loc[index, 'timestamp']
+                start_index = index
+                # end new code
                 #print 'New pattern!', auxdf.loc[timestamp, "pattern"]                
-                pat = auxdf.loc[timestamp, "pattern"]
+                # begin old code
+                #pat = auxdf.loc[timestamp, "pattern"]
+                # end old code
+                # begin new code
+                pat = auxdf.loc[index, 'pattern']
+                # end new code
                 actions = []
                 sensors = []
                 
+            # begin old code
+            """
             actions.append(auxdf.loc[timestamp, "action"])
             sensors.append(auxdf.loc[timestamp, "sensor"])
             previous = timestamp
+            """
+            # end old code
+            # begin new code            
+            actions.append(auxdf.loc[index, "action"])
+            sensors.append(auxdf.loc[index, "sensor"])
+            previous = auxdf.loc[index, 'timestamp']
+            previous_index = index
+            # end new code
             
     def shared_actions(self, actions, eamindices):
 #        print 'EAMS:', eams
@@ -605,7 +665,8 @@ class PatternModelMatching:
         None
         
         """
-        self.df.to_csv(filename)
+        # Added index=False to prevent numeric index to be written to the csv
+        self.df.to_csv(filename, index=False) 
             
     
     def filter_with_actions(self, action_score):

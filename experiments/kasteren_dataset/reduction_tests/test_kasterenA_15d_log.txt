@@ -1,0 +1,899 @@
+Reading the config file...done
+727 events and 14 labels in data set
+
+Discovering patterns...AD: NumIterations = -1
+------- Iteration 0, 727 events, 727 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.091592, number of instances = 32
+   meantime = 14.593750, stddevtime = 7.114507
+ Sequence(3):
+   event (2) HallBathroomDoor [30 30]
+   event (3) ToiletFlush [31 31]
+   event (2) HallBathroomDoor [32 32]
+Marked 64 events to compress, 0 duplicates, 663 numnewevents
+
+------- Iteration 1, 663 events, 663 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.054054, number of instances = 36
+   meantime = 10.666667, stddevtime = 6.936218
+ Sequence(2):
+   event (1) HallToiletDoor [22 22]
+   event (1) HallToiletDoor [23 23]
+Marked 36 events to compress, 0 duplicates, 627 numnewevents
+
+------- Iteration 2, 627 events, 627 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.048495, number of instances = 31
+   meantime = 16.193548, stddevtime = 5.269629
+ Sequence(2):
+   event (5) Fridge [11 11]
+   event (5) Fridge [12 12]
+Marked 31 events to compress, 0 duplicates, 596 numnewevents
+
+------- Iteration 3, 596 events, 596 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.040140, number of instances = 25
+   meantime = 8.520000, stddevtime = 5.987453
+ Sequence(2):
+   event (0) HallBedroomDoor [1 1]
+   event (0) HallBedroomDoor [2 2]
+Marked 25 events to compress, 0 duplicates, 571 numnewevents
+
+------- Iteration 4, 571 events, 571 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.032550, number of instances = 20
+   meantime = 12.550000, stddevtime = 4.598641
+ Sequence(2):
+   event (11) Frontdoor [25 25]
+   event (11) Frontdoor [26 26]
+Marked 20 events to compress, 0 duplicates, 551 numnewevents
+
+------- Iteration 5, 551 events, 551 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.026071, number of instances = 16
+   meantime = 11.812500, stddevtime = 7.247575
+ Sequence(2):
+   event (2) HallBathroomDoor [95 95]
+   event (2) HallBathroomDoor [96 96]
+Marked 16 events to compress, 0 duplicates, 535 numnewevents
+
+------- Iteration 6, 535 events, 535 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.020992, number of instances = 13
+   meantime = 19.461538, stddevtime = 0.842650
+ Sequence(2):
+   event (9) PansCupboard [33 33]
+   event (9) PansCupboard [34 34]
+Marked 13 events to compress, 0 duplicates, 522 numnewevents
+
+------- Iteration 7, 522 events, 522 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.019531, number of instances = 12
+   meantime = 16.583334, stddevtime = 6.383029
+ Sequence(2):
+   event (3) ToiletFlush [6 6]
+   event (3) ToiletFlush [7 7]
+Marked 12 events to compress, 0 duplicates, 510 numnewevents
+
+------- Iteration 8, 510 events, 510 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.013916, number of instances = 9
+   meantime = 8.888889, stddevtime = 0.566558
+ Sequence(2):
+   event (4) PlatesCupboard [126 126]
+   event (7) GroceriesCupboard [127 127]
+Marked 9 events to compress, 0 duplicates, 501 numnewevents
+
+------- Iteration 9, 501 events, 501 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.014170, number of instances = 9
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (15) Pat_1 [22 23]
+   event (1) HallToiletDoor [24 24]
+Marked 9 events to compress, 0 duplicates, 492 numnewevents
+
+------- Iteration 10, 492 events, 492 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.012346, number of instances = 8
+   meantime = 16.500000, stddevtime = 7.280110
+ Sequence(2):
+   event (10) CupsCupboard [144 144]
+   event (5) Fridge [145 145]
+Marked 8 events to compress, 0 duplicates, 484 numnewevents
+
+------- Iteration 11, 484 events, 484 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.012552, number of instances = 8
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (15) Pat_1 [133 134]
+   event (18) Pat_4 [135 136]
+Marked 8 events to compress, 0 duplicates, 476 numnewevents
+
+------- Iteration 12, 476 events, 476 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.010616, number of instances = 7
+   meantime = 17.428572, stddevtime = 5.876276
+ Sequence(2):
+   event (2) HallBathroomDoor [45 45]
+   event (14) Pat_0 [46 48]
+Marked 7 events to compress, 0 duplicates, 469 numnewevents
+
+------- Iteration 13, 469 events, 469 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.010776, number of instances = 7
+   meantime = 15.857142, stddevtime = 5.962467
+ Sequence(2):
+   event (7) GroceriesCupboard [232 232]
+   event (7) GroceriesCupboard [233 233]
+Marked 7 events to compress, 0 duplicates, 462 numnewevents
+
+------- Iteration 14, 462 events, 462 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.010941, number of instances = 7
+   meantime = 11.571428, stddevtime = 9.302182
+ Sequence(2):
+   event (10) CupsCupboard [40 40]
+   event (10) CupsCupboard [41 41]
+Marked 7 events to compress, 0 duplicates, 455 numnewevents
+
+------- Iteration 15, 455 events, 455 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.011111, number of instances = 4
+   meantime = 15.750000, stddevtime = 4.085034
+ Sequence(3):
+   event (5) Fridge [27 27]
+   event (7) GroceriesCupboard [28 28]
+   event (5) Fridge [29 29]
+Marked 8 events to compress, 0 duplicates, 447 numnewevents
+
+------- Iteration 16, 447 events, 447 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.011312, number of instances = 4
+   meantime = 11.500000, stddevtime = 3.774917
+ Sequence(3):
+   event (2) HallBathroomDoor [5 5]
+   event (21) Pat_7 [6 7]
+   event (2) HallBathroomDoor [8 8]
+Marked 8 events to compress, 0 duplicates, 439 numnewevents
+
+------- Iteration 17, 439 events, 439 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.009195, number of instances = 6
+   meantime = 18.500000, stddevtime = 4.425306
+ Sequence(2):
+   event (4) PlatesCupboard [10 10]
+   event (16) Pat_2 [11 12]
+Marked 6 events to compress, 0 duplicates, 433 numnewevents
+
+------- Iteration 18, 433 events, 433 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.009324, number of instances = 6
+   meantime = 0.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (17) Pat_3 [121 122]
+   event (19) Pat_5 [123 124]
+Marked 6 events to compress, 0 duplicates, 427 numnewevents
+
+------- Iteration 19, 427 events, 427 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007075, number of instances = 5
+   meantime = 0.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (17) Pat_3 [111 112]
+   event (14) Pat_0 [113 115]
+Marked 5 events to compress, 0 duplicates, 422 numnewevents
+
+------- Iteration 20, 422 events, 422 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007160, number of instances = 5
+   meantime = 15.400000, stddevtime = 4.923413
+ Sequence(2):
+   event (4) PlatesCupboard [344 344]
+   event (12) Freezer [345 345]
+Marked 5 events to compress, 0 duplicates, 417 numnewevents
+
+------- Iteration 21, 417 events, 417 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007246, number of instances = 5
+   meantime = 18.000000, stddevtime = 4.732864
+ Sequence(2):
+   event (8) Dishwasher [89 89]
+   event (8) Dishwasher [90 90]
+Marked 5 events to compress, 0 duplicates, 412 numnewevents
+
+------- Iteration 22, 412 events, 412 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007335, number of instances = 5
+   meantime = 0.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (17) Pat_3 [1 2]
+   event (0) HallBedroomDoor [3 3]
+Marked 5 events to compress, 0 duplicates, 407 numnewevents
+
+------- Iteration 23, 407 events, 407 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007426, number of instances = 5
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (23) Pat_9 [22 24]
+   event (18) Pat_4 [25 26]
+Marked 5 events to compress, 0 duplicates, 402 numnewevents
+
+------- Iteration 24, 402 events, 402 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.007519, number of instances = 3
+   meantime = 19.666666, stddevtime = 0.471404
+ Sequence(3):
+   event (5) Fridge [178 178]
+   event (9) PansCupboard [179 179]
+   event (5) Fridge [180 180]
+Marked 6 events to compress, 0 duplicates, 396 numnewevents
+
+------- Iteration 25, 396 events, 396 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005076, number of instances = 4
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (22) Pat_8 [165 166]
+   event (16) Pat_2 [167 168]
+Marked 4 events to compress, 0 duplicates, 392 numnewevents
+
+------- Iteration 26, 392 events, 392 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005128, number of instances = 4
+   meantime = 14.250000, stddevtime = 4.918079
+ Sequence(2):
+   event (1) HallToiletDoor [599 599]
+   event (3) ToiletFlush [600 600]
+Marked 4 events to compress, 0 duplicates, 388 numnewevents
+
+------- Iteration 27, 388 events, 388 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005181, number of instances = 4
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (15) Pat_1 [416 417]
+   event (2) HallBathroomDoor [418 418]
+Marked 4 events to compress, 0 duplicates, 384 numnewevents
+
+------- Iteration 28, 384 events, 384 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005236, number of instances = 4
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (15) Pat_1 [131 132]
+   event (25) Pat_11 [133 136]
+Marked 4 events to compress, 0 duplicates, 380 numnewevents
+
+------- Iteration 29, 380 events, 380 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005291, number of instances = 4
+   meantime = 3.500000, stddevtime = 3.570714
+ Sequence(2):
+   event (2) HallBathroomDoor [393 393]
+   event (3) ToiletFlush [394 394]
+Marked 4 events to compress, 0 duplicates, 376 numnewevents
+
+------- Iteration 30, 376 events, 376 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.005348, number of instances = 2
+   meantime = 19.000000, stddevtime = 0.000000
+ Sequence(4):
+   event (12) Freezer [65 65]
+   event (16) Pat_2 [66 67]
+   event (5) Fridge [68 68]
+   event (4) PlatesCupboard [69 69]
+Marked 6 events to compress, 0 duplicates, 370 numnewevents
+
+------- Iteration 31, 370 events, 370 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002710, number of instances = 3
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (18) Pat_4 [146 147]
+   event (14) Pat_0 [148 150]
+Marked 3 events to compress, 0 duplicates, 367 numnewevents
+
+------- Iteration 32, 367 events, 367 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002732, number of instances = 3
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (16) Pat_2 [53 54]
+   event (16) Pat_2 [55 56]
+Marked 3 events to compress, 0 duplicates, 364 numnewevents
+
+------- Iteration 33, 364 events, 364 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002755, number of instances = 3
+   meantime = 16.000000, stddevtime = 4.966555
+ Sequence(2):
+   event (10) CupsCupboard [20 20]
+   event (4) PlatesCupboard [21 21]
+Marked 3 events to compress, 0 duplicates, 361 numnewevents
+
+------- Iteration 34, 361 events, 361 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002778, number of instances = 3
+   meantime = 16.000000, stddevtime = 4.966555
+ Sequence(2):
+   event (5) Fridge [323 323]
+   event (12) Freezer [324 324]
+Marked 3 events to compress, 0 duplicates, 358 numnewevents
+
+------- Iteration 35, 358 events, 358 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002801, number of instances = 3
+   meantime = 15.333333, stddevtime = 10.842303
+ Sequence(2):
+   event (1) HallToiletDoor [101 101]
+   event (0) HallBedroomDoor [102 102]
+Marked 3 events to compress, 0 duplicates, 355 numnewevents
+
+------- Iteration 36, 355 events, 355 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002825, number of instances = 3
+   meantime = 19.333334, stddevtime = 1.247219
+ Sequence(2):
+   event (7) GroceriesCupboard [487 487]
+   event (12) Freezer [488 488]
+Marked 3 events to compress, 0 duplicates, 352 numnewevents
+
+------- Iteration 37, 352 events, 352 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002849, number of instances = 3
+   meantime = 19.666666, stddevtime = 1.247219
+ Sequence(2):
+   event (6) Microwave [70 70]
+   event (6) Microwave [71 71]
+Marked 3 events to compress, 0 duplicates, 349 numnewevents
+
+------- Iteration 38, 349 events, 349 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.002874, number of instances = 3
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (28) Pat_14 [40 41]
+   event (10) CupsCupboard [42 42]
+Marked 3 events to compress, 0 duplicates, 346 numnewevents
+
+------- Iteration 39, 346 events, 346 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 0.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (36) Pat_22 [219 221]
+   event (14) Pat_0 [222 224]
+Marked 2 events to compress, 0 duplicates, 344 numnewevents
+
+------- Iteration 40, 344 events, 344 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 11.000000, stddevtime = 11.000000
+ Sequence(2):
+   event (1) HallToiletDoor [210 210]
+   event (14) Pat_0 [211 213]
+Marked 2 events to compress, 0 duplicates, 342 numnewevents
+
+------- Iteration 41, 342 events, 342 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (7) GroceriesCupboard [424 424]
+   event (4) PlatesCupboard [425 425]
+Marked 2 events to compress, 0 duplicates, 340 numnewevents
+
+------- Iteration 42, 340 events, 340 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.500000, stddevtime = 7.500000
+ Sequence(2):
+   event (5) Fridge [390 390]
+   event (24) Pat_10 [391 392]
+Marked 2 events to compress, 0 duplicates, 338 numnewevents
+
+------- Iteration 43, 338 events, 338 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.500000, stddevtime = 6.500000
+ Sequence(2):
+   event (9) PansCupboard [91 91]
+   event (8) Dishwasher [92 92]
+Marked 2 events to compress, 0 duplicates, 336 numnewevents
+
+------- Iteration 44, 336 events, 336 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 21.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (24) Pat_10 [187 188]
+   event (14) Pat_0 [189 191]
+Marked 2 events to compress, 0 duplicates, 334 numnewevents
+
+------- Iteration 45, 334 events, 334 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (10) CupsCupboard [489 489]
+   event (20) Pat_6 [490 491]
+Marked 2 events to compress, 0 duplicates, 332 numnewevents
+
+------- Iteration 46, 332 events, 332 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (16) Pat_2 [672 673]
+   event (10) CupsCupboard [674 674]
+Marked 2 events to compress, 0 duplicates, 330 numnewevents
+
+------- Iteration 47, 330 events, 330 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (12) Freezer [342 342]
+   event (4) PlatesCupboard [343 343]
+Marked 2 events to compress, 0 duplicates, 328 numnewevents
+
+------- Iteration 48, 328 events, 328 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 19.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (5) Fridge [307 307]
+   event (20) Pat_6 [308 309]
+Marked 2 events to compress, 0 duplicates, 326 numnewevents
+
+------- Iteration 49, 326 events, 326 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 21.000000, stddevtime = 1.000000
+ Sequence(2):
+   event (1) HallToiletDoor [339 339]
+   event (17) Pat_3 [340 341]
+Marked 2 events to compress, 0 duplicates, 324 numnewevents
+
+------- Iteration 50, 324 events, 324 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (20) Pat_6 [33 34]
+   event (9) PansCupboard [35 35]
+Marked 2 events to compress, 0 duplicates, 322 numnewevents
+
+------- Iteration 51, 322 events, 322 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (14) Pat_0 [160 162]
+   event (17) Pat_3 [163 164]
+Marked 2 events to compress, 0 duplicates, 320 numnewevents
+
+------- Iteration 52, 320 events, 320 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 10.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (15) Pat_1 [103 104]
+   event (15) Pat_1 [105 106]
+Marked 2 events to compress, 0 duplicates, 318 numnewevents
+
+------- Iteration 53, 318 events, 318 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 16.000000, stddevtime = 7.000000
+ Sequence(2):
+   event (8) Dishwasher [17 17]
+   event (4) PlatesCupboard [18 18]
+Marked 2 events to compress, 0 duplicates, 316 numnewevents
+
+------- Iteration 54, 316 events, 316 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (22) Pat_8 [126 127]
+   event (7) GroceriesCupboard [128 128]
+Marked 2 events to compress, 0 duplicates, 314 numnewevents
+
+------- Iteration 55, 314 events, 314 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.500000, stddevtime = 0.500000
+ Sequence(2):
+   event (5) Fridge [281 281]
+   event (30) Pat_16 [282 285]
+Marked 2 events to compress, 0 duplicates, 312 numnewevents
+
+------- Iteration 56, 312 events, 312 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 23.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (19) Pat_5 [151 152]
+   event (19) Pat_5 [153 154]
+Marked 2 events to compress, 0 duplicates, 310 numnewevents
+
+------- Iteration 57, 310 events, 310 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.003236, number of instances = 2
+   meantime = 8.000000, stddevtime = 0.000000
+ Sequence(3):
+   event (0) HallBedroomDoor [116 116]
+   event (2) HallBathroomDoor [117 117]
+   event (17) Pat_3 [118 119]
+Marked 4 events to compress, 0 duplicates, 306 numnewevents
+
+------- Iteration 58, 306 events, 306 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 15.500000, stddevtime = 7.500000
+ Sequence(2):
+   event (1) HallToiletDoor [94 94]
+   event (19) Pat_5 [95 96]
+Marked 2 events to compress, 0 duplicates, 304 numnewevents
+
+------- Iteration 59, 304 events, 304 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (6) Microwave [13 13]
+   event (7) GroceriesCupboard [14 14]
+Marked 2 events to compress, 0 duplicates, 302 numnewevents
+
+------- Iteration 60, 302 events, 302 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (31) Pat_17 [74 76]
+   event (5) Fridge [77 77]
+Marked 2 events to compress, 0 duplicates, 300 numnewevents
+
+------- Iteration 61, 300 events, 300 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 0.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (32) Pat_18 [121 124]
+   event (3) ToiletFlush [125 125]
+Marked 2 events to compress, 0 duplicates, 298 numnewevents
+
+------- Iteration 62, 298 events, 298 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 9.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (21) Pat_7 [443 444]
+   event (21) Pat_7 [445 446]
+Marked 2 events to compress, 0 duplicates, 296 numnewevents
+
+------- Iteration 63, 296 events, 296 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 21.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (34) Pat_20 [344 345]
+   event (12) Freezer [346 346]
+Marked 2 events to compress, 0 duplicates, 294 numnewevents
+
+------- Iteration 64, 294 events, 294 size -------
+
+Best discovered sequence
+
+Pattern: value = 1.000000, number of instances = 2
+   meantime = 17.000000, stddevtime = 0.000000
+ Sequence(2):
+   event (20) Pat_6 [317 318]
+   event (20) Pat_6 [319 320]
+Marked 2 events to compress, 0 duplicates, 292 numnewevents
+
+------- Iteration 65, 292 events, 292 size -------
+
+No more compression can be achieved.	Done.
+
+Clustering patterns...
+Pattern (0): (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (1): (1) HallToiletDoor (1) HallToiletDoor 
+Pattern (2): (5) Fridge (5) Fridge 
+Pattern (3): (0) HallBedroomDoor (0) HallBedroomDoor 
+Pattern (4): (11) Frontdoor (11) Frontdoor 
+Pattern (5): (2) HallBathroomDoor (2) HallBathroomDoor 
+Pattern (6): (9) PansCupboard (9) PansCupboard 
+Pattern (7): (3) ToiletFlush (3) ToiletFlush 
+Pattern (8): (4) PlatesCupboard (7) GroceriesCupboard 
+Pattern (9): (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor 
+Pattern (10): (10) CupsCupboard (5) Fridge 
+Pattern (11): (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+Pattern (12): (2) HallBathroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (13): (7) GroceriesCupboard (7) GroceriesCupboard 
+Pattern (14): (10) CupsCupboard (10) CupsCupboard 
+Pattern (15): (5) Fridge (7) GroceriesCupboard (5) Fridge 
+Pattern (16): (2) HallBathroomDoor (3) ToiletFlush (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (17): (4) PlatesCupboard (5) Fridge (5) Fridge 
+Pattern (18): (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+Pattern (19): (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (20): (4) PlatesCupboard (12) Freezer 
+Pattern (21): (8) Dishwasher (8) Dishwasher 
+Pattern (22): (0) HallBedroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Pattern (23): (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+Pattern (24): (5) Fridge (9) PansCupboard (5) Fridge 
+Pattern (25): (4) PlatesCupboard (7) GroceriesCupboard (5) Fridge (5) Fridge 
+Pattern (26): (1) HallToiletDoor (3) ToiletFlush 
+Pattern (27): (1) HallToiletDoor (1) HallToiletDoor (2) HallBathroomDoor 
+Pattern (28): (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+Pattern (29): (2) HallBathroomDoor (3) ToiletFlush 
+Pattern (30): (12) Freezer (5) Fridge (5) Fridge (5) Fridge (4) PlatesCupboard 
+Pattern (31): (11) Frontdoor (11) Frontdoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (32): (5) Fridge (5) Fridge (5) Fridge (5) Fridge 
+Pattern (33): (10) CupsCupboard (4) PlatesCupboard 
+Pattern (34): (5) Fridge (12) Freezer 
+Pattern (35): (1) HallToiletDoor (0) HallBedroomDoor 
+Pattern (36): (7) GroceriesCupboard (12) Freezer 
+Pattern (37): (6) Microwave (6) Microwave 
+Pattern (38): (10) CupsCupboard (10) CupsCupboard (10) CupsCupboard 
+Pattern (39): (0) HallBedroomDoor (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (40): (1) HallToiletDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (41): (7) GroceriesCupboard (4) PlatesCupboard 
+Pattern (42): (5) Fridge (10) CupsCupboard (5) Fridge 
+Pattern (43): (9) PansCupboard (8) Dishwasher 
+Pattern (44): (10) CupsCupboard (5) Fridge (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (45): (10) CupsCupboard (9) PansCupboard (9) PansCupboard 
+Pattern (46): (5) Fridge (5) Fridge (10) CupsCupboard 
+Pattern (47): (12) Freezer (4) PlatesCupboard 
+Pattern (48): (5) Fridge (9) PansCupboard (9) PansCupboard 
+Pattern (49): (1) HallToiletDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Pattern (50): (9) PansCupboard (9) PansCupboard (9) PansCupboard 
+Pattern (51): (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Pattern (52): (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor 
+Pattern (53): (8) Dishwasher (4) PlatesCupboard 
+Pattern (54): (4) PlatesCupboard (7) GroceriesCupboard (7) GroceriesCupboard 
+Pattern (55): (5) Fridge (2) HallBathroomDoor (3) ToiletFlush (3) ToiletFlush (2) HallBathroomDoor 
+Pattern (56): (2) HallBathroomDoor (2) HallBathroomDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+Pattern (57): (0) HallBedroomDoor (2) HallBathroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Pattern (58): (1) HallToiletDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+Pattern (59): (6) Microwave (7) GroceriesCupboard 
+Pattern (60): (4) PlatesCupboard (5) Fridge (5) Fridge (5) Fridge 
+Pattern (61): (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (2) HallBathroomDoor (3) ToiletFlush 
+Pattern (62): (3) ToiletFlush (3) ToiletFlush (3) ToiletFlush (3) ToiletFlush 
+Pattern (63): (4) PlatesCupboard (12) Freezer (12) Freezer 
+Pattern (64): (9) PansCupboard (9) PansCupboard (9) PansCupboard (9) PansCupboard 
+
+Learning Markov models...
+computing distance between patterns...
+Cluster 0
+   [0]: (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [5]: (2) HallBathroomDoor (2) HallBathroomDoor 
+   [12]: (2) HallBathroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [16]: (2) HallBathroomDoor (3) ToiletFlush (3) ToiletFlush (2) HallBathroomDoor 
+   [56]: (2) HallBathroomDoor (2) HallBathroomDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+   [58]: (1) HallToiletDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+Cluster 1
+   [1]: (1) HallToiletDoor (1) HallToiletDoor 
+   [9]: (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor 
+   [52]: (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor 
+Cluster 2
+   [2]: (5) Fridge (5) Fridge 
+   [15]: (5) Fridge (7) GroceriesCupboard (5) Fridge 
+   [32]: (5) Fridge (5) Fridge (5) Fridge (5) Fridge 
+Cluster 3
+   [3]: (0) HallBedroomDoor (0) HallBedroomDoor 
+   [22]: (0) HallBedroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Cluster 4
+   [4]: (11) Frontdoor (11) Frontdoor 
+Cluster 5
+   [6]: (9) PansCupboard (9) PansCupboard 
+   [45]: (10) CupsCupboard (9) PansCupboard (9) PansCupboard 
+   [48]: (5) Fridge (9) PansCupboard (9) PansCupboard 
+   [64]: (9) PansCupboard (9) PansCupboard (9) PansCupboard (9) PansCupboard 
+Cluster 6
+   [7]: (3) ToiletFlush (3) ToiletFlush 
+Cluster 7
+   [8]: (4) PlatesCupboard (7) GroceriesCupboard 
+   [54]: (4) PlatesCupboard (7) GroceriesCupboard (7) GroceriesCupboard 
+   [59]: (6) Microwave (7) GroceriesCupboard 
+Cluster 8
+   [10]: (10) CupsCupboard (5) Fridge 
+Cluster 9
+   [11]: (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+   [23]: (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+   [28]: (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (1) HallToiletDoor (11) Frontdoor (11) Frontdoor 
+Cluster 10
+   [13]: (7) GroceriesCupboard (7) GroceriesCupboard 
+Cluster 11
+   [14]: (10) CupsCupboard (10) CupsCupboard 
+   [38]: (10) CupsCupboard (10) CupsCupboard (10) CupsCupboard 
+Cluster 12
+   [17]: (4) PlatesCupboard (5) Fridge (5) Fridge 
+   [24]: (5) Fridge (9) PansCupboard (5) Fridge 
+   [30]: (12) Freezer (5) Fridge (5) Fridge (5) Fridge (4) PlatesCupboard 
+   [46]: (5) Fridge (5) Fridge (10) CupsCupboard 
+   [60]: (4) PlatesCupboard (5) Fridge (5) Fridge (5) Fridge 
+Cluster 13
+   [18]: (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (2) HallBathroomDoor 
+   [19]: (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [39]: (0) HallBedroomDoor (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [57]: (0) HallBedroomDoor (2) HallBathroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+   [61]: (0) HallBedroomDoor (0) HallBedroomDoor (2) HallBathroomDoor (2) HallBathroomDoor (3) ToiletFlush 
+Cluster 14
+   [20]: (4) PlatesCupboard (12) Freezer 
+Cluster 15
+   [21]: (8) Dishwasher (8) Dishwasher 
+Cluster 16
+   [25]: (4) PlatesCupboard (7) GroceriesCupboard (5) Fridge (5) Fridge 
+Cluster 17
+   [26]: (1) HallToiletDoor (3) ToiletFlush 
+   [62]: (3) ToiletFlush (3) ToiletFlush (3) ToiletFlush (3) ToiletFlush 
+Cluster 18
+   [27]: (1) HallToiletDoor (1) HallToiletDoor (2) HallBathroomDoor 
+Cluster 19
+   [29]: (2) HallBathroomDoor (3) ToiletFlush 
+Cluster 20
+   [31]: (11) Frontdoor (11) Frontdoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [44]: (10) CupsCupboard (5) Fridge (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+Cluster 21
+   [33]: (10) CupsCupboard (4) PlatesCupboard 
+Cluster 22
+   [34]: (5) Fridge (12) Freezer 
+Cluster 23
+   [35]: (1) HallToiletDoor (0) HallBedroomDoor 
+Cluster 24
+   [36]: (7) GroceriesCupboard (12) Freezer 
+   [41]: (7) GroceriesCupboard (4) PlatesCupboard 
+   [47]: (12) Freezer (4) PlatesCupboard 
+   [63]: (4) PlatesCupboard (12) Freezer (12) Freezer 
+Cluster 25
+   [37]: (6) Microwave (6) Microwave 
+Cluster 26
+   [40]: (1) HallToiletDoor (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor 
+   [51]: (2) HallBathroomDoor (3) ToiletFlush (2) HallBathroomDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Cluster 27
+   [42]: (5) Fridge (10) CupsCupboard (5) Fridge 
+Cluster 28
+   [43]: (9) PansCupboard (8) Dishwasher 
+   [53]: (8) Dishwasher (4) PlatesCupboard 
+Cluster 29
+   [49]: (1) HallToiletDoor (0) HallBedroomDoor (0) HallBedroomDoor 
+Cluster 30
+   [50]: (9) PansCupboard (9) PansCupboard (9) PansCupboard 
+Cluster 31
+   [55]: (5) Fridge (2) HallBathroomDoor (3) ToiletFlush (3) ToiletFlush (2) HallBathroomDoor 
+Done.
+
+Annotating data...Done.
