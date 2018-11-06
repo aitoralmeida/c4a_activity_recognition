@@ -1,5 +1,7 @@
 Repository for HARS, the activity recognition modules in City4Age.
 
+Please cite the following paper when using this work: Gorka Azkune, Aitor Almeida. (2018) "A Scalable Hybrid Activity Recognition Approach for Intelligent Environments" In IEEE Access. vol. 6. p. 41745-41759. DOI: 10.1109/ACCESS.2018.2861004. 
+
 CONTENTS:
 ============
 
