@@ -4,7 +4,7 @@ Created on Wed Apr 27 15:07:22 2016
 
 @author: gazkune
 """
-from Pattern import Pattern
+from log_reader.Pattern import Pattern
 
 class Cluster:
     def __init__(self):
@@ -94,6 +94,6 @@ class Cluster:
         None
         
         """
-        print 'Cluster', self.number
+        print('Cluster', self.number)
         for pattern in self.patterns:
             pattern.print_pattern()

@@ -17,7 +17,7 @@ from ExpertActivityModel import ExpertActivityModel
 from log_reader.Pattern import Pattern
 from log_reader.Cluster import Cluster
 from log_reader.LogReader import LogReader
-from AD_pattern_filtering.ADPatternFilter import ADPatternFilter
+from ADPatternFilter import ADPatternFilter
 
 
 class PatternModelMatching:    
@@ -366,8 +366,9 @@ class PatternModelMatching:
         bestnames = []
         for key in self.eamcombinations:
             # This is the list of EAM indices for combination level 'key' 
-            eams = self.eamcombinations[key]            
-            for i in xrange(len(eams)):
+            eams = self.eamcombinations[key]
+            #print("EAM combination " + str(eams))            
+            for i in range(len(eams)):
                 # Testing!!
                 # Onyl consider those combinations of EAMs where shared actions for
                 # all EAMs exist
@@ -376,7 +377,7 @@ class PatternModelMatching:
                 
                 # Extract the EAM names of the current combination of EAMs
                 names = [self.eamlist[j].name for j in eams[i]]
-                #print '   ', names
+                #print('   ', names)
                 score_actions = self.func_actions(actions, eams[i])
                 #score_time = self.func_time(start, end, eams[i])
                 score_duration = self.func_duration(start, end, eams[i])

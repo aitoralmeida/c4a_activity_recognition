@@ -143,7 +143,7 @@ class Pattern:
         None
         
         """
-        print 'Pattern', self.number
-        print '  value:', self.value
-        print '  instances:', self.instances
-        print '  actions:', self.actions
+        print('Pattern', self.number)
+        print('  value:', self.value)
+        print('  instances:', self.instances)
+        print('  actions:', self.actions)

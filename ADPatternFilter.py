@@ -84,7 +84,7 @@ class ADPatternFilter:
         # Best value for Kasteren dataset
         perc = 0.0
         threshold = self.log.minInstances + (self.log.maxInstances - self.log.minInstances)*perc
-        print 'Used threshold value for instances:', threshold
+        print('Used threshold value for instances:', threshold)
         for pattern in self.log.patternlist:
             if pattern.instances < threshold:
                 self.removedPatterns.append(pattern)
@@ -110,7 +110,7 @@ class ADPatternFilter:
         """
         perc = 0.10
         threshold = self.log.minPatternValue + (self.log.maxPatternValue - self.log.minPatternValue)*perc
-        print 'Used threshold value for pattern values:', threshold
+        print('Used threshold value for pattern values:', threshold)
         for pattern in self.log.patternlist:
             if pattern.value < threshold:
                 self.removedPatterns.append(pattern)
@@ -141,7 +141,7 @@ class ADPatternFilter:
             
         iqr = np.subtract(*np.percentile(instances, [75, 25]))
         threshold = self.log.minInstances + iqr
-        print 'Used threshold value for instances:', threshold, 'iqr:', iqr
+        print('Used threshold value for instances:', threshold, 'iqr:', iqr)
         for pattern in self.log.patternlist:
             if pattern.instances < threshold:
                 self.removedPatterns.append(pattern)
@@ -172,7 +172,7 @@ class ADPatternFilter:
             
         iqr = np.subtract(*np.percentile(values, [75, 25]))
         threshold = self.log.minPatternValue + iqr
-        print 'Used threshold value for pattern values:', threshold, 'iqr:', iqr
+        print('Used threshold value for pattern values:', threshold, 'iqr:', iqr)
         for pattern in self.log.patternlist:
             if pattern.value < threshold:
                 self.removedPatterns.append(pattern)
@@ -232,11 +232,11 @@ def parse_args(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:",["ifile="])
     except getopt.GetoptError:
-        print 'ADPatternFilter.py -i <inputfile>'
+        print('ADPatternFilter.py -i <inputfile>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'ADPatternFilter.py -i <inputfile>'
+            print('ADPatternFilter.py -i <inputfile>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -264,8 +264,8 @@ def main(argv):
     """
     # call the argument parser 
     inputfile_name = parse_args(argv[1:])
-    print 'Provided arguments:'       
-    print inputfile_name
+    print('Provided arguments:')       
+    print(inputfile_name)
    
     patternfilter = ADPatternFilter(inputfile_name)
    
@@ -280,23 +280,32 @@ def main(argv):
     for pattern in patternfilter.defPatternlist:
        pattern.printPattern()
     """
+    print("Stats with pattern 1")
     patternfilter.remove_patterns1()
-    print len(patternfilter.removedPatterns)
+    print("Total patterns: " + str(len(patternfilter.defPatternlist)))
+    print("Removed patterns: " + str(len(patternfilter.removedPatterns)))
    
     patternfilter.reset()
-   
+    """
     patternfilter.remove_patterns2()
-    print len(patternfilter.removedPatterns)
+    print("Stats with pattern 2")
+    print("Total patterns: " + str(len(patternfilter.defPatternlist)))
+    print("Removed pattenrs: " + str(len(patternfilter.removedPatterns)))
    
-    patternfilter.reset()
-   
+    patternfilter.reset()"""
+    """
     patternfilter.remove_patterns3()
-    print len(patternfilter.removedPatterns)
+    print("Stats with pattern 3")
+    print("Total patterns: " + str(len(patternfilter.defPatternlist)))
+    print("Removed pattenrs: " + str(len(patternfilter.removedPatterns)))
    
-    patternfilter.reset()
-   
+    patternfilter.reset()"""
+    """
     patternfilter.remove_patterns4()
-    print len(patternfilter.removedPatterns)
+    print("Stats with pattern 4")
+    print("Total patterns: " + str(len(patternfilter.defPatternlist)))
+    print("Removed pattenrs: " + str(len(patternfilter.removedPatterns)))"""
+
    
 if __name__ == "__main__":
    main(sys.argv)

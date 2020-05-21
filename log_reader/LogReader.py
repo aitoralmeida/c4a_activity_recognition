@@ -14,8 +14,8 @@ import sys, getopt
 from copy import deepcopy
 import os.path
 
-from Pattern import Pattern
-from Cluster import Cluster
+from log_reader.Pattern import Pattern
+from log_reader.Cluster import Cluster
 
 
 class LogReader:
@@ -41,9 +41,9 @@ class LogReader:
         self.patternlist = []
         self.clusterlist = []
         self.maxPatternValue = 0
-        self.minPatternValue = sys.maxint
+        self.minPatternValue = sys.maxsize
         self.maxInstances = 0
-        self.minInstances = sys.maxint        
+        self.minInstances = sys.maxsize        
         
     
     def __del__(self):
@@ -171,7 +171,7 @@ class LogReader:
         
         """
         if len(self.patternlist) == 0:
-            print 'Pattern have to be parsed before clusters'
+            print('Pattern have to be parsed before clusters')
             return
         # Bring the cursor to the beginning
         self.logfile.seek(0)
@@ -221,11 +221,11 @@ def parse_args(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:",["ifile="])
     except getopt.GetoptError:
-        print 'log_reader.py -i <inputfile>'
+        print('log_reader.py -i <inputfile>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'log_reader.py -i <inputfile>'
+            print('log_reader.py -i <inputfile>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -253,8 +253,8 @@ def main(argv):
     """
     # call the argument parser 
     inputfile_name = parse_args(argv[1:])
-    print 'Provided arguments:'       
-    print inputfile_name
+    print('Provided arguments:')       
+    print(inputfile_name)
    
     logreader = LogReader(inputfile_name)
    
@@ -272,10 +272,10 @@ def main(argv):
         cluster.print_cluster()
        
     # Print max and min values for pattern value and instances
-    print 'Max pattern value', logreader.maxPatternValue
-    print 'Min pattern value', logreader.minPatternValue
-    print 'Max instances', logreader.maxInstances
-    print 'Min instances', logreader.minInstances
+    print('Max pattern value', logreader.maxPatternValue)
+    print('Min pattern value', logreader.minPatternValue)
+    print('Max instances', logreader.maxInstances)
+    print('Min instances', logreader.minInstances)
    
    
 if __name__ == "__main__":
