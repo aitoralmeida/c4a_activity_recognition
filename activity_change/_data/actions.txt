@@ -1,0 +1,3758 @@
+********************
+Loading dataset...
+### Dataset ###
+                               sensor            action event    activity
+timestamp                                                                
+2008-02-25 00:20:14   HallBedroomDoor   HallBedroomDoor    ON        None
+2008-02-25 09:33:41   HallBedroomDoor   HallBedroomDoor    ON     GoToBed
+2008-02-25 09:33:47   HallBedroomDoor   HallBedroomDoor    ON     GoToBed
+2008-02-25 09:36:43    HallToiletDoor    HallToiletDoor    ON        None
+2008-02-25 09:37:20  HallBathroomDoor  HallBathroomDoor    ON   UseToilet
+...                               ...               ...   ...         ...
+2008-03-21 18:27:57            Fridge            Fridge    ON        None
+2008-03-21 18:28:00            Fridge            Fridge    ON        None
+2008-03-21 18:28:19           Freezer           Freezer    ON        None
+2008-03-21 19:11:10         Frontdoor         Frontdoor    ON  LeaveHouse
+2008-03-23 19:04:46         Frontdoor         Frontdoor    ON  LeaveHouse
+
+[1179 rows x 4 columns]
+### ### ###
+### Actions ###
+[5, 5, 5, 2, 1, 4, 4, 1, 8, 8, 3, 3, 12, 7, 12, 7, 13, 8, 9, 10, 8, 2, 2, 2, 6, 6, 3, 7, 3, 1, 4, 1, 9, 9, 9, 6, 9, 3, 3, 10, 10, 10, 3, 3, 1, 1, 4, 1, 5, 5, 10, 7, 3, 3, 3, 3, 3, 7, 3, 8, 9, 9, 10, 10, 11, 3, 3, 3, 8, 12, 12, 3, 3, 8, 3, 3, 3, 2, 2, 3, 1, 1, 4, 1, 6, 8, 12, 12, 13, 13, 9, 13, 5, 2, 1, 1, 2, 5, 5, 5, 2, 5, 2, 2, 2, 2, 4, 2, 2, 2, 5, 5, 1, 4, 1, 5, 1, 5, 5, 1, 5, 5, 1, 1, 4, 8, 7, 7, 3, 3, 2, 2, 2, 2, 6, 6, 6, 1, 1, 4, 1, 3, 3, 10, 3, 6, 6, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 2, 5, 1, 4, 1, 5, 5, 8, 7, 3, 3, 1, 1, 4, 1, 2, 2, 6, 6, 7, 3, 9, 3, 11, 3, 3, 3, 8, 8, 10, 3, 1, 4, 1, 1, 4, 1, 13, 8, 10, 10, 9, 8, 3, 3, 3, 3, 1, 4, 4, 2, 9, 2, 1, 4, 1, 1, 1, 2, 2, 2, 5, 5, 5, 1, 4, 1, 5, 5, 1, 1, 4, 8, 7, 7, 7, 7, 7, 7, 7, 3, 1, 4, 1, 2, 2, 2, 6, 6, 3, 12, 12, 3, 12, 1, 4, 1, 2, 2, 6, 6, 1, 4, 1, 7, 7, 2, 2, 2, 1, 1, 4, 1, 2, 5, 1, 1, 5, 1, 5, 5, 8, 7, 3, 1, 4, 4, 1, 2, 2, 2, 2, 6, 6, 3, 6, 6, 1, 4, 1, 13, 13, 3, 10, 8, 3, 7, 3, 9, 3, 9, 9, 3, 3, 3, 9, 3, 10, 8, 9, 9, 9, 9, 9, 9, 3, 11, 3, 9, 3, 6, 6, 6, 2, 2, 14, 1, 4, 1, 5, 5, 2, 5, 5, 11, 8, 8, 11, 11, 14, 14, 1, 1, 1, 4, 1, 4, 1, 5, 5, 1, 1, 8, 7, 7, 8, 7, 3, 3, 2, 2, 2, 2, 6, 6, 1, 1, 4, 1, 2, 6, 6, 1, 4, 1, 2, 14, 1, 6, 6, 1, 14, 3, 10, 3, 1, 4, 2, 2, 2, 1, 4, 2, 5, 5, 1, 4, 1, 5, 5, 1, 4, 1, 8, 7, 3, 7, 3, 2, 2, 1, 2, 2, 6, 6, 11, 7, 8, 1, 4, 1, 9, 9, 8, 3, 3, 3, 8, 2, 1, 4, 1, 2, 2, 1, 4, 4, 4, 4, 4, 4, 5, 5, 1, 1, 5, 5, 1, 1, 9, 3, 3, 3, 3, 8, 3, 11, 8, 11, 10, 12, 3, 1, 4, 4, 1, 2, 2, 2, 2, 2, 6, 6, 3, 3, 1, 4, 4, 1, 7, 11, 10, 9, 9, 7, 12, 9, 7, 8, 3, 9, 9, 8, 3, 3, 13, 13, 8, 9, 8, 10, 9, 9, 10, 10, 10, 8, 11, 9, 13, 13, 9, 9, 9, 7, 7, 9, 9, 9, 9, 7, 7, 7, 11, 7, 7, 7, 10, 3, 1, 4, 1, 2, 2, 2, 2, 1, 1, 4, 1, 5, 5, 1, 1, 5, 5, 1, 4, 1, 3, 10, 3, 8, 7, 3, 3, 2, 2, 6, 6, 6, 10, 10, 10, 10, 10, 10, 10, 10, 3, 2, 2, 2, 2, 1, 2, 1, 5, 5, 5, 1, 4, 1, 10, 3, 3, 1, 4, 1, 1, 4, 2, 4, 1, 1, 1, 1, 4, 5, 5, 9, 13, 8, 11, 3, 3, 2, 2, 1, 2, 4, 1, 2, 2, 2, 6, 6, 6, 5, 5, 1, 4, 6, 5, 5, 1, 4, 1, 1, 4, 1, 2, 1, 1, 2, 2, 8, 7, 3, 3, 13, 13, 13, 2, 2, 2, 6, 6, 6, 6, 4, 3, 3, 7, 11, 11, 7, 3, 11, 11, 8, 8, 3, 3, 3, 3, 10, 4, 2, 4, 11, 11, 11, 3, 3, 10, 13, 7, 4, 4, 2, 5, 5, 4, 5, 5, 5, 4, 4, 4, 4, 2, 2, 2, 2, 6, 6, 11, 8, 11, 11, 10, 3, 2, 4, 6, 6, 2, 2, 6, 3, 3, 3, 3, 10, 3, 4, 4, 2, 2, 5, 5, 4, 5, 4, 3, 3, 11, 8, 11, 3, 3, 10, 3, 4, 2, 4, 6, 6, 2, 2, 6, 6, 6, 11, 8, 7, 7, 2, 4, 2, 2, 5, 5, 4, 2, 5, 5, 2, 4, 2, 8, 7, 7, 7, 7, 3, 2, 2, 2, 6, 6, 1, 4, 1, 4, 7, 7, 10, 7, 1, 1, 12, 5, 6, 6, 6, 6, 1, 4, 1, 2, 6, 6, 6, 6, 3, 3, 2, 1, 1, 5, 5, 2, 5, 5, 1, 4, 2, 2, 4, 1, 4, 4, 4, 1, 2, 5, 5, 2, 1, 4, 1, 4, 8, 7, 3, 8, 1, 4, 1, 2, 2, 2, 2, 2, 6, 6, 3, 8, 12, 3, 12, 1, 1, 6, 6, 8, 3, 3, 12, 12, 1, 4, 1, 1, 4, 1, 2, 5, 5, 1, 1, 5, 1, 1, 5, 4, 5, 5, 5, 1, 4, 4, 1, 2, 3, 3, 8, 7, 3, 1, 1, 1, 1, 8, 3, 12, 12, 1, 1, 1, 1, 1, 4, 1, 4, 2, 2, 2, 14, 14, 13, 8, 10, 10, 8, 7, 13, 14, 14, 7, 7, 11, 12, 8, 12, 12, 12, 10, 3, 3, 14, 14, 14, 1, 2, 4, 4, 1, 6, 5, 5, 1, 4, 1, 5, 5, 1, 4, 1, 8, 7, 3, 3, 2, 2, 2, 2, 1, 4, 4, 1, 1, 1, 1, 2, 6, 6, 1, 1, 4, 9, 9, 13, 9, 9, 8, 8, 10, 7, 7, 1, 4, 1, 9, 9, 9, 9, 8, 10, 11, 11, 3, 3, 10, 10, 1, 4, 1, 1, 1, 4, 4, 2, 5, 5, 5, 5, 1, 4, 1, 5, 5, 1, 4, 4, 1, 4, 4, 2, 8, 11, 11, 12, 12, 3, 3, 2, 2, 2, 6, 6, 4, 4, 1, 1, 4, 1, 6, 6, 6, 1, 1, 2, 5, 5, 1, 2, 2, 5, 5, 3, 7, 11, 3, 12, 11, 10, 12, 1, 4, 1, 4, 2, 2, 6, 6, 6, 2, 2, 6, 6, 1, 4, 1, 10, 7, 1, 4, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 5, 5, 1, 4, 1, 4, 5, 5, 1, 5, 4, 1, 5, 5, 1, 4, 1, 8, 11, 8, 8, 12, 11, 12, 7, 3, 3, 2, 2, 2, 2, 2, 6, 6, 6, 2, 1, 4, 4, 1, 2, 1, 4, 1, 2, 2, 2, 1, 1, 4, 1, 2, 5, 5, 1, 5, 4, 5, 1, 4, 1, 5, 5, 1, 4, 1, 2, 2, 2, 6, 6, 1, 4, 1, 2, 2, 7, 3, 5, 5, 5, 5, 2, 2, 2, 1, 3, 3, 3, 11, 6, 6]
+### ### ###
+### Activity change ###
+[0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0]
+### ### ###
+### Action Index ###
+{'HallBathroomDoor': 1, 'HallToiletDoor': 2, 'Fridge': 3, 'ToiletFlush': 4, 'HallBedroomDoor': 5, 'Frontdoor': 6, 'GroceriesCupboard': 7, 'PlatesCupboard': 8, 'PansCupboard': 9, 'CupsCupboard': 10, 'Freezer': 11, 'Microwave': 12, 'Dishwasher': 13, 'Washingmachine': 14}
+### ### ###
+[[ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 4.25998807e-01 -2.01902702e-01 -1.98067188e-01 -1.15449682e-01
+   2.09415361e-01  6.30036145e-02 -2.74350613e-01 -2.35500097e-01
+   1.06097087e-01 -4.54879403e-02  4.46132660e-01  3.93771172e-01
+   2.57693566e-02  7.21797422e-02 -1.64436221e-01 -5.38027473e-02
+   1.56726956e-01 -2.20771879e-01 -1.57739878e-01  1.46222979e-01
+  -5.60227856e-02 -2.28814214e-01 -2.33566910e-01 -4.74084392e-02
+  -4.73320857e-02  3.30253959e-01  1.49217427e-01  5.64296693e-02
+  -4.15945411e-01 -3.33901972e-01  1.75252953e-03  4.53649580e-01
+  -7.15467185e-02  1.16095282e-01 -3.99451613e-01 -2.11115032e-01
+   2.65076011e-01 -4.07991596e-02 -8.36711824e-02  4.49399173e-01
+   1.30346403e-01  1.65410832e-01 -2.03725010e-01  4.22049820e-01
+   2.34543681e-01 -2.21734017e-01 -2.61219382e-01  1.29825557e-02
+   4.20674086e-02  5.68810105e-02]
+ [ 2.63670117e-01 -1.20871082e-01 -1.27515897e-01 -6.19873293e-02
+   1.18177369e-01  3.10030635e-02 -1.65009484e-01 -1.48795575e-01
+   5.46945706e-02 -2.06810609e-02  2.52801329e-01  2.45672941e-01
+   7.78171699e-03  3.85010205e-02 -1.01484723e-01 -2.90463250e-02
+   8.51943418e-02 -1.41625389e-01 -9.13339630e-02  8.76404643e-02
+  -2.94180587e-02 -1.36818796e-01 -1.47160336e-01 -2.92345900e-02
+  -2.83870958e-02  1.91709116e-01  7.86374435e-02  3.41061391e-02
+  -2.49949396e-01 -1.91955239e-01 -1.28565996e-04  2.70136982e-01
+  -4.54883799e-02  7.84724653e-02 -2.50447482e-01 -1.18345857e-01
+   1.64381191e-01 -3.14764604e-02 -5.44395037e-02  2.64725357e-01
+   8.05246904e-02  9.65243354e-02 -1.27751470e-01  2.53393888e-01
+   1.28413185e-01 -1.32082716e-01 -1.50946662e-01  2.38945871e-03
+   1.35352341e-02  3.89232300e-02]
+ [ 3.01001549e-01 -1.36687204e-01 -1.39140010e-01 -7.63631165e-02
+   1.37007490e-01  4.65101376e-02 -1.93078980e-01 -1.64804995e-01
+   7.33046681e-02 -4.21949588e-02  3.05233121e-01  2.78044760e-01
+   2.08282545e-02  4.17076983e-02 -1.02833256e-01 -4.00114730e-02
+   1.12095587e-01 -1.54581442e-01 -1.03739351e-01  1.02552272e-01
+  -3.53396088e-02 -1.50675476e-01 -1.54293627e-01 -3.20483670e-02
+  -2.10525542e-02  2.21545190e-01  1.02119736e-01  3.62015478e-02
+  -2.87448376e-01 -2.28606150e-01  5.43945841e-03  3.10208261e-01
+  -3.92491296e-02  9.46850628e-02 -2.82070249e-01 -1.46907791e-01
+   1.77392080e-01 -3.29495929e-02 -7.00531676e-02  2.96771139e-01
+   7.80777410e-02  1.17436484e-01 -1.29632130e-01  2.83404052e-01
+   1.56890512e-01 -1.49984643e-01 -1.77943632e-01  5.25175245e-04
+   1.66324787e-02  2.97415629e-02]
+ [ 3.25720072e-01 -1.44835338e-01 -1.42356977e-01 -7.60626867e-02
+   1.64345041e-01  5.09244576e-02 -2.12844461e-01 -1.88961446e-01
+   7.47116059e-02 -4.06478792e-02  3.24619204e-01  3.09430689e-01
+   8.54322407e-03  6.01956770e-02 -1.10895991e-01 -5.08426204e-02
+   1.08392000e-01 -1.67288005e-01 -1.21439502e-01  1.02579921e-01
+  -2.75599528e-02 -1.60458043e-01 -1.80496812e-01 -3.67131457e-02
+  -3.80441099e-02  2.38111705e-01  1.11157462e-01  4.07878011e-02
+  -3.21994215e-01 -2.51314193e-01  1.27023160e-02  3.43805820e-01
+  -5.30538186e-02  9.99546498e-02 -3.05784583e-01 -1.65150195e-01
+   2.02537537e-01 -3.54303494e-02 -5.77486753e-02  3.30844283e-01
+   1.03015140e-01  1.26288578e-01 -1.53777063e-01  3.23622525e-01
+   1.77850753e-01 -1.71762764e-01 -1.99679121e-01  1.88364107e-02
+   2.64597274e-02  3.93363535e-02]
+ [ 2.38531336e-01 -1.13359481e-01 -1.02559172e-01 -6.25192598e-02
+   1.10264152e-01  3.54884900e-02 -1.46335691e-01 -1.39609113e-01
+   4.81258556e-02 -3.20351385e-02  2.58413285e-01  2.17520237e-01
+   9.06834844e-03  3.73446196e-02 -8.66448879e-02 -2.75828000e-02
+   8.34899843e-02 -1.26960590e-01 -9.79331508e-02  7.31170848e-02
+  -1.89729482e-02 -1.18710622e-01 -1.33891046e-01 -1.90263148e-02
+  -2.40098573e-02  1.78401887e-01  7.85487816e-02  3.47019657e-02
+  -2.37128764e-01 -1.81676075e-01  8.61348398e-03  2.57533044e-01
+  -3.57335098e-02  7.79016986e-02 -2.34351307e-01 -1.25556886e-01
+   1.44280851e-01 -1.69678871e-02 -5.03363386e-02  2.40760803e-01
+   7.25184605e-02  9.25487429e-02 -1.21281475e-01  2.41024941e-01
+   1.36135310e-01 -1.25599325e-01 -1.39410824e-01  1.52417328e-02
+   1.32187540e-02  3.69860269e-02]
+ [ 2.42113620e-01 -9.63699445e-02 -1.05069064e-01 -5.31118959e-02
+   1.06349021e-01  3.74327563e-02 -1.39472127e-01 -1.22702293e-01
+   4.60408330e-02 -2.77023017e-02  2.42471948e-01  2.21970126e-01
+   9.48738493e-03  3.62290442e-02 -7.87994042e-02 -3.95042785e-02
+   8.38672742e-02 -1.27336457e-01 -8.75555426e-02  6.71699867e-02
+  -2.32411474e-02 -1.24455251e-01 -1.23099580e-01 -1.94690339e-02
+  -2.73576025e-02  1.83835685e-01  6.98058903e-02  2.70045735e-02
+  -2.16146052e-01 -1.84227586e-01  1.63971982e-03  2.34932795e-01
+  -4.38606739e-02  7.83515722e-02 -2.23321751e-01 -1.03314064e-01
+   1.39012694e-01 -1.87257752e-02 -5.50080538e-02  2.48898625e-01
+   7.76442364e-02  8.42964575e-02 -1.02767006e-01  2.28522465e-01
+   1.34164780e-01 -1.25694945e-01 -1.40865669e-01  6.73760800e-03
+   2.48624440e-02  3.12356558e-02]
+ [ 2.63746887e-01 -1.11736879e-01 -1.24367274e-01 -5.97626455e-02
+   1.28497973e-01  3.83595675e-02 -1.65954649e-01 -1.43897861e-01
+   6.96624592e-02 -2.33137310e-02  2.63808131e-01  2.46809423e-01
+   9.72191803e-03  3.30559611e-02 -1.00759938e-01 -3.77201885e-02
+   9.46258083e-02 -1.28808513e-01 -9.83651280e-02  7.42316917e-02
+  -2.94746067e-02 -1.37507975e-01 -1.31929651e-01 -1.65988840e-02
+  -3.12567241e-02  1.94838300e-01  8.04468319e-02  3.03565022e-02
+  -2.45132133e-01 -1.94088250e-01  7.03559956e-03  2.71673501e-01
+  -4.61619347e-02  6.95948228e-02 -2.38899514e-01 -1.33463278e-01
+   1.55755639e-01 -3.03557795e-02 -5.39606772e-02  2.68402100e-01
+   6.38954043e-02  9.94819403e-02 -1.23700261e-01  2.48122305e-01
+   1.40172333e-01 -1.28746048e-01 -1.45133913e-01  1.65719930e-02
+   9.83763207e-03  3.36396955e-02]
+ [ 1.93586349e-01 -7.99844712e-02 -8.58284235e-02 -4.90937382e-02
+   9.71614867e-02  3.53377238e-02 -1.15150958e-01 -1.05944991e-01
+   4.67271060e-02 -3.21866646e-02  2.01856598e-01  1.73595190e-01
+   6.92853937e-03  3.41003463e-02 -7.86959305e-02 -3.21327038e-02
+   6.64052963e-02 -1.02483109e-01 -7.20172226e-02  5.19452319e-02
+  -2.68674120e-02 -1.03552736e-01 -1.04374908e-01 -2.12330800e-02
+  -2.78524961e-02  1.34357721e-01  6.07101284e-02  2.52361745e-02
+  -1.77659422e-01 -1.48613989e-01 -1.39240979e-03  1.92089587e-01
+  -3.96681689e-02  6.23507276e-02 -1.72487691e-01 -9.97877717e-02
+   1.20654136e-01 -1.19840959e-02 -4.00568508e-02  1.99405953e-01
+   4.97685298e-02  6.98760375e-02 -9.24742743e-02  1.82810292e-01
+   9.15083736e-02 -1.00097679e-01 -1.04827181e-01  1.31942844e-02
+   1.29364850e-02  1.97853316e-02]
+ [ 1.41323105e-01 -6.80883750e-02 -6.99160397e-02 -2.80548986e-02
+   7.46740997e-02  1.84610542e-02 -9.92552415e-02 -8.28013718e-02
+   2.84129549e-02 -9.04709473e-03  1.50913462e-01  1.31745115e-01
+   5.95273683e-04  2.43474171e-02 -4.86874096e-02 -2.32929606e-02
+   5.02002537e-02 -7.40387887e-02 -5.51409423e-02  4.04611938e-02
+  -7.65646202e-03 -7.32885897e-02 -7.67916441e-02 -2.18214095e-02
+  -7.66954571e-03  1.06519021e-01  5.19924872e-02  2.31711902e-02
+  -1.29115164e-01 -1.08314760e-01 -1.06076128e-03  1.51733816e-01
+  -2.01954022e-02  3.16795968e-02 -1.35749981e-01 -7.48223513e-02
+   9.34128240e-02 -1.83923729e-02 -2.22142991e-02  1.44664481e-01
+   3.46049331e-02  4.36842181e-02 -7.11425319e-02  1.44540519e-01
+   7.32896626e-02 -6.13871589e-02 -8.85405019e-02  1.02740880e-02
+   5.60716866e-03  1.96729302e-02]
+ [ 1.34967342e-01 -4.96443808e-02 -6.00429736e-02 -3.79134938e-02
+   7.03074038e-02  1.62049215e-02 -7.57792518e-02 -7.17448369e-02
+   4.03380617e-02 -1.62558611e-02  1.39861405e-01  1.10983253e-01
+   1.39014041e-02  2.30957326e-02 -5.23449369e-02 -8.63350928e-03
+   5.34819998e-02 -5.90876974e-02 -4.92851958e-02  4.86106537e-02
+  -1.81927979e-02 -6.19816445e-02 -6.67367503e-02 -5.63390087e-03
+  -1.75722986e-02  1.00053385e-01  3.38266343e-02  2.58958787e-02
+  -1.33239955e-01 -9.49911326e-02 -5.82265574e-03  1.39034167e-01
+  -1.36775058e-02  3.52408327e-02 -1.29201397e-01 -5.48873730e-02
+   8.82636905e-02 -2.27192212e-02 -2.70500202e-02  1.42619893e-01
+   3.12274080e-02  5.23976050e-02 -6.35448024e-02  1.18160516e-01
+   6.58039823e-02 -6.18228465e-02 -7.36922771e-02  9.71008744e-03
+   1.56033318e-02  1.40493866e-02]
+ [ 1.57582283e-01 -7.92951509e-02 -8.09094682e-02 -4.33539413e-02
+   6.93841353e-02  2.32382510e-02 -1.01351909e-01 -8.06578472e-02
+   4.45797630e-02 -2.09934767e-02  1.53983310e-01  1.51683509e-01
+   1.36833657e-02  2.34196335e-02 -5.09517454e-02 -2.67749485e-02
+   5.61620556e-02 -7.66089559e-02 -5.25993593e-02  5.73593490e-02
+  -1.26782041e-02 -7.26334900e-02 -9.17169750e-02 -2.03657728e-02
+  -2.18175892e-02  1.19362555e-01  5.04616871e-02  2.43418775e-02
+  -1.55623078e-01 -1.18682221e-01 -2.19724444e-03  1.71208814e-01
+  -2.01696865e-02  5.30711226e-02 -1.56614885e-01 -8.00136998e-02
+   9.64492857e-02 -1.59798115e-02 -3.47477980e-02  1.63396508e-01
+   4.12930064e-02  5.47091737e-02 -6.96464926e-02  1.53555378e-01
+   8.89483839e-02 -7.55588710e-02 -8.29147846e-02  4.86058090e-03
+   1.87645815e-02  1.26669416e-02]
+ [ 1.07767679e-01 -5.16844653e-02 -4.76444997e-02 -2.87277009e-02
+   5.00845388e-02  1.02854874e-02 -7.57586733e-02 -6.29684702e-02
+   3.34078819e-02 -1.41968047e-02  1.15854837e-01  1.15689792e-01
+   4.75761248e-03  2.63056997e-02 -3.78192067e-02 -1.75547246e-02
+   3.17581333e-02 -5.86246066e-02 -3.63612995e-02  4.34990227e-02
+  -9.60696023e-03 -5.84099889e-02 -6.51220828e-02 -9.06998571e-03
+  -9.79960058e-03  8.71764049e-02  4.64942120e-02  5.10762585e-03
+  -1.13518015e-01 -9.51639563e-02  4.80170455e-03  1.10051900e-01
+  -2.20687799e-02  2.52304394e-02 -1.16803296e-01 -5.46658672e-02
+   6.60917684e-02 -1.69187095e-02 -1.88426133e-02  1.17190726e-01
+   2.84667220e-02  4.47497405e-02 -5.21227457e-02  1.04732871e-01
+   5.15512414e-02 -4.97397482e-02 -7.07797781e-02  5.39742783e-03
+   6.60611037e-03  1.39551004e-02]
+ [ 6.85788542e-02 -3.15339118e-02 -2.20957939e-02 -1.20912734e-02
+   2.79654693e-02  1.53691433e-02 -3.24273072e-02 -4.16276455e-02
+   1.58495568e-02 -1.30179366e-02  5.02784140e-02  4.88983095e-02
+   3.45808687e-03  1.68133788e-02 -2.84035616e-02 -5.63033111e-03
+   2.39003450e-02 -2.49984041e-02 -1.80980172e-02  1.19999675e-02
+   5.88704250e-04 -2.46592201e-02 -3.02966665e-02 -1.18617690e-03
+  -1.12256408e-02  5.15402071e-02  2.46747602e-02  9.25784186e-03
+  -6.53625056e-02 -3.64481322e-02  2.92301830e-03  5.43126538e-02
+  -1.23669766e-02  9.53311287e-03 -5.03445789e-02 -3.36509272e-02
+   4.16525640e-02 -1.40154082e-02 -1.66773368e-02  6.62544519e-02
+   2.48492099e-02  2.98630279e-02 -3.48546356e-02  5.82740605e-02
+   3.00458055e-02 -3.38030830e-02 -4.16789651e-02 -2.12398078e-03
+  -3.96073796e-03 -2.70529557e-03]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9953368378011038
+Action 1: GroceriesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9953368378011038
+Action 1: Microwave
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9953368378011038
+Action 1: GroceriesCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.9825202391558912
+Action 1: Dishwasher
+Action 2: PlatesCupboard
+Cosine distance is: 0.9816595677562642
+Action 1: PlatesCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PansCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: CupsCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: PlatesCupboard
+Action 2: HallToiletDoor
+Cosine distance is: 0.9974322644607404
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9972597574190546
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: Frontdoor
+Cosine distance is: 0.9953444795743596
+Action 1: Frontdoor
+Action 2: PansCupboard
+Cosine distance is: 0.9953444795743596
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: CupsCupboard
+Cosine distance is: 0.9947065799805065
+Action 1: CupsCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: Freezer
+Cosine distance is: 0.9947763626657712
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9939658872366974
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: Fridge
+Cosine distance is: 0.9960311021287203
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Fridge
+Cosine distance is: 0.9984990017284872
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9983879438481212
+Action 1: Frontdoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.997648651318515
+Action 1: PlatesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9939658872366974
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: Dishwasher
+Cosine distance is: 0.9786446402930236
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: PansCupboard
+Cosine distance is: 0.978789735574869
+Action 1: PansCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.978789735574869
+Action 1: Dishwasher
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9817096597161875
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: PlatesCupboard
+Cosine distance is: 0.9979719761669703
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Fridge
+Cosine distance is: 0.9991151692435898
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: Frontdoor
+Cosine distance is: 0.9980505681996424
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9977011254500718
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9979057678349551
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Dishwasher
+Cosine distance is: 0.9825059020511357
+Action 1: Dishwasher
+Action 2: PlatesCupboard
+Cosine distance is: 0.9816595677562642
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9969310015364784
+Action 1: PansCupboard
+Action 2: HallToiletDoor
+Cosine distance is: 0.9969310015364784
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: PlatesCupboard
+Cosine distance is: 0.9979719761669703
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: Fridge
+Cosine distance is: 0.9960311021287203
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960469356173214
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9989201238937879
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984153850521406
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9977011254500718
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: Frontdoor
+Cosine distance is: 0.9980505681996424
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Dishwasher
+Cosine distance is: 0.9825059020511357
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: Fridge
+Cosine distance is: 0.9818926063076019
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: PlatesCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Frontdoor
+Cosine distance is: 0.9980505681996424
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9979208291652487
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: HallBathroomDoor
+Cosine distance is: nan
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: Freezer
+Cosine distance is: 0.9969456623260312
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: HallBathroomDoor
+Cosine distance is: nan
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: HallBathroomDoor
+Cosine distance is: nan
+Action 1: HallBathroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9983879438481212
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Fridge
+Cosine distance is: nan
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Freezer
+Cosine distance is: 0.996567060464606
+Action 1: Freezer
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9970840045647998
+Action 1: GroceriesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: PlatesCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9982395693774938
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9972597574190546
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: HallToiletDoor
+Cosine distance is: 0.9974322644607404
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9972597574190546
+Action 1: PansCupboard
+Action 2: Fridge
+Cosine distance is: 0.996594978027295
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: CupsCupboard
+Cosine distance is: 0.9947763626657712
+Action 1: CupsCupboard
+Action 2: Microwave
+Cosine distance is: 0.9915667544433486
+Action 1: Microwave
+Action 2: Fridge
+Cosine distance is: 0.9960311021287203
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9989201238937879
+Action 1: GroceriesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9970840045647998
+Action 1: Freezer
+Action 2: CupsCupboard
+Cosine distance is: 0.9947763626657712
+Action 1: CupsCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9972841026865389
+Action 1: GroceriesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9953368378011038
+Action 1: Microwave
+Action 2: PansCupboard
+Cosine distance is: 0.9944255269569945
+Action 1: PansCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9972841026865389
+Action 1: GroceriesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: PansCupboard
+Cosine distance is: 0.996594978027295
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Dishwasher
+Cosine distance is: 0.9818926063076019
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: PlatesCupboard
+Cosine distance is: 0.9816595677562642
+Action 1: PlatesCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9925320959344457
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: PansCupboard
+Cosine distance is: 0.9951882713013271
+Action 1: PansCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.978789735574869
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: PansCupboard
+Cosine distance is: 0.978789735574869
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9972841026865389
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: PansCupboard
+Cosine distance is: 0.9972841026865389
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9972841026865389
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9970840045647998
+Action 1: Freezer
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9970840045647998
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Fridge
+Cosine distance is: 0.9991151692435898
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: CupsCupboard
+Cosine distance is: 0.9939808873750271
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: CupsCupboard
+Cosine distance is: 0.9960908988115629
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9967458511893521
+Action 1: PansCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.978789735574869
+Action 1: Dishwasher
+Action 2: PlatesCupboard
+Cosine distance is: 0.9816595677562642
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9979030638140483
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: Frontdoor
+Cosine distance is: 0.9981796637609336
+Action 1: Frontdoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9979030638140483
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9974322644607404
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Dishwasher
+Cosine distance is: 0.9818926063076019
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: Dishwasher
+Cosine distance is: 1.0
+Action 1: Dishwasher
+Action 2: HallToiletDoor
+Cosine distance is: 0.9821743466081618
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9981796637609336
+Action 1: ToiletFlush
+Action 2: Fridge
+Cosine distance is: 0.9987393452074447
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9970840045647998
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9970840045647998
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: ToiletFlush
+Cosine distance is: 0.9945437752104435
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: Freezer
+Cosine distance is: 0.997548960960174
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.9807581420647228
+Action 1: Dishwasher
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9825202391558912
+Action 1: GroceriesCupboard
+Action 2: ToiletFlush
+Cosine distance is: 0.9986013428067512
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Freezer
+Cosine distance is: 0.996567060464606
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: CupsCupboard
+Cosine distance is: 0.9947763626657712
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: Frontdoor
+Cosine distance is: 0.9981796637609336
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9979208291652487
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: ToiletFlush
+Cosine distance is: 0.9987393452074447
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: Fridge
+Cosine distance is: 0.9987393452074447
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: ToiletFlush
+Cosine distance is: 0.9987393452074447
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: Frontdoor
+Cosine distance is: 0.9981796637609336
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9979208291652487
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Freezer
+Cosine distance is: 0.996567060464606
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984153850521406
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9974322644607404
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986013428067512
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: CupsCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: GroceriesCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9989201238937879
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: Microwave
+Cosine distance is: 0.9960469356173214
+Action 1: Microwave
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9945255791830494
+Action 1: HallBedroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979030638140483
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: PlatesCupboard
+Cosine distance is: 0.9979719761669703
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9982395693774938
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Fridge
+Cosine distance is: 0.9980505681996424
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9939658872366974
+Action 1: Microwave
+Action 2: Fridge
+Cosine distance is: 0.9960311021287203
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960469356173214
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9983879438481212
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.997648651318515
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960469356173214
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: Fridge
+Cosine distance is: 0.9984990017284872
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: PlatesCupboard
+Cosine distance is: 0.9976119645392463
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991151692435898
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9976119645392463
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960469356173214
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Dishwasher
+Cosine distance is: nan
+Action 1: Dishwasher
+Action 2: PlatesCupboard
+Cosine distance is: 0.9816595677562642
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.9825202391558912
+Action 1: Dishwasher
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: GroceriesCupboard
+Cosine distance is: nan
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9970840045647998
+Action 1: Freezer
+Action 2: Microwave
+Cosine distance is: 0.9946013949540269
+Action 1: Microwave
+Action 2: PlatesCupboard
+Cosine distance is: 0.9939658872366974
+Action 1: PlatesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9939658872366974
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: CupsCupboard
+Cosine distance is: 0.9915667544433486
+Action 1: CupsCupboard
+Action 2: Fridge
+Cosine distance is: 0.9954182994359805
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: Washingmachine
+Cosine distance is: nan
+Action 1: Washingmachine
+Action 2: HallBathroomDoor
+Cosine distance is: nan
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9986309360182065
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9983879438481212
+Action 1: Frontdoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9979030638140483
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9982932506926359
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: PansCupboard
+Cosine distance is: 0.9974014954998031
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: Dishwasher
+Cosine distance is: 0.978789735574869
+Action 1: Dishwasher
+Action 2: PansCupboard
+Cosine distance is: 0.978789735574869
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: GroceriesCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 1.0
+Action 1: GroceriesCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9989201238937879
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PansCupboard
+Cosine distance is: 0.9972597574190546
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PansCupboard
+Cosine distance is: 1.0
+Action 1: PansCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 0.9957800142818178
+Action 1: PlatesCupboard
+Action 2: CupsCupboard
+Cosine distance is: 0.9946987867476584
+Action 1: CupsCupboard
+Action 2: Freezer
+Cosine distance is: 0.9947763626657712
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: CupsCupboard
+Cosine distance is: 0.9954182994359805
+Action 1: CupsCupboard
+Action 2: CupsCupboard
+Cosine distance is: 1.0
+Action 1: CupsCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960908988115629
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9974322644607404
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: Freezer
+Cosine distance is: 1.0
+Action 1: Freezer
+Action 2: Microwave
+Cosine distance is: 0.9946013949540269
+Action 1: Microwave
+Action 2: Microwave
+Cosine distance is: 1.0
+Action 1: Microwave
+Action 2: Fridge
+Cosine distance is: 0.9960311021287203
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9981796637609336
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9983879438481212
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: Fridge
+Cosine distance is: 0.9984183701382311
+Action 1: Fridge
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9986179366060002
+Action 1: GroceriesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9970840045647998
+Action 1: Freezer
+Action 2: Fridge
+Cosine distance is: 0.9981528113394376
+Action 1: Fridge
+Action 2: Microwave
+Cosine distance is: 0.9960311021287203
+Action 1: Microwave
+Action 2: Freezer
+Cosine distance is: 0.9946013949540269
+Action 1: Freezer
+Action 2: CupsCupboard
+Cosine distance is: 0.9947763626657712
+Action 1: CupsCupboard
+Action 2: Microwave
+Cosine distance is: 0.9915667544433486
+Action 1: Microwave
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9960469356173214
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallToiletDoor
+Cosine distance is: 0.9986309360182065
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9979208291652487
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: CupsCupboard
+Cosine distance is: 0.9960908988115629
+Action 1: CupsCupboard
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9957082870661133
+Action 1: GroceriesCupboard
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9989201238937879
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: PlatesCupboard
+Cosine distance is: 0.9982395693774938
+Action 1: PlatesCupboard
+Action 2: Freezer
+Cosine distance is: 0.9959219872922569
+Action 1: Freezer
+Action 2: PlatesCupboard
+Cosine distance is: 0.9959219872922569
+Action 1: PlatesCupboard
+Action 2: PlatesCupboard
+Cosine distance is: 1.0
+Action 1: PlatesCupboard
+Action 2: Microwave
+Cosine distance is: 0.9939658872366974
+Action 1: Microwave
+Action 2: Freezer
+Cosine distance is: 0.9946013949540269
+Action 1: Freezer
+Action 2: Microwave
+Cosine distance is: 0.9946013949540269
+Action 1: Microwave
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9953368378011038
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: HallToiletDoor
+Cosine distance is: 0.9984990017284872
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9979208291652487
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: ToiletFlush
+Cosine distance is: 1.0
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 1.0
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9988828842870054
+Action 1: ToiletFlush
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9988828842870054
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9987116560885976
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: Frontdoor
+Cosine distance is: 0.9979208291652487
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+Action 1: Frontdoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9983879438481212
+Action 1: HallBathroomDoor
+Action 2: ToiletFlush
+Cosine distance is: 0.9991234021595651
+Action 1: ToiletFlush
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9991234021595651
+Action 1: HallBathroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: GroceriesCupboard
+Cosine distance is: 0.9984153850521406
+Action 1: GroceriesCupboard
+Action 2: Fridge
+Cosine distance is: 0.9986179366060002
+Action 1: Fridge
+Action 2: HallBedroomDoor
+Cosine distance is: 0.9984183701382311
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallBedroomDoor
+Cosine distance is: 1.0
+Action 1: HallBedroomDoor
+Action 2: HallToiletDoor
+Cosine distance is: 0.9981567624733103
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallToiletDoor
+Cosine distance is: 1.0
+Action 1: HallToiletDoor
+Action 2: HallBathroomDoor
+Cosine distance is: 0.9988675788802817
+Action 1: HallBathroomDoor
+Action 2: Fridge
+Cosine distance is: 0.9991151692435898
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Fridge
+Cosine distance is: 1.0
+Action 1: Fridge
+Action 2: Freezer
+Cosine distance is: 0.9981528113394376
+Action 1: Freezer
+Action 2: Frontdoor
+Cosine distance is: 0.996567060464606
+Action 1: Frontdoor
+Action 2: Frontdoor
+Cosine distance is: 1.0
+5 5 5 2 1 4 4 1 8 8 3 3 12 7 12 7 13 8 9 10 8 2 2 2 6 6 3 7 3 1 4 1 9 9 9 6 9 3 3 10 10 10 3 3 1 1 4 1 5 5 10 7 3 3 3 3 3 7 3 8 9 9 10 10 11 3 3 3 8 12 12 3 3 8 3 3 3 2 2 3 1 1 4 1 6 8 12 12 13 13 9 13 5 2 1 1 2 5 5 5 2 5 2 2 2 2 4 2 2 2 5 5 1 4 1 5 1 5 5 1 5 5 1 1 4 8 7 7 3 3 2 2 2 2 6 6 6 1 1 4 1 3 3 10 3 6 6 1 4 1 1 1 1 1 1 1 1 2 5 1 4 1 5 5 8 7 3 3 1 1 4 1 2 2 6 6 7 3 9 3 11 3 3 3 8 8 10 3 1 4 1 1 4 1 13 8 10 10 9 8 3 3 3 3 1 4 4 2 9 2 1 4 1 1 1 2 2 2 5 5 5 1 4 1 5 5 1 1 4 8 7 7 7 7 7 7 7 3 1 4 1 2 2 2 6 6 3 12 12 3 12 1 4 1 2 2 6 6 1 4 1 7 7 2 2 2 1 1 4 1 2 5 1 1 5 1 5 5 8 7 3 1 4 4 1 2 2 2 2 6 6 3 6 6 1 4 1 13 13 3 10 8 3 7 3 9 3 9 9 3 3 3 9 3 10 8 9 9 9 9 9 9 3 11 3 9 3 6 6 6 2 2 14 1 4 1 5 5 2 5 5 11 8 8 11 11 14 14 1 1 1 4 1 4 1 5 5 1 1 8 7 7 8 7 3 3 2 2 2 2 6 6 1 1 4 1 2 6 6 1 4 1 2 14 1 6 6 1 14 3 10 3 1 4 2 2 2 1 4 2 5 5 1 4 1 5 5 1 4 1 8 7 3 7 3 2 2 1 2 2 6 6 11 7 8 1 4 1 9 9 8 3 3 3 8 2 1 4 1 2 2 1 4 4 4 4 4 4 5 5 1 1 5 5 1 1 9 3 3 3 3 8 3 11 8 11 10 12 3 1 4 4 1 2 2 2 2 2 6 6 3 3 1 4 4 1 7 11 10 9 9 7 12 9 7 8 3 9 9 8 3 3 13 13 8 9 8 10 9 9 10 10 10 8 11 9 13 13 9 9 9 7 7 9 9 9 9 7 7 7 11 7 7 7 10 3 1 4 1 2 2 2 2 1 1 4 1 5 5 1 1 5 5 1 4 1 3 10 3 8 7 3 3 2 2 6 6 6 10 10 10 10 10 10 10 10 3 2 2 2 2 1 2 1 5 5 5 1 4 1 10 3 3 1 4 1 1 4 2 4 1 1 1 1 4 5 5 9 13 8 11 3 3 2 2 1 2 4 1 2 2 2 6 6 6 5 5 1 4 6 5 5 1 4 1 1 4 1 2 1 1 2 2 8 7 3 3 13 13 13 2 2 2 6 6 6 6 4 3 3 7 11 11 7 3 11 11 8 8 3 3 3 3 10 4 2 4 11 11 11 3 3 10 13 7 4 4 2 5 5 4 5 5 5 4 4 4 4 2 2 2 2 6 6 11 8 11 11 10 3 2 4 6 6 2 2 6 3 3 3 3 10 3 4 4 2 2 5 5 4 5 4 3 3 11 8 11 3 3 10 3 4 2 4 6 6 2 2 6 6 6 11 8 7 7 2 4 2 2 5 5 4 2 5 5 2 4 2 8 7 7 7 7 3 2 2 2 6 6 1 4 1 4 7 7 10 7 1 1 12 5 6 6 6 6 1 4 1 2 6 6 6 6 3 3 2 1 1 5 5 2 5 5 1 4 2 2 4 1 4 4 4 1 2 5 5 2 1 4 1 4 8 7 3 8 1 4 1 2 2 2 2 2 6 6 3 8 12 3 12 1 1 6 6 8 3 3 12 12 1 4 1 1 4 1 2 5 5 1 1 5 1 1 5 4 5 5 5 1 4 4 1 2 3 3 8 7 3 1 1 1 1 8 3 12 12 1 1 1 1 1 4 1 4 2 2 2 14 14 13 8 10 10 8 7 13 14 14 7 7 11 12 8 12 12 12 10 3 3 14 14 14 1 2 4 4 1 6 5 5 1 4 1 5 5 1 4 1 8 7 3 3 2 2 2 2 1 4 4 1 1 1 1 2 6 6 1 1 4 9 9 13 9 9 8 8 10 7 7 1 4 1 9 9 9 9 8 10 11 11 3 3 10 10 1 4 1 1 1 4 4 2 5 5 5 5 1 4 1 5 5 1 4 4 1 4 4 2 8 11 11 12 12 3 3 2 2 2 6 6 4 4 1 1 4 1 6 6 6 1 1 2 5 5 1 2 2 5 5 3 7 11 3 12 11 10 12 1 4 1 4 2 2 6 6 6 2 2 6 6 1 4 1 10 7 1 4 1 1 1 1 1 1 1 2 1 2 5 5 1 4 1 4 5 5 1 5 4 1 5 5 1 4 1 8 11 8 8 12 11 12 7 3 3 2 2 2 2 2 6 6 6 2 1 4 4 1 2 1 4 1 2 2 2 1 1 4 1 2 5 5 1 5 4 5 1 4 1 5 5 1 4 1 2 2 2 6 6 1 4 1 2 2 7 3 5 5 5 5 2 2 2 1 3 3 3 11 6 6 

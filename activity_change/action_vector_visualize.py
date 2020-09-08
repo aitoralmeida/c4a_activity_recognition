@@ -72,9 +72,9 @@ def main(argv):
     tsne = TSNE(n_components=2)
     embedding_array_reduced_tsne = tsne.fit_transform(embedding_array)
     # plot embeddings with action names (PCA)
-    plot_embeddings_reduced(embedding_array_reduced_pca, action_array, '/results/actions_embedding_reduced_PCA.png')
+    plot_embeddings_reduced(embedding_array_reduced_pca, action_array, '/results/actions_embedding_reduced_PCA_Window_5.png')
     # plot embeddings with action names (TSNE)
-    plot_embeddings_reduced(embedding_array_reduced_tsne, action_array, '/results/actions_embedding_reduced_TSNE.png')
+    plot_embeddings_reduced(embedding_array_reduced_tsne, action_array, '/results/actions_embedding_reduced_TSNE_Window_5.png')
 
 if __name__ == "__main__":
     main(sys.argv)

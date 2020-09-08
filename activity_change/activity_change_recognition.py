@@ -37,7 +37,7 @@ UNIQUE_ACTIONS = DIR + 'unique_actions.json'
 # Best model in the training
 BEST_MODEL = '/results/best_model.hdf5'
 # Predict next activity label or only change
-PREDICT_ACTIVITY_LABEL = True
+PREDICT_ACTIVITY_LABEL = False
 
 def prepare_x_y_activity_label(df, unique_activities):
     actions = df['action'].values
