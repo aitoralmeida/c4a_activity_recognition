@@ -23,21 +23,13 @@ import pandas as pd
 from scipy import spatial
 
 # Kasteren dataset
-DIR = '/experiments/kasteren_dataset/'
+DIR = '../kasteren_house_a/'
 # Dataset with vectors but without the action timestamps
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
-WORD2VEC_MODEL = DIR + 'actions_w_1.model'
-# Number of input actions for the model
-INPUT_ACTIONS = 5
-# Number of elements in the action's embbeding vector
+WORD2VEC_MODEL = DIR + 'actions_w1.model'
+# Embedding size
 ACTION_EMBEDDING_LENGTH = 50
-# List of unique activities in the dataset
-UNIQUE_ACTIVITIES = DIR + 'unique_activities.json'
-# List of unique actions in the dataset
-UNIQUE_ACTIONS = DIR + 'unique_actions.json'
-# Best model in the training
-BEST_MODEL = '/results/best_model.hdf5'
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -92,21 +84,6 @@ def main(argv):
     df_dataset = pd.read_csv(DATASET, parse_dates=[[0, 1]], header=None, index_col=0, sep=' ')
     df_dataset.columns = ['sensor', 'action', 'event', 'activity']
     df_dataset.index.names = ["timestamp"]
-    temp = ''
-    actions = df_dataset['action']
-    for i in range(1, len(actions)):
-        temp = temp + str(actions[i]) + ' '
-        if (i % 5 == 0):
-            print(temp)
-            temp = ''
-        elif i == (len(actions)-1):
-            print(temp)
-    # get unique activities
-    unique_activities = json.load(open(UNIQUE_ACTIVITIES, 'r'))
-    total_activities = len(unique_activities)
-    # get unique actions
-    unique_actions = json.load(open(UNIQUE_ACTIONS, 'r'))
-    total_actions = len(unique_actions)
     # check dataset struct
     print("### Dataset ###")
     print(df_dataset)
@@ -125,20 +102,27 @@ def main(argv):
     print("### ### ###")
     # create the  action embedding matrix for the embedding layer initialization
     embedding_action_matrix, model, unknown_actions = create_action_embedding_matrix(tokenizer_action)
-    # check action embedding matrix
-    print(embedding_action_matrix)
-    # check distances from action i to action i +1 based on embeddings
+    # check distances from action i to action i +1 based on embeddings and detect activity change
+    counter = 0
+    discovered_activities = []
+    discovered_activity_num = 0
+    discovered_activities.append('ACT' + str(discovered_activity_num))
     for i in range(0, len(X)-1):
         distance = 1 - spatial.distance.cosine(embedding_action_matrix[X[i]], embedding_action_matrix[X[i+1]])
         label = 'no' if (y[i+1]==0) else 'yes'
-        for action, index in tokenizer_action.word_index.items():
-            if index == X[i]:
-                print("Action 1: " + action)
-        for action, index in tokenizer_action.word_index.items():
-            if index == X[i+1]:
-                print("Action 2: " + action)
-        print("Cosine distance is: " + str(distance))
-        print("New Activity: " + label)
+        predicted_label = 'yes' if (distance < 0.80) else 'no'
+        if (label == predicted_label):
+            counter += 1
+        if (predicted_label == 'yes'):
+            discovered_activity_num += 1
+        discovered_activities.append('ACT' + str(discovered_activity_num))
+    # print correct percentage of activity change detection       
+    print("Correct percentage: " + str((counter / len(X)) * 100))
+    # prepare dataset to be saved
+    df_dataset['discovered_activity'] = discovered_activities
+    df_dataset = df_dataset.drop("activity", axis=1)
+    # save dataset (requires further processing)
+    df_dataset.to_csv('/results/test_kasteren_cosine_distance.csv.annotated', header=None, index=True, sep=' ', mode='a')
 
 if __name__ == "__main__":
     main(sys.argv)

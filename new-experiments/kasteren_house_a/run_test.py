@@ -19,7 +19,7 @@ def main(argv):
     # Pattern Model Matching arguments
     eamsfile = "eams.json"
     #patternsfile = "test_kasteren_removed.csv.annotated"
-    patternsfile = "test_kasteren_removed.csv.annotated"
+    patternsfile = "test_kasteren_cosine_distance.csv.annotated"
     #adlogfile = "kasteren_removed_log.txt"
     adlogfile = "kasteren_removed_log.txt"
     contextmodelfile = "context_model.json"

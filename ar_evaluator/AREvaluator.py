@@ -61,6 +61,8 @@ class AREvaluator:
         for i in range(1, len(self.evaluable)):
             ts = self.evaluable.index[i]
             pat = self.evaluable.loc[ts, 'pattern']
+            print(pat)
+            print(prev_pat)
             if pat != prev_pat:
                 end = self.evaluable.index[i-1]
                 # At this point, start and end have the right values for a discovered pattern                
