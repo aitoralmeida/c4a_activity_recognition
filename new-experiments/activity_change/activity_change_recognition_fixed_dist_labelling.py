@@ -30,6 +30,8 @@ DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 WORD2VEC_MODEL = DIR + 'actions_w1.model'
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
+# MIN DIST if cosine distance < MIN_DIST then change of activity
+MIN_DIST = 0.80
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -110,7 +112,7 @@ def main(argv):
     for i in range(0, len(X)-1):
         distance = 1 - spatial.distance.cosine(embedding_action_matrix[X[i]], embedding_action_matrix[X[i+1]])
         label = 'no' if (y[i+1]==0) else 'yes'
-        predicted_label = 'yes' if (distance < 0.80) else 'no'
+        predicted_label = 'yes' if (distance < MIN_DIST) else 'no'
         if (label == predicted_label):
             counter += 1
         if (predicted_label == 'yes'):
