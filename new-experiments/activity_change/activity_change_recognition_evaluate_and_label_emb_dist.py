@@ -24,10 +24,14 @@ DIR = '../kasteren_house_a/'
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
 WORD2VEC_MODEL = DIR + 'actions_w1.model'
+# Word2vec vector file
+WORD2VEC_VECTOR_FILE = DIR + 'actions_w5_enhanced.vector'
+# If binary model is used or vector file is used
+WORD2VEC_USE_FILE = True
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
 # MIN DIST if cosine distance < MIN_DIST then change of activity
-MIN_DIST = 0.95
+MIN_DIST = 0.8
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -73,6 +77,28 @@ def create_action_embedding_matrix(tokenizer):
     
     return embedding_matrix, model, unknown_actions
 
+def create_action_embedding_matrix_from_file(tokenizer):
+    data = pd.read_csv(WORD2VEC_VECTOR_FILE, sep=",", header=None)
+    data.columns = ["action", "vector"]
+    action_index = tokenizer.word_index
+    embedding_matrix = np.zeros((len(action_index) + 1, ACTION_EMBEDDING_LENGTH))
+    unknown_words = {}    
+    for action, i in list(action_index.items()):
+        try:
+            # print(data[data['action'] == action]['vector'].values[0])
+            embedding_vector = np.fromstring(data[data['action'] == action]['vector'].values[0], dtype=float, sep=' ')
+            # print(embedding_vector)
+            embedding_matrix[i] = embedding_vector            
+        except:
+            if action in unknown_words:
+                unknown_words[action] += 1
+            else:
+                unknown_words[action] = 1
+    print(("Number of unknown tokens: " + str(len(unknown_words))))
+    print (unknown_words)
+    
+    return embedding_matrix   
+
 def main(argv):
     print(('*' * 20))
     print('Loading dataset...')
@@ -98,8 +124,11 @@ def main(argv):
     print("### Action Index ###")
     print(tokenizer_action.word_index)
     print("### ### ###")
-    # create the  action embedding matrix for the embedding layer initialization
-    embedding_action_matrix, model, unknown_actions = create_action_embedding_matrix(tokenizer_action)
+    # create the  action embedding matrix for the embedding distances calculation
+    if WORD2VEC_USE_FILE:
+        embedding_action_matrix = create_action_embedding_matrix_from_file(tokenizer_action)
+    else:
+        embedding_action_matrix, model, unknown_actions = create_action_embedding_matrix(tokenizer_action)
     # check distances from action i to action i+1 based on embeddings and detect activity change
     counter = 0
     y_pred = []
