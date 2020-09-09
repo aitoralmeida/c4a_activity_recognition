@@ -6,13 +6,9 @@ from scipy.spatial import distance
 
 import h5py
 
-import tensorflow as tf
-from keras import backend as K
-from keras.callbacks import ModelCheckpoint, EarlyStopping
-from keras.layers import Dot, Bidirectional, LSTM, Concatenate, Convolution2D, Dense, Dropout, Embedding, Flatten, GRU, Input, Lambda, MaxPooling2D, Multiply, Reshape
-from keras.models import load_model, Model
+from sklearn.metrics import classification_report
+
 from keras.preprocessing.text import Tokenizer
-from keras_self_attention import SeqWeightedAttention
 
 import matplotlib
 matplotlib.use('Agg')
@@ -22,16 +18,16 @@ import pandas as pd
 
 from scipy import spatial
 
-# Kasteren dataset
+# Kasteren dataset DIR
 DIR = '../kasteren_house_a/'
-# Dataset with vectors but without the action timestamps
+# Kasteren dataset file
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
 WORD2VEC_MODEL = DIR + 'actions_w1.model'
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
 # MIN DIST if cosine distance < MIN_DIST then change of activity
-MIN_DIST = 0.80
+MIN_DIST = 0.95
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -104,22 +100,25 @@ def main(argv):
     print("### ### ###")
     # create the  action embedding matrix for the embedding layer initialization
     embedding_action_matrix, model, unknown_actions = create_action_embedding_matrix(tokenizer_action)
-    # check distances from action i to action i +1 based on embeddings and detect activity change
+    # check distances from action i to action i+1 based on embeddings and detect activity change
     counter = 0
+    y_pred = []
     discovered_activities = []
     discovered_activity_num = 0
+    y_pred.append(0)
     discovered_activities.append('ACT' + str(discovered_activity_num))
     for i in range(0, len(X)-1):
         distance = 1 - spatial.distance.cosine(embedding_action_matrix[X[i]], embedding_action_matrix[X[i+1]])
         label = 'no' if (y[i+1]==0) else 'yes'
         predicted_label = 'yes' if (distance < MIN_DIST) else 'no'
-        if (label == predicted_label):
-            counter += 1
         if (predicted_label == 'yes'):
             discovered_activity_num += 1
+            y_pred.append(1)
+        else:
+            y_pred.append(0)
         discovered_activities.append('ACT' + str(discovered_activity_num))
-    # print correct percentage of activity change detection       
-    print("Correct percentage: " + str((counter / len(X)) * 100))
+    # print metrics
+    print(classification_report(y, y_pred, target_names=['no', 'yes']))
     # prepare dataset to be saved
     df_dataset['discovered_activity'] = discovered_activities
     df_dataset = df_dataset.drop("activity", axis=1)

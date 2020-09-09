@@ -211,7 +211,8 @@ class PatternModelMatching:
         # TESTING!! Use the prefilter based
         # self.prefilter_patterns()        
         # Filter all the actions tagged as Other_Activity
-        auxdf = self.df[self.df["pattern"] != "Other_Activity"]
+        # auxdf = self.df[self.df["pattern"] != "Other_Activity"]
+        auxdf = self.df
         actions = []
         sensors = []
         pat = ""
