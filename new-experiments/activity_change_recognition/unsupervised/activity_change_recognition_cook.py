@@ -57,31 +57,27 @@ def main(argv):
     # check dataset struct
     print("### Dataset ###")
     print(df_dataset)
-    print("### ### ###")
+    print("### ### ### ###")
     # prepare dataset
     X, y, tokenizer_action = prepare_x_y_activity_change(df_dataset)
     # check prepared dataset struct
     print("### Actions ###")
     print(X)
-    print("### ### ###")
+    print("### ### ### ###")
     print("### Activity change ###")
     print(y)
-    print("### ### ###")
+    print("### ### ### ### ### ###")
     print("### Action Index ###")
     print(tokenizer_action.word_index)
-    print("### ### ###")
+    print("### ### ### ### ### ###")
     # detect activity change with cook's AD algorithm patterns
     counter = 0
     y_pred = []
     y_pred.append(0)
     last_pattern = df_dataset_with_patterns['pattern'][0]
     for i in range(0, len(X)-1):
-        label = 'no' if (y[i+1]==0) else 'yes'
-        predicted_label = 'yes' if (df_dataset_with_patterns['pattern'][i] != last_pattern) else 'no'
-        if (predicted_label == 'yes'):
-            y_pred.append(1)
-        else:
-            y_pred.append(0)
+        predicted_label = 1 if (df_dataset_with_patterns['pattern'][i] != last_pattern) else 0
+        y_pred.append(predicted_label)
         last_pattern = df_dataset_with_patterns['pattern'][i]
     # print metrics
     print(classification_report(y, y_pred, target_names=['no', 'yes']))
