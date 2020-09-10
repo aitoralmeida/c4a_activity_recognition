@@ -27,11 +27,11 @@ WORD2VEC_MODEL = DIR + 'actions_w1.model'
 # Word2vec vector file
 WORD2VEC_VECTOR_FILE = DIR + 'actions_w5_enhanced.vector'
 # If binary model is used or vector file is used
-WORD2VEC_USE_FILE = True
+WORD2VEC_USE_FILE = False
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
 # MIN DIST if cosine distance < MIN_DIST then change of activity
-MIN_DIST = 0.8
+MIN_DIST = 0.9
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -111,48 +111,55 @@ def main(argv):
     # check dataset struct
     print("### Dataset ###")
     print(df_dataset)
-    print("### ### ###")
+    print("### ### ### ###")
     # prepare dataset
     X, y, tokenizer_action = prepare_x_y_activity_change(df_dataset)
     # check prepared dataset struct
     print("### Actions ###")
     print(X)
-    print("### ### ###")
+    print("### ### ### ###")
     print("### Activity change ###")
     print(y)
-    print("### ### ###")
+    print("### ### ### ### ### ###")
     print("### Action Index ###")
     print(tokenizer_action.word_index)
-    print("### ### ###")
+    print("### ### ### ### ### ###")
     # create the  action embedding matrix for the embedding distances calculation
     if WORD2VEC_USE_FILE:
         embedding_action_matrix = create_action_embedding_matrix_from_file(tokenizer_action)
     else:
         embedding_action_matrix, model, unknown_actions = create_action_embedding_matrix(tokenizer_action)
-    # check distances from action i to action i+1 based on embeddings and detect activity change
+    # prepare required data structs
     counter = 0
     y_pred = []
     discovered_activities = []
+    distances = []
     discovered_activity_num = 0
-    y_pred.append(0)
+    # first action we assume no change of activity
+    y_pred.append(0) 
     discovered_activities.append('ACT' + str(discovered_activity_num))
+    # check distances from action i to action i+1 based on embeddings and detect activity change
     for i in range(0, len(X)-1):
         distance = 1 - spatial.distance.cosine(embedding_action_matrix[X[i]], embedding_action_matrix[X[i+1]])
-        label = 'no' if (y[i+1]==0) else 'yes'
-        predicted_label = 'yes' if (distance < MIN_DIST) else 'no'
-        if (predicted_label == 'yes'):
+        predicted_label = 1 if (distance < MIN_DIST) else 0
+        y_pred.append(predicted_label)
+        distances.append(distance)
+        if (predicted_label == 1):
             discovered_activity_num += 1
-            y_pred.append(1)
-        else:
-            y_pred.append(0)
         discovered_activities.append('ACT' + str(discovered_activity_num))
+    # last action we assume maximum distance
+    distances.append(1.0)
     # print metrics
     print(classification_report(y, y_pred, target_names=['no', 'yes']))
     # prepare dataset to be saved
     df_dataset['discovered_activity'] = discovered_activities
     df_dataset = df_dataset.drop("activity", axis=1)
-    # save dataset (requires further processing)
-    df_dataset.to_csv('/results/test_kasteren_cosine_distance.csv.annotated', header=None, index=True, sep=' ', mode='a')
+    # save dataset with discovered activities (requires further processing)
+    df_dataset.to_csv('/results/test_kasteren_cosine_distance.csv.annotated', header=None, index=True, sep=' ')
+    # save distances and activity change labels to file
+    dist_act_change = {'distances': distances, 'activity_change_pred': y_pred, 'ground_truth': y}
+    df_dist_act_change = pd.DataFrame(data=dist_act_change)
+    df_dist_act_change.to_csv('/results/distances_and_activity_change.csv', header=True, index=False, sep=',')
 
 if __name__ == "__main__":
     main(sys.argv)

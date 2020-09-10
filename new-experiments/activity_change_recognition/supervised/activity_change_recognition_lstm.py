@@ -4,6 +4,8 @@ import sys
 from gensim.models import Word2Vec
 from scipy.spatial import distance
 
+from sklearn.metrics import classification_report
+
 import h5py
 
 import tensorflow as tf
@@ -21,11 +23,11 @@ import numpy as np
 import pandas as pd
 
 # Kasteren dataset
-DIR = '/experiments/kasteren_dataset/'
+DIR = '../kasteren_house_a/'
 # Dataset with vectors but without the action timestamps
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
-WORD2VEC_MODEL = DIR + 'actions.model'
+WORD2VEC_MODEL = DIR + 'actions_w5.model'
 # Number of input actions for the model
 INPUT_ACTIONS = 5
 # Number of elements in the action's embbeding vector
@@ -232,11 +234,10 @@ def main(argv):
     input_actions = Input(shape=(INPUT_ACTIONS,), dtype='int32', name='input_actions')
     # embeddings
     embedding_actions = Embedding(input_dim=embedding_action_matrix.shape[0], output_dim=embedding_action_matrix.shape[1], weights=[embedding_action_matrix], input_length=INPUT_ACTIONS, trainable=True, name='embedding_actions')(input_actions)
-    # bidirectional LSTM self-attention
-    bidirectional_LSTM = Bidirectional(LSTM(units=128, return_sequences=True, input_shape=(INPUT_ACTIONS, ACTION_EMBEDDING_LENGTH), dropout=0.2, recurrent_dropout=0.2))(embedding_actions)
-    self_attention = SeqWeightedAttention()(bidirectional_LSTM)
+    # bidirectional LSTM
+    bidirectional_LSTM = Bidirectional(LSTM(units=128, input_shape=(INPUT_ACTIONS, ACTION_EMBEDDING_LENGTH), dropout=0.2, recurrent_dropout=0.2))(embedding_actions)
     # denses
-    dense_1 = Dense(256, activation='relu', name='dense_1')(self_attention)
+    dense_1 = Dense(256, activation='relu', name='dense_1')(bidirectional_LSTM)
     drop_1 = Dropout(0.8, name='drop_1')(dense_1)
     # prediction
     model = None
@@ -267,9 +268,16 @@ def main(argv):
     print(('*' * 20))
     print('Evaluating best model...')
     sys.stdout.flush()    
-    model = load_model(BEST_MODEL, custom_objects={'SeqWeightedAttention': SeqWeightedAttention})
-    metrics = model.evaluate(X_actions_test, y_test, batch_size=BATCH_SIZE)
-    print(metrics)
+    model = load_model(BEST_MODEL)
+    y_pred = model.predict(X_actions_test, batch_size=BATCH_SIZE).argmax(axis=-1)
+    y_test_labels = []
+    for i in range(0, len(y_test)):
+        if y_test[i][0] == 1:
+            y_test_labels.append(0)
+        else:
+            y_test_labels.append(1)
+    y_test_labels = np.array(y_test_labels)
+    print(classification_report(y_test_labels, y_pred, target_names=['no', 'yes']))
 
 if __name__ == "__main__":
     main(sys.argv)
