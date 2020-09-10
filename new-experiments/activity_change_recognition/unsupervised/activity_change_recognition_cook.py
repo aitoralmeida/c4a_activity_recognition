@@ -1,22 +1,10 @@
 import json
 import sys
-
-from gensim.models import Word2Vec
-from scipy.spatial import distance
-
-import h5py
-
-from sklearn.metrics import classification_report
-
-from keras.preprocessing.text import Tokenizer
-
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from scipy import spatial
+from sklearn.metrics import classification_report
+from keras.preprocessing.text import Tokenizer
 
 # Kasteren dataset DIR
 DIR = '../kasteren_house_a/'
