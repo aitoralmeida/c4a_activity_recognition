@@ -142,6 +142,7 @@ def extract_features_from_sensors(actions, unique_actions, all_actions, position
             counter -= 1
         if action not in found_actions:
             features_from_sensors.append(9223372036854775807) # maximum time = maximum int in py2
+        counter = position
 
     return features_from_sensors
 
