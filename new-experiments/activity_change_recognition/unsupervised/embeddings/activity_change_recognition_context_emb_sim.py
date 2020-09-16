@@ -9,7 +9,7 @@ from keras.preprocessing.text import Tokenizer
 from scipy import spatial
 
 # Kasteren dataset DIR
-DIR = '../kasteren_house_a/'
+DIR = '../../kasteren_house_a/'
 # Kasteren dataset file
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
@@ -21,7 +21,9 @@ WORD2VEC_USE_FILE = False
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
 # MIN SIM value if cosine distance < MIN_SIM then change of activity
-MIN_SIM = 0.9
+MIN_SIM = 0.55
+# Window size for custom context algorithm
+WINDOW_SIZE = 3
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -87,7 +89,27 @@ def create_action_embedding_matrix_from_file(tokenizer):
     print(("Number of unknown tokens: " + str(len(unknown_words))))
     print (unknown_words)
     
-    return embedding_matrix   
+    return embedding_matrix
+
+def calculate_context_similarity(actions, embedding_action_matrix, position, window):
+    target_action_vector = embedding_action_matrix[actions[position]]
+    target_action_vector_context_sim = 0.0
+    counter = window * 2
+    for i in range(1, window+1):
+        # right context we search for similarity
+        if position+i < len(actions):
+            right_sim = 1 - spatial.distance.cosine(target_action_vector, embedding_action_matrix[actions[position+i]])
+            target_action_vector_context_sim += right_sim
+        else:
+            counter -= 1
+        # left context we search for disimilarity (1 - similarity)
+        if position-i >= 0:
+            left_sim = 1 - max(0, 1 - spatial.distance.cosine(target_action_vector, embedding_action_matrix[actions[position-i]]))
+            target_action_vector_context_sim += left_sim
+        else:
+            counter -= 1
+    target_action_vector_context_sim = target_action_vector_context_sim / counter
+    return target_action_vector_context_sim
 
 def main(argv):
     print(('*' * 20))
@@ -126,31 +148,28 @@ def main(argv):
     similarities = []
     discovered_activity_num = 0
     # first action we assume no change of activity
-    y_pred.append(0) 
-    discovered_activities.append('ACT' + str(discovered_activity_num))
-    # check similarities from action i to action i+1 based on embeddings and detect activity change
+    # check context similarity based on embeddings and detect activity change
     # doc: https://stackoverflow.com/questions/18424228/cosine-similarity-between-2-number-lists
-    for i in range(0, len(X)-1):
-        similarity = 1 - spatial.distance.cosine(embedding_action_matrix[X[i]], embedding_action_matrix[X[i+1]])
-        predicted_label = 1 if (similarity < MIN_SIM) else 0
+    for i in range(0, len(X)):
+        context_similarity = calculate_context_similarity(X, embedding_action_matrix, i, WINDOW_SIZE)
+        # print("Context similarity: " + str(context_similarity) + " Activity change: " + str(y[i]))
+        predicted_label = 1 if (context_similarity > MIN_SIM) else 0
         y_pred.append(predicted_label)
-        similarities.append(similarity)
+        similarities.append(context_similarity)
         if (predicted_label == 1):
             discovered_activity_num += 1
         discovered_activities.append('ACT' + str(discovered_activity_num))
-    # last action we assume maximum similarity
-    similarities.append(1.0)
     # print metrics
     print(classification_report(y, y_pred, target_names=['no', 'yes']))
     # prepare dataset to be saved
     df_dataset['discovered_activity'] = discovered_activities
     df_dataset = df_dataset.drop("activity", axis=1)
     # save dataset with discovered activities (requires further processing)
-    df_dataset.to_csv('/results/test_kasteren_cosine_distance.csv.annotated', header=None, index=True, sep=' ')
+    df_dataset.to_csv('/results/test_kasteren_context_sim.csv.annotated', header=None, index=True, sep=' ')
     # save similarities and activity change labels to file
     similarity_act_change = {'similarity': similarities, 'activity_change_pred': y_pred, 'ground_truth': y}
     df_similarity_act_change = pd.DataFrame(data=similarity_act_change)
-    df_similarity_act_change.to_csv('/results/similarities_and_activity_change.csv', header=True, index=False, sep=',')
+    df_similarity_act_change.to_csv('/results/similarities_and_activity_change_context_sim.csv', header=True, index=False, sep=',')
 
 if __name__ == "__main__":
     main(sys.argv)

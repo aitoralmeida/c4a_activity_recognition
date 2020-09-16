@@ -42,7 +42,7 @@
 	"start": [["00:00", "23:59"]]
     }
 },
- "objects": {
+"objects": {
      "Microwave": {
 	 "type": ["Cooking"],
 	 "location": "Kitchen",

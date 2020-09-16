@@ -9,21 +9,21 @@ from keras.preprocessing.text import Tokenizer
 from scipy import spatial
 
 # Kasteren dataset DIR
-DIR = '../kasteren_house_a/'
+DIR = '../../kasteren_house_a/'
 # Kasteren dataset file
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
 WORD2VEC_MODEL = DIR + 'actions_w1.model'
 # Word2vec vector file
-WORD2VEC_VECTOR_FILE = DIR + 'actions_w5_enhanced.vector'
+WORD2VEC_VECTOR_FILE = DIR + 'actions_w1_enhanced_graph.vector'
 # If binary model is used or vector file is used
-WORD2VEC_USE_FILE = False
+WORD2VEC_USE_FILE = True
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
 # Window size for custom context algorithm
 WINDOW_SIZE = 2
 # Minimum difference
-REQUIRED_DIFFERENCE = 0.00
+REQUIRED_DIFFERENCE = 0.001
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -124,6 +124,8 @@ def main(argv):
     print("### Dataset ###")
     print(df_dataset)
     print("### ### ### ###")
+    # remove None activity rows
+    df_dataset = df_dataset[df_dataset['activity'] != "None"]
     # prepare dataset
     X, y, tokenizer_action = prepare_x_y_activity_change(df_dataset)
     # check prepared dataset struct
@@ -165,15 +167,15 @@ def main(argv):
         discovered_activities.append('ACT' + str(discovered_activity_num))
     # print metrics
     print(classification_report(y, y_pred, target_names=['no', 'yes']))
+    # save similarities and activity change labels to file
+    similarity_act_change = {'action': df_dataset['action'], 'activity': df_dataset['activity'], 'similarity': similarities, 'activity_change_pred': y_pred, 'ground_truth': y}
+    df_similarity_act_change = pd.DataFrame(data=similarity_act_change)
+    df_similarity_act_change.to_csv('/results/similarities_and_activity_change_context_sim.csv', header=True, index=False, sep=',')
     # prepare dataset to be saved
     df_dataset['discovered_activity'] = discovered_activities
     df_dataset = df_dataset.drop("activity", axis=1)
     # save dataset with discovered activities (requires further processing)
     df_dataset.to_csv('/results/test_kasteren_context_sim.csv.annotated', header=None, index=True, sep=' ')
-    # save similarities and activity change labels to file
-    similarity_act_change = {'similarity': similarities, 'activity_change_pred': y_pred, 'ground_truth': y}
-    df_similarity_act_change = pd.DataFrame(data=similarity_act_change)
-    df_similarity_act_change.to_csv('/results/similarities_and_activity_change_context_sim.csv', header=True, index=False, sep=',')
 
 if __name__ == "__main__":
     main(sys.argv)

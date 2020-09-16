@@ -24,13 +24,13 @@ def main(argv):
     adlogfile = "kasteren_removed_log.txt"
     contextmodelfile = "context_model.json"
     #pmoutputfile = "pm_output.csv"
-    pmoutputfile = "pm_output_prueba.csv"
+    pmoutputfile = "pm_output.csv"
     
     # AR Evaluator arguments
     #groundtruth = "base_kasteren_reduced.csv"
     groundtruth = "base_kasteren_reduced.csv"
     #evaluable = "pm_output.csv"
-    evaluable = "pm_output_prueba.csv"
+    evaluable = "pm_output.csv"
     
     
     # Call PatternModelMatching    

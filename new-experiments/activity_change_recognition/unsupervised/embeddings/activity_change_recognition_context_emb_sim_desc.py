@@ -9,21 +9,21 @@ from keras.preprocessing.text import Tokenizer
 from scipy import spatial
 
 # Kasteren dataset DIR
-DIR = '../kasteren_house_a/'
+DIR = '../../kasteren_house_a/'
 # Kasteren dataset file
 DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
 # Word2Vec model
 WORD2VEC_MODEL = DIR + 'actions_w1.model'
 # Word2vec vector file
-WORD2VEC_VECTOR_FILE = DIR + 'actions_w5_enhanced.vector'
+WORD2VEC_VECTOR_FILE = DIR + 'actions_w1_enhanced_graph.vector'
 # If binary model is used or vector file is used
-WORD2VEC_USE_FILE = False
+WORD2VEC_USE_FILE = True
 # Embedding size
 ACTION_EMBEDDING_LENGTH = 50
-# MIN SIM value if cosine distance < MIN_SIM then change of activity
-MIN_SIM = 0.55
 # Window size for custom context algorithm
-WINDOW_SIZE = 3
+WINDOW_SIZE = 2
+# Minimum difference
+REQUIRED_DIFFERENCE = 0.001
 
 def prepare_x_y_activity_change(df):
     actions = df['action'].values
@@ -147,29 +147,33 @@ def main(argv):
     discovered_activities = []
     similarities = []
     discovered_activity_num = 0
-    # first action we assume no change of activity
-    # check context similarity based on embeddings and detect activity change
+    # check context similarity based on embeddings
     # doc: https://stackoverflow.com/questions/18424228/cosine-similarity-between-2-number-lists
     for i in range(0, len(X)):
         context_similarity = calculate_context_similarity(X, embedding_action_matrix, i, WINDOW_SIZE)
         # print("Context similarity: " + str(context_similarity) + " Activity change: " + str(y[i]))
-        predicted_label = 1 if (context_similarity > MIN_SIM) else 0
-        y_pred.append(predicted_label)
         similarities.append(context_similarity)
+    # first action we assume no change of activity
+    y_pred.append(0)
+    discovered_activities.append('ACT' + str(discovered_activity_num))
+    #  and detect activity change
+    for i in range(0, len(X)-1):
+        predicted_label = 1 if (similarities[i+1] - similarities[i] > REQUIRED_DIFFERENCE) else 0
+        y_pred.append(predicted_label)
         if (predicted_label == 1):
             discovered_activity_num += 1
         discovered_activities.append('ACT' + str(discovered_activity_num))
     # print metrics
     print(classification_report(y, y_pred, target_names=['no', 'yes']))
+    # save similarities and activity change labels to file
+    similarity_act_change = {'action': df_dataset['action'], 'activity': df_dataset['activity'], 'similarity': similarities, 'activity_change_pred': y_pred, 'ground_truth': y}
+    df_similarity_act_change = pd.DataFrame(data=similarity_act_change)
+    df_similarity_act_change.to_csv('/results/similarities_and_activity_change_context_sim.csv', header=True, index=False, sep=',')
     # prepare dataset to be saved
     df_dataset['discovered_activity'] = discovered_activities
     df_dataset = df_dataset.drop("activity", axis=1)
     # save dataset with discovered activities (requires further processing)
     df_dataset.to_csv('/results/test_kasteren_context_sim.csv.annotated', header=None, index=True, sep=' ')
-    # save similarities and activity change labels to file
-    similarity_act_change = {'similarity': similarities, 'activity_change_pred': y_pred, 'ground_truth': y}
-    df_similarity_act_change = pd.DataFrame(data=similarity_act_change)
-    df_similarity_act_change.to_csv('/results/similarities_and_activity_change_context_sim.csv', header=True, index=False, sep=',')
 
 if __name__ == "__main__":
     main(sys.argv)
