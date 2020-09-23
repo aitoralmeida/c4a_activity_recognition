@@ -11,7 +11,7 @@ RUN pip3 install --upgrade pip && python3 -m pip install --upgrade pip
 RUN pip3 install -U setuptools
 RUN pip3 install -U keras keras-bert keras-transformer keras_pos_embd
 RUN pip3 install -U tensorflow imutils
-RUN pip3 install -U gensim matplotlib sklearn scipy pandas tqdm ruptures
+RUN pip3 install -U gensim matplotlib sklearn scipy pandas tqdm ruptures densratio
 
 RUN ["mkdir", "results"]
 

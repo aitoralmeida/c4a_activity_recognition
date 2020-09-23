@@ -8,6 +8,7 @@ import operator
 
 from gensim.models import Word2Vec
 from sklearn.metrics import classification_report
+from sklearn import preprocessing
 from keras.preprocessing.text import Tokenizer
 from scipy import spatial
 from datetime import datetime
@@ -60,15 +61,15 @@ def location_to_int(location):
 ##################################################################################################################
 
 def convert_epoch_time_to_hour_of_day(epoch_time_in_seconds):
-    d = datetime.fromtimestamp(epoch_time_in_seconds)
+    d = dt.fromtimestamp(epoch_time_in_seconds)
     return d.strftime('%H')
 
 def convert_epoch_time_to_day_of_the_week(epoch_time_in_seconds):
-    d = datetime.fromtimestamp(epoch_time_in_seconds)
+    d = dt.fromtimestamp(epoch_time_in_seconds)
     return d.strftime('%A')
 
 def get_seconds_past_midnight_from_epoch(epoch_time_in_seconds):
-    date = datetime.fromtimestamp(epoch_time_in_seconds)
+    date = dt.fromtimestamp(epoch_time_in_seconds)
     seconds_since_midnight = (date - date.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds()
     return seconds_since_midnight
 
@@ -76,16 +77,12 @@ def extract_actions_from_window(actions, timestamps, position, window_size=30):
     actions_from_window = []
     timestamps_from_window = []
 
-    # left
-    for i in range(position-(window_size//2), position):
-        if i > 0:
+    for i in range(position-(window_size), position):
+        if i >= 0:
             actions_from_window.append(actions[i])
             timestamps_from_window.append(timestamps[i])
-    # right
-    for i in range(position, window_size//2):
-        if i < len(actions):
-            actions_from_window.append(actions[i])
-            timestamps_from_window.append(timestamps[i])
+    actions_from_window.append(actions[position])
+    timestamps_from_window.append(timestamps[position])
 
     return actions_from_window, timestamps_from_window
 
@@ -141,7 +138,7 @@ def extract_features_from_sensors(actions, unique_actions, all_actions, position
                 break
             counter -= 1
         if action not in found_actions:
-            features_from_sensors.append(9223372036854775807) # maximum time = maximum int in py2
+            features_from_sensors.append(all_timestamps[len(all_timestamps)-1] - all_timestamps[0]) # maximun time possible
         counter = position
 
     return features_from_sensors
@@ -185,6 +182,7 @@ def prepare_x_y_activity_change(df):
     return X, timestamps, hours, days, seconds_past_midnight, y, tokenizer_action
 
 def main(argv):
+    np. set_printoptions(suppress=True)
     print(('*' * 20))
     print('Loading dataset...')
     sys.stdout.flush()
@@ -246,15 +244,17 @@ def main(argv):
         feature_vectors.append(feature_vector)
     # check first feature vector struct
     print(feature_vectors[0])
-    # convert it to numpy array
-    features_vectors_np = np.array(feature_vectors) #TODO Normalize values before anything else?
+    # normalize min max scaling
+    min_max_scaler = preprocessing.MinMaxScaler()
+    features_vectors_norm = min_max_scaler.fit_transform(feature_vectors)
+    # check first feature vector struct normalized
+    print(features_vectors_norm[0])
     # check shape
-    print(features_vectors_np.shape)
+    print(features_vectors_norm.shape)
     # change point detection
     model = "l2"  # "l1", "rbf", "linear", "normal", "ar"
-    #TODO add custom cost func https://centre-borelli.github.io/ruptures-docs/costs/costcustom.html SEP and threshold?
-    algo = rpt.Window(width=4, min_size=1, model=model).fit(features_vectors_np)
-    result = algo.predict(epsilon=3*len(X)*5**2)
+    algo = rpt.Window(width=2, min_size=1, model=model).fit(features_vectors_norm)
+    result = algo.predict(epsilon=0.3) # threshold = epsilon
     print(result)
     # prepare results for eval
     y_pred = np.zeros(len(y))
