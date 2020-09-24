@@ -6,10 +6,10 @@ import ruptures as rpt
 import itertools
 import operator
 import csv
-from densratio import densratio
+import argparse
 
 from gensim.models import Word2Vec
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
 from sklearn import preprocessing
 from keras.preprocessing.text import Tokenizer
 from scipy import spatial
@@ -19,6 +19,8 @@ from datetime import datetime as dt
 from pylab import *
 from scipy import linalg
 from scipy.stats import norm
+
+from densratio import densratio
 
 # Kasteren dataset DIR
 DIR = '../../kasteren_house_a/'
@@ -76,8 +78,8 @@ def convert_epoch_time_to_day_of_the_week(epoch_time_in_seconds):
 
 def get_seconds_past_midnight_from_epoch(epoch_time_in_seconds):
     date = dt.fromtimestamp(epoch_time_in_seconds)
-    seconds_since_midnight = (date - date.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds()
-    return seconds_since_midnight
+    seconds_past_midnight = (date - date.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds()
+    return seconds_past_midnight
 
 def extract_actions_from_window(actions, timestamps, position, window_size=30):
     actions_from_window = []
@@ -98,11 +100,11 @@ def extract_features_from_window(actions, previous_actions_1, previous_actions_2
     most_recent_sensor = actions[len(actions)-1]
     first_sensor_in_window = actions[0]
     window_duration = timestamps[len(actions)-1] - timestamps[0]
-    if previous_actions_1 != None:
+    if previous_actions_1 is not None:
         most_frequent_sensor_1 = most_common(previous_actions_1)
     else:
         most_frequent_sensor_1 = 0 # non-existing sensor index
-    if previous_actions_2 != None:
+    if previous_actions_2 is not None:
         most_frequent_sensor_2 = most_common(previous_actions_2)
     else:
         most_frequent_sensor_2 = 0 # non-existing sensor index
@@ -157,51 +159,66 @@ def extract_features_from_sensors(actions, unique_actions, all_actions, position
 
 ##################################################################################################################
 # R_ULSIF based CPD algorithm translation from http://allmodelsarewrong.net/software.html
+# Adapted for Kasteren dataset feature extraction based on Aminikhanghahi et al. paper
 # START
 ##################################################################################################################  
 
-def sliding_window(X, window_size, step):
-    (num_dims, num_samples) = X.shape
+def sliding_window_with_features(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, window_size, step):
+    windows = None
+    previous_actions_1 = None
+    previous_actions_2 = None
+    num_samples = len(actions)
 
-    windows = np.zeros((num_dims * window_size * step, num_samples + 1 - window_size * step))
-    print("Allocated window struct shape: " + str(windows.shape))
     for i in range(0, num_samples):
         if (i % step == 0):
             offset = window_size * step
             if i + offset > num_samples:
                 break
-            window = X[:,i:(i+offset)]
-            windows[:,int(ceil(i/step))] = window[:].reshape(1,-1)
+            window_actions = actions[i:(i+offset)]
+            window_timestamps = timestamps[i:(i+offset)]
+            # get feature vector from window
+            feature_vector = []
+            # time features
+            feature_vector.append(int(hours[i]))
+            feature_vector.append(day_to_int(days[i]))
+            feature_vector.append(seconds_past_midnight[i])
+            # window features
+            window_features = extract_features_from_window(window_actions, previous_actions_1, previous_actions_2, locations, window_timestamps)
+            feature_vector.extend(window_features)
+            # sensor features
+            sensor_features = extract_features_from_sensors(window_actions, unique_actions, actions, i, window_timestamps, timestamps)
+            feature_vector.extend(sensor_features)
+            # update previous actions
+            previous_actions_2 = previous_actions_1
+            previous_actions_1 = window_actions
+            # add to windows struct
+            feature_vector = np.array(feature_vector)
+            if windows is None:
+                windows = np.zeros((len(feature_vector), num_samples + 1 - window_size * step))
+                print("Allocated window struct shape: " + str(windows.shape))
+            windows[:,int(ceil(i/step))] = feature_vector.reshape(1,-1)
+    
     windows = np.array(windows)
 
     return windows
             
-def change_detection(X, n, k, alpha, fold):
+def change_detection(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, n, k, alpha, fold):
     scores = []
     
-    windows = sliding_window(X, k, 1)
+    windows = sliding_window_with_features(actions, unique_actions, locations, timestamps,
+        days, hours, seconds_past_midnight, k, 1)
     num_samples = windows.shape[1]
     print("Num window samples in change detection: " + str(num_samples))
     t = n
 
     while((t+n) <= num_samples):
         y = windows[:,(t-n):(n+t)]
-        y = y / np.std(y)
-        # print("Y shape: " + str(y.shape))
         y_ref = y[:,0:n]
-        # print("Y ref shape: " + str(y_ref.shape))
         y_test = y[:,n:]
-        # print("Y test shape: " + str(y_test.shape))
 
-        #(PE, w, score) = R_ULSIF(y_test, y_ref, [], alpha, sigma_list(y_test,y_ref),lambda_list(), y_test.shape[1], 5)
         densratio_obj = densratio(y_test, y_ref, alpha=alpha)
 
-        #print("Score: " + str(PE))
-        #scores.append(PE)
         scores.append(densratio_obj.alpha_PE)
-
-        if mod(t,20) == 0:
-            print(t)
 
         t += 1
     
@@ -211,6 +228,7 @@ def change_detection(X, n, k, alpha, fold):
 
 ##################################################################################################################
 # R_ULSIF based CPD algorithm translation from MatLab code http://allmodelsarewrong.net/software.html
+# Adapted for Kasteren dataset feature extraction based on Aminikhanghahi et al. paper
 # END
 ################################################################################################################## 
 
@@ -244,11 +262,46 @@ def prepare_x_y_activity_change(df):
             y.append(1)
         last_activity = activities[i]
     
-    return X, timestamps, hours, days, seconds_past_midnight, y, tokenizer_action
+    X = np.array(X)
+    timestamps = np.array(timestamps)
+    days = np.array(days)
+    hours = np.array(hours)
+    seconds_past_midnight = np.array(seconds_past_midnight)
+    y = np.array(y)
+    
+    return X, timestamps, days, hours, seconds_past_midnight, y, tokenizer_action
 
 def main(argv):
     np.set_printoptions(threshold=sys.maxsize)
-    print(('*' * 20))
+    np. set_printoptions(suppress=True)
+    # parse args
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--n",
+                        type=int,
+                        default=2,
+                        nargs="?",
+                        help="Window size for n-real time algorithm")
+    parser.add_argument("--k",
+                        type=int,
+                        default=30,
+                        nargs="?",
+                        help="Number of events to look when performing feature extraction")
+    parser.add_argument("--alpha",
+                        type=float,
+                        default=0.01,
+                        nargs="?",
+                        help="RulSIF is equivalent to ulSIF when alpha=0.0")
+    parser.add_argument("--fold",
+                        type=int,
+                        default=5,
+                        nargs="?",
+                        help="Number of cross validation folds")
+    parser.add_argument("--threshold",
+                        type=float,
+                        default=0.8,
+                        nargs="?",
+                        help="Threshold to determine change point based on score value")
+    args = parser.parse_args()
     print('Loading dataset...')
     sys.stdout.flush()
     # dataset of actions and activities
@@ -267,11 +320,10 @@ def main(argv):
     # check action:location dict struct
     print(action_location)
     # check dataset struct
-    print("### Dataset ###")
+    print("Dataset")
     print(df_dataset)
-    print("### ### ### ###")
     # prepare dataset
-    X, timestamps, hours, days, seconds_past_midnight, y, tokenizer_action = prepare_x_y_activity_change(df_dataset)
+    X, timestamps, days, hours, seconds_past_midnight, y, tokenizer_action = prepare_x_y_activity_change(df_dataset)
     # transform action:location dict struct to action_index:location struct
     action_index = tokenizer_action.word_index
     action_index_location = {}
@@ -280,98 +332,67 @@ def main(argv):
     # check action_index:location struct
     print(action_index_location)
     # check prepared dataset struct
-    print("### Actions ###")
+    print("Actions")
     print(X)
-    print("### ### ### ###")
-    print("### Activity change ###")
+    print("Activity change")
     print(y)
-    # perform window-based feature extraction based on Aminikhanghahi et al. paper
-    feature_vectors = []
-    previous_actions_1 = None
-    previous_actions_2 = None
-    for i in range(len(X)):
-        actions_of_window, timestamps_of_window = extract_actions_from_window(X, timestamps, i, 30)
-        feature_vector = []
-        # time features
-        feature_vector.append(int(hours[i]))
-        feature_vector.append(day_to_int(days[i]))
-        feature_vector.append(seconds_past_midnight[i])
-        # window features
-        window_features = extract_features_from_window(actions_of_window, previous_actions_1, previous_actions_2, action_index_location, timestamps_of_window)
-        feature_vector.extend(window_features)
-        # sensor features
-        sensor_features = extract_features_from_sensors(actions_of_window, action_index.values(), X, i, timestamps_of_window, timestamps)
-        feature_vector.extend(sensor_features)
-        # update previous actions
-        previous_actions_2 = previous_actions_1
-        previous_actions_1 = actions_of_window
-        # append feature vector to list
-        feature_vectors.append(feature_vector)
-    # check first feature vector struct
-    print(feature_vectors[0])
-    # normalize min max scaling
-    min_max_scaler = preprocessing.MinMaxScaler()
-    features_vectors_norm = min_max_scaler.fit_transform(feature_vectors)
-    # check first feature vector struct normalized
-    print(features_vectors_norm[0])
-    # check shape
-    print(features_vectors_norm.shape)
-    # write feature vectors to CSV
-    with open('/results/kasteren_ts_feature_vectors.csv', mode='w') as kasteren_ts_feature_vectors:
-        for i in range(0, len(feature_vectors)):
-            kasteren_ts_feature_vectors_writer = csv.writer(kasteren_ts_feature_vectors, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            row = []
-            row.append(timestamps[i])
-            row.append(y[i])
-            for j in range(0, len(feature_vectors[i])):
-                row.append(feature_vectors[i][j])
-            kasteren_ts_feature_vectors_writer.writerow(row)
-    # write feature vectors norm to CSV
-    with open('/results/kasteren_ts_feature_vectors_norm.csv', mode='w') as kasteren_ts_feature_vectors_norm:
-        for i in range(0, len(features_vectors_norm)):
-            kasteren_ts_feature_vectors_norm_writer = csv.writer(kasteren_ts_feature_vectors_norm, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            row = []
-            row.append(timestamps[i])
-            row.append(y[i])
-            for j in range(0, len(features_vectors_norm[i])):
-                row.append(features_vectors_norm[i][j])
-            kasteren_ts_feature_vectors_norm_writer.writerow(row)
     # change point detection
-    n = 2
-    k = 1 # WARNING: feature vectors for k=30 are already extracted, then k=1
-    alpha = 0.01
-    fold = 5
-    # feature vectors
-    feature_vectors = np.array(feature_vectors)
-    feature_vectors = feature_vectors.T
-    print("Input shape: " + str(feature_vectors.shape))
-    scores_1 = change_detection(feature_vectors, n, k, alpha, fold)
-    scores_2 = change_detection(np.flip(feature_vectors), n, k, alpha, fold)
+    n = args.n
+    k = args.k
+    alpha = args.alpha # equivalent to ulSIF when alpha=0.0
+    fold = args.fold
+    threshold = args.threshold
+    # check actions input shape
+    print("Input action shape: " + str(X.shape))
+    # calculate scores using RulSIF
+    scores_1 = change_detection(X, action_index.values(), action_index_location, 
+        timestamps, days, hours, seconds_past_midnight,
+        n, k, alpha, fold)
+    scores_2 = change_detection(np.flip(X), action_index.values(), action_index_location, 
+        np.flip(timestamps), np.flip(days), np.flip(hours), np.flip(seconds_past_midnight),
+        n, k, alpha, fold)
     scores_1 = np.array(scores_1)
     scores_2 = np.flip(np.array(scores_2))
     scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
     scores_sum = np.concatenate((np.zeros(2*n-2+k), scores_sum))
+    min_max_scaler = preprocessing.MinMaxScaler()
+    scores_sum_norm = min_max_scaler.fit_transform(scores_sum.reshape(-1, 1))
     # plot in pieces
     points = 50
-    number_of_plots = int(ceil(feature_vectors.shape[1] / points))
+    number_of_plots = int(ceil(len(y) / points))
     print("Number of plots: " + str(number_of_plots))
     for i in range(0, number_of_plots):
         offset = i * points
-        feature_vectors_sub = feature_vectors[offset:offset+points]
         y_sub = y[offset:offset+points]
-        scores_sum_sub = scores_sum[offset:offset+points]
-        if offset + points < len(scores_sum):
+        scores_sum_norm_sub = scores_sum_norm[offset:offset+points]
+        if offset + points < len(scores_sum_norm):
             t = list(range(offset, offset+points))
         else:
-            t = list(range(offset, len(scores_sum)))
+            t = list(range(offset, len(scores_sum_norm)))
         fig, ax = plt.subplots()
         for j in range(0, len(y_sub)):
             if y_sub[j] == 1:
-                ax.axvline(offset+j, 0, max(scores_sum), c='k')
-        ax.plot(t, scores_sum_sub, color='r')
+                ax.axvline(offset+j, 0, max(scores_sum_norm), c='k')
+        ax.plot(t, scores_sum_norm_sub, color='r')
         ax.set(xlabel='x', ylabel='score')
         print("Saving plot with number: " + str(i))
         fig.savefig("/results/scores_and_cp_ts_" + str(i) + ".png")
+    # prepare exact change detection using threshold value
+    y_pred = np.zeros(len(y))
+    for i in range(0, len(scores_sum_norm)):
+        if scores_sum_norm[i] > threshold:
+            y_pred[i] = 1
+    # eval
+    cf_matrix = confusion_matrix(y, y_pred)
+    TN, FP, FN, TP = cf_matrix.ravel()
+    # metrics from confusion matrix
+    TPR = TP/(TP+FN)
+    TNR = TN/(TN+FP)
+    FPR = FP/(FP+TN)
+    print("Exact change detection TPR: " + str(TPR))
+    print("Exact change detection TNR: " + str(TNR))
+    print("Exact change detection FPR: " + str(FPR))
+    # prepare change detection with offset using threshold value
 
 if __name__ == "__main__":
     main(sys.argv)
