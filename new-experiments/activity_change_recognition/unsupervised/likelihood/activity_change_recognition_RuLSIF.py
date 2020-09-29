@@ -9,7 +9,6 @@ import csv
 import argparse
 
 from gensim.models import Word2Vec
-from sklearn.metrics import classification_report, confusion_matrix
 from sklearn import preprocessing
 from keras.preprocessing.text import Tokenizer
 from scipy import spatial
@@ -20,12 +19,14 @@ from pylab import *
 from scipy import linalg
 from scipy.stats import norm
 
+from math import sqrt
+
 from densratio import densratio
 
 # Kasteren dataset DIR
 DIR = '../../kasteren_house_a/'
 # Kasteren dataset file
-DATASET_CSV = DIR + 'base_kasteren_reduced.csv'
+DATASET_CSV = DIR + 'base_kasteren_reduced'
 # List of unique actions in the dataset
 UNIQUE_ACTIONS = DIR + 'unique_actions.json'
 # Context information for the actions in the dataset
@@ -271,11 +272,106 @@ def prepare_x_y_activity_change(df):
     
     return X, timestamps, days, hours, seconds_past_midnight, y, tokenizer_action
 
+def check_detected_change_point_with_offset(timestamps, y, position, offset):
+    timestamp_ref = timestamps[position]
+
+    # right
+    for i in range(position, len(y)):
+        difference = timestamps[i] - timestamp_ref
+        if offset < difference:
+            break
+        else:
+            if y[i] == 1:
+                return True
+    # left
+    i = position - 1
+    while i >= 0:
+        difference = timestamp_ref - timestamps[i]
+        if offset < difference:
+            break
+        else:
+            if y[i] == 1:
+                return True
+        i -= 1
+
+    return False
+
+def get_conf_matrix_with_offset_strategy(scores, y, timestamps, threshold, offset):
+    cf_matrix = np.zeros((2,2))
+
+    for i in range(0, len(scores)):
+        if scores[i] > threshold:
+            correctly_detected = check_detected_change_point_with_offset(timestamps, y, i, offset)
+            if correctly_detected:
+                cf_matrix[1][1] += 1
+            else:
+                cf_matrix[0][1] += 1
+        else:
+            if y[i] == 0:
+                cf_matrix[0][0] += 1
+            else:
+                cf_matrix[1][0] += 1
+    
+    return cf_matrix
+
+def search_nearest_change_point(y, timestamps, position):
+    timestamp_ref = timestamps[position]
+
+    # right
+    right_nearest_cp_difference = sys.maxsize
+    for i in range(position, len(y)):
+        if y[i] == 1:
+            right_nearest_cp_difference = timestamps[i] - timestamp_ref
+            break
+    
+    # left
+    left_nearest_cp_difference = sys.maxsize
+    i = position - 1
+    while i >= 0:
+        if y[i] == 1:
+            left_nearest_cp_difference = timestamp_ref - timestamps[i]
+            break
+        i -= 1
+
+    return min(right_nearest_cp_difference, left_nearest_cp_difference)
+
+def get_detection_delay(scores, y, timestamps, threshold):
+    detection_delay = 0
+
+    counter = 0
+    for i in range(0, len(scores)):
+        if scores[i] > threshold:
+            counter += 1
+            detection_delay += search_nearest_change_point(y, timestamps, i)
+    
+    return detection_delay / counter
+
+def save_pop_results_to_file(results, seconds_for_detection, threshold_num):
+    np.savetxt(RESULTS_DIR + str(seconds_for_detection) + 's/results_' + str(seconds_for_detection) + '_' + str(threshold_num) + '_TPR' + '.csv', results[0][threshold_num])
+    np.savetxt(RESULTS_DIR + str(seconds_for_detection) + 's/results_' + str(seconds_for_detection) + '_' + str(threshold_num) + '_TNR' + '.csv', results[1][threshold_num])
+    np.savetxt(RESULTS_DIR + str(seconds_for_detection) + 's/results_' + str(seconds_for_detection) + '_' + str(threshold_num) + '_FPR' + '.csv', results[2][threshold_num])
+    np.savetxt(RESULTS_DIR + str(seconds_for_detection) + 's/results_' + str(seconds_for_detection) + '_' + str(threshold_num) + '_G-MEAN' + '.csv', results[3][threshold_num])
+
 def main(argv):
     np.set_printoptions(threshold=sys.maxsize)
     np. set_printoptions(suppress=True)
     # parse args
     parser = argparse.ArgumentParser()
+    parser.add_argument("--results_dir",
+                        type=str,
+                        default='results',
+                        nargs="?",
+                        help="Dir for results")
+    parser.add_argument("--results_folder",
+                        type=str,
+                        default='RuLSIF',
+                        nargs="?",
+                        help="Folder for results")
+    parser.add_argument("--train_or_test",
+                        type=str,
+                        default='train',
+                        nargs="?",
+                        help="Specify train or test data")
     parser.add_argument("--n",
                         type=int,
                         default=2,
@@ -296,16 +392,21 @@ def main(argv):
                         default=5,
                         nargs="?",
                         help="Number of cross validation folds")
-    parser.add_argument("--threshold",
-                        type=float,
-                        default=0.8,
+    parser.add_argument("--exe",
+                        type=int,
+                        default=30,
                         nargs="?",
-                        help="Threshold to determine change point based on score value")
+                        help="Number of executions")
+    parser.add_argument("--plot",
+                        type=bool,
+                        default=False,
+                        nargs="?",
+                        help="Plot images")
     args = parser.parse_args()
     print('Loading dataset...')
     sys.stdout.flush()
     # dataset of actions and activities
-    DATASET = DATASET_CSV
+    DATASET = DATASET_CSV + "_" + args.train_or_test + ".csv"
     df_dataset = pd.read_csv(DATASET, parse_dates=[[0, 1]], header=None, index_col=0, sep=' ')
     df_dataset.columns = ['sensor', 'action', 'event', 'activity']
     df_dataset.index.names = ["timestamp"]
@@ -341,58 +442,96 @@ def main(argv):
     k = args.k
     alpha = args.alpha # equivalent to ulSIF when alpha=0.0
     fold = args.fold
-    threshold = args.threshold
+    exe = args.exe
+    RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     # check actions input shape
     print("Input action shape: " + str(X.shape))
-    # calculate scores using RulSIF
-    scores_1 = change_detection(X, action_index.values(), action_index_location, 
-        timestamps, days, hours, seconds_past_midnight,
-        n, k, alpha, fold)
-    scores_2 = change_detection(np.flip(X), action_index.values(), action_index_location, 
-        np.flip(timestamps), np.flip(days), np.flip(hours), np.flip(seconds_past_midnight),
-        n, k, alpha, fold)
-    scores_1 = np.array(scores_1)
-    scores_2 = np.flip(np.array(scores_2))
-    scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
-    scores_sum = np.concatenate((np.zeros(2*n-2+k), scores_sum))
-    min_max_scaler = preprocessing.MinMaxScaler()
-    scores_sum_norm = min_max_scaler.fit_transform(scores_sum.reshape(-1, 1))
-    # plot in pieces
-    points = 50
-    number_of_plots = int(ceil(len(y) / points))
-    print("Number of plots: " + str(number_of_plots))
-    for i in range(0, number_of_plots):
-        offset = i * points
-        y_sub = y[offset:offset+points]
-        scores_sum_norm_sub = scores_sum_norm[offset:offset+points]
-        if offset + points < len(scores_sum_norm):
-            t = list(range(offset, offset+points))
-        else:
-            t = list(range(offset, len(scores_sum_norm)))
-        fig, ax = plt.subplots()
-        for j in range(0, len(y_sub)):
-            if y_sub[j] == 1:
-                ax.axvline(offset+j, 0, max(scores_sum_norm), c='k')
-        ax.plot(t, scores_sum_norm_sub, color='r')
-        ax.set(xlabel='x', ylabel='score')
-        print("Saving plot with number: " + str(i))
-        fig.savefig("/results/scores_and_cp_ts_" + str(i) + ".png")
-    # prepare exact change detection using threshold value
-    y_pred = np.zeros(len(y))
-    for i in range(0, len(scores_sum_norm)):
-        if scores_sum_norm[i] > threshold:
-            y_pred[i] = 1
-    # eval
-    cf_matrix = confusion_matrix(y, y_pred)
-    TN, FP, FN, TP = cf_matrix.ravel()
-    # metrics from confusion matrix
-    TPR = TP/(TP+FN)
-    TNR = TN/(TN+FP)
-    FPR = FP/(FP+TN)
-    print("Exact change detection TPR: " + str(TPR))
-    print("Exact change detection TNR: " + str(TNR))
-    print("Exact change detection FPR: " + str(FPR))
-    # prepare change detection with offset using threshold value
+    # repeat exe iterations
+    results_1 = np.zeros((4,10,30))
+    results_5 = np.zeros((4,10,30))
+    results_10 = np.zeros((4,10,30))
+    detection_delays = np.zeros((10,30))
+    for e in range(0, exe):
+        # calculate scores using RulSIF
+        scores_1 = change_detection(X, action_index.values(), action_index_location, 
+            timestamps, days, hours, seconds_past_midnight,
+            n, k, alpha, fold)
+        scores_2 = change_detection(np.flip(X), action_index.values(), action_index_location, 
+            np.flip(timestamps), np.flip(days), np.flip(hours), np.flip(seconds_past_midnight),
+            n, k, alpha, fold)
+        scores_1 = np.array(scores_1)
+        scores_2 = np.flip(np.array(scores_2))
+        scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
+        scores_sum = np.concatenate((np.zeros(2*n-2+k), scores_sum))
+        min_max_scaler = preprocessing.MinMaxScaler()
+        scores_sum_norm = min_max_scaler.fit_transform(scores_sum.reshape(-1, 1))
+        # plot in pieces
+        if args.plot:
+            points = 50
+            number_of_plots = int(ceil(len(y) / points))
+            print("Number of plots: " + str(number_of_plots))
+            for i in range(0, number_of_plots):
+                offset = i * points
+                y_sub = y[offset:offset+points]
+                scores_sum_norm_sub = scores_sum_norm[offset:offset+points]
+                if offset + points < len(scores_sum_norm):
+                    t = list(range(offset, offset+points))
+                else:
+                    t = list(range(offset, len(scores_sum_norm)))
+                fig, ax = plt.subplots()
+                for j in range(0, len(y_sub)):
+                    if y_sub[j] == 1:
+                        ax.axvline(offset+j, 0, max(scores_sum_norm), c='k')
+                ax.plot(t, scores_sum_norm_sub, color='r')
+                ax.set(xlabel='x', ylabel='score')
+                print("Saving plot with number: " + str(i))
+                fig.savefig(RESULTS_DIR + "scores_and_cp_ts_" + str(i) + ".png")
+        # prepare change detection with offset using different threshold values
+        counter_threshold = 0
+        for threshold in [x * 0.1 for x in range(0, 10)]:
+            cf_matrix_1 = get_conf_matrix_with_offset_strategy(scores_sum_norm, y, timestamps, threshold, 1)
+            cf_matrix_5 = get_conf_matrix_with_offset_strategy(scores_sum_norm, y, timestamps, threshold, 5)
+            cf_matrix_10 = get_conf_matrix_with_offset_strategy(scores_sum_norm, y, timestamps, threshold, 10)
+            # TPR, TNR, FPR, G-MEAN for exact change point detection
+            TN, FP, FN, TP = cf_matrix_1.ravel()
+            TPR = TP/(TP+FN)
+            TNR = TN/(TN+FP)
+            FPR = FP/(FP+TN)
+            G_MEAN = sqrt(TPR * TNR)
+            results_1[0][counter_threshold][e] = TPR
+            results_1[1][counter_threshold][e] = TNR
+            results_1[2][counter_threshold][e] = FPR
+            results_1[3][counter_threshold][e] = G_MEAN
+            # TPR, TNR, FPR, G-MEAN for 5 second offset change point detection
+            TN, FP, FN, TP = cf_matrix_5.ravel()
+            TPR = TP/(TP+FN)
+            TNR = TN/(TN+FP)
+            FPR = FP/(FP+TN)
+            G_MEAN = sqrt(TPR * TNR)
+            results_5[0][counter_threshold][e] = TPR
+            results_5[1][counter_threshold][e] = TNR
+            results_5[2][counter_threshold][e] = FPR
+            results_5[3][counter_threshold][e] = G_MEAN
+            # TPR, TNR, FPR, G-MEAN for 10 second offset change point detection
+            TN, FP, FN, TP = cf_matrix_10.ravel()
+            TPR = TP/(TP+FN)
+            TNR = TN/(TN+FP)
+            FPR = FP/(FP+TN)
+            G_MEAN = sqrt(TPR * TNR)
+            results_10[0][counter_threshold][e] = TPR
+            results_10[1][counter_threshold][e] = TNR
+            results_10[2][counter_threshold][e] = FPR
+            results_10[3][counter_threshold][e] = G_MEAN
+            # detection delay
+            detection_delay = get_detection_delay(scores_sum_norm, y, timestamps, threshold)
+            detection_delays[counter_threshold][e] = detection_delay
+            counter_threshold += 1
+    # save population of results to file
+    for threshold_num in range(0, 10):
+        save_pop_results_to_file(results_1, 1, threshold_num)
+        save_pop_results_to_file(results_5, 5, threshold_num)
+        save_pop_results_to_file(results_10, 10, threshold_num)
+        np.savetxt(RESULTS_DIR + 'detection_delays/' + str(threshold_num) + '_detection_delay' + '.csv', detection_delays[threshold_num])
 
 if __name__ == "__main__":
     main(sys.argv)
