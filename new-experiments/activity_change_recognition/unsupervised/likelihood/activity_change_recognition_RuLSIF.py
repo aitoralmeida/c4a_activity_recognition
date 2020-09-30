@@ -117,7 +117,7 @@ def main(argv):
     exe = args.exe
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     # create dirs for saving results
-    create_dirs(RESULTS_DIR, word2vec=True)
+    create_dirs(RESULTS_DIR, word2vec=False)
     # check actions input shape
     print("Input action shape: " + str(X.shape))
     # repeat exe iterations

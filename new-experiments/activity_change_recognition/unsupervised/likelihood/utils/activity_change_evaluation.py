@@ -1,31 +1,53 @@
 import numpy as np
+import sys
 
-def get_detection_delay(scores, y, timestamps, threshold):
+def get_detection_delay(scores, y, timestamps, threshold, lower=False):
     detection_delay = 0
 
     counter = 0
     for i in range(0, len(scores)):
-        if scores[i] > threshold:
-            counter += 1
-            detection_delay += search_nearest_change_point(y, timestamps, i)
-    
-    return detection_delay / counter
+        if lower:
+            if scores[i] < threshold:
+                counter += 1
+                detection_delay += search_nearest_change_point(y, timestamps, i)
+        else: 
+            if scores[i] > threshold:
+                counter += 1
+                detection_delay += search_nearest_change_point(y, timestamps, i)
 
-def get_conf_matrix_with_offset_strategy(scores, y, timestamps, threshold, offset):
+    if counter == 0:
+        return detection_delay
+    else:
+        return detection_delay / counter
+
+def get_conf_matrix_with_offset_strategy(scores, y, timestamps, threshold, offset, lower=False):
     cf_matrix = np.zeros((2,2))
 
     for i in range(0, len(scores)):
-        if scores[i] > threshold:
-            correctly_detected = check_detected_change_point_with_offset(timestamps, y, i, offset)
-            if correctly_detected:
-                cf_matrix[1][1] += 1
+        if lower:
+            if scores[i] < threshold:
+                correctly_detected = check_detected_change_point_with_offset(timestamps, y, i, offset)
+                if correctly_detected:
+                    cf_matrix[1][1] += 1
+                else:
+                    cf_matrix[0][1] += 1
             else:
-                cf_matrix[0][1] += 1
+                if y[i] == 0:
+                    cf_matrix[0][0] += 1
+                else:
+                    cf_matrix[1][0] += 1
         else:
-            if y[i] == 0:
-                cf_matrix[0][0] += 1
+            if scores[i] > threshold:
+                correctly_detected = check_detected_change_point_with_offset(timestamps, y, i, offset)
+                if correctly_detected:
+                    cf_matrix[1][1] += 1
+                else:
+                    cf_matrix[0][1] += 1
             else:
-                cf_matrix[1][0] += 1
+                if y[i] == 0:
+                    cf_matrix[0][0] += 1
+                else:
+                    cf_matrix[1][0] += 1
     
     return cf_matrix
 
