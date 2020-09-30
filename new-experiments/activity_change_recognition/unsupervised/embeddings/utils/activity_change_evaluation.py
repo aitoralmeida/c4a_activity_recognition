@@ -51,6 +51,29 @@ def get_conf_matrix_with_offset_strategy(scores, y, timestamps, threshold, offse
     
     return cf_matrix
 
+def get_conf_matrix_with_offset_strategy_desc(scores, y, timestamps, threshold, offset):
+    cf_matrix = np.zeros((2,2))
+
+    if y[0] == 0:
+        cf_matrix[0][0] += 1
+    else:
+        cf_matrix[1][0] += 1
+    
+    for i in range(0, len(scores)-1):
+        if scores[i+1] - scores[i] > threshold:
+            correctly_detected = check_detected_change_point_with_offset(timestamps, y, i+1, offset)
+            if correctly_detected:
+                cf_matrix[1][1] += 1
+            else:
+                cf_matrix[0][1] += 1
+        else:
+            if y[i+1] == 0:
+                cf_matrix[0][0] += 1
+            else:
+                cf_matrix[1][0] += 1
+    
+    return cf_matrix
+
 def check_detected_change_point_with_offset(timestamps, y, position, offset):
     timestamp_ref = timestamps[position]
 

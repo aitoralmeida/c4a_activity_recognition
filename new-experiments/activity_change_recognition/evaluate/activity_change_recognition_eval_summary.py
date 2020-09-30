@@ -30,6 +30,11 @@ def main(argv):
                         default=1,
                         nargs="?",
                         help="Offset in seconds")
+    parser.add_argument("--threshold_num",
+                        type=int,
+                        default=10,
+                        nargs="?",
+                        help="Number of thresholds")
     args = parser.parse_args()
 
     FOLDER = args.folder
@@ -38,7 +43,7 @@ def main(argv):
     for metric in ['TPR', 'TNR', 'FPR', 'G-MEAN']:
         results = DataFrame()
         # add population of results for each threshold
-        for threshold in range(0,10):
+        for threshold in range(0, args.threshold_num):
             results[threshold] = read_csv(DIR + FOLDER + "/" + args.train_or_test
             + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + str(threshold) 
             + "_" + metric + ".csv", header=None).values[:, 0]

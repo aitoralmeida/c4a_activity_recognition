@@ -25,13 +25,18 @@ def main(argv):
                         default='train',
                         nargs="?",
                         help="Specify train or test data results to eval")
+    parser.add_argument("--threshold_num",
+                        type=int,
+                        default=10,
+                        nargs="?",
+                        help="Number of thresholds")
     args = parser.parse_args()
 
     FOLDER = args.folder
 
     results = DataFrame()
     # add population of results for each threshold
-    for threshold in range(0,10):
+    for threshold in range(0, args.threshold_num):
         results[threshold] = read_csv(DIR + FOLDER + "/" + args.train_or_test 
         + "/detection_delays/" + str(threshold) 
         + "_detection_delay.csv", header=None).values[:, 0]
