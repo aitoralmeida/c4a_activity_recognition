@@ -1,25 +1,6 @@
 #!/bin/bash
 
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_1_window_1_iterations_5_embedding_size_50 --offset 1
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_2_window_1_iterations_5_embedding_size_50 --offset 1
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_3_window_1_iterations_5_embedding_size_50 --offset 1
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_4_window_1_iterations_5_embedding_size_50 --offset 1
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_5_window_1_iterations_5_embedding_size_50 --offset 1
-
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_1_window_1_iterations_5_embedding_size_50 --offset 5
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_2_window_1_iterations_5_embedding_size_50 --offset 5
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_3_window_1_iterations_5_embedding_size_50 --offset 5
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_4_window_1_iterations_5_embedding_size_50 --offset 5
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_5_window_1_iterations_5_embedding_size_50 --offset 5
-
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_1_window_1_iterations_5_embedding_size_50 --offset 10
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_2_window_1_iterations_5_embedding_size_50 --offset 10
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_3_window_1_iterations_5_embedding_size_50 --offset 10
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_4_window_1_iterations_5_embedding_size_50 --offset 10
-python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_5_window_1_iterations_5_embedding_size_50 --offset 10
-
-python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_1_window_1_iterations_5_embedding_size_50
-python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_2_window_1_iterations_5_embedding_size_50
-python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_3_window_1_iterations_5_embedding_size_50
-python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_4_window_1_iterations_5_embedding_size_50
-python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_5_window_1_iterations_5_embedding_size_50
+python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_${1}_window_${2}_iterations_${3}_embedding_size_${4} --offset 1 --train_or_test $5
+python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_${1}_window_${2}_iterations_${3}_embedding_size_${4} --offset 5 --train_or_test $5
+python3 activity_change_recognition_eval_summary.py --folder word2vec_context/context_window_${1}_window_${2}_iterations_${3}_embedding_size_${4} --offset 10 --train_or_test $5
+python3 activity_change_recognition_detection_delay_eval_summary.py --folder word2vec_context/context_window_${1}_window_${2}_iterations_${3}_embedding_size_${4} --train_or_test $5
