@@ -65,6 +65,9 @@ def change_detection(X, n, k, alpha, fold):
 
         #print("Score: " + str(PE))
         #scores.append(PE)
+        print("PE: " + str(densratio_obj.alpha_PE))
+        print("KL: " + str(densratio_obj.alpha_KL))
+        print("SEP: " + str(densratio_obj.alpha_SEP))
         scores.append(densratio_obj.alpha_PE)
 
         if mod(t,20) == 0:
@@ -105,7 +108,7 @@ def main(argv):
     ax[0].set(xlabel='x', ylabel='y')
     ax[1].plot(t, np.concatenate((np.zeros(2*n-2+k), scores_sum)), color='r')
     ax[1].set(xlabel='x', ylabel='score')
-    fig.savefig("/results/combined_scores_original_ts.png")
+    fig.savefig("/results/combined_scores_original_ts_SEP.png")
 
 if __name__ == "__main__":
     main(sys.argv)

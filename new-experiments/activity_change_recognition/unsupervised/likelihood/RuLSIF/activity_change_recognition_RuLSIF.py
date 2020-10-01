@@ -12,11 +12,11 @@ from utils.activity_change_preprocessing import *
 from utils.activity_change_save_results import *
 from utils.activity_change_evaluation import *
 
-from RuLSIF.change_point_detection_RuLSIF import *
-from RuLSIF.feature_extraction_RuLSIF import *
+from change_point_detection_RuLSIF import *
+from feature_extraction_RuLSIF import *
 
 # Kasteren dataset DIR
-DIR = '../../kasteren_house_a/'
+DIR = '../../../kasteren_house_a/'
 # Kasteren dataset file
 DATASET_CSV = DIR + 'base_kasteren_reduced'
 # List of unique actions in the dataset

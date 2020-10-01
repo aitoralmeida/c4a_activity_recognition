@@ -6,7 +6,7 @@ from core import densratio
 
 from math import ceil
 
-from feature_extraction_RuLSIF import *
+from feature_extraction_SEP import *
 
 ##################################################################################################################
 # R_ULSIF based CPD algorithm translation from http://allmodelsarewrong.net/software.html
@@ -69,7 +69,7 @@ def change_detection(actions, unique_actions, locations, timestamps, days, hours
 
         densratio_obj = densratio(y_test, y_ref, alpha=alpha)
 
-        scores.append(densratio_obj.alpha_PE)
+        scores.append(densratio_obj.alpha_SEP)
 
         t += 1
     
