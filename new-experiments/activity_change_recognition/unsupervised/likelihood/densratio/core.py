@@ -12,7 +12,7 @@ from RuLSIF import RuLSIF
 from helpers import to_numpy_matrix
 
 
-def densratio(x, y, alpha=0, sigma_range="auto", lambda_range="auto", kernel_num=100, verbose=True):
+def densratio(x, y, alpha=0, sigma_range="auto", lambda_range="auto", kernel_num=100, verbose=False):
     """ Estimate alpha-mixture Density Ratio p(x)/(alpha*p(x) + (1 - alpha)*q(x))
 
     Arguments:

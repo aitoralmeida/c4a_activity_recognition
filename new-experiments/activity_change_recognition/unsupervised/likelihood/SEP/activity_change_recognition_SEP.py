@@ -126,7 +126,7 @@ def main(argv):
     results_10 = np.zeros((4,10,30))
     detection_delays = np.zeros((10,30))
     for e in range(0, exe):
-        # calculate scores using RulSIF
+        # calculate scores using SEP
         scores_1 = change_detection(X, action_index.values(), action_index_location, 
             timestamps, days, hours, seconds_past_midnight,
             n, k, alpha, fold)

@@ -71,6 +71,9 @@ def change_detection(actions, unique_actions, locations, timestamps, days, hours
 
         scores.append(densratio_obj.alpha_PE)
 
+        if t % 20 == 0:
+            print(t)
+
         t += 1
     
     print("Num of scores: " + str(len(scores)))
