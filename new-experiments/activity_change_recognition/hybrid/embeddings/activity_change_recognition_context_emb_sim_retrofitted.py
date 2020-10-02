@@ -39,9 +39,14 @@ def main(argv):
                         help="Dir for results")
     parser.add_argument("--results_folder",
                         type=str,
-                        default='word2vec_context',
+                        default='word2vec_context_retrofitted_location',
                         nargs="?",
                         help="Folder for results")
+    parser.add_argument("--vector_file",
+                        type=str,
+                        default='0_execution_location_retrofitted.vector',
+                        nargs="?",
+                        help="Vector file with retrofitted action vectors")
     parser.add_argument("--train_or_test",
                         type=str,
                         default='train',
@@ -113,6 +118,7 @@ def main(argv):
     iterations = args.iterations
     exe = args.exe
     embedding_size = args.embedding_size
+    vector_file = args.vector_file
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/context_window_" + str(context_window_size) + "_window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + args.train_or_test + "/"
     # create dirs for saving results
     create_dirs(RESULTS_DIR, word2vec=True)
