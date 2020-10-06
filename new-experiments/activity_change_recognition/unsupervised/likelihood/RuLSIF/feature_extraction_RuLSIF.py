@@ -35,7 +35,7 @@ def day_to_int(day):
     return switcher[day]
 
 def location_to_int(location):
-    switcher = {"Bathroom": 0, "Kitchen": 1, "Bedroom": 2, "Hall": 3}
+    switcher = {"Bathroom": 0, "Kitchen": 1, "Bedroom": 2, "Hall": 3, "Office": 4, "LivingRoom": 5, "BathroomDownstairs": 6, "BathroomUpstairs": 7, "Balcony": 8}
     return switcher[location]
 
 def extract_actions_from_window(actions, timestamps, position, window_size=30):

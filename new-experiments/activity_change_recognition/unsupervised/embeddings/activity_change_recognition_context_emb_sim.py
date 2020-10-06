@@ -18,23 +18,24 @@ from context_similarity.calculate_context_similarity import *
 import multiprocessing
 from gensim.models import Word2Vec
 
-# Kasteren dataset DIR
-DIR = '../../kasteren_house_a/'
-# Kasteren dataset file
-DATASET_CSV = DIR + 'base_kasteren_reduced'
-# List of unique actions in the dataset
-UNIQUE_ACTIONS = DIR + 'unique_actions.json'
-# Context information for the actions in the dataset
-CONTEXT_OF_ACTIONS = DIR + 'context_model.json'
-
 def main(argv):
     np.set_printoptions(threshold=sys.maxsize)
     np. set_printoptions(suppress=True)
     # parse args
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset_dir",
+                        type=str,
+                        default="../../../kasteren_house_a",
+                        nargs="?",
+                        help="Dataset dir")
+    parser.add_argument("--dataset_file",
+                        type=str,
+                        default="base_kasteren_reduced.csv",
+                        nargs="?",
+                        help="Dataset file")
     parser.add_argument("--results_dir",
                         type=str,
-                        default='results',
+                        default='results/kasteren_house_a',
                         nargs="?",
                         help="Dir for results")
     parser.add_argument("--results_folder",
@@ -76,10 +77,14 @@ def main(argv):
     print('Loading dataset...')
     sys.stdout.flush()
     # dataset of actions and activities
-    DATASET = DATASET_CSV + "_" + args.train_or_test + ".csv"
+    DATASET = args.dataset_dir + "/" + args.dataset_file.replace('.csv', '') + "_" + args.train_or_test + ".csv"
     df_dataset = pd.read_csv(DATASET, parse_dates=[[0, 1]], header=None, index_col=0, sep=' ')
     df_dataset.columns = ['sensor', 'action', 'event', 'activity']
     df_dataset.index.names = ["timestamp"]
+    # list of unique actions in the dataset
+    UNIQUE_ACTIONS = args.dataset_dir + "/" + 'unique_actions.json'
+    # context information for the actions in the dataset
+    CONTEXT_OF_ACTIONS = args.dataset_dir + "/" + 'context_model.json'
     # total actions and its names
     unique_actions = json.load(open(UNIQUE_ACTIONS, 'r'))
     total_actions = len(unique_actions)
