@@ -45,7 +45,7 @@ def main(argv):
     for action, knowledge in action_dict.items():
         for another_action, another_knowledge in action_dict.items():
             if (action != another_action):
-                # check locations correspondance
+                # check activities correspondance
                 if check_activity(knowledge['activities'], another_knowledge['activities']):
                     edge_list.append([action, another_action])
     # write graph edges to file

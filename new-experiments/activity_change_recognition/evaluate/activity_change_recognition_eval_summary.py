@@ -7,14 +7,16 @@ import argparse
 
 import numpy as np
 
-# Results DIR
-DIR = '/results/'
-
 def main(argv):
     np.set_printoptions(threshold=sys.maxsize)
     np.set_printoptions(suppress=True)
     # parse args
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dir",
+                        type=str,
+                        default='/results',
+                        nargs="?",
+                        help="Dir of the results")
     parser.add_argument("--folder",
                         type=str,
                         default='RuLSIF',
@@ -37,6 +39,7 @@ def main(argv):
                         help="Number of thresholds")
     args = parser.parse_args()
 
+    DIR = args.dir
     FOLDER = args.folder
     OFFSET = args.offset
 
@@ -44,11 +47,11 @@ def main(argv):
         results = DataFrame()
         # add population of results for each threshold
         for threshold in range(0, args.threshold_num):
-            results[threshold] = read_csv(DIR + FOLDER + "/" + args.train_or_test
+            results[threshold] = read_csv(DIR + "/" FOLDER + "/" + args.train_or_test
             + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + str(threshold) 
             + "_" + metric + ".csv", header=None).values[:, 0]
         # descriptive stats
-        filename = DIR + FOLDER + "/" + args.train_or_test + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + metric
+        filename = DIR + "/" FOLDER + "/" + args.train_or_test + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + metric
         with open(filename + ".txt", "w") as text_file:
             text_file.write(str(results.describe().apply(lambda s: s.apply(lambda x: format(x, 'g')))))
         # box and whisker plot for each metric
