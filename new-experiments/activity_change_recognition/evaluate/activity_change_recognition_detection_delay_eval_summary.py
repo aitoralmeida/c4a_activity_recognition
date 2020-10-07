@@ -40,7 +40,7 @@ def main(argv):
     results = DataFrame()
     # add population of results for each threshold
     for threshold in range(0, args.threshold_num):
-        results[threshold] = read_csv(DIR + "/" FOLDER + "/" + args.train_or_test 
+        results[threshold] = read_csv(DIR + "/" + FOLDER + "/" + args.train_or_test 
         + "/detection_delays/" + str(threshold) 
         + "_detection_delay.csv", header=None).values[:, 0]
     # descriptive stats

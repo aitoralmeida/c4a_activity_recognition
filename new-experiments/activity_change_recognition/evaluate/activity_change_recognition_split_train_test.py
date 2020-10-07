@@ -12,7 +12,7 @@ def main(argv):
                         help="Dataset dir")
     parser.add_argument("--dataset_file",
                         type=str,
-                        default="base_kasteren_reduced.csv",
+                        default="kasterenA_groundtruth.csv",
                         nargs="?",
                         help="Dataset file")
     parser.add_argument("--train_percentage",

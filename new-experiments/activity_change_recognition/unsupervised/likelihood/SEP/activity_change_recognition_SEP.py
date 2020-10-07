@@ -123,6 +123,7 @@ def main(argv):
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     # create dirs for saving results
     create_dirs(RESULTS_DIR, word2vec=False)
+    print('Created dirs at: ' + RESULTS_DIR)
     # check actions input shape
     print("Input action shape: " + str(X.shape))
     # repeat exe iterations
@@ -211,6 +212,10 @@ def main(argv):
         save_pop_results_to_file(RESULTS_DIR, results_5, 5, threshold_num)
         save_pop_results_to_file(RESULTS_DIR, results_10, 10, threshold_num)
         np.savetxt(RESULTS_DIR + 'detection_delays/' + str(threshold_num) + '_detection_delay' + '.csv', detection_delays[threshold_num])
+    # mark experiment end
+    print('... Experiment finished ...')
+    print('Results saved to: ' + RESULTS_DIR)
+    print('... ... ... ... ... ... ...')
 
 if __name__ == "__main__":
     main(sys.argv)

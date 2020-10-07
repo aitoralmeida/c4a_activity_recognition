@@ -47,11 +47,11 @@ def main(argv):
         results = DataFrame()
         # add population of results for each threshold
         for threshold in range(0, args.threshold_num):
-            results[threshold] = read_csv(DIR + "/" FOLDER + "/" + args.train_or_test
+            results[threshold] = read_csv(DIR + "/" + FOLDER + "/" + args.train_or_test
             + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + str(threshold) 
             + "_" + metric + ".csv", header=None).values[:, 0]
         # descriptive stats
-        filename = DIR + "/" FOLDER + "/" + args.train_or_test + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + metric
+        filename = DIR + "/" + FOLDER + "/" + args.train_or_test + "/" + str(OFFSET) + "s/" + 'results_' + str(OFFSET) + "_" + metric
         with open(filename + ".txt", "w") as text_file:
             text_file.write(str(results.describe().apply(lambda s: s.apply(lambda x: format(x, 'g')))))
         # box and whisker plot for each metric

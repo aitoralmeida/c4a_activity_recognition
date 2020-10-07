@@ -25,7 +25,7 @@ def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset_dir",
                         type=str,
-                        default="../../../kasteren_house_a",
+                        default="../../kasteren_house_a",
                         nargs="?",
                         help="Dataset dir")
     parser.add_argument("--dataset_file",
@@ -127,6 +127,7 @@ def main(argv):
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/context_window_" + str(context_window_size) + "_window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + args.train_or_test + "/"
     # create dirs for saving results
     create_dirs(RESULTS_DIR, word2vec=True)
+    print('Created dirs at: ' + RESULTS_DIR)
     # check actions input shape
     print("Input action shape: " + str(X.shape))
     # repeat exe iterations
@@ -195,6 +196,10 @@ def main(argv):
     for model in models:
         model.save(RESULTS_DIR + 'word2vec_models/' + str(model_num) + '_execution.model')
         model_num += 1
+    # mark experiment end
+    print('... Experiment finished ...')
+    print('Results saved to: ' + RESULTS_DIR)
+    print('... ... ... ... ... ... ...')
 
 if __name__ == "__main__":
     main(sys.argv)
