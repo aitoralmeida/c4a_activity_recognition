@@ -127,10 +127,10 @@ def main(argv):
     # check actions input shape
     print("Input action shape: " + str(X.shape))
     # repeat exe iterations
-    results_1 = np.zeros((4,10,30))
-    results_5 = np.zeros((4,10,30))
-    results_10 = np.zeros((4,10,30))
-    detection_delays = np.zeros((10,30))
+    results_1 = np.zeros((4,10,exe))
+    results_5 = np.zeros((4,10,exe))
+    results_10 = np.zeros((4,10,exe))
+    detection_delays = np.zeros((10,exe))
     for e in range(0, exe):
         # calculate scores using RulSIF
         scores_1 = change_detection(X, action_index.values(), action_index_location, 
