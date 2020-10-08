@@ -164,34 +164,38 @@ def main(argv):
     detection_delays = np.zeros((10,exe))
     models = []
     for e in range(0, exe):
-        # input pipeline
-        input_actions = Input(shape=(INPUT_ACTIONS,), dtype='int32', name='input_actions')
-        # embeddings
-        model = Word2Vec([df_dataset['action'].values.tolist()],
-                size=embedding_size, window=window_size, min_count=0, iter=iterations,
-                workers=multiprocessing.cpu_count())
-        models.append(model)
-        embedding_action_matrix, unknown_actions = create_action_embedding_matrix(tokenizer_action, model, embedding_size)
-        embedding_actions = Embedding(input_dim=embedding_action_matrix.shape[0], output_dim=embedding_action_matrix.shape[1], weights=[embedding_action_matrix], input_length=INPUT_ACTIONS, trainable=True, name='embedding_actions')(input_actions)
-        # bidirectional LSTM
-        bidirectional_LSTM = Bidirectional(LSTM(units=UNITS, input_shape=(INPUT_ACTIONS, embedding_size), dropout=0.2, recurrent_dropout=0.2, recurrent_activation="sigmoid"))(embedding_actions)
-        # denses
-        dense_1 = Dense(256, activation='relu', name='dense_1')(bidirectional_LSTM)
-        drop_1 = Dropout(0.8, name='drop_1')(dense_1)
-        # predict change of activity
-        output_activities = Dense(2, activation='sigmoid', name='main_output')(drop_1)
-        # build
-        model = Model(input_actions, output_activities)
-        # compile
-        model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy', 'mse', 'mae'])
-        print((model.summary()))
-        sys.stdout.flush()
-        # model train
-        print('Training model...')    
-        sys.stdout.flush()
-        checkpoint = ModelCheckpoint(BEST_MODEL + "_" + str(e) + ".hdf5", monitor='loss', verbose=0, save_freq='epoch', save_best_only=True, save_weights_only=False, mode='auto')
-        early_stopping = EarlyStopping(monitor='loss', patience=PATIENCE)
-        history = model.fit(X_actions, y, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, callbacks=[checkpoint, early_stopping])
+        if args.train_or_test == "train":
+            # input pipeline
+            input_actions = Input(shape=(INPUT_ACTIONS,), dtype='int32', name='input_actions')
+            # embeddings
+            model = Word2Vec([df_dataset['action'].values.tolist()],
+                    size=embedding_size, window=window_size, min_count=0, iter=iterations,
+                    workers=multiprocessing.cpu_count())
+            models.append(model)
+            embedding_action_matrix, unknown_actions = create_action_embedding_matrix(tokenizer_action, model, embedding_size)
+            embedding_actions = Embedding(input_dim=embedding_action_matrix.shape[0], output_dim=embedding_action_matrix.shape[1], weights=[embedding_action_matrix], input_length=INPUT_ACTIONS, trainable=True, name='embedding_actions')(input_actions)
+            # bidirectional LSTM
+            bidirectional_LSTM = Bidirectional(LSTM(units=UNITS, input_shape=(INPUT_ACTIONS, embedding_size), dropout=0.2, recurrent_dropout=0.2, recurrent_activation="sigmoid"))(embedding_actions)
+            # denses
+            dense_1 = Dense(256, activation='relu', name='dense_1')(bidirectional_LSTM)
+            drop_1 = Dropout(0.8, name='drop_1')(dense_1)
+            # predict change of activity
+            output_activities = Dense(2, activation='sigmoid', name='main_output')(drop_1)
+            # build
+            model = Model(input_actions, output_activities)
+            # compile
+            model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy', 'mse', 'mae'])
+            print((model.summary()))
+            sys.stdout.flush()
+            # model train
+            print('Training model...')    
+            sys.stdout.flush()
+            checkpoint = ModelCheckpoint(BEST_MODEL + "_" + str(e) + ".hdf5", monitor='loss', verbose=0, save_freq='epoch', save_best_only=True, save_weights_only=False, mode='auto')
+            early_stopping = EarlyStopping(monitor='loss', patience=PATIENCE)
+            history = model.fit(X_actions, y, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, callbacks=[checkpoint, early_stopping])
+        elif args.train_or_test == "test":
+            # best model in training phase
+            BEST_MODEL = "/" + args.results_dir + "/" + args.results_folder + "/window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + "train" + "/" + 'best_model'
         # model eval
         print('Evaluating best model...')
         sys.stdout.flush()
