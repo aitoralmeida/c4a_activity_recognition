@@ -1,10 +1,6 @@
 import json
 import sys
-
-# EAMs dir
-DIR = './eams/'
-# EAMs file
-EAMS_FILE = DIR + 'eams.json'
+import argparse
 
 def check_location(locations_a, locations_b):
     for location_a in locations_a:
@@ -30,7 +26,22 @@ def transform_activity_dict_to_action_dict(activity_dict):
     return action_dict
 
 def main(argv):
+    # parse args
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--eams_dir",
+                        type=str,
+                        default="../../kasteren_house_a/reduced",
+                        nargs="?",
+                        help="Eams dir")
+    parser.add_argument("--eams_json",
+                        type=str,
+                        default="eams.json",
+                        nargs="?",
+                        help="Eams json file")
+    args = parser.parse_args()
     # read EAMs from file
+    DIR = args.eams_dir
+    EAMS_FILE = DIR + "/" + args.eams_json
     with open(EAMS_FILE) as json_file:
         eams = json.load(json_file)
     # check EAMs struct
