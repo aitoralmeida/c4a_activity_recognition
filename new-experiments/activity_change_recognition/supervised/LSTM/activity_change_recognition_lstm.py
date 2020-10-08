@@ -98,7 +98,7 @@ def main(argv):
                         help="Patience in number of epochs")
     parser.add_argument("--exe",
                         type=int,
-                        default=30,
+                        default=5,
                         nargs="?",
                         help="Number of executions")
     args = parser.parse_args()

@@ -67,7 +67,7 @@ def main(argv):
                         help="Number of cross validation folds")
     parser.add_argument("--exe",
                         type=int,
-                        default=30,
+                        default=5,
                         nargs="?",
                         help="Number of executions")
     parser.add_argument("--plot",
