@@ -128,7 +128,7 @@ def main(argv):
         # if train set, then train word2vec model and save it
         if args.train_or_test == 'train':
             model = Word2Vec([df_dataset['action'].values.tolist()],
-                size=embedding_size, window=window_size, min_count=0, iter=iterations,
+                size=embedding_size, window=window_size, min_count=0, iter=iterations, seed=np.random.randint(1000000),
                 workers=multiprocessing.cpu_count())
             models.append(model)
         # if test set, load word2vec model

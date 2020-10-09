@@ -169,7 +169,7 @@ def main(argv):
             input_actions = Input(shape=(INPUT_ACTIONS,), dtype='int32', name='input_actions')
             # embeddings
             model = Word2Vec([df_dataset['action'].values.tolist()],
-                    size=embedding_size, window=window_size, min_count=0, iter=iterations,
+                    size=embedding_size, window=window_size, min_count=0, iter=iterations, seed=np.random.randint(1000000),
                     workers=multiprocessing.cpu_count())
             models.append(model)
             embedding_action_matrix, unknown_actions = create_action_embedding_matrix(tokenizer_action, model, embedding_size)
