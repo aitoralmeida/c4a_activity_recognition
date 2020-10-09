@@ -150,7 +150,7 @@ def main(argv):
     UNITS = args.units
     EPOCHS = args.epochs
     PATIENCE = args.patience
-    RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + args.train_or_test + "/"
+    RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "_" + str(INPUT_ACTIONS) + "/window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + args.train_or_test + "/"
     BEST_MODEL = RESULTS_DIR + 'best_model'
     # create dirs for saving results
     create_dirs(RESULTS_DIR, word2vec=True)
