@@ -183,7 +183,7 @@ def main(argv):
             results_10[2][counter_min_dist][e] = FPR
             results_10[3][counter_min_dist][e] = G_MEAN
             # detection delay
-            detection_delay = get_detection_delay(similarities, y, timestamps, min_dist)
+            detection_delay = get_detection_delay_desc(similarities, y, timestamps, min_dist)
             detection_delays[counter_min_dist][e] = detection_delay
             counter_min_dist += 1
     # save population of results to file

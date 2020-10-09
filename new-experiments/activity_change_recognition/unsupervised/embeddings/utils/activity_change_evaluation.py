@@ -20,6 +20,20 @@ def get_detection_delay(scores, y, timestamps, threshold, lower=False):
     else:
         return detection_delay / counter
 
+def get_detection_delay_desc(scores, y, timestamps, threshold, lower=False):
+    detection_delay = 0
+
+    counter = 0
+    for i in range(0, len(scores)-1):
+        if scores[i+1] - scores[i] > threshold:
+            counter += 1
+            detection_delay += search_nearest_change_point(y, timestamps, i)
+
+    if counter == 0:
+        return detection_delay
+    else:
+        return detection_delay / counter
+
 def get_conf_matrix_with_offset_strategy(scores, y, timestamps, threshold, offset, lower=False):
     cf_matrix = np.zeros((2,2))
 
