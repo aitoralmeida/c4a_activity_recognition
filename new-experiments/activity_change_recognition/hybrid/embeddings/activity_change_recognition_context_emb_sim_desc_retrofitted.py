@@ -47,12 +47,12 @@ def main(argv):
                         type=str,
                         default='results/kasteren_house_a',
                         nargs="?",
-                        help="Folder for results")
+                        help="Graph dir")
     parser.add_argument("--graph_folder",
                         type=str,
                         default='word2vec_context',
                         nargs="?",
-                        help="Folder for results")
+                        help="Graph folder")
     parser.add_argument("--graph",
                         type=str,
                         default='activities',
