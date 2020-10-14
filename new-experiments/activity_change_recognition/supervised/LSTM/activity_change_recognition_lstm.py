@@ -195,7 +195,7 @@ def main(argv):
             history = model.fit(X_actions, y, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, callbacks=[checkpoint, early_stopping])
         elif args.train_or_test == "test":
             # best model in training phase
-            BEST_MODEL = "/" + args.results_dir + "/" + args.results_folder + "/window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + "train" + "/" + 'best_model'
+            BEST_MODEL = "/" + args.results_dir + "/" + args.results_folder + "_" + str(INPUT_ACTIONS) + "/window_" + str(window_size) + "_iterations_" + str(iterations) + "_embedding_size_" + str(embedding_size) + "/" + "train" + "/" + 'best_model'
         # model eval
         print('Evaluating best model...')
         sys.stdout.flush()
