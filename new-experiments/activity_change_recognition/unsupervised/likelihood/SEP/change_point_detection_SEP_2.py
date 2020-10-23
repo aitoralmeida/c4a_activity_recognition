@@ -6,11 +6,10 @@ from core import densratio
 
 from math import ceil
 
-from feature_extraction_SEP import *
+from feature_extraction_SEP_2 import *
 
 ##################################################################################################################
 # SEP based CPD algorithm translation from http://allmodelsarewrong.net/software.html
-# Adapted for Kasteren dataset feature extraction based on Aminikhanghahi et al. paper
 # START
 ##################################################################################################################  
 
@@ -29,19 +28,9 @@ def sliding_window_with_features(actions, unique_actions, locations, timestamps,
             window_timestamps = timestamps[i:(i+offset)]
             # get feature vector from window
             feature_vector = []
-            # time features
-            feature_vector.append(int(hours[i]))
-            feature_vector.append(day_to_int(days[i]))
-            feature_vector.append(seconds_past_midnight[i])
-            # window features
-            window_features = extract_features_from_window(window_actions, previous_actions_1, previous_actions_2, locations, window_timestamps)
-            feature_vector.extend(window_features)
-            # sensor features
+            # sensor features (only action count)
             sensor_features = extract_features_from_sensors(window_actions, unique_actions, actions, i, window_timestamps, timestamps)
             feature_vector.extend(sensor_features)
-            # update previous actions
-            previous_actions_2 = previous_actions_1
-            previous_actions_1 = window_actions
             # add to windows struct
             feature_vector = np.array(feature_vector)
             if windows is None:
@@ -82,6 +71,5 @@ def change_detection(actions, unique_actions, locations, timestamps, days, hours
 
 ##################################################################################################################
 # SEP based CPD algorithm translation from MatLab code http://allmodelsarewrong.net/software.html
-# Adapted for Kasteren dataset feature extraction based on Aminikhanghahi et al. paper
 # END
 ################################################################################################################## 
