@@ -3,6 +3,7 @@ import sys
 import numpy as np
 import pandas as pd
 import argparse
+import csv
 
 from sklearn import preprocessing
 from pylab import *
@@ -13,7 +14,6 @@ from utils.activity_change_save_results import *
 from utils.activity_change_evaluation import *
 
 from change_point_detection_RuLSIF import *
-from feature_extraction_RuLSIF import *
 
 def main(argv):
     np.set_printoptions(threshold=sys.maxsize)
@@ -22,17 +22,17 @@ def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset_dir",
                         type=str,
-                        default="../../../kasteren_house_a",
+                        default="../../../kasteren_house_a/reduced",
                         nargs="?",
                         help="Dataset dir")
     parser.add_argument("--dataset_file",
                         type=str,
-                        default="kasterenA_groundtruth.csv",
+                        default="base_kasteren_reduced.csv",
                         nargs="?",
                         help="Dataset file")
     parser.add_argument("--results_dir",
                         type=str,
-                        default='results/kasteren_house_a',
+                        default='results/kasteren_house_a/reduced',
                         nargs="?",
                         help="Dir for results")
     parser.add_argument("--results_folder",
@@ -60,14 +60,9 @@ def main(argv):
                         default=0.01,
                         nargs="?",
                         help="RulSIF is equivalent to ulSIF when alpha=0.0")
-    parser.add_argument("--fold",
-                        type=int,
-                        default=5,
-                        nargs="?",
-                        help="Number of cross validation folds")
     parser.add_argument("--exe",
                         type=int,
-                        default=5,
+                        default=30,
                         nargs="?",
                         help="Number of executions")
     parser.add_argument("--plot",
@@ -114,11 +109,20 @@ def main(argv):
     print(X)
     print("Activity change")
     print(y)
+    # read offline generated feature vectors
+    FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors.csv'
+    with open(FEATURE_VECTORS_FILE) as f:
+        reader = csv.reader(f)
+        feature_vectors = list(reader)
+        feature_vectors = np.array(feature_vectors)
+        feature_vectors = feature_vectors.astype(np.float)
+    # check feature vectors struct
+    print("Feature vectors")
+    print(feature_vectors)
     # change point detection
     n = args.n
     k = args.k
     alpha = args.alpha # equivalent to ulSIF when alpha=0.0
-    fold = args.fold
     exe = args.exe
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     # create dirs for saving results
@@ -133,14 +137,10 @@ def main(argv):
     detection_delays = np.zeros((10,exe))
     for e in range(0, exe):
         # calculate scores using RulSIF
-        scores_1 = change_detection(X, action_index.values(), action_index_location, 
-            timestamps, days, hours, seconds_past_midnight,
-            n, k, alpha, fold)
-        scores_2 = change_detection(np.flip(X), action_index.values(), action_index_location, 
-            np.flip(timestamps), np.flip(days), np.flip(hours), np.flip(seconds_past_midnight),
-            n, k, alpha, fold)
+        scores_1 = change_detection(feature_vectors, n, alpha)
+        scores_2 = change_detection(np.flip(feature_vectors, 0), n, alpha)
         scores_1 = np.array(scores_1)
-        scores_2 = np.flip(np.array(scores_2))
+        scores_2 = np.flip(np.array(scores_2), 0)
         scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
         scores_sum = np.concatenate((np.zeros(2*n-2+k), scores_sum))
         min_max_scaler = preprocessing.MinMaxScaler()
