@@ -94,9 +94,9 @@ def main(argv):
     prueba_reshaped = prueba.reshape(1,-1)
     print("Input shape: " + str(prueba.shape))
     scores_1 = change_detection(prueba_reshaped, n, k, alpha, fold)
-    scores_2 = change_detection(np.flip(prueba_reshaped, 0), n, k, alpha, fold)
+    scores_2 = change_detection(np.flip(prueba_reshaped), n, k, alpha, fold)
     scores_1 = np.array(scores_1)
-    scores_2 = np.flip(np.array(scores_2), 0)
+    scores_2 = np.flip(np.array(scores_2))
     scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
     # plot result of testing
     t = list(range(0, len(prueba)))

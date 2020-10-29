@@ -65,6 +65,11 @@ def main(argv):
                         default=30,
                         nargs="?",
                         help="Number of executions")
+    parser.add_argument("--norm",
+                        type=str,
+                        default='True',
+                        nargs="?",
+                        help="Feature vector normalization")
     parser.add_argument("--plot",
                         type=bool,
                         default=False,
@@ -110,7 +115,10 @@ def main(argv):
     print("Activity change")
     print(y)
     # read offline generated feature vectors
-    FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors.csv'
+    if norm == 'True':
+        FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors_norm.csv'
+    else:
+        FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors.csv'
     with open(FEATURE_VECTORS_FILE) as f:
         reader = csv.reader(f)
         feature_vectors = list(reader)
@@ -140,7 +148,7 @@ def main(argv):
         scores_1 = change_detection(feature_vectors, n, alpha)
         scores_2 = change_detection(np.flip(feature_vectors, 0), n, alpha)
         scores_1 = np.array(scores_1)
-        scores_2 = np.flip(np.array(scores_2), 0)
+        scores_2 = np.flip(np.array(scores_2))
         scores_sum = np.sum(np.array([scores_1, scores_2]), axis=0)
         scores_sum = np.concatenate((np.zeros(2*n-2+k), scores_sum))
         min_max_scaler = preprocessing.MinMaxScaler()

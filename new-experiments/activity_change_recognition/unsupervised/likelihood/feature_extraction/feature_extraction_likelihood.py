@@ -20,7 +20,7 @@ from scipy.stats import entropy
 # START
 ##################################################################################################################
 
-def sliding_window_with_features(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, k):
+def sliding_window_with_features(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, k, norm='True'):
     feature_vectors = []
     previous_actions_1 = None
     previous_actions_2 = None
@@ -51,7 +51,8 @@ def sliding_window_with_features(actions, unique_actions, locations, timestamps,
         feature_vectors.append(np.array(feature_vector))
     
     feature_vectors = np.array(feature_vectors)
-    feature_vectors = feature_vectors / feature_vectors.max(axis=0)
+    if norm == 'True':
+        feature_vectors = feature_vectors / feature_vectors.max(axis=0)
 
     return feature_vectors
 
@@ -194,6 +195,11 @@ def main(argv):
                         default=30,
                         nargs="?",
                         help="Number of events to look when performing feature extraction")
+    parser.add_argument("--norm",
+                        type=str,
+                        default='True',
+                        nargs="?",
+                        help="Feature vector normalization")
     args = parser.parse_args()
     print('Loading dataset...')
     sys.stdout.flush()
@@ -235,11 +241,15 @@ def main(argv):
     print(y)
     # feature extraction
     k = args.k
-    feature_vectors = sliding_window_with_features(X, action_index.values(), action_index_location, timestamps, days, hours, seconds_past_midnight, k)
+    norm = args.norm
+    feature_vectors = sliding_window_with_features(X, action_index.values(), action_index_location, timestamps, days, hours, seconds_past_midnight, k, norm)
     # save to file
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     create_dirs(RESULTS_DIR, word2vec=False)
-    OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors.csv'
+    if norm == 'True':
+        OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors_norm.csv'
+    else:
+        OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors.csv'
     def vector_to_str(feature_vector):
         return ','.join(['%.10f' % num for num in feature_vector])
     features_vectors_str = list(map(vector_to_str, feature_vectors))
