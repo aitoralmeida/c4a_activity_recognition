@@ -35,6 +35,8 @@ Alpha-Relative PE-Divergence: %(alpha_PE)s
 
 Alpha-Relative KL-Divergence: %(alpha_KL)s
 
+Alpha-Relative SEP: %(alpha_SEP)s
+
 Function to Estimate Density Ratio:
   compute_density_ratio(x)
   
