@@ -20,7 +20,7 @@ from scipy.stats import entropy
 # START
 ##################################################################################################################
 
-def sliding_window_with_features(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, k, norm='True'):
+def sliding_window_with_features(actions, unique_actions, locations, timestamps, days, hours, seconds_past_midnight, k, norm='True', type_norm='min_max'):
     feature_vectors = []
     previous_actions_1 = None
     previous_actions_2 = None
@@ -42,7 +42,7 @@ def sliding_window_with_features(actions, unique_actions, locations, timestamps,
         window_features = extract_features_from_window(window_actions, previous_actions_1, previous_actions_2, locations, window_timestamps)
         feature_vector.extend(window_features)
         # sensor features
-        sensor_features = extract_features_from_sensors(window_actions, unique_actions, actions, i, window_timestamps, timestamps)
+        sensor_features = extract_features_from_sensors(window_actions, unique_actions, actions, i+offset-1, timestamps)
         feature_vector.extend(sensor_features)
         # update previous actions
         previous_actions_2 = previous_actions_1
@@ -52,29 +52,32 @@ def sliding_window_with_features(actions, unique_actions, locations, timestamps,
     
     feature_vectors = np.array(feature_vectors)
     if norm == 'True':
-        feature_vectors = feature_vectors / feature_vectors.max(axis=0)
+        if type_norm == 'min_max':
+            feature_vectors = (feature_vectors - feature_vectors.min(axis=0)) / (feature_vectors.max(axis=0) - feature_vectors.min(axis=0))
+        elif type_norm == 'z_score':
+            feature_vectors = (feature_vectors - feature_vectors.mean(axis=0)) / feature_vectors.std(axis=0)
 
     return feature_vectors
 
 def most_common(L):
-  SL = sorted((x, i) for i, x in enumerate(L))
+    SL = sorted((x, i) for i, x in enumerate(L))
 
-  groups = itertools.groupby(SL, key=operator.itemgetter(0))
+    groups = itertools.groupby(SL, key=operator.itemgetter(0))
 
-  def _auxfun(g):
-    item, iterable = g
-    count = 0
-    min_index = len(L)
-    for _, where in iterable:
-      count += 1
-      min_index = min(min_index, where)
-    return count, -min_index
+    def _auxfun(g):
+        item, iterable = g
+        count = 0
+        min_index = len(L)
+        for _, where in iterable:
+            count += 1
+            min_index = min(min_index, where)
+        return count, -min_index
 
-  return max(groups, key=_auxfun)[0]
+    return max(groups, key=_auxfun)[0]
 
 def calc_entropy(labels, base=None):
-  value,counts = np.unique(labels, return_counts=True)
-  return entropy(counts, base=base)
+    value,counts = np.unique(labels, return_counts=True)
+    return entropy(counts, base=base)
 
 def day_to_int(day):
     switcher = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4, "Saturday": 5, "Sunday": 6}
@@ -127,7 +130,7 @@ def extract_features_from_window(actions, previous_actions_1, previous_actions_2
 
     return features_from_window
 
-def extract_features_from_sensors(actions, unique_actions, all_actions, position, timestamps, all_timestamps):
+def extract_features_from_sensors(actions, unique_actions, all_actions, position, all_timestamps):
     features_from_sensors = []
     
     # count of events for each sensor in window
@@ -141,16 +144,21 @@ def extract_features_from_sensors(actions, unique_actions, all_actions, position
     # elapsed time for each sensor since last event
     found_actions = []
     counter = position
+    last_event_timestamp = all_timestamps[position]
+    last_sensor_timestamp = None
     for action in unique_actions:
         while(counter > 0):
             if action == all_actions[counter]:
                 found_actions.append(action)
-                features_from_sensors.append(timestamps[len(timestamps)-1] - all_timestamps[counter])
+                last_sensor_timestamp = all_timestamps[counter]
                 break
             counter -= 1
         if action not in found_actions:
-            features_from_sensors.append(all_timestamps[len(all_timestamps)-1] - all_timestamps[0]) # maximun time possible
+            features_from_sensors.append(all_timestamps[len(all_timestamps)-1] - all_timestamps[0]) # maximum time possible
+        else:
+            features_from_sensors.append(last_event_timestamp - last_sensor_timestamp)
         counter = position
+        last_sensor_timestamp = None
 
     return features_from_sensors
 
@@ -200,6 +208,11 @@ def main(argv):
                         default='True',
                         nargs="?",
                         help="Feature vector normalization")
+    parser.add_argument("--type_norm",
+                        type=str,
+                        default='min_max',
+                        nargs="?",
+                        help="Feature vector normalization strategy")
     args = parser.parse_args()
     print('Loading dataset...')
     sys.stdout.flush()
@@ -242,12 +255,13 @@ def main(argv):
     # feature extraction
     k = args.k
     norm = args.norm
-    feature_vectors = sliding_window_with_features(X, action_index.values(), action_index_location, timestamps, days, hours, seconds_past_midnight, k, norm)
+    type_norm = args.type_norm
+    feature_vectors = sliding_window_with_features(X, action_index.values(), action_index_location, timestamps, days, hours, seconds_past_midnight, k, norm, type_norm)
     # save to file
     RESULTS_DIR = "/" + args.results_dir + "/" + args.results_folder + "/" + args.train_or_test + "/"
     create_dirs(RESULTS_DIR, word2vec=False)
     if norm == 'True':
-        OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors_norm.csv'
+        OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors_norm_' + type_norm + '.csv'
     else:
         OUTPUT_FILE = RESULTS_DIR + 'k_' + str(k) + '_feature_vectors.csv'
     def vector_to_str(feature_vector):

@@ -70,6 +70,11 @@ def main(argv):
                         default='True',
                         nargs="?",
                         help="Feature vector normalization")
+    parser.add_argument("--type_norm",
+                        type=str,
+                        default='min_max',
+                        nargs="?",
+                        help="Feature vector normalization strategy")
     parser.add_argument("--plot",
                         type=bool,
                         default=False,
@@ -116,7 +121,7 @@ def main(argv):
     print(y)
     # read offline generated feature vectors
     if norm == 'True':
-        FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors_norm.csv'
+        FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors_norm_' + type_norm + '.csv'
     else:
         FEATURE_VECTORS_FILE = "/" + args.results_dir + "/" + "feature_extraction" + "/" + args.train_or_test + "/" + 'k_' + str(args.k) + '_feature_vectors.csv'
     with open(FEATURE_VECTORS_FILE) as f:
