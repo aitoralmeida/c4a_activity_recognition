@@ -19,18 +19,18 @@ def main(argv):
     # Pattern Model Matching arguments
     eamsfile = "eams.json"
     #patternsfile = "test_kasteren_removed.csv.annotated"
-    patternsfile = "reduction_tests/test_kasteren_20d.csv.annotated"
+    patternsfile = "test_kasteren_removed.csv.annotated"
     #adlogfile = "kasteren_removed_log.txt"
-    adlogfile = "reduction_tests/test_kasterenA_20d_log.txt"
+    adlogfile = "kasteren_removed_log.txt"
     contextmodelfile = "context_model.json"
     #pmoutputfile = "pm_output.csv"
-    pmoutputfile = "reduction_tests/pm_output_20d.csv"
+    pmoutputfile = "pm_output.csv"
     
     # AR Evaluator arguments
     #groundtruth = "base_kasteren_reduced.csv"
-    groundtruth = "reduction_tests/base_kasteren_20d.csv"
+    groundtruth = "base_kasteren_reduced.csv"
     #evaluable = "pm_output.csv"
-    evaluable = "reduction_tests/pm_output_20d.csv"
+    evaluable = "pm_output.csv"
     
     
     # Call PatternModelMatching    

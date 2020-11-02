@@ -56,19 +56,21 @@ class AREvaluator:
         # Initialize start and prev_pat
         start = self.evaluable.index[0]
         prev_pat = self.evaluable.loc[start, 'pattern']
-        print 'First pattern:', prev_pat
+        print('First pattern:', prev_pat)
         # iterate through evaluable        
-        for i in xrange(1, len(self.evaluable)):
+        for i in range(1, len(self.evaluable)):
             ts = self.evaluable.index[i]
             pat = self.evaluable.loc[ts, 'pattern']
+            print(pat)
+            print(prev_pat)
             if pat != prev_pat:
                 end = self.evaluable.index[i-1]
                 # At this point, start and end have the right values for a discovered pattern                
                 gt_activities = self.extract_groundtruth_activities(start, end)
                 ev_activities = self.evaluable.loc[end, 'detected_activities']
-                print "Pattern:", prev_pat, "(", start, ",", end, ")"
-                print "   GT:", gt_activities
-                print "   EV:", ev_activities                
+                print( "Pattern:", prev_pat, "(", start, ",", end, ")")
+                print( "   GT:", gt_activities)
+                print( "   EV:", ev_activities )               
                 # New approach, using the scikit-learn confusion matrix
                 self.lenient_metric(gt_activities, ev_activities)
                 # Now update prev_pat and start
@@ -99,7 +101,7 @@ class AREvaluator:
             a list of unique activities that appear between star and end
         
         """
-        #print '   extractGTActivities: start', start, ', end', end        
+        #print( '   extractGTActivities: start', start, ', end', end        
         return list(self.groundtruth.loc[start:end, 'activity'].unique())    
                 
 
@@ -127,11 +129,11 @@ class AREvaluator:
             if 'None' in gt_activities:
                 i = gt_activities.index('None')
                 gt_activities.pop(i)            
-            for i in xrange(len(gt_activities) - len(ev_activities)):
+            for i in range(len(gt_activities) - len(ev_activities)):
                 ev_activities.append('None')
                 
         elif len(gt_activities) < len(ev_activities):
-            for i in xrange(len(ev_activities) - len(gt_activities)):
+            for i in range(len(ev_activities) - len(gt_activities)):
                 gt_activities.append('None')
                 
         # At this point, both lists should be the same length
@@ -139,7 +141,7 @@ class AREvaluator:
         # First of all compute hits (activities that appear in both lists)
         hits = np.intersect1d(np.array(gt_activities), np.array(ev_activities))
         hits = hits.tolist()
-        for i in xrange(len(hits)):
+        for i in range(len(hits)):
             #self.cm.update(hits[i], hits[i])            
             self.y_predicted.append(hits[i])
             self.y_groundtruth.append(hits[i])
@@ -148,7 +150,7 @@ class AREvaluator:
         a = np.setdiff1d(np.array(gt_activities), np.array(ev_activities), True)
         b = np.setdiff1d(np.array(ev_activities), np.array(gt_activities), True)
         if len(a) == len(b):
-            for i in xrange(len(a)):
+            for i in range(len(a)):
                 self.y_predicted.append(b[i])
                 self.y_groundtruth.append(a[i])
         else:
@@ -291,7 +293,7 @@ class AREvaluator:
         total_fn = total_fn.sum()
         total_tp = cm.diagonal().sum()
         # Calculate macro and weighted metrics
-        for i in xrange(len(cm)):            
+        for i in range(len(cm)):            
             tp = cm[i][i]
         
             col = cm[:, i]    
@@ -371,11 +373,11 @@ def parse_args(argv):
     try:
       opts, args = getopt.getopt(argv,"hg:e:",["gfile=", "efile="])
     except getopt.GetoptError:
-      print 'AREvaluator.py -g <groundtruth> -e <evaluable>'
+      print( 'AREvaluator.py -g <groundtruth> -e <evaluable>')
       sys.exit(2)
     for opt, arg in opts:
       if opt == '-h':
-         print 'AREvaluator.py -g <groundtruth> -e <evaluable>'
+         print( 'AREvaluator.py -g <groundtruth> -e <evaluable>')
          sys.exit()
       elif opt in ("-g", "--gfile"):
          groundtruth = arg
@@ -404,43 +406,42 @@ def main(argv):
     """    
     # call the argument parser 
     [groundtruth, evaluable] = parse_args(argv[1:])
-    print 'Provided arguments:'       
-    print groundtruth, evaluable
+    print( 'Provided arguments:')
+    print( groundtruth, evaluable)
     evaluator = AREvaluator(groundtruth, evaluable)    
     
-    print evaluator.groundtruth.head(10)   
-    print '-------------------------------------------'   
-    print evaluator.evaluable.head(10)   
+    print( evaluator.groundtruth.head(10)  ) 
+    print( '-------------------------------------------'   )
+    print( evaluator.evaluable.head(10)   )
     evaluator.pattern_based_evaluation()
     
     # Test new approach with scikit-learn
     cm = evaluator.create_confusion_matrix()
-    print cm
+    print( cm)
     
     # Normalize the confusion matrix by row (i.e by the number of samples
     # in each class)
     cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-    np.set_printoptions(precision=3, linewidth=1000)
     print('Normalized confusion matrix')
     print(cm_normalized)
     
     #Dictionary with the values for the metrics (precision, recall and f1)    
     metrics = evaluator.calculate_evaluation_metrics()
-    print "Scikit metrics"
-    print 'precision:', metrics['precision']
-    print 'recall:', metrics['recall']
-    print 'f1:', metrics['f1']
+    print( "Scikit metrics")
+    print( 'precision:', metrics['precision'])
+    print( 'recall:', metrics['recall'])
+    print( 'f1:', metrics['f1'])
     
-    # Calculate and print manual metrics
+    # Calculate and print( manual metrics
     man_metrics = evaluator.calculate_manual_metrics(cm_normalized)
-    print "Manual metrics"
-    print 'precision:', man_metrics['precision']
-    print 'recall:', man_metrics['recall']
-    print 'f1:', man_metrics['f1']
+    print( "Manual metrics")
+    print( 'precision:', man_metrics['precision'])
+    print( 'recall:', man_metrics['recall'])
+    print( 'f1:', man_metrics['f1'])
     
     #evaluator.plot(cm)
     # Just a trick -> I don't use absolute routes!!
-    cmfile = '/home/gazkune/repositories/c4a_activity_recognition/experiments/kasterenC-cm.npy'
+    cmfile = '/experiments/kasterenC-cm.npy'
     np.save(cmfile, cm_normalized)
     evaluator.plot(cm_normalized)
    

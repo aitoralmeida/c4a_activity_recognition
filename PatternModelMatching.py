@@ -162,7 +162,7 @@ class PatternModelMatching:
         aux_df = self.df[start:end+1]
         for index in aux_df.index:
             #self.df.loc[index, 'detected_activities'] = bestnames
-            self.df.set_value(index, 'detected_activities', bestnames)
+            self.df.at[index, 'detected_activities'] = bestnames
             
     
     def prefilter_patterns(self):
