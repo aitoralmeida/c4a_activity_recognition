@@ -1,5 +1,5 @@
 joblib==0.14.1
-numpy==1.11.0
+numpy==1.22.0
 pandas==0.25.3
 python-dateutil==2.5.3
 pytz==2016.4
